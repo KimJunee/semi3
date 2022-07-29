@@ -232,6 +232,19 @@ public class CampSiteAPI {
 //							System.out.println("cs_sbrs_cl : " + eElement.getElementsByTagName("sbrsCl").item(0).getTextContent());
 
 						}
+						String cs_accom_fee = "";
+						if(eElement.getElementsByTagName("siteBottomCl1").item(0)!=null) {
+							cs_accom_fee = eElement.getElementsByTagName("siteBottomCl1").item(0).getTextContent();
+//							System.out.println("cs_sbrs_cl : " + eElement.getElementsByTagName("sbrsCl").item(0).getTextContent());
+
+						}
+						String cs_image = "";
+						if(eElement.getElementsByTagName("firstImageUrl").item(0)!=null) {
+							cs_image = eElement.getElementsByTagName("firstImageUrl").item(0).getTextContent();
+//							System.out.println("cs_sbrs_cl : " + eElement.getElementsByTagName("sbrsCl").item(0).getTextContent());
+
+						}
+
 						
 						// ★ 지인이 알려준 삼항연산자 사용 : 대신 println -> printf 로
 						
@@ -273,12 +286,13 @@ public class CampSiteAPI {
 //						System.out.println("cs_postbl_fclty : " + eElement.getElementsByTagName("posblFcltyCl").item(0).getTextContent());//주변 이용가능시설
 //						System.out.println("cs_sbrs_cl : " + eElement.getElementsByTagName("sbrsCl").item(0).getTextContent());//부대시설
 
-						CampingVO camp = new CampingVO(cnt++, cs_name, cs_line_intro, cs_intro, cs_allar, cs_insrnc_at
-								, cs_bizr_no, cs_managesttus,cs_feature_name,cs_induty,cs_lct_cl,cs_do_name,cs_sigungu_name
-								,cs_zipcode,cs_addr1,cs_addr2,cs_map_x,cs_map_y,cs_tel,cs_homepage,cs_resve_url,cs_resve_cl
-								,cs_manager,cs_gnrl_site,cs_auto_site,cs_glamp_site,cs_carav_site,cs_indiv_carav_site
-								,cs_animal_cmg,cs_postbl_fclty,cs_sbrs_cl);
-						list.add(camp);
+						
+//						CampingVO camp = new CampingVO(cnt++, cs_name, cs_line_intro, cs_intro, cs_allar, cs_insrnc_at
+//								, cs_bizr_no, cs_managesttus,cs_feature_name,cs_induty,cs_lct_cl,cs_do_name,cs_sigungu_name
+//								,cs_zipcode,cs_addr1,cs_addr2,cs_map_x,cs_map_y,cs_tel,cs_homepage,cs_resve_url,cs_resve_cl
+//								,cs_manager,cs_gnrl_site,cs_auto_site,cs_glamp_site,cs_carav_site,cs_indiv_carav_site
+//								,cs_animal_cmg,cs_postbl_fclty,cs_sbrs_cl, cs_accom_fee, cs_image);
+//						list.add(camp);
 					}
 				}
 				pageNo++;
@@ -291,6 +305,8 @@ public class CampSiteAPI {
 				e.printStackTrace();
 			}
 		}
+		
+		
 		return list;
 	}
 }
