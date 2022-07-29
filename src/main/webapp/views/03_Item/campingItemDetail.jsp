@@ -24,7 +24,7 @@
 //	}
 %>
     <!-- 메인 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%=path%>/resources/img/img_semi/캠핑용품_04_01.png); height: 350px; margin: 60px;"></section>
+    <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%=path%>/resources/img/img_semi/campitem_04_01.png); height: 350px; margin: 60px;"></section>
     <!-- 메인 끝 -->
     
     <!-- 메인 검색창 -->
@@ -66,7 +66,7 @@
         <div class="container mb-6">
             <div class="row mb-5">
                 <div class="col-md-12 fs-2" style="text-align: center; font-weight: bold; color: #F05945;">
-                    <img src="<%=path%>/resources/img/img_semi/캠핑용품01_02.png" alt="Image" width="50px">캠핑용품
+                    <img src="<%=path%>/resources/img/img_semi/campitem01_02.png" alt="Image" width="50px">캠핑용품
                 </div>
             </div>
          <input type="hidden" id="searchType" value="<%=searchType%>">
