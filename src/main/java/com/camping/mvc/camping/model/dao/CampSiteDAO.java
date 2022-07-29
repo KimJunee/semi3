@@ -482,38 +482,6 @@ public class CampSiteDAO {
 		
 	}
 		
-		// 캠핑장 번호 조회하는 쿼리문
-		public CampingVO findCampDetailByNo(Connection conn, int campNo) {
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-			CampingVO campingVO = null;
-			String query = "SELECT CS_NO, CS_NAME, CS_ADDR1, CS_INDUTY, CS_RESVE_CL, CS_SBRS_CL, CS_POSTBL_FCLTY, CS_HOMEPAGE "
-					+ "FROM CAMP_SITE " + "WHERE CS_NO = ? ";
-			try {
-				pstmt = conn.prepareStatement(query);
-				pstmt.setInt(1, campNo);
-				rs = pstmt.executeQuery();
-				if (rs.next()) {
-					campingVO = new CampingVO();
-					campingVO.setCs_no(rs.getInt("CS_NO"));
-					campingVO.setCs_name(rs.getString("CS_NAME"));
-					campingVO.setCs_addr1(rs.getString("CS_ADDR1"));
-					campingVO.setCs_induty(rs.getString("CS_INDUTY"));
-					campingVO.setCs_resve_cl(rs.getString("CS_RESVE_CL"));
-					campingVO.setCs_sbrs_cl(rs.getString("CS_SBRS_CL"));
-					campingVO.setCs_postbl_fclty(rs.getString("CS_POSTBL_FCLTY"));
-					campingVO.setCs_homepage(rs.getString("CS_HOMEPAGE"));
-					return campingVO;
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally {
-				close(pstmt);
-				close(rs);
-			}
-			return null;
-		}
-		
 	
 	public static void main(String[] args) {
 //		CampSiteDAO cd = new CampSiteDAO();
