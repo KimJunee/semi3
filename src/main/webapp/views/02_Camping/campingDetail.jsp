@@ -5,7 +5,6 @@
 <%@page import="com.camping.mvc.camping.model.dao.CampDetailDAO"%>
 <%@page import="com.camping.mvc.camping.model.vo.CampingVO"%>
 <%@page import="com.camping.mvc.camping.model.service.CampSiteService"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
@@ -22,7 +21,7 @@ if(campingVO == null){
 %>
 
 <!-- 헤더 큰 이미지 -->
-<section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%= mypath%>/resources/img/img_semi/캠핑_화창_01.jpg); height: 650px; margin: 60px;">
+<section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%= mypath%>/resources/img/img_semi/camp_02_01.png); height: 650px; margin: 60px;">
     <!-- 헤더 이미지 글씨 -->
     <div class="container py-6 py-lg-7 text-white overlay-content text-center ">
         <div class="row">
@@ -108,22 +107,20 @@ if(campingVO == null){
 </div>
 <!-- 헤더 끝 -->
 <!-- ============================================================================================================================== -->
-
 <body>
-
-        <!-- Shadow box-->
+    <!-- Shadow box-->
     <section class="container mb-3 pt-5 pb-0">
         <div class="fs-1 d-flex mt-5 " style="text-align: left; color: #F05945;">
-            <img src="<%=mypath%>/resources/img/img_semi/캠핑텐트01_02.png" alt="Image" width="50px">캠핑장 소개
+            <img src="<%=mypath%>/resources/img/img_semi/tenticon01_02.png" alt="Image" width="50px">캠핑장 소개
 
-            <!-- 날씨 이미지 -->
-            <img style="width:200px; height:55px; margin-left: 840px;" src="<%=mypath%>/resources/img/img_semi/기상일기예보이미지.JPG">
+        <!-- 날씨 이미지 -->
+        <img style="width:200px; height:55px; margin-left: 840px;" src="<%=mypath%>/resources/img/img_semi/weather.JPG">
         </div>
         <div class="bg-white shadow-sm rounded-1 overflow-hidden">
             <div class="row">
                 <!-- Content-->
                 <section class="col-md-6">
-                    <a class="gallery-item rounded-1 mb-grid-gutter" href="<%=mypath%>/resources/img/camping/img1.png" data-sub-html="&lt;h6 class=&quot;fs-sm text-light&quot;&gt;이미지 미리보기&lt;/h6&gt;"><img style="width: 100%; height: 100%;" src="<%=path%>/resources/img/img_semi/홍스랜드03.JPG" alt="Gallery preview"><span class="gallery-item-caption">이미지 확대하여 보기</span></a>
+                    <a class="gallery-item rounded-1 mb-grid-gutter" href="<%=mypath%>/resources/img/camping/img1.png" data-sub-html="&lt;h6 class=&quot;fs-sm text-light&quot;&gt;이미지 미리보기&lt;/h6&gt;"><img style="width: 100%; height: 100%;" src="<%=path%>/resources/img/img_semi/hongs03.JPG" alt="Gallery preview"><span class="gallery-item-caption">이미지 확대하여 보기</span></a>
                 </section>
 
                 <!-- Sidebar 캠핑장 상세 내용 및 홈페이지-->
@@ -139,12 +136,10 @@ if(campingVO == null){
                                     </div>
                                     <div class="accordion-collapse collapse show" id="standard-license" data-bs-parent="#licenses">
                                         <div class="accordion-body py-0 pb-2">
-
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <br>
                             <ul class="list-unstyled fs-sm">
                             	<%if(campingVO.getCs_addr1() != null) {%>
@@ -196,8 +191,6 @@ if(campingVO == null){
             </div>
         </div>
     </section>
-    <!--  -->
-
 
     <!-- Body-->
 
@@ -205,15 +198,11 @@ if(campingVO == null){
         <div class="form-control">
             * 모닥불에서 제공하는 정보는 다소 다를 수 있으니 원활한 캠핑을 위해 필요한 사항은 해당 캠핑장에 미리 확인하시기 바랍니다.
         </div>
-
     </section>
     <main class="page-wrapper">
 
-
-
         <!-- 캠핑장 상세보기 + 후기 + 문의게시판-->
         <section class="container mb-4 mb-lg-5">
-
 
             <ul class="nav nav-tabs nav-justified mt-4 mt-lg-5 mb-0" role="tablist">
                 <li class="nav-item" style="font-size:20px"><a class="nav-link p-401 active" href="#details" data-bs-toggle="tab" role="tab">상세보기</a></li>
@@ -230,8 +219,6 @@ if(campingVO == null){
                                 <h2 class="h3 mb-3 pt-2">캠핑장 특징</h2>
                                 <!-- Nav tabs-->
                                 <ul>
-                                
-                                
                                 	<%if (campingVO.getCs_managesttus() != null) {%>
                                     <li>운영상태 : <%=campingVO.getCs_managesttus() %></li>
                                     <%} else {%>
@@ -252,7 +239,6 @@ if(campingVO == null){
                                 </ul>
                                 <br>
                             </p>
-
                             <div class="border-bottom pb-5 mb-5">
                                 <h2 class="h3 mb-3 pt-2">캠핑장 위치 정보</h2>
 
@@ -293,7 +279,6 @@ if(campingVO == null){
                     </div>
                 </div>
 
-
                 <!-- 후기-->
                 <div class="tab-pane fade" id="reviews" role="tabpanel">
                     <div class="row py-4">
@@ -330,11 +315,9 @@ if(campingVO == null){
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                       <%} %>
                       <%} %>
-                        
                     </div>
                 </div>
             </div>
@@ -352,7 +335,6 @@ if(campingVO == null){
 <script src="<%=mypath%>/resources/vendor/lg-zoom.js/dist/lg-zoom.min.js"></script>
 <!-- Main theme script-->
 <script src="<%=mypath%>/resources/js/theme.min.js"></script>
-
 
 </body>
 
