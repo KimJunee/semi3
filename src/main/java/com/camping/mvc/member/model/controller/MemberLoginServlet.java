@@ -2,6 +2,7 @@ package com.camping.mvc.member.model.controller;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
@@ -23,6 +24,7 @@ public class MemberLoginServlet extends MyHttpServlet {
 		return "MemberLoginServlet";
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String userId = req.getParameter("loginUsername");// 사용자가 입력한 id pw 아이디저장에 체크한것을 읽어오는부분
@@ -34,7 +36,6 @@ public class MemberLoginServlet extends MyHttpServlet {
 		
 		// 패턴2. 파라메터 처리를 위한 서비스 호출
 		Member loginMember = service.login(userId, userPwd);//service에 있는 로그인메서드 사용
-		
 		// 패턴3. 응답할 페이지를 선택하고 파레메터 셋팅하기
 		if(loginMember != null) { // 로그인 성공 경우
 			// 세션에 로그인 결과를 남기고, 브라우저가 종료 될때까지 로그인 상태를 유지
@@ -48,11 +49,11 @@ public class MemberLoginServlet extends MyHttpServlet {
 		}else{ // 로그인 실패한 경우
 			// 로그인이 실패하면, 실패 결과를 알려주고 시작페이지로 이동한다.
 			req.setAttribute("msg", "사용자 아이디나 비밀번호가 맞지 않습니다!!");//session.setAttribute("설정한 세션아이디", 세션에 넣을 값);
-			req.setAttribute("location", "/");//session.setAttribute("설정한 세션아이디", 세션에 넣을 값);
+			req.setAttribute("location", "/views/06_User/signin.jsp");//session.setAttribute("설정한 세션아이디", 세션에 넣을 값);
 			
 			// 공통페이지로 이동하여 실패 결과 알리고 처음페이지로 돌아가는 코드
 			// 메세지를 넘겨야함으로 forward로 넘겨야함
-			req.getRequestDispatcher("/views/common/msg.jsp").forward(req, resp); //msg.jsp로 넘긴다.
+			req.getRequestDispatcher("/views/07_common/msg.jsp").forward(req, resp); //msg.jsp로 넘긴다.
 //			RequestDispatcher 이란 클래스는 현재 request에 담긴 정보를 저장하고 있다가
 //			그 다음 페이지 그 다음 페이지에도 해당 정보를 볼수있게 계속 저장하는 기능입니다.
 		}

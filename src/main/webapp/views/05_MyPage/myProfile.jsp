@@ -1,12 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<%@page import="com.camping.mvc.member.model.vo.Member"%>
+<%@include file="/views/07_common/header.jsp"%>
 
-<%@ include file="/views/07_common/header.jsp" %>
 <%
-String mypath = request.getContextPath();
+	Member member = (Member)request.getAttribute("member");
 %>
 
     <!-- 헤더 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/mypage01_01.png); height: 350px; margin: 60px;"></section>
+    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%=path%>/resources/img/img_semi/마페01_01.png); height: 350px; margin: 60px;"></section>
     <!-- 메인이미지끝 -->
 
     <!-- 문의게시판 검색창 시작 -->
@@ -15,7 +18,7 @@ String mypath = request.getContextPath();
             <div class="col-lg-12 mb-3  mb-lg-8">
                 <div class="col-md-12">
                     <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;">
-                        <img src="<%= path%>/resources/img/img_semi/inquiryicon01.png" width="60px"> 마이페이지
+                        <img src="<%=path%>/resources/img/img_semi/문의01.png" width="60px"> 마이페이지
                     </div>
                 </div>
             </div>
@@ -30,7 +33,7 @@ String mypath = request.getContextPath();
                     <div class="card border-0 shadow mb-6 mb-lg-0">
                         <div class="card-header bg-gray-100 py-4 border-0 text-center">
                             <a class="d-inline-block" href="#">
-                                <img class="d-block avatar avatar-xxl p-2 mb-2" src="<%= path%>/resources/img/img_semi/campfire01.png" alt="">
+                                <img class="d-block avatar avatar-xxl p-2 mb-2" src="<%=path%>/resources/img/img_semi/campfire01.png" alt="">
                             </a>
                             <div style="font-weight: bolder; font-size: 25px;">홍길동</div>
                         </div>
@@ -62,8 +65,28 @@ String mypath = request.getContextPath();
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-3 ms-6 ">
-                            <button class="btn btn-primaryCuntom01 rounded-top " style="height: 50px; width: 110px; font-size: 16px;" type="submit "> 회원탈퇴 </button>
-                        </div>
+   						<button class="btn btn-primaryCuntom01 rounded-top " style="height: 50px; width: 110px; font-size: 16px;" type="button"  onclick="deleteMember()" id="deleteMember" value="탈퇴"> 회원탈퇴 </button>                        
+              			  <script type="text/javascript">
+              				function deleteMember() {
+              		    	if(confirm("정말로 탈퇴하시겠습니까?!")) {
+              		   	 	location.replace('<%= request.getContextPath() %>/member/delete');
+              		    	}
+              		    	}  
+              			  
+              			  
+						
+              			<%-- $("#deleteMember").on("click", (e) => {
+									if(confirm("정말로 탈퇴하시겠습니까?!")) {
+										location.replace('<%= request.getContextPath() %>/member/delete');<%--MemberDeleteServlet.java로 넘어감 --%>
+						<%--			}
+								});
+								
+								$('#deleteMember').click(function(){
+									alert();
+									})--%>  
+									
+				</script>
+   					</div>
                     </div>
                 </div>
                 <!-- 프로필 옆 기능부 -->
@@ -78,36 +101,39 @@ String mypath = request.getContextPath();
                         </div>
                         <p class="text-sm text-muted">
                             <i class="fa fa-id-card fa-fw me-2">
-                            </i>홍길동<br>
+                            </i><%=member.getUser_name() %><br>
                             <i class="fa fa-birthday-cake fa-fw me-2">
-                            </i>1994-00-00<br>
+                            </i><%=member.getUser_birth() %><br>
                             <i class="fa fa-envelope-open fa-fw me-2">
-                            </i>john.doe@directory.com
+                            </i><%=member.getUser_email() %>
                             <span class="mx-2"> | </span>
                             <i class="fa fa-phone fa-fw me-2">
-                            </i>010-1234-5678
+                            </i><%=member.getUser_phone() %>
                         </p>
                         <!-- 나의정보 변경 -->
                         <div id="personalDetails">
+                        <form name=memberFrm action="<%=request.getContextPath()%>/member/update" method="POST">
                             <div class="row pt-4">
+                       			 <h6>나의정보 변경</h6>
                                 <div class="mb-4 col-md-6">
                                     <label class="form-label" for="name">이름</label>
-                                    <input class="form-control" type="text" name="name" id="name" value="John Doe">
+                                    <input class="form-control" type="text" name="name" id="name" value="<%=member.getUser_name() %>">
                                 </div>
                                 <div class="mb-4 col-md-6">
                                     <label class="form-label" for="date">생년월일</label>
-                                    <input class="form-control" type="text" name="date" id="date" value="1994-00-00">
+                                    <input class="form-control" type="text" name="date" id="date" value="<%=member.getUser_birth() %>">
                                 </div>
                                 <div class="mb-4 col-md-6">
                                     <label class="form-label" for="email">이메일주소</label>
-                                    <input class="form-control" type="email" name="email" id="email" value="john.doe@directory.com">
+                                    <input class="form-control" type="email" name="email" id="email" value="<%=member.getUser_email() %>">
                                 </div>
                                 <div class="mb-4 col-md-6">
                                     <label class="form-label" for="phone">전화번호</label>
-                                    <input class="form-control" type="text" name="phone" id="phone" value="+42055544466">
+                                    <input class="form-control" type="text" name="phone" id="phone" value="<%=member.getUser_phone() %>">
                                 </div>
                             </div>
-                            <button class="btn btn-primary">정보 저장하기</button>
+                            <button class="btn btn-primary" type="submit" value="정보수정">정보수정</button>
+                            </form>
                         </div>
                         <!-- 비밀번호 변경 부분 -->
                         <hr>
@@ -118,6 +144,7 @@ String mypath = request.getContextPath();
                             </div>
                         </div>
                         <div id="updatePassword">
+                        <form name=memberPwUpdate action="<%=request.getContextPath()%>/member/updatePwd" method="POST">
                             <div class="row mt-2">
                                 <div class="mb-4 col-md-6">
                                     <label class="form-label" for="password-new">새 비밀번호</label>
@@ -128,7 +155,8 @@ String mypath = request.getContextPath();
                                     <input class="form-control" type="password" name="password-confirm" id="password-confirm">
                                 </div>
                             </div>
-                            <button class="btn btn-primary">비밀번호 저장하기</button>
+                            <button class="btn btn-primary" type="submit" value="비밀번호 변경하기">비밀번호 변경하기</button>
+                        	</form>
                         </div>
                     </div>
                 </div>
@@ -136,71 +164,72 @@ String mypath = request.getContextPath();
         </div>
     </section>
 
-         <!-- 푸터위에 사진바-->
-        <section>
+    <!-- 하단 이미지바 시작-->
+    <section>
         <div class="container-fluid px-0">
             <div class="swiper-container instagram-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-1.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-1.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-2.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-2.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-3.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-3.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-4.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-4.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-5.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-5.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-6.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-6.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-7.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-7.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-8.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-8.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-9.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-9.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-10.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-10.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-11.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-11.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-12.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-12.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-13.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-13.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-14.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-14.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-10.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-10.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-11.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-11.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-12.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-12.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-13.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-13.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-14.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%=path%>/resources/img/instagram/instagram-14.jpg" alt=" "></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-      <%@ include file="/views/07_common/footer.jsp" %>
+    <!-- 하단 이미지바 끝-->
+<%@include file="/views/07_common/footer.jsp"%>
+ 
