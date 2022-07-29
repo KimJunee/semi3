@@ -45,7 +45,7 @@ String mypath = request.getContextPath();
                         <img src="<%=mypath%>/resources/img/img_semi/hikingtrail.png" alt="" style="max-width: 4rem;">
                         <img src="<%=mypath%>/resources/img/img_semi/caravan.png" alt="" style="max-width: 4rem;">
                         <img src="<%=mypath%>/resources/img/img_semi/glamping.png" alt="" style="max-width: 4rem;">
-                        <img src="<%=mypath%>/resources/img/img_semi/차박01.png" alt="" style="max-width: 4rem;">
+                        <img src="<%=mypath%>/resources/img/img_semi/carbak01.png" alt="" style="max-width: 4rem;">
                         <h2>회원가입</h2>
                     </div>
                     <form class="form-validate">
@@ -93,7 +93,7 @@ String mypath = request.getContextPath();
             </div>
             <div class="col-md-4 col-lg-6 col-xl-7 d-none d-md-block">
                 <!-- Image-->
-                <div class="bg-cover h-100 me-n3" style="background-image: url(<%=mypath%>/resources/img/img_semi/캠핑_호수_04.jpg);"></div>
+                <div class="bg-cover h-100 me-n3" style="background-image: url(<%=mypath%>/resources/img/img_semi/img2.jpg);"></div>
             </div>
         </div>
     </div>

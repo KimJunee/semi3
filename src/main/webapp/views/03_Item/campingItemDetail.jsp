@@ -1,13 +1,64 @@
+<%@page import="com.camping.common.util.PageInfo"%>
+<%@page import="java.util.List"%>
+<%@page import="com.camping.mvc.campingItem.model.vo.CampingItemVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
-<%@include file="/views/07_common/header.jsp" %>
+<%@include file="/views/07_common/header.jsp"%>
 <%
-String mypath = request.getContextPath();
+	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
+	List<CampingItemVO> list = (List<CampingItemVO>)request.getAttribute("list"); 
+	
+	String searchType = "ci_title";
+	String searchValue = "";
+	
+	String searchParamValue = request.getParameter("searchValue");
+	searchType = request.getParameter("searchType");
+	searchValue = request.getParameter("searchValue");
+	
+	
+//	String searchType = request.getParameter("searchType");
+//	String searchValue = request.getParameter("searchValue");
+//	if(searchValue == null){
+//		searchValue = "";
+//	}
 %>
-
     <!-- 메인 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%=path%>/resources/img/img_semi/campitem_04_01.png); height: 350px; margin: 60px;"></section>
+    <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%=path%>/resources/img/img_semi/캠핑용품_04_01.png); height: 350px; margin: 60px;"></section>
+    <!-- 메인 끝 -->
+    
+    <!-- 메인 검색창 -->
+    <div class="container mb-5" style="margin-top: -130px;">
+        <div class="search-bar rounded-4 p-0 p-lg-1 position-relative mt-n6 z-index-20 mx-7">
+            <form >
+                <div class="row">
+                    <!-- 카테고리 -->
+                    <div class="col-lg-3 d-flex align-items-center form-group">
+                        <div class="input-label-absolute input-label-absolute-right w-100">
+                            <div style="color: #F05945; text-align:center; font-weight: bold;">캠핑용품</div>
+                        </div>
+                    </div>
+                    <!-- 종류선택 -->
+                    <div class="col-lg-3 d-flex align-items-center form-group no-divider-custom ">
+                    <select class="selectpicker" name="searchType" data-style="btn-form-control">
+                    <option value="" selected disabled>카레고리 선택</option>
+                    <option value="ci_title">상품명</option>
+                    <option value="ci_brand">브랜드</option>
+                    <option value="ci_category3">키워드</option>
+                    </select>
+                    </div>
+                    <!-- 검색창 -->
+                    <div class="col-lg-5 d-flex align-items-center">
+                        <input class="form-control border-0 shadow-0 " id="searchValue" name="searchValue" type="search" value="<%=searchValue%>" placeholder="검색어를 입력해주세요 ">
+                    </div>
+                    <!-- 검색버튼 -->
+                    <div class="col-lg-1 d-grid mb-0">
+                        <button class="btn btn-primary rounded-pill h-100 " style="font-weight: bolder;" type="submit">검색 </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
     <!-- 메인 끝 -->
 
     <!-- 제품 시작 -->
@@ -15,213 +66,106 @@ String mypath = request.getContextPath();
         <div class="container mb-6">
             <div class="row mb-5">
                 <div class="col-md-12 fs-2" style="text-align: center; font-weight: bold; color: #F05945;">
-                    <img src="<%=path%>/resources/img/img_semi/campitem01_02.png" alt="Image" width="50px">캠핑용품
+                    <img src="<%=path%>/resources/img/img_semi/캠핑용품01_02.png" alt="Image" width="50px">캠핑용품
                 </div>
             </div>
-            <div class="row">
+         <input type="hidden" id="searchType" value="<%=searchType%>">
+         <input type="hidden" id="searchValue" value="<%=searchValue%>">
+         
+         <div class="row">
+         <%for(CampingItemVO campingItem : list) {%>
                 <!-- place item-->
                 <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                     <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=path%>/resources/img/img_semi/cobeatent.jpg" style="height: 220px; width: 306px;" />
-                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=31352773626"></a>
+                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=campingItem.getCi_image() %>" style="height: 220px; width: 306px;" />
+                            <a class="tile-link" href="<%=campingItem.getCi_link()%>"></a>
                         </div>
                         <div class="card-body d-flex align-items-center">
                             <div class="w-100">
-                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=31352773626">네스트 W 텐트</a></h6>
+                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="<%=campingItem.getCi_link()%>"><%=campingItem.getCi_title()%></a></h6>
                                 <div class="d-flex card-subtitle mb-3">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm">코베아</p>
+                                    <p class="flex-grow-1 mb-0 text-muted text-sm"><%=campingItem.getCi_brand()%></p>
                                 </div>
-                                <p class="card-text text-mutedCustom1">569,500원</p>
+                                <p class="card-text text-mutedCustom1"><%=campingItem.getCi_price()%>원</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- place item-->
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=path%>/resources/img/img_semi/Airpoletent.jpg" style="height: 220px; width: 306px;" />
-                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=83439840623"></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center">
-                            <div class="w-100">
-                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=83439840623">에어폴 글램핑 텐트</a></h6>
-                                <div class="d-flex card-subtitle mb-3">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm">네이처하이크 </p>
-                                </div>
-                                <p class="card-text text-mutedCustom1">575,000원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- place item-->
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-thumbnail" src="<%=path%>/resources/img/img_semi/onetouchtent.jpg" style="height: 220px; width: 306px;" />
-                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=18467395766"></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center">
-                            <div class="w-100">
-                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=18467395766">원터치 캐노피 팝업텐트</a></h6>
-                                <div class="d-flex card-subtitle mb-3">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm">로티캠프</p>
-                                </div>
-                                <p class="card-text text-mutedCustom1">45,020원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=path%>/resources/img/img_semi/SaturnTent.jpg" style="height: 220px; width: 306px;" />
-                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=32695611628"></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center">
-                            <div class="w-100">
-                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=32695611628">새턴 2룸 DX 텐트</a></h6>
-                                <div class="d-flex card-subtitle mb-3">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm">스노우라인</p>
-                                </div>
-                                <p class="card-text text-mutedCustom1">980,000원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=path%>/resources/img/img_semi/Rolltable.jpg" style="height: 220px; width: 306px;" />
-                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=29882519618"></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center">
-                            <div class="w-100">
-                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=29882519618">우드무늬 롤테이블 중형</a></h6>
-                                <div class="d-flex card-subtitle mb-3">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm">다니고</p>
-                                </div>
-                                <p class="card-text text-mutedCustom1">55,000원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=path%>/resources/img/img_semi/foldingtable.jpg" style="height: 220px; width: 306px;" />
-                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=26130732522"></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center">
-                            <div class="w-100">
-                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=26130732522">접이식 폴딩형 <br>미니 롤 테이블</a></h6>
-                                <div class="d-flex card-subtitle mb-3">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm">포유아이엔씨 KEEP </p>
-                                </div>
-                                <p class="card-text text-mutedCustom1">15,900원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=path%>/resources/img/img_semi/burnertable.jpg" style="height: 220px; width: 306px;" />
-                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=20237128031"></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center">
-                            <div class="w-100">
-                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/product/20985666360">투 폴딩 <br> 우드 버너 테이블</a></h6>
-                                <div class="d-flex card-subtitle mb-3">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm">마운틴 리버</p>
-                                </div>
-                                <p class="card-text text-mutedCustom1">69,000원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- place item-->
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=path%>/resources/img/img_semi/kengertable.jpg" style="height: 220px; width: 306px;" />
-                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=31353697619"></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center">
-                            <div class="w-100">
-                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=31353697619">감성 캠핑 <br>접이식 책상 롤 테이블</a></h6>
-                                <div class="d-flex card-subtitle mb-3">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm">델로나 캥거</p>
-                                </div>
-                                <p class="card-text text-mutedCustom1">39,000원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=path%>/resources/img/img_semi/Natureschair.jpg" style="height: 220px; width: 306px;" />
-                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=14890474866"></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center">
-                            <div class="w-100">
-                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=23550814491">우드 접이식 캠핑의자  MW02</a></h6>
-                                <div class="d-flex card-subtitle mb-3">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm">네이처하이크</p>
-                                </div>
-                                <p class="card-text text-mutedCustom1">21,900원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- place item-->
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=path%>/resources/img/img_semi/callmanchair.jpg" style="height: 220px; width: 306px;" />
-                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=23603241495"></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center">
-                            <div class="w-100">
-                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=23603241495">레이 체어 캠핑의자</a></h6>
-                                <div class="d-flex card-subtitle mb-3">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm">콜맨</p>
-                                </div>
-                                <p class="card-text text-mutedCustom1">101,000원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay">
-                            <img class="img-fluid" src="<%=path%>/resources/img/img_semi/LongRelaxChair.jpg" style="height: 220px; width: 306px;" />
-                            <a class=" tile-link" href="https://search.shopping.naver.com/gate.nhn?id=33111792620 "></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center ">
-                            <div class="w-100 ">
-                                <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://search.shopping.naver.com/gate.nhn?id=33111792620 ">3단 각도조절 <br>롱 릴렉스 캠핑의자</a></h6>
-                                <div class="d-flex card-subtitle mb-3 ">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm ">네이처하이크</p>
-                                </div>
-                                <p class="card-text text-mutedCustom1 ">69,000원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- place item-->
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate " data-marker-id="59c0c8e39aa2edasd626e485d ">
-                    <div class="card h-100 border-0 shadow ">
-                        <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="<%=path%>/resources/img/img_semi/RedCocoschair.jpg" style="height: 220px; width: 306px;" />
-                            <a class="tile-link " href="https://search.shopping.naver.com/gate.nhn?id=83321159678 "></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center ">
-                            <div class="w-100 ">
-                                <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://search.shopping.naver.com/gate.nhn?id=82345102328 ">로우체어 폴딩<br> 감성 경량 캠핑의자</a></h6>
-                                <div class="d-flex card-subtitle mb-3 ">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm ">레드코코 / </p>
-                                </div>
-                                <p class="card-text text-mutedCustom1 ">21,500원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <%} %>
             </div>
         </div>
+        <!-- 제품 끝 -->
     </section>
-    <!-- 제품 끝 -->
+    <section>
+    <!-- 페이지 버튼 시작-->
+    <nav aria-label="Page navigation example">
+            <ul
+               class="pagination pagination-template d-flex justify-content-center">
+               <li class="page-item"><a class="page-link"
+                  onclick="movePage('<%=path %>/campingItem/Detail?page=<%=pageInfo.getStartPage() %>');">
+                     <i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i>
+               </a></li>
+               <li class="page-item"><a class="page-link"
+                  onclick="movePage('<%=path %>/campingItem/Detail?page=<%=pageInfo.getPrvePage()%>');">
+                     <i class="fa fa-angle-left"></i>
+               </a></li>
+               <%--5페이지 출력하기 --%>
+               <% for(int i = pageInfo.getStartPage(); i <= pageInfo.getEndPage(); i++){ %>
+               		<%if(i == pageInfo.getCurrentPage()){ %>
+               		<li class="page-item active">
+               		<button class="page-link" disabled><%=i%></button></li>
+               		<%} else{%>
+               		<li class="page-item">
+               		<button class="page-link" onclick="movePage('<%=path %>/campingItem/Detail?page=<%=i%>');"><%=i%></button></li>
+               		<%} %>
+              	 <%} %>
+
+               <%--다음으로 가기 --%>
+               <li class="page-item"><a class="page-link"
+                  onclick="movePage('<%=path %>/campingItem/Detail?page=<%=pageInfo.getNextPage() %>');">
+                     <i class="fa fa-angle-right"></i>
+               </a></li>
+               <li class="page-item"><a class="page-link"
+                  onclick="movePage('<%=path %>/campingItem/Detail?page=<%=pageInfo.getEndPage() %>');">
+                     <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
+               </a></li>
+            </ul>
+         </nav>
+    <!-- 페이지 버튼 끝-->   
+    </section>
+    
+    <script type="text/javascript">
+function movePage(pageUrl){
+	var searchValue = document.getElementById("searchValue");
+	var searchTypes = document.getElementsByName("searchType");
+	var searchType = 'ci_title';
+	if(searchValue.value.length > 0){
+		for(var i = 0; i <searchTypes.length; i++){
+			if(searchTypes[i].selected == true){
+				searchType = searchTypes[i].value;
+			}
+		}
+		pageUrl = pageUrl + '&searchType=' + searchType + '&searchValue=' + searchValue.value; 
+	}
+	alert(pageUrl);
+	location.href = encodeURI(pageUrl);	
+}
+</script>
+    
+//   <script type="text/javascript">
+ //   function movePage(pageUrl){
+//    	var searchType = document.getElementById("searchType");
+//    	var searchValue = document.getElementById("searchValue");
+ //   	if(searchType != null){
+//	    	pageUrl = pageUrl + '&searchType=' + searchType.value;
+ //   	}
+ //   	if(searchValue != null){
+//	    	pageUrl += '&searchValue=' + searchValue.value;
+ //   	}
+ //   	location.href = encodeURI(pageUrl);
+  //  }
+    
+   // </script>
 
     <!-- ============================================================================================================================== -->
 
@@ -291,6 +235,8 @@ String mypath = request.getContextPath();
             </div>
         </div>
     </section>
+    
+    
     
 
 <%@include file="/views/07_common/footer.jsp" %>

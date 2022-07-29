@@ -1,4 +1,5 @@
 package com.camping.mvc.member.model.vo;
+
 import java.util.Objects;
 
 public class Member {
