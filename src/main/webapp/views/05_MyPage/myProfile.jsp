@@ -9,7 +9,7 @@
 %>
 
     <!-- 헤더 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%=path%>/resources/img/img_semi/마페01_01.png); height: 350px; margin: 60px;"></section>
+    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%=path%>/resources/img/img_semi/mypage01_01.png); height: 350px; margin: 60px;"></section>
     <!-- 메인이미지끝 -->
 
     <!-- 문의게시판 검색창 시작 -->
@@ -18,7 +18,7 @@
             <div class="col-lg-12 mb-3  mb-lg-8">
                 <div class="col-md-12">
                     <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;">
-                        <img src="<%=path%>/resources/img/img_semi/문의01.png" width="60px"> 마이페이지
+                        <img src="<%=path%>/resources/img/img_semi/inquiry01_01.png" width="60px"> 마이페이지
                     </div>
                 </div>
             </div>
