@@ -5,7 +5,7 @@
 <%
 String mypath = request.getContextPath();
 %>
-
+ 
 <!-- 헤더 큰 이미지 -->
 <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%=mypath%>/resources/img/img_semi/camp_02_01.png); height: 650px; margin: 60px;">
 
