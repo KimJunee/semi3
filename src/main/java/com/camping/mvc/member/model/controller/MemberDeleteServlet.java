@@ -11,7 +11,7 @@ import com.camping.common.util.MyHttpServlet;
 import com.camping.mvc.member.model.service.MemberService;
 import com.camping.mvc.member.model.vo.Member;
 
-@WebServlet("/member/delete")
+@WebServlet("/member/delete")// view.jsp에 /member/delete에서 날라옴
 public class MemberDeleteServlet extends MyHttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -28,7 +28,7 @@ public class MemberDeleteServlet extends MyHttpServlet {
 			Member loginMember = getSessionMember(req);
 			
 			if(loginMember == null) {
-				sendCommonPage("잘못된 접근입니다.", "/", req, resp);
+				sendCommonPage("로그인후 이용해주세요.", "/views/01_Main/main.jsp", req, resp);
 				return;
 			}
 			

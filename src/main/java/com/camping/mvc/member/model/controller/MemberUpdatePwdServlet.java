@@ -12,7 +12,7 @@ import com.camping.common.util.MyHttpServlet;
 import com.camping.mvc.member.model.service.MemberService;
 import com.camping.mvc.member.model.vo.Member;
 
-@WebServlet(name = "updatePwd", urlPatterns = "/member/updatePwd")
+@WebServlet("/member/updatePwd")
 public class MemberUpdatePwdServlet extends MyHttpServlet{
 	private static final long serialVersionUID = 1L;
 
@@ -26,7 +26,7 @@ public class MemberUpdatePwdServlet extends MyHttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		req.getRequestDispatcher("/views/member/updatePwd.jsp").forward(req, resp);
+		doPost(req, resp);
 	}
 	
 	@Override
@@ -34,24 +34,24 @@ public class MemberUpdatePwdServlet extends MyHttpServlet{
 		try {
 			HttpSession session = req.getSession();
 			Member loginMember = (Member) session.getAttribute("loginMember");
-			String newPwd = req.getParameter("userPwd");
+			String newPwd = req.getParameter("password-new");
 			
 			if(loginMember == null ) {
-				sendCommonPage("잘못된 접근입니다.", "/", req, resp);
+				sendCommonPage("로그인후 이용해주세요.", "/views/01_Main/main.jsp", req, resp);
 				return;
 			}
 			
 			int result = service.updatePassword(loginMember.getUser_no(), newPwd);
 			
 			if(result > 0) {
-				sendCommonPage("비밀번호가 수정되었습니다.","/","self.close()",req,resp);
+				sendCommonPage("비밀번호가 수정되었습니다.","/member/mypage",req,resp); //창 닫기
 				return ;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		// 예외와 비밀번호 수정이 불가능할때
-		sendCommonPage("비밀번호가 수정할수 없습니다.", "/member/updatePwd", req, resp);
+		sendCommonPage("비밀번호가 수정할수 없습니다.", "/member/mypage", req, resp);
 	}
 
 	
