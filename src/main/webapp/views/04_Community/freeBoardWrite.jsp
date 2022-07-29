@@ -10,7 +10,7 @@
 %>
 
     <!-- 헤더 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image:  url(<%= path%>/resources/img/img_semi/문의01_01.png); height: 350px; margin: 60px;">
+    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image:  url(<%= path%>/resources/img/img_semi/inquiry01_01.png); height: 350px; margin: 60px;">
         <!-- 헤더 이미지 글씨 -->
         <div class="container">
         </div>
@@ -88,7 +88,6 @@
                             </div>
                              </div>
                     </form>
-                   
                 </div>
             </div>
         </div>
