@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.camping.common.util.PageInfo;
-import com.camping.mvc.community.model.vo.Reply;
+
 import com.camping.mvc.inquiry.model.vo.Inquiry;
 import com.camping.mvc.inquiry.model.vo.Inreply;
 

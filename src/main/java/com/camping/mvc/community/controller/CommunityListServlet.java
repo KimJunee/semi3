@@ -23,27 +23,25 @@ public class CommunityListServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		System.out.println("나오니?");
 		int page = 1;
 		int CommunityCount = 0;
 		PageInfo pageInfo = null;
 		List<Community> list = null;
-		Map<String, String> searchMap = new HashMap<>();
+		String searchValue = null;
 		
 		
 		try {
-			String searchValue = req.getParameter("searchValue");
-			if(searchValue != null && searchValue.length() > 0) {
-				String searchType = req.getParameter("searchType");
-				searchMap.put(searchType, searchValue);
-			}
+			searchValue = req.getParameter("searchValue");
+			
 			page = Integer.parseInt(req.getParameter("page"));
 		} catch (Exception e) {
 		}
 		
 
-		CommunityCount = service.getCommunityCount(searchMap);
+		CommunityCount = service.getCommunityCount(searchValue);
 		pageInfo = new PageInfo(page, 10, CommunityCount, 10);
-		list = service.getCommunityList(pageInfo, searchMap);
+		list = service.getCommunityList(pageInfo, searchValue);
 		
 		req.setAttribute("list", list);//리스트로 넘기고
 		req.setAttribute("pageInfo", pageInfo);//페이지인포로넘기고

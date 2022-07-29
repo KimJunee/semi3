@@ -19,18 +19,18 @@ public class CommunityService {
 	
 	
 	//게시물 번호
-	public int getCommunityCount(Map<String, String> searchMap) {
+	public int getCommunityCount(String searchValue) {
 		Connection conn = getConnection();
-		int result = dao.getCommunityCount(conn, searchMap);
+		int result = dao.getCommunityCount(conn, searchValue);
 		close(conn);
 		return result;
 	}
 
 
 	//게시물 리스트
-		public List<Community> getCommunityList(PageInfo pageinfo, Map<String, String> searchMap) {
+		public List<Community> getCommunityList(PageInfo pageinfo, String searchValue) {
 			Connection conn = getConnection();
-			List<Community> list = dao.findAll(conn, pageinfo, searchMap);
+			List<Community> list = dao.findAll(conn, pageinfo, searchValue);
 			close(conn);
 			return list;
 		}

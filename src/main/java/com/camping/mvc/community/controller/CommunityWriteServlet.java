@@ -49,21 +49,23 @@ public class CommunityWriteServlet extends MyHttpServlet{
 		try {
 			Member loginMember = getSessionMember(req);//로그인멤버 가져옴
 			
-
+			if(loginMember ==null) {
+				sendCommonPage("잘못된 접근입니다. (code=101)", "/board/freeBoard", req, resp);
+				return;
+			}
 			
 			Community community = new Community();
 			//freeBoardWrite.jsp에서 작성한 게시글 처리
 			community.setCo_title(req.getParameter("title").strip()); // white space 정리, null 방지
-			community.setWriter_id(req.getParameter("writer").strip());
 			community.setUser_no(loginMember.getUser_no());
 			community.setCo_content(req.getParameter("content").trim());
-			System.out.println(community);
 			
+			System.out.println(community.toString());
 			int result = service.save(community); // DB에 게시글 저장
-			System.out.println(result);
 			
 			if(result > 0) {
 				sendCommonPage("게시글이 정상적으로 등록되었습니다.", "/board/freeBoard", req, resp);
+				
 			}else {
 				sendCommonPage("게시글 등록에 실패하였습니다. (code=102)", "/board/freeBoard", req, resp);
 			}

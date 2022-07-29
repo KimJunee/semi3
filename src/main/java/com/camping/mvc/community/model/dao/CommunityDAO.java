@@ -84,7 +84,7 @@ public class CommunityDAO {
 		
 		
 		// 게시물의 갯수를 가져오는 쿼리
-		public int getCommunityCount(Connection conn, Map<String, String> searchMap) {
+		public int getCommunityCount(Connection conn, String searchValue) {
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			String query = "SELECT  COUNT(*) "
@@ -92,33 +92,19 @@ public class CommunityDAO {
 					+ "JOIN USER_T UT ON(CB.USER_NO = UT.USER_NO) "
 					+ "WHERE 1=1 ";
 			
+			int result = 0;
 			//key부분
-			if (searchMap.containsKey("USERID")) {
-				query += "AND UT.USER_ID LIKE ? ";
-			}
-			if (searchMap.containsKey("COTITLE")) {
+			try {
+			if (searchValue != null) {
 				query += "AND CB.CO_TITLE LIKE ? ";
 			}
-			if (searchMap.containsKey("COCONTENT")) {
-				query += "AND CO_CONTENT LIKE ? ";
-			}
-
+			
+			
 			//value부분
-			int result = 0;
-			try {
-				
-				pstmt = conn.prepareStatement(query);
-				int count = 1;
-
-				if (searchMap.containsKey("USERID")) {
-					pstmt.setString(count++, "%" + searchMap.get("USERID") + "%");
-				}
-				if (searchMap.containsKey("COTITLE")) {
-					pstmt.setString(count++, "%" + searchMap.get("COTITLE") + "%");
-				}
-				if (searchMap.containsKey("COCONTENT")) {
-					pstmt.setString(count++, "%" + searchMap.get("COCONTENT") + "%");
-				}
+			pstmt = conn.prepareStatement(query);
+			if (searchValue != null) {
+				pstmt.setString(1, "%" + searchValue + "%");
+			}
 				
 				
 				rs = pstmt.executeQuery();
@@ -131,13 +117,13 @@ public class CommunityDAO {
 				close(pstmt);
 				close(rs);
 			}
-			System.out.println("point1");
+			System.out.println("point1 : " + result);
 			return result;
 		}
 		
 		
 		// 검색한 게시물의 리스트를 가져오는 메소드
-		public List<Community> findAll(Connection conn, PageInfo pageInfo, Map<String, String> searchMap) {
+		public List<Community> findAll(Connection conn, PageInfo pageInfo, String searchValue) {
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
 			List<Community> list = new ArrayList<Community>();
@@ -152,32 +138,21 @@ public class CommunityDAO {
 			
 			String queryAfter = "        ORDER BY  CB.CO_NO DESC "+ "    ) "+ ") "+ "WHERE RNUM BETWEEN ? and ?";
 
+			try {
 			//key부분
-			if (searchMap.containsKey("USERID")) {
-				queryBefore += "AND UT.USER_ID LIKE ? ";
-			}
-			if (searchMap.containsKey("COTITLE")) {
+			if (searchValue != null) {
 				queryBefore += "AND CB.CO_TITLE LIKE ? ";
-			}
-			if (searchMap.containsKey("COCONTENT")) {
-				queryBefore += "AND CB.CO_CONTENT LIKE ? ";
 			}
 
 			String query = queryBefore + queryAfter;
 
 			//value부분
-			try {
+			
 				pstmt = conn.prepareStatement(query);
 
 				int count = 1;
-				if (searchMap.containsKey("USERID")) {
-					pstmt.setString(count++, "%" + searchMap.get("USERID") + "%");
-				}
-				if (searchMap.containsKey("COTITLE")) {
-					pstmt.setString(count++, "%" + searchMap.get("COTITLE") + "%");
-				}
-				if (searchMap.containsKey("COCONTENT")) {
-					pstmt.setString(count++, "%" + searchMap.get("COCONTENT") + "%");
+				if (searchValue != null) {
+					pstmt.setString(count++, "%" + searchValue + "%");
 				}
 
 				pstmt.setInt(count++, pageInfo.getStartList());
@@ -299,6 +274,7 @@ public class CommunityDAO {
 			} finally {
 				close(pstmt);
 			}
+			System.out.println("응애");
 			return result;
 
 		}
@@ -407,81 +383,81 @@ public class CommunityDAO {
 
 
 
-public static void main(String[] args) {
-	Connection conn = getConnection();
-	CommunityDAO dao = new CommunityDAO();
+//public static void main(String[] args) {
+//	Connection conn = getConnection();
+//	CommunityDAO dao = new CommunityDAO();
+//	
+//	//총게시글 갯수
+//	int count = dao.getCommunityCount(conn);
+//	System.out.println("게시물 갯수 : " + count);
+//	System.out.println("--------------------------------------------");
+//
+//
+//	// 게시글 목록 조회(페이징) -일반 게시판 리스트
+//	//currentPage 현재 페이지
+//	//pageLimit 한 페이지에 보여질 페이지의 수 
+//	//listCount 전체 리스트의 수 
+//	//listLimit 한 페이지에 표시될 리스트의 수
+//	PageInfo info = new PageInfo(1, 10, count, 10);
+//	List<Community> list = dao.findAll(conn, info);
+//	for (Community c : list) {
+//		System.out.println(c.toString());
+//	}
+//	System.out.println("--------------------------------------------\n");
+//
+//
+//	// 게시물 갯수- (검색하기)
+//	Map<String, String> searchMap = new HashMap<String, String>();
+////	searchMap.put("USERID", "dummy1");
+//	searchMap.put("COTITLE", "캠핑");
+////	searchMap.put("COCONTENT", "폭죽");
+//	count = dao.getCommunityCount(conn, searchMap);
+//	System.out.println("게시물 갯수 : " + count);
+//	System.out.println("--------------------------------------------");
+//	
+//	
+//	// 일반 게시판 리스트 - 탐색
+//	info = new PageInfo(1, 10, count, 10);
+//	list = dao.findAll(conn, info, searchMap);
+//	for (Community c : list) {
+//		System.out.println(c.toString());
+//	}
+//	System.out.println("--------------------------------------------\n");
+//	
+//	
+//	// 일반 게시판 글쓰기
+//	Community community = new Community();
+//	community.setUser_no(1);
+//	community.setCo_title("자바 작성_게시글 제목");
+//	community.setCo_content("자바 작성_게시글 내용");
+//
+//	int result = dao.insertBoard(conn, community);
+//	System.out.println("글올리기 결과 : " + result);
+//	System.out.println("--------------------------------------------\n");
+//	
+//	// 게시물 갯수
+//	count = dao.getCommunityCount(conn);
+//	System.out.println("게시물 갯수 : " + count);
+//	System.out.println("--------------------------------------------");
+//
+//	// 일반 게시판 리스트
+//	info = new PageInfo(1, 10, count, 10);
+//	list = dao.findAll(conn, info);
+//	for (Community c : list) {
+//		System.out.println(c.toString());
+//	}
+//	System.out.println("--------------------------------------------\n");
+//	
+//	
 	
-	//총게시글 갯수
-	int count = dao.getCommunityCount(conn);
-	System.out.println("게시물 갯수 : " + count);
-	System.out.println("--------------------------------------------");
+	
+	
+	
+	
+	
+	
 
-
-	// 게시글 목록 조회(페이징) -일반 게시판 리스트
-	//currentPage 현재 페이지
-	//pageLimit 한 페이지에 보여질 페이지의 수 
-	//listCount 전체 리스트의 수 
-	//listLimit 한 페이지에 표시될 리스트의 수
-	PageInfo info = new PageInfo(1, 10, count, 10);
-	List<Community> list = dao.findAll(conn, info);
-	for (Community c : list) {
-		System.out.println(c.toString());
-	}
-	System.out.println("--------------------------------------------\n");
-
-
-	// 게시물 갯수- (검색하기)
-	Map<String, String> searchMap = new HashMap<String, String>();
-//	searchMap.put("USERID", "dummy1");
-	searchMap.put("COTITLE", "캠핑");
-//	searchMap.put("COCONTENT", "폭죽");
-	count = dao.getCommunityCount(conn, searchMap);
-	System.out.println("게시물 갯수 : " + count);
-	System.out.println("--------------------------------------------");
-	
-	
-	// 일반 게시판 리스트 - 탐색
-	info = new PageInfo(1, 10, count, 10);
-	list = dao.findAll(conn, info, searchMap);
-	for (Community c : list) {
-		System.out.println(c.toString());
-	}
-	System.out.println("--------------------------------------------\n");
-	
-	
-	// 일반 게시판 글쓰기
-	Community community = new Community();
-	community.setUser_no(1);
-	community.setCo_title("자바 작성_게시글 제목");
-	community.setCo_content("자바 작성_게시글 내용");
-
-	int result = dao.insertBoard(conn, community);
-	System.out.println("글올리기 결과 : " + result);
-	System.out.println("--------------------------------------------\n");
-	
-	// 게시물 갯수
-	count = dao.getCommunityCount(conn);
-	System.out.println("게시물 갯수 : " + count);
-	System.out.println("--------------------------------------------");
-
-	// 일반 게시판 리스트
-	info = new PageInfo(1, 10, count, 10);
-	list = dao.findAll(conn, info);
-	for (Community c : list) {
-		System.out.println(c.toString());
-	}
-	System.out.println("--------------------------------------------\n");
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
-	}
+//	}
 	
 	
 }

@@ -12,6 +12,7 @@ import com.camping.mvc.community.model.service.CommunityService;
 import com.camping.mvc.community.model.vo.Community;
 import com.camping.mvc.member.model.vo.Member;
 
+
 //자유게시물 삭제
 @WebServlet("/board/delete")
 public class CommunityDeleteServlet extends MyHttpServlet{
@@ -28,9 +29,9 @@ public class CommunityDeleteServlet extends MyHttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			int communityNo = Integer.parseInt(req.getParameter("communityNo"));
-			Community community =service.findBoardByNo(communityNo, false);
+			System.out.println("communityNo : " + communityNo);
 			int result = service.delete(communityNo);
-			
+			System.out.println(result);
 			if(result >0 ) {
 				req.setAttribute("msg", "게시글 삭제 성공");
 				System.out.println(result);
