@@ -16,7 +16,7 @@ searchType = request.getParameter("searchType");
 searchValue = request.getParameter("searchValue");
 }
 %>
-
+ 
     <!-- 메인 큰 이미지 -->
     <section class="container" style="background-image: url(<%=path%>/resources/img/img_semi/itemmain.png); height: 600px;"></section>
     <!-- 메인 검색창 -->
