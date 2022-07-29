@@ -18,7 +18,7 @@ searchValue = request.getParameter("searchValue");
 %>
 
     <!-- 메인 큰 이미지 -->
-    <section class="container" style="background-image: url(<%=path%>/resources/img/img_semi/용품메인.png); height: 600px;"></section>
+    <section class="container" style="background-image: url(<%=path%>/resources/img/img_semi/itemmain.png); height: 600px;"></section>
     <!-- 메인 검색창 -->
     <div class="container mb-5">
         <div class="search-bar rounded-4 p-0 p-lg-1 position-relative mt-n6 z-index-20 mx-7">
@@ -58,7 +58,7 @@ searchValue = request.getParameter("searchValue");
         <div class="container mb-6">
             <div class="row mb-5">
                 <div class="col-md-12 fs-2" style="text-align: center; font-weight: bold; color: #F05945;">
-                    <img src="<%= path%>/resources/img/img_semi/뉴01_02.png" alt="Image" width="50px">신제품
+                    <img src="<%= path%>/resources/img/img_semi/new01_02.png" alt="Image" width="50px">신제품
                 </div>
             </div>
             <!-- Slider main container-->
@@ -70,18 +70,18 @@ searchValue = request.getParameter("searchValue");
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://shopping-phinf.pstatic.net/main_8314854/83148546349.1.jpg" alt="" />
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=83148546349"></a>
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html"></a></h6>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=83148546349">돔 텐트 그늘막 이너 캐노피 감성 거실형 케페우스 웜그레이 고래 스콜피오</a></h6>
                                         <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm"></p>
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">POLARIS 3-4인용</p>
                                             <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
                                             </p>
                                         </div>
-                                        <p class="card-text text-mutedCustom1">원</p>
+                                        <p class="card-text text-mutedCustom1">249,000원</p>
                                     </div>
                                 </div>
                             </div>
@@ -92,18 +92,18 @@ searchValue = request.getParameter("searchValue");
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1426122402199-be02db90eb90.jpg" alt="Cute Quirky Garden apt, NYC adjacent" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://shopping-phinf.pstatic.net/main_8439757/84397574731.1.jpg" alt="" />
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=84397574731"></a>
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html"></a></h6>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=84397574731">3way 테이블 캠핑용품 접이식 식탁 휴대용 폴딩 알루미늄 쓰리 3웨이 탁자</a></h6>
                                         <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">손쉽게 즐기는 시스템 루프탑텐트 몇초만에 펼쳐지는 새로운 세상</p>
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">카고컨테이너</p>
                                             <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
                                             </p>
                                         </div>
-                                        <p class="card-text text-mutedCustom1">1,459,000원</p>
+                                        <p class="card-text text-mutedCustom1">259,000원</p>
                                     </div>
                                 </div>
                             </div>
@@ -113,18 +113,18 @@ searchValue = request.getParameter("searchValue");
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1512917774080-9991f1c4c750.jpg" alt="Modern Apt - Vibrant Neighborhood!" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://shopping-phinf.pstatic.net/main_8434088/84340885867.jpg" alt="" />
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=84340885867"></a>
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">폴딩서랍장</a></h6>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=84340885867">그늘막 원터치 감성 텐트 베이지톤 캐노피 폴대 포함</a></h6>
                                         <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">상판이 포함되어 더 유용한 폴딩박스! 다용도 수납도 제격!</p>
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">하우롱디자인 3-4인용</p>
                                             <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
                                             </p>
                                         </div>
-                                        <p class="card-text text-mutedCustom1">59,000원</p>
+                                        <p class="card-text text-mutedCustom1">89,000원</p>
                                     </div>
                                 </div>
                             </div>
@@ -134,18 +134,18 @@ searchValue = request.getParameter("searchValue");
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1494526585095-c41746248156.jpg" alt="Sunny Private Studio-Apartment" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://shopping-phinf.pstatic.net/main_3203520/32035208620.20220429090313.jpg" alt="" />
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=32035208620"></a>
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">접이식 테이블</a></h6>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=32035208620">모던 감성 캠핑 LED 랜턴</a></h6>
                                         <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">높이조절이 가능하여 모든체어와 완벽하게 호환되는 높낮이 조절테이블</p>
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">살반</p>
                                             <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
                                             </p>
                                         </div>
-                                        <p class="card-text text-mutedCustom1">99,000원</p>
+                                        <p class="card-text text-mutedCustom1">26,990원</p>
                                     </div>
                                 </div>
                             </div>
@@ -155,14 +155,14 @@ searchValue = request.getParameter("searchValue");
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1522771739844-6a9f6d5f14af.jpg" alt="Mid-Century Modern Garden Paradise" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://shopping-phinf.pstatic.net/main_8252406/82524063019.3.jpg" alt="" />
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=82524063019"></a>
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">뷰티풀이타카체어</a></h6>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=82524063019">감성 캠핑 휴대용 폴딩 로우 피크닉 좌식 미니 우드 백패킹 릴렉스 경량 의자</a></h6>
                                         <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">아웃도어 뿐만 아니라 인도어에서도 어울리는 슬림한 디자인의 의자</p>
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">네이처하이크</p>
                                             <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
                                             </p>
                                         </div>
@@ -176,18 +176,18 @@ searchValue = request.getParameter("searchValue");
                         <!-- place item-->
                         <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2edasd626e485d">
                             <div class="card h-100 border-0 shadow">
-                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1488805990569-3c9e1d76d51c.jpg" alt="Brooklyn Life, Easy to Manhattan" />
-                                    <a class="tile-link" href="detail-rooms.html"></a>
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://shopping-phinf.pstatic.net/main_2701359/27013591582.4.jpg" alt="" />
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=27013591582"></a>
                                 </div>
                                 <div class="card-body d-flex align-items-center">
                                     <div class="w-100">
-                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">Brooklyn Life, Easy to Manhattan</a></h6>
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=27013591582">구름침낭이불</a></h6>
                                         <div class="d-flex card-subtitle mb-3">
-                                            <p class="flex-grow-1 mb-0 text-muted text-sm">Private room</p>
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">네이처아머</p>
                                             <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
                                             </p>
                                         </div>
-                                        <p class="card-text text-muted"><span class="h4 text-primary">$123</span> per night</p>
+                                        <p class="card-text text-mutedCustom1">89,000원</p>
                                     </div>
                                 </div>
                             </div>
@@ -204,13 +204,13 @@ searchValue = request.getParameter("searchValue");
         <div class="container mb-6">
             <div class="row mb-5">
                 <div class="col-md-12 fs-2" style="text-align: center; font-weight: bold; color: #5EAAA8;">
-                    <img src="<%= path%>/resources/img/img_semi/베스트01_05.png" alt="Image" width="50px">이 달의 추천제품
+                    <img src="<%= path%>/resources/img/img_semi/best01_05.png" alt="Image" width="50px">이 달의 추천제품
                 </div>
             </div>
             <div class="row">
                 <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
-                    <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(<%= path%>/resources/img/img_semi/캠핑용품_16.png) no-repeat; background-size: cover;">
-                        <a class="tile-link" href="category.html"> </a>
+                    <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(<%= path%>/resources/img/img_semi/campitem_16.png) no-repeat; background-size: cover;">
+                        <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=33285688969"> </a>
                         <h3 class="text-shadow text-white pt-5" style="margin-left: 50px;">800도씨 3WAY</h3>
                         <h2 class="text-shadow text-white" style="margin-left: 50px;">거북선 화로대</h2>
                         <h2 class="text-shadow text-mutedCustom" style="margin-left: 80px;"> 105,000원</h2>
@@ -219,10 +219,10 @@ searchValue = request.getParameter("searchValue");
                     </div>
                 </div>
                 <div class="mb-4 col-lg-4">
-                    <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate" style="background: center center url(<%= path%>/resources/img/img_semi/켐핑용품_16_01.png) no-repeat; background-size: cover;">
+                    <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate" style="background: center center url(<%= path%>/resources/img/img_semi/campitem_16_01.png) no-repeat; background-size: cover;">
                         <a class="tile-link" href="campingItemDetail.html"> </a>
                     </div>
-                    <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate mt-3" style="background: center center url(<%= path%>/resources/img/img_semi/캠핑용품_16_02.png) no-repeat; background-size: cover;">
+                    <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate mt-3" style="background: center center url(<%= path%>/resources/img/img_semi/campitem_16_02.png) no-repeat; background-size: cover;">
                         <a class="tile-link" href="campingItemDetail.html"> </a>
                     </div>
                 </div>
@@ -234,7 +234,7 @@ searchValue = request.getParameter("searchValue");
         <div class="container mt-0">
             <div class="row mb-5">
                 <div class="col-md-12 fs-2" style="text-align: center; font-weight: bold; color: #5EAAA8;">
-                    <img src="<%= path%>/resources/img/img_semi/좋아요01_05.png" alt="Image" width="50px">특별할인
+                    <img src="<%= path%>/resources/img/img_semi/good01_05.png" alt="Image" width="50px">특별할인
                 </div>
             </div>
         </div>
@@ -244,33 +244,33 @@ searchValue = request.getParameter("searchValue");
                 <div class="swiper-wrapper pb-5">
                     <!-- Slides-->
                     <div class="swiper-slide h-50 px-2">
-                        <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0" style="background: center center url(<%= path%>/resources/img/img_semi/캠핑의자.jpg) no-repeat; background-size: contain;">
-                            <a class="tile-link" href="category.html"></a>
-                            <h5 class="text-shadow text-black mb-auto" style="margin-left: 20px; margin-top: 20px;">브리즈문<br>경량 캠핑의자</h5>
+                        <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0" style="background: center center url(<%= path%>/resources/img/img_semi/campchair.jpg) no-repeat; background-size: contain;">
+                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=84103772758"></a>
+                            <h5 class="text-shadow text-black mb-auto" style="margin-left: 20px; margin-top: 20px;">스노우피크<br>접이식 캠핑의자</h5>
                         </div>
                     </div>
                     <div class="swiper-slide h-50 px-2">
-                        <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0" style="background: center center url(<%= path%>/resources/img/img_semi/침낭.jpg) no-repeat; background-size: contain;">
-                            <a class="tile-link" href="category.html"></a>
-                            <h5 class="text-shadow text-black mb-auto" style="margin-left: 20px; margin-top: 20px;">더블맥스<br>사계절 침낭</h5>
+                        <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0" style="background: center center url(<%= path%>/resources/img/img_semi/sleepingbag.jpg) no-repeat; background-size: contain;">
+                            <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=82992029759"></a>
+                            <h5 class="text-shadow text-black mb-auto" style="margin-left: 20px; margin-top: 20px;">네이처하이크<br>사계절 침낭</h5>
                         </div>
                     </div>
                     <div class="swiper-slide h-50 px-2">
-                        <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0" style="background: center center url(<%= path%>/resources/img/img_semi/랜턴1.jpg) no-repeat; background-size: contain;">
-                            <a class="tile-link" href="category.html"></a>
-                            <h5 class="text-shadow text-black mb-auto" style="margin-left: 20px; margin-top: 20px;">미니멀웍스<br>에디슨랜턴</h5>
+                        <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0" style="background: center center url(<%= path%>/resources/img/img_semi/Lantern1.jpg) no-repeat; background-size: contain;">
+                            <a class="tile-link" href="https://search.shopping.naver.com/product/82413973605"></a>
+                            <h5 class="text-shadow text-black mb-auto" style="margin-left: 20px; margin-top: 20px;">베어본즈<br>레일로드 랜턴</h5>
                         </div>
                     </div>
                     <div class="swiper-slide h-50 px-2">
-                        <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0" style="background: center center url(<%= path%>/resources/img/img_semi/텐트3.jpg) no-repeat; background-size: contain;">
-                            <a class="tile-link" href="category.html"></a>
-                            <h5 class="text-shadow text-black mb-auto" style="margin-left: 20px; margin-top: 20px;">스노우라인<br>패밀리 텐트</h5>
+                        <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0" style="background: center center url(<%= path%>/resources/img/img_semi/tent3.jpg) no-repeat; background-size: contain;">
+                            <a class="tile-link" href="https://search.shopping.naver.com/product/83017792351"></a>
+                            <h5 class="text-shadow text-black mb-auto" style="margin-left: 20px; margin-top: 20px;">캠플 인디언<br>그늘막 원터치 텐트</h5>
                         </div>
                     </div>
                     <div class="swiper-slide h-50 px-2">
-                        <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0" style="background: center center url(<%= path%>/resources/img/img_semi/테이블2.jpg) no-repeat; background-size: contain;">
-                            <a class="tile-link" href="category.html"></a>
-                            <h5 class="text-shadow text-black mb-auto" style="margin-left: 20px; margin-top: 20px;">우드상판<br>접이식 테이블</h5>
+                        <div class="card card-poster gradient-overlay hover-animate mb-4 mb-lg-0" style="background: center center url(<%= path%>/resources/img/img_semi/table2.jpg) no-repeat; background-size: contain;">
+                            <a class="tile-link" href="https://search.shopping.naver.com/product/29451284618"></a>
+                            <h5 class="text-shadow text-black mb-auto" style="margin-left: 20px; margin-top: 20px;">우드 롤<br>접이식 테이블</h5>
                         </div>
                     </div>
                 </div>
