@@ -51,7 +51,7 @@ if(campingVO == null){
             	resv_checkout : endday
 		}
 		
-		// 요금 계산하기
+		// 요금 계산하기 
 		consol.log("얼마"+$("#pay_value").val());
 		
 		var pay = $("#pay_value").val();
@@ -126,7 +126,7 @@ if(campingVO == null){
             </section>
             <!-- Breadcrumbs -->
             <div class="text-block">
-                <h1 class="hero-heading mb-3">은하수 캠핑장</h1>
+                <h1 class="hero-heading mb-3"><%=campingVO.getCs_name()%></h1>
             </div>
             <div class="text-block">
                 <div class="row mb-3">
@@ -158,7 +158,7 @@ if(campingVO == null){
             <div class="text-block">
                 <div class="col-sm">
                     <h6>캠핑장 전화번호</h6>
-                    <p class="text-muted">010-7894-7878</p>
+                    <p class="text-muted"><%=campingVO.getCs_tel()%></p>
                 </div>
             </div>
             <div class="text-block">
@@ -175,7 +175,7 @@ if(campingVO == null){
                 <div class="row">
                     <div class="col">
                         <h6>총 결제 요금</h6>
-                        <p class="text-muted">330,000원</p>
+                        <p class="text-muted"><%=campingVO.getCs_accom_fee()%>원</p>
                     </div>
                     <div class="col align-self-center">
                         <p class="text-end d-print-none"><a class="btn btn-link text-muted" href="user-invoice.html"><i class="far fa-file me-2"></i>결제내용 상세보기</a></p>
