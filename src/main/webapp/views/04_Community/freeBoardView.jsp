@@ -6,7 +6,6 @@
 
 <%@ include file="/views/07_common/header.jsp" %>
 <%
-Member loginMember = (Member)session.getAttribute("loginMember");
 Community community = (Community)request.getAttribute("community");
 %>
 

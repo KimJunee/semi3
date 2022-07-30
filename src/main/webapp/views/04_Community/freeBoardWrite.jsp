@@ -6,9 +6,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="/views/07_common/header.jsp" %>
-<%
-Member loginMember = (Member)session.getAttribute("loginMember");
-%>
+
 
     <!-- 헤더 큰 이미지 -->
     <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image:  url(<%= path%>/resources/img/img_semi/inquiry01_01.png); height: 350px; margin: 60px;">

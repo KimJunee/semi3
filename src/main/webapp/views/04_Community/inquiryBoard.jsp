@@ -6,7 +6,6 @@
 
 <%@ include file="/views/07_common/header.jsp" %>
 <%
-Member loginMember = (Member)session.getAttribute("loginMember");
  List<Inquiry> list = (List<Inquiry>)request.getAttribute("list"); 
 PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 
