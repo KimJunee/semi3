@@ -35,6 +35,14 @@ public class InquiryListServlet extends HttpServlet{
 		}catch (Exception e) {
 		}
 		
+		InquiryCount = service.getInquiryCount(searchValue);
+		pageInfo = new PageInfo(page, 10, InquiryCount, 10);
+		list = service.getInquiryList(pageInfo, searchValue);
+		
+		
+		req.setAttribute("list", list);//리스트로 넘기고
+		req.setAttribute("pageInfo", pageInfo);//페이지인포로넘기고
+		req.getRequestDispatcher("/views/04_Community/inquiryBoard.jsp").forward(req, resp);
 		
 		
 		

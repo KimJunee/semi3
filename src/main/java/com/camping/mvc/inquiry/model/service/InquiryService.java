@@ -20,17 +20,17 @@ public class InquiryService {
 
 	
 	//문의게시글 번호
-	public int getInquiryCount(Map<String, String> searchMap) {
+	public int getInquiryCount(String searchValue) {
 		Connection conn = getConnection();
-		int result = dao.getInquiryCount(conn, searchMap);
+		int result = dao.getInquiryCount(conn, searchValue);
 		close(conn);
 		return result;
 	}
 	
 	//문의게시글 리스트
-	public List<Inquiry> getInquiryList(PageInfo pageinfo, Map<String, String> searchMap) {
+	public List<Inquiry> getInquiryList(PageInfo pageinfo, String searchValue) {
 		Connection conn = getConnection();
-		List<Inquiry> list = dao.InquiryfindAll(conn, pageinfo, searchMap);
+		List<Inquiry> list = dao.InquiryfindAll(conn, pageinfo, searchValue);
 		close(conn);
 		return list;
 	}

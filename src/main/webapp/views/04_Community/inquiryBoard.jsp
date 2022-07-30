@@ -1,12 +1,13 @@
 <%@page import="com.camping.mvc.member.model.vo.Member"%>
 <%@page import="com.camping.common.util.PageInfo"%>
 <%@page import="java.util.List"%>
+<%@page import="com.camping.mvc.inquiry.model.vo.Inquiry"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="/views/07_common/header.jsp" %>
 <%
 Member loginMember = (Member)session.getAttribute("loginMember");
-/* List<Community> list = (List<Community>)request.getAttribute("list"); */
+ List<Inquiry> list = (List<Inquiry>)request.getAttribute("list"); 
 PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 
 //String searchType = "title";
@@ -37,11 +38,11 @@ if(request.getParameter("searchValue") != null){
                 <div class="row">
                     <div class="col-xl-12">
                         <!--검색바 둥근 모양 사이즈 조절하는 부분 -->
-                        <form action="#">
+                        <form action="<%=path%>/board/listServlet">
                             <div class="row">
                                 <!-- 검색창 -->
                                 <div class="col-lg-11 d-flex  form-group" style="height: 60px;">
-                                    <input type="text" class="form-control" style="font-size: 15px; color: rgb(203, 203, 203);" placeholder="        검색어를 입력하세요" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <input id="searchValue" name="searchValue" type="text" value="<%= searchValue%>" class="form-control" style="font-size: 15px; color: rgb(203, 203, 203);" placeholder="        검색어를 입력하세요" aria-label="Recipient's username" aria-describedby="button-addon2">
                                 </div>
                                 <!-- 검색버튼 -->
                                 <div class="col-lg-1 d-grid " style="height: 60px;">
@@ -59,9 +60,11 @@ if(request.getParameter("searchValue") != null){
     <!-- 문의글 쓰기 버튼 -->
     <div class="container">
         <div class="mb-5 mb-lg-8  ">
+         <% if(loginMember != null) {%>
             <button class="btn btn-primary rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#leaveReview" aria-expanded="false" aria-controls="leaveReview" style="font-size: 16px;">
                 <img src="<%= path%>/resources/img/img_semi/write01_03.png" width="35px">문의하기
             </button>
+             <% } %>
             <div class="collapse mt-4" id="leaveReview">
                 <form class="form" id="contact-form" method="get" action="#">
                     <div class="row">
@@ -155,6 +158,7 @@ if(request.getParameter("searchValue") != null){
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="accordion-item ">
                             <h2 class="accordion-header" id="panelsStayOpen-headingfive">
                                 <button class="accordion-button collapsed" style="font-weight: bolder;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
@@ -190,9 +194,47 @@ if(request.getParameter("searchValue") != null){
                                 </div>
                             </div>
                         </div>
-                    </div>
-        </section>
+                    
+       
         <!-- 공지사항 끝 -->
+        
+        
+         <!-- 페이지번호  -->
+             <nav aria-label="Page navigation example">
+            <ul
+               class="pagination pagination-template d-flex justify-content-center">
+               <li class="page-item"><a class="page-link"
+                  onclick="movePage('<%=path %>/board/listServlet?page=<%=pageInfo.getStartPage() %>');">
+                     <i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i>
+               </a></li>
+               <li class="page-item"><a class="page-link"
+                  onclick="movePage('<%=path %>/board/listServlet?page=<%=pageInfo.getPrvePage()%>');">
+                     <i class="fa fa-angle-left"></i>
+               </a></li>
+               <%--5페이지 12개 목록 출력하기 --%>
+               <% for(int i = pageInfo.getStartPage(); i <= pageInfo.getEndPage(); i++){ %>
+                     <%if(i == pageInfo.getCurrentPage()){ %>
+                     <li class="page-item active">
+                     <button class="page-link" disabled><%=i%></button></li>
+                     <%} else{%>
+                     <li class="page-item">
+                     <button class="page-link" onclick="movePage('<%=path %>/board/listServlet?page=<%=i%>');"><%=i%></button></li>
+                     <%} %>
+                  <%} %>
+
+               <%--다음으로 가기 --%>
+               <li class="page-item"><a class="page-link"
+                  onclick="movePage('<%=path %>/board/listServlet?page=<%=pageInfo.getNextPage() %>');">
+                     <i class="fa fa-angle-right"></i>
+               </a></li>
+               <li class="page-item"><a class="page-link"
+                  onclick="movePage('<%=path %>/board/listServlet?page=<%=pageInfo.getEndPage() %>');">
+                     <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
+               </a></li>
+            </ul>
+         </nav>
+         </div>
+          </section>
 
     <!-- 하단 이미지바 시작-->
     <section>
