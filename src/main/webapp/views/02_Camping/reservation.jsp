@@ -1,9 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="com.camping.mvc.camping.model.vo.CampingVO"%>
+<%@page import="com.camping.mvc.camping.model.dao.CampDetailDAO"%>
 <!DOCTYPE html>
 <html lang="ko">
 <%@ include file="/views/07_common/header.jsp" %>
 <%
 String mypath = request.getContextPath();
+CampingVO campingVO = (CampingVO)request.getAttribute("campingVO");
+
+if(campingVO == null){
+	campingVO = new CampingVO();
+}
 %>
 <script src="<%=mypath%>/resources/vendor/jquery/jquery.min.js"></script>
 <script>
@@ -16,7 +23,7 @@ String mypath = request.getContextPath();
 		
 		console.log("ajaxReservation start");
 		
-		//날짜 가져오기
+		// 날짜 가져오기
 		var startday = $("b.start-day").html();
 		var endday = $("b.end-day").html();
 		var date = new Date();
@@ -30,7 +37,7 @@ String mypath = request.getContextPath();
 			endday = today;
 		}
 		
-		//인원수 가져오기.
+		// 인원 수 가져오기
 		console.log("wtf ~~ "+$("#headcount_value").val());
 		
 		var headcount = $("#headcount_value").val();
@@ -39,10 +46,18 @@ String mypath = request.getContextPath();
 				user_no : 1,
             	cs_no : 1,
             	resv_headcount : headcount,
-            	resv_pay : 100000000,
+            	resv_pay : pay,
             	resv_checkin : startday,
             	resv_checkout : endday
 		}
+		
+		// 요금 계산하기
+		consol.log("얼마"+$("#pay_value").val());
+		
+		var pay = $("#pay_value").val();
+		
+		
+		
         
         $.ajax({
             type: 'POST',
@@ -136,7 +151,7 @@ String mypath = request.getContextPath();
                 <div class="row">
                     <div class="col-sm">
                         <h6>주소</h6>
-                        <p class="text-muted">경기 양주시 남면 감악산로514번길 468-8</p>
+                        <p class="text-muted"><%=campingVO.getCs_addr1()%><%=campingVO.getCs_addr2()%></p>
                     </div>
                 </div>
             </div>
@@ -282,4 +297,30 @@ String mypath = request.getContextPath();
 		markerPath: 'img/marker.svg',
 		})
 	</script>
+	<script src="<%=request.getContextPath()%>/resources/vendor/nouislider/nouislider.min.js"></script>
+    <script>
+        var snapSlider = document.getElementById('slider-snap');
+        noUiSlider.create(snapSlider, {
+            start: [40, 110],
+            snap: false,
+            connect: true,
+            step: 1,
+            range: {
+                'min': 40,
+                'max': 110
+            }
+        });
+        var snapValues = [
+            document.getElementById('slider-snap-value-from'),
+            document.getElementById('slider-snap-value-to')
+        ];
+        var inputValues = [
+            document.getElementById('slider-snap-input-from'),
+            document.getElementById('slider-snap-input-to')
+        ];
+        snapSlider.noUiSlider.on('update', function(values, handle) {
+            snapValues[handle].innerHTML = values[handle];
+            inputValues[handle].value = values[handle];
+        })
+    </script>
 <%@ include file="/views/07_common/footer.jsp" %>

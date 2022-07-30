@@ -31,9 +31,9 @@ public class CampSiteController extends MyHttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("go Main");
-//		req.getRequestDispatcher("/views/02_Camping/reservation.jsp").forward(req, resp);
-		req.getRequestDispatcher("/views/01_Main/main.jsp").forward(req, resp);
-		//req.getRequestDispatcher("/views/02_Camping/campingSearch.jsp").forward(req, resp);
+		req.getRequestDispatcher("/views/02_Camping/reservation.jsp").forward(req, resp);
+//		req.getRequestDispatcher("/views/01_Main/main.jsp").forward(req, resp);
+//		req.getRequestDispatcher("/views/02_Camping/campingSearch.jsp").forward(req, resp);
 //		req.getRequestDispatcher("/views/05_MyPage/kakaoTest.jsp").forward(req, resp);
 	}
 	

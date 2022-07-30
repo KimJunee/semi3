@@ -81,5 +81,7 @@ public class ReservationServlet extends MyHttpServlet{
 		resp.setContentType("text/html;charset=UTF-8");
 		// 리퀘스트 객체 보낸 곳으로 보냄
         resp.getWriter().write(resultValue);
+        // 결과값을 예약화면에 같이 보이게 함
+        req.getRequestDispatcher("/views/02_Camping/reservation.jsp").forward(req, resp);
 	}
 }

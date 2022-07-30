@@ -8,7 +8,7 @@
 
 $(function() {
     initDate();
-
+	
     var singleMonth = false;
     if ($(window).width() < 668) {
         singleMonth = true;
@@ -39,7 +39,7 @@ $(function() {
         },
 
     };
-    $("#start_form_dates").dateRangePicker(dateRangeConfig).bind('datepicker-change', function(obj) {
+    $("#start_form_dates").dateRangePicker(dateRangeConfig).bind('datepicker-change', function(event, obj) {
         var date1 = new Date(obj.date1);
         var date2 = new Date(obj.date2);
 		
