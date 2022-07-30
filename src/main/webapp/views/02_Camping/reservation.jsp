@@ -194,19 +194,37 @@ if(campingVO == null){
             </div>
         </div>
         <!-- 카카오 지도 - 서버 연결해야 보임 / 도메인(기본) 확인 완료 : http://localhost -->
+        <!-- https://apis.map.kakao.com/web/sample/ -->
         <div class="col-lg-5 col-xl-7">
-           <!-- // 기존 테마 지도 (구글)
-             <div class="map-full shadow-left" id="detailSideMap"></div> -->
-            <!--// 카카오 지도-->
+            <!-- 카카오 지도-->
             <div id="map" style="position: relative; width:100%;height:775px;"></div>
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=22780b0b907f50aa26b26eca2a5dbd9a"></script>
             <script>
-                var container = document.getElementById('map');
-                var options = {
-                    center: new kakao.maps.LatLng(33.450701, 126.570667),
-                    level: 3
-                };
-                var map = new kakao.maps.Map(container, options);
+            var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+            mapOption = {
+                center: new kakao.maps.LatLng(<%=campingVO.getCs_map_y() %>, <%=campingVO.getCs_map_x() %>),	// 지도의 중심좌표
+                level: 3 // 지도의 확대 레벨
+            };
+
+	        // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+	        var map = new kakao.maps.Map(mapContainer, mapOption);
+			
+	     	// 지도를 클릭한 위치에 표출할 마커입니다
+	        var marker = new kakao.maps.Marker({
+	            position: map.getCenter() 
+	        });
+	        
+	   		// 지도에 마커를 표시합니다
+	        marker.setMap(map);
+	        var mapTypeControl = new kakao.maps.MapTypeControl();
+	
+	        // 지도에 컨트롤을 추가해야 지도위에 표시됩니다
+	        // kakao.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
+	        map.addControl(mapTypeControl, kakao.maps.ControlPosition.TOPRIGHT);
+	
+	        // 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
+	        var zoomControl = new kakao.maps.ZoomControl();
+	        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
             </script>
         </div>
     </div>
@@ -296,29 +314,4 @@ if(campingVO == null){
 		})
 	</script>
 	<script src="<%=request.getContextPath()%>/resources/vendor/nouislider/nouislider.min.js"></script>
-    <!-- <script>
-        var snapSlider = document.getElementById('slider-snap');
-        noUiSlider.create(snapSlider, {
-            start: [40, 110],
-            snap: false,
-            connect: true,
-            step: 1,
-            range: {
-                'min': 40,
-                'max': 110
-            }
-        });
-        var snapValues = [
-            document.getElementById('slider-snap-value-from'),
-            document.getElementById('slider-snap-value-to')
-        ];
-        var inputValues = [
-            document.getElementById('slider-snap-input-from'),
-            document.getElementById('slider-snap-input-to')
-        ];
-        snapSlider.noUiSlider.on('update', function(values, handle) {
-            snapValues[handle].innerHTML = values[handle];
-            inputValues[handle].value = values[handle];
-        })
-    </script> -->
 <%@ include file="/views/07_common/footer.jsp" %>
