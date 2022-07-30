@@ -31,7 +31,7 @@ if(request.getParameter("searchValue") != null){
         <div class="container">
             <div class="col-lg-12 mb-3  mb-lg-8">
                 <div class="col-md-12">
-                    <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;"><img src="<%= path%>/resources/img/img_semi/inquiry01.png" width="60px"> 문의 게시판 </div>
+                    <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;"><img src="<%= path%>/resources/img/img_semi/inquiryicon01.png" width="60px"> 문의 게시판 </div>
                     <div class=" fs-5 mb-3" style="text-align: center; color: gray;">궁금한 점이 있다면 언제든 물어보세요.</div>
                 </div>
                 <div class="row">
