@@ -1,8 +1,25 @@
+<%@page import="com.camping.mvc.member.model.vo.Member"%>
+<%@page import="com.camping.common.util.PageInfo"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="/views/07_common/header.jsp" %>
 <%
-String mypath = request.getContextPath();
+Member loginMember = (Member)session.getAttribute("loginMember");
+/* List<Community> list = (List<Community>)request.getAttribute("list"); */
+PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
+
+//String searchType = "title";
+String searchValue = "";
+
+if(request.getParameter("searchValue") != null){
+	searchValue = request.getParameter("searchValue");
+}
+//String searchParamValue = request.getParameter("searchValue");
+//if(searchParamValue != null && searchParamValue.length() > 0){
+	//searchType = request.getParameter("searchType");
+//	searchValue = request.getParameter("searchValue");
+//}
 %>
 
     <!-- 헤더 큰 이미지 -->
@@ -244,5 +261,18 @@ String mypath = request.getContextPath();
         </div>
     </section>
     <!-- 하단 이미지바 끝-->
+       
+    <script type="text/javascript">
+function movePage(pageUrl){//페이지url받아옴
+	var searchValue = document.getElementById("searchValue");  // 갤럭시라는 입력값 가져옴1번
+	alert('나오니?');
+	if(searchValue.value.length > 0){
+		pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
+	}
+	alert(pageUrl);
+	location.href = encodeURI(pageUrl);	//로케이션을 바꾸는 코드	
+}
+</script>
 
-  <%@ include file="/views/07_common/footer.jsp" %>
+<%@ include file="/views/07_common/footer.jsp" %>
+     

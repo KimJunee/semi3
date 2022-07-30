@@ -1,8 +1,10 @@
+<%@page import="com.camping.mvc.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="/views/07_common/header.jsp" %>
 <%
-String mypath = request.getContextPath();
+Member loginMember = (Member)session.getAttribute("loginMember");
+/* Community community = (Community)request.getAttribute("community"); */
 %>
 
     <!-- 헤더 큰 이미지 -->
@@ -214,6 +216,18 @@ String mypath = request.getContextPath();
             </div>
         </div>
     </section>
-    
-      <%@ include file="/views/07_common/footer.jsp" %>
- 
+    <!-- 하단 이미지바 끝-->
+
+  <%@ include file="/views/07_common/footer.jsp" %>
+   
+   <script type="text/javascript">
+    // get 방식으로 페이지 요청하는 코드
+	
+     //댓글삭제
+	function deleteReply(replyNo, communityNo){
+		var url = '<%=request.getContextPath()%>/reply/delete?replyNo=';
+		var requestURL = url + replyNo + '&communityNo=' + communityNo;
+		location.replace(requestURL);
+	}
+	
+</script>

@@ -9,14 +9,14 @@ Member loginMember = (Member)session.getAttribute("loginMember");
 
 
     <!-- 헤더 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(/resources/img/img_semi/문의페01.jpg); height: 350px; margin: 60px;"></section>
+    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/문의페01.jpg); height: 350px; margin: 60px;"></section>
     <!-- 메인이미지끝 -->
 
     <section class="py-10">
         <div class="container">
             <div class="col-lg-12 mb-3  mb-lg-8">
                 <div class="col-md-12">
-                    <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;"><img src="/resources/img/img_semi/문의01.png" width="60px"> 문의 게시판 </div>
+                    <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;"><img src="<%= path%>/resources/img/img_semi/문의01.png" width="60px"> 문의 게시판 </div>
                     <div class=" fs-5 mb-3" style="text-align: center; color: gray;">궁금한 점이 있다면 언제든 물어보세요.</div>
                 </div>
             </div>
@@ -61,7 +61,7 @@ Member loginMember = (Member)session.getAttribute("loginMember");
         <div class="container">
             <div class="row ms-6">
                 <div class="col-md-5 pb-3  " style="font-size: 15px; font-weight:bolder ;">
-                    <img src="/resources/img/img_semi/man.png" width="8%"> 사용자닉네임
+                    <img src="<%= path%>/resources/img/img_semi/man.png" width="8%"> 사용자닉네임
                 </div>
                 <div class="col-md-3 ">
                     <a style="color: #5EAAA8;">
@@ -105,7 +105,7 @@ Member loginMember = (Member)session.getAttribute("loginMember");
                     <div class="container ">
                         <div class="row my-5">
                             <div class="col-md-10 pb-3  " style="font-size: 17px; font-weight:bolder ;">
-                                <img src="/resources/img/img_semi/모닥불로고05.png" width="8%"> 모닥불
+                                <img src="<%= path%>/resources/img/img_semi/모닥불로고05.png" width="8%"> 모닥불
                             </div>
                             <div class="col-md-2 ">
                                 <a style="color: #5EAAA8;">
@@ -157,61 +157,61 @@ Member loginMember = (Member)session.getAttribute("loginMember");
             <div class="swiper-container instagram-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-1.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-1.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-2.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-2.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-3.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-3.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-4.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-4.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-5.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-5.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-6.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-6.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-7.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-7.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-8.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-8.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-9.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-9.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-10.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-10.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-11.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-11.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-12.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-12.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-13.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-13.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-14.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-14.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-10.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-10.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-11.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-11.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-12.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-12.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-13.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-13.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="/resources/img/instagram/instagram-14.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-14.jpg" alt=" "></a>
                     </div>
                 </div>
             </div>
