@@ -7,16 +7,15 @@ Member loginMember = (Member)session.getAttribute("loginMember");
 /* Community community = (Community)request.getAttribute("community"); */
 %>
 
-
     <!-- 헤더 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/문의페01.jpg); height: 350px; margin: 60px;"></section>
+    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/inquiry01.jpg); height: 350px; margin: 60px;"></section>
     <!-- 메인이미지끝 -->
 
     <section class="py-10">
         <div class="container">
             <div class="col-lg-12 mb-3  mb-lg-8">
                 <div class="col-md-12">
-                    <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;"><img src="<%= path%>/resources/img/img_semi/문의01.png" width="60px"> 문의 게시판 </div>
+                    <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;"><img src="<%= path%>/resources/img/img_semi/inquiry01.jpg" width="60px"> 문의 게시판 </div>
                     <div class=" fs-5 mb-3" style="text-align: center; color: gray;">궁금한 점이 있다면 언제든 물어보세요.</div>
                 </div>
             </div>
@@ -105,7 +104,7 @@ Member loginMember = (Member)session.getAttribute("loginMember");
                     <div class="container ">
                         <div class="row my-5">
                             <div class="col-md-10 pb-3  " style="font-size: 17px; font-weight:bolder ;">
-                                <img src="<%= path%>/resources/img/img_semi/모닥불로고05.png" width="8%"> 모닥불
+                                <img src="<%= path%>/resources/img/img_semi/logo05.png" width="8%"> 모닥불
                             </div>
                             <div class="col-md-2 ">
                                 <a style="color: #5EAAA8;">
@@ -151,8 +150,8 @@ Member loginMember = (Member)session.getAttribute("loginMember");
         </div>
     </section>
 
-    <!-- 하단 이미지바 시작-->
-    <section>
+        <!-- 푸터위에 사진바-->
+        <section>
         <div class="container-fluid px-0">
             <div class="swiper-container instagram-slider">
                 <div class="swiper-wrapper">

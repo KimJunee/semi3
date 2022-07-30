@@ -20,11 +20,10 @@ if(request.getParameter("searchValue") != null){
 	//searchType = request.getParameter("searchType");
 //	searchValue = request.getParameter("searchValue");
 //}
-
 %>
 
     <!-- 헤더 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/문의페01.jpg); height: 350px; margin: 60px;"></section>
+    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/inquiry01.jpg); height: 350px; margin: 60px;"></section>
     <!-- 메인이미지끝 -->
 
     <!-- 문의게시판 검색창 시작 -->
@@ -32,7 +31,7 @@ if(request.getParameter("searchValue") != null){
         <div class="container">
             <div class="col-lg-12 mb-3  mb-lg-8">
                 <div class="col-md-12">
-                    <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;"><img src="<%= path%>/resources/img/img_semi/문의01.png" width="60px"> 문의 게시판 </div>
+                    <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;"><img src="<%= path%>/resources/img/img_semi/inquiry01.png" width="60px"> 문의 게시판 </div>
                     <div class=" fs-5 mb-3" style="text-align: center; color: gray;">궁금한 점이 있다면 언제든 물어보세요.</div>
                 </div>
                 <div class="row">
@@ -46,7 +45,7 @@ if(request.getParameter("searchValue") != null){
                                 </div>
                                 <!-- 검색버튼 -->
                                 <div class="col-lg-1 d-grid " style="height: 60px;">
-                                    <button class=" btn btn-primaryCuntom rounded-top h-100 " type="submit " style="font-size: 20px;"><img src="<%= path%>/resources/img/img_semi/검색.png" width="35px"> </button>
+                                    <button class=" btn btn-primaryCuntom rounded-top h-100 " type="submit " style="font-size: 20px;"><img src="<%= path%>/resources/img/img_semi/search.png" width="35px"> </button>
                                 </div>
                             </div>
                         </form>
@@ -61,7 +60,7 @@ if(request.getParameter("searchValue") != null){
     <div class="container">
         <div class="mb-5 mb-lg-8  ">
             <button class="btn btn-primary rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#leaveReview" aria-expanded="false" aria-controls="leaveReview" style="font-size: 16px;">
-                <img src="/resources/img/img_semi/글등록01_03.png" width="35px">문의하기
+                <img src="<%= path%>/resources/img/img_semi/write01_03.png" width="35px">문의하기
             </button>
             <div class="collapse mt-4" id="leaveReview">
                 <form class="form" id="contact-form" method="get" action="#">
@@ -170,7 +169,7 @@ if(request.getParameter("searchValue") != null){
                                 <div class="container ">
                                     <div class="row ">
                                         <div class="col-md-5 pb-3  " style="font-size: 15px; font-weight:bolder ;">
-                                            <img src="/resources/img/img_semi/man.png" width="8%"> 사용자닉네임
+                                            <img src="<%= path%>/resources/img/img_semi/man.png" width="8%"> 사용자닉네임
                                         </div>
                                         <div class="col-md-3 ">
                                             <a style="color: #5EAAA8;">
@@ -195,8 +194,8 @@ if(request.getParameter("searchValue") != null){
         </section>
         <!-- 공지사항 끝 -->
 
-        <!-- 푸터위에 사진바-->
-        <section>
+    <!-- 하단 이미지바 시작-->
+    <section>
         <div class="container-fluid px-0">
             <div class="swiper-container instagram-slider">
                 <div class="swiper-wrapper">
@@ -261,7 +260,7 @@ if(request.getParameter("searchValue") != null){
             </div>
         </div>
     </section>
-    
+    <!-- 하단 이미지바 끝-->
        
     <script type="text/javascript">
 function movePage(pageUrl){//페이지url받아옴

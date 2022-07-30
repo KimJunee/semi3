@@ -9,17 +9,17 @@ String mypath = request.getContextPath();
 <meta charset="UTF-8">
 <title>카카오페이</title>
 <link rel="stylesheet" href="/resources/css/main.css">
-<script src="https://cdn.bootpay.co.kr/js/bootpay-3.0.2.min.js" type="application/javascript"></script>
+<script src="https://js.bootpay.co.kr/bootpay-4.2.0.min.js" type="application/javascript"></script>
 <script src="<%=mypath%>/resources/vendor/jquery/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
 
 $(function(){
-
+// https://www.bootpay.co.kr/
 $("#paybtn").click(function(){
 	BootPay.request({
-		price: 1000, //바꿔야함
-		application_id: "5ed092284f74b4002bcab0a4", //바꿔야함
+		application_id: "62e4a782d01c7e001c33b19d", //BootPay Javascript 키 
+		price: 1000,
 		name: "헬로방구리 10개", //바꿔야함
 		pg: 'kakao',
 		method: 'easy', //결제수단, 입력하지 않으면 결제수단 선택부터 화면이 시작합니다.
