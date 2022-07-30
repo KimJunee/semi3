@@ -16,6 +16,11 @@ if(campingVO == null){
 <script>
 	$(function(){
 		console.log("로그야 찍혀라 젠장할"); //javascript에서 로그찍는거 - java에서 system.out.println 같은 기능
+		
+		
+		//단위 가격 콤마
+		var payvalue = <%=campingVO.getCs_accom_fee()%>
+		$("#pay").text(payvalue.toLocaleString("ko-KR") + " 원");
 	})
 	
 	// Ajax - Post방식
@@ -43,22 +48,14 @@ if(campingVO == null){
 		var headcount = $("#headcount_value").val();
 		
 		var data = {
-				user_no : 1,
-            	cs_no : 1,
+				user_no : user,
+            	cs_no : campsite,
             	resv_headcount : headcount,
             	resv_pay : pay,
             	resv_checkin : startday,
             	resv_checkout : endday
 		}
 		
-		// 요금 계산하기 
-		consol.log("얼마"+$("#pay_value").val());
-		
-		var pay = $("#pay_value").val();
-		
-		
-		
-        
         $.ajax({
             type: 'POST',
             url: '/reservation',
@@ -165,7 +162,7 @@ if(campingVO == null){
                 <h6 class="mb-3">예약 인원 수</h6>
                 <div class="mb-2">
                     <div class="d-flex align-items-center">
-                        <div onclick="reservationHeadCount()" class="btn btn-items btn-items-decrease">-</div>
+                        <div class="btn btn-items btn-items-decrease">-</div>
                         <input class="form-control input-items input-items-greaterthan" id="headcount_value" type="text" value="1" disabled>
                         <div class="btn btn-items btn-items-increase">+</div>
                     </div>
@@ -175,7 +172,8 @@ if(campingVO == null){
                 <div class="row">
                     <div class="col">
                         <h6>총 결제 요금</h6>
-                        <p class="text-muted"><%=campingVO.getCs_accom_fee()%>원</p>
+                        <p class="text-muted" id="pay"></p>
+                        <input type="hidden" id="pay_value" value="<%=campingVO.getCs_accom_fee()%>"/>
                     </div>
                     <div class="col align-self-center">
                         <p class="text-end d-print-none"><a class="btn btn-link text-muted" href="user-invoice.html"><i class="far fa-file me-2"></i>결제내용 상세보기</a></p>
@@ -298,7 +296,7 @@ if(campingVO == null){
 		})
 	</script>
 	<script src="<%=request.getContextPath()%>/resources/vendor/nouislider/nouislider.min.js"></script>
-    <script>
+    <!-- <script>
         var snapSlider = document.getElementById('slider-snap');
         noUiSlider.create(snapSlider, {
             start: [40, 110],
@@ -322,5 +320,5 @@ if(campingVO == null){
             snapValues[handle].innerHTML = values[handle];
             inputValues[handle].value = values[handle];
         })
-    </script>
+    </script> -->
 <%@ include file="/views/07_common/footer.jsp" %>

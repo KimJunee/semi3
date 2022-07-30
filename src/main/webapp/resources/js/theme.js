@@ -308,21 +308,39 @@ $(function() {
     // ------------------------------------------------------ //
     $(".btn-items-decrease").on("click", function() {
         var input = $(this).siblings(".input-items");
+        var payval = $("#pay_value").val();
         if (parseInt(input.val(), 10) > 1) {
             if (input.hasClass("input-items-greaterthan")) {
                 input.val(parseInt(input.val(), 10) - 1);
+                
+                var headcount = $("#headcount_value").val();
+	         	var value = (headcount * payval).toLocaleString("ko-KR");
+	            $("#pay").text(value + " 원");
             } else {
                 input.val(parseInt(input.val(), 10) - 1);
+                
+                var headcount = $("#headcount_value").val();
+	         	var value = (headcount * payval).toLocaleString("ko-KR");
+	            $("#pay").text(value + " 원");
             }
         }
     });
 
     $(".btn-items-increase").on("click", function() {
         var input = $(this).siblings(".input-items");
+        var payval = $("#pay_value").val();
         if (input.hasClass("input-items-greaterthan")) {
             input.val(parseInt(input.val(), 10) + 1);
+            
+            var headcount = $("#headcount_value").val();
+         	var value = (headcount * payval).toLocaleString("ko-KR");
+            $("#pay").text(value + " 원");
         } else {
             input.val(parseInt(input.val(), 10) + 1);
+            
+            var headcount = $("#headcount_value").val();
+         	var value = (headcount * payval).toLocaleString("ko-KR");
+            $("#pay").text(value + " 원");
         }
     });
 
