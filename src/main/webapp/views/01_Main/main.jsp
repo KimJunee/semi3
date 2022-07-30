@@ -21,7 +21,7 @@ String mypath = request.getContextPath();
 <!-- 메인 검색창 -->
 <div class="container ">
     <div class="search-bar rounded-4 p-0 p-lg-3 position-relative mt-n7 z-index-20 ">
-        <form action="# ">
+        <form action="<%=path %>/camping/list" method="get">
             <div class="row ">
                 <!-- 체크인 -->
                 <div class="col-lg-2 d-flex align-items-center form-group">
@@ -43,23 +43,22 @@ String mypath = request.getContextPath();
                         <mypath d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z "/>
                       </svg>
                     <select class="selectpicker ps-4 " title="지역선택 " data-style="btn-form-control ">
-                         <option value="small ">서울시</option>
-                         <option value="small ">부산시</option> 
-                         <option value="small ">대구시</option>
-                         <option value="small ">인천시</option>
-                         <option value="small ">광주시</option>
-                         <option value="small ">대전시</option>
-                         <option value="small ">울산시</option>
-                         <option value="small ">세종시</option>
-                         <option value="small ">경기도</option>
-                         <option value="small ">강원도</option>
-                         <option value="small ">충청북도</option>
-                         <option value="small ">충청남도</option>
-                         <option value="small ">전라북도</option>
-                         <option value="small ">전라남도</option>
-                         <option value="small ">경상북도</option>
-                         <option value="small ">경상남도</option>
-                         <option value="small ">제주도</option>
+                        <option value="서울">서울</option>
+						<option value="경기도">경기도</option>
+						<option value="인천">인천</option>
+						<option value="강원도">강원도</option>
+						<option value="대전">대전</option>
+						<option value="충청북도">충정북도</option>
+						<option value="충청남도">충청남도</option>
+						<option value="전라북도">전라북도</option>
+						<option value="전라남도">전라남도</option>
+						<option value="광주">광주</option>
+						<option value="경상북도">경상북도</option>
+						<option value="대구">대구</option>
+						<option value="경상남도">경상남도</option>
+						<option value="울산">울산</option>
+						<option value="부산">부산</option>
+						<option value="제주">제주</option>
                     </select>
                 </div>
                 <!-- 테마선택 -->
@@ -69,19 +68,16 @@ String mypath = request.getContextPath();
                     1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515
                     2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z "/>
                       </svg>
-                    <select class="selectpicker  ps-4" title="테마선택 " data-style="btn-form-control ">
-                <option value="small ">전체</option>
-                <option value="small ">해변</option>
-                <option value="small ">섬</option>
-                <option value="small ">산</option>
-                <option value="small ">숲</option>
-                <option value="small ">계곡</option>
-                <option value="small ">강</option>   
+                    <select class="selectpicker  ps-4" title="숙소유형 " data-style="btn-form-control ">
+                <option value="일반야영장">일반야영장</option>
+                <option value="카라반">카라반</option>
+                <option value="글램핑">글램핑</option>
+                <option value="자동차야영장">자동차야영장</option>
                 </select>
                 </div>
                 <!-- 검색창 -->
                 <div class="col-lg-3 d-flex align-items-center form-group ">
-                    <input class="form-control border-0 shadow-0 ps-5" type="search " name="search " placeholder="검색어를 입력해주세요 ">
+                    <input class="form-control border-0 shadow-0 ps-5" type="search " name="searchValue" id="searchValue" value="" placeholder="검색어를 입력해주세요 ">
                 </div>
                 <!-- 검색버튼 -->
                 <div class="col-lg-1  d-grid mb-0 ">
@@ -103,7 +99,7 @@ String mypath = request.getContextPath();
                 </svg> 인기캠핑장
             </div>
             <div class="col-md-4 d-md-flex align-items-center justify-content-end ">
-                <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="category.html ">
+                <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="<%=path%>/camping/list">
                         캠핑장 더보기
                         <i class="fas fa-angle-double-right ms-2 "></i>
                 </a>
@@ -112,18 +108,17 @@ String mypath = request.getContextPath();
         <div class="row ">
             <div class="d-flex align-items-lg-stretch mb-1 col-lg-8 " style="height: 450px; ">
                 <div class="card shadow-lg border-0 w-100 border-0 hover-animate " style="background: center center url(<%=mypath%>/resources/img/img_semi/camp03.jpg) no-repeat; background-size: cover; ">
-                    <a class="tile-link " href="category.html "> </a>
+                    <a class="tile-link " href="http://localhost:8081/semi3/camping/Detail?campingNo=2599"> </a>
                     <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7 ">
-                        <h3>은하수 캠핑장</h3>
-                        <h3>은하수 캠핑장</h3>
+                        <h3>하늘연캠핑장</h3>
                     </div>
                 </div>
             </div>
             <div class="d-flex align-items-lg-stretch mb-1 col-lg-4 " style="height: 450px; ">
                 <div class="card shadow-lg border-0 w-100 border-0 hover-animate " style="background: center center url(<%=mypath%>/resources/img/photo/photo-1429554429301-1c7d5ae2d42e.jpg) no-repeat; background-size: cover; ">
-                    <a class="tile-link " href="category.html "> </a>
+                    <a class="tile-link " href="http://localhost:8081/semi3/camping/Detail?campingNo=2759"> </a>
                     <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7 ">
-                        <h3>별똥별 카라반</h3>
+                        <h3>베어스 글램핑파크</h3>
                     </div>
                 </div>
             </div>
@@ -140,7 +135,7 @@ String mypath = request.getContextPath();
                 <img src="<%= mypath%>/resources/img/img_semi/campitem01.png" alt="Image " width="50px "> 캠핑용품
             </div>
             <div class="col-md-4 d-md-flex align-items-center justify-content-end ">
-                <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="category.html ">
+                <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="<%=path%>/views/03_Item/campingItem.jsp">
        캠핑용품 더보기<i class="fas fa-angle-double-right ms-2 "></i></a>
             </div>
         </div>
@@ -157,19 +152,19 @@ String mypath = request.getContextPath();
                     <div class="w-100 h-100 hover-animate " data-marker-id="59c0c8e33b1527bfe2abaf92 ">
                         <div class="card h-100 border-0 shadow ">
                             <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="<%= mypath%>/resources/img/img_semi/campbasket.png" style="height:250px;">
-                                <a class="tile-link " href="detail-rooms.html "></a>
-                                <div class="card-img-overlay-top text-end ">
+                                <a class="tile-link " href="https://smartstore.naver.com/buytop/products/6546351540?NaPm=ct%3Dl683y134%7Cci%3D0aae679a2a53d913526ec7db37a949e64cd0f347%7Ctr%3Dslsl%7Csn%3D577370%7Chk%3D2c060eff8b7254d53a293ed6de14be56f988dd0f"></a>
+ <%--                               <div class="card-img-overlay-top text-end ">
                                     <a class="card-fav-icon position-relative z-index-40 " href="javascript: void(); ">
                                         <svg class="svg-icon text-white ">
                         <use xlink:href="#heart-1 "> </use>
                       </svg></a>
-                                </div>
+                                </div>--%>
                             </div>
                             <div class="card-body d-flex align-items-center ">
                                 <div class="w-100 ">
-                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="detail-rooms.html ">캠핑바스켓</a></h6>
+                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://smartstore.naver.com/buytop/products/6546351540?NaPm=ct%3Dl683y134%7Cci%3D0aae679a2a53d913526ec7db37a949e64cd0f347%7Ctr%3Dslsl%7Csn%3D577370%7Chk%3D2c060eff8b7254d53a293ed6de14be56f988dd0f">캠핑바스켓</a></h6>
                                     <p class="text-sm text-muted text-uppercase ">캠핑바구니 하나로도 감성캠핑을 즐길 수 있어요</p>
-                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>50,000원</span></p>
+                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>10,900원</span></p>
                                 </div>
                             </div>
                         </div>
@@ -179,19 +174,19 @@ String mypath = request.getContextPath();
                     <div class="w-100 h-100 hover-animate " data-marker-id="59c0c8e33b1527bfe2abaf92 ">
                         <div class="card h-100 border-0 shadow ">
                             <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="<%= mypath%>/resources/img/img_semi/tent01.png " style="height:250px;">
-                                <a class=" tile-link " href="detail-rooms.html "></a>
-                                <div class="card-img-overlay-top text-end ">
+                                <a class=" tile-link " href="https://search.shopping.naver.com/gate.nhn?id=32695611628"></a>
+  <%--                              <div class="card-img-overlay-top text-end ">
                                     <a class="card-fav-icon position-relative z-index-40 " href="javascript: void(); ">
                                         <svg class="svg-icon text-white ">
                       <use xlink:href="#heart-1 "> </use>
                     </svg></a>
-                                </div>
+                                </div>--%>
                             </div>
                             <div class="card-body d-flex align-items-center ">
                                 <div class="w-100 ">
-                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="detail-rooms.html ">새턴2룸텐트</a></h6>
+                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://search.shopping.naver.com/gate.nhn?id=32695611628">새턴2룸텐트</a></h6>
                                     <p class="text-sm text-muted text-uppercase ">내구성과 방수, 넓은 실내공간을 한번에 만족시켜주는 텐트</p>
-                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>850,000원</span></p>
+                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>980,000원</span></p>
                                 </div>
                             </div>
                         </div>
@@ -200,20 +195,20 @@ String mypath = request.getContextPath();
                 <div class="swiper-slide h-auto px-2 ">
                     <div class="w-100 h-100 hover-animate " data-marker-id="59c0c8e33b1527bfe2abaf92 ">
                         <div class="card h-100 border-0 shadow ">
-                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="<%= mypath%>/resources/img/img_semi/tent02.png" style="height:250px;">
-                                <a class="tile-link " href="detail-rooms.html "></a>
-                                <div class="card-img-overlay-top text-end ">
+                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="https://shopping-phinf.pstatic.net/main_3152259/31522594618.20220329213345.jpg" style="height:250px;">
+                                <a class="tile-link " href="https://search.shopping.naver.com/gate.nhn?id=31522594618"></a>
+  <%--                              <div class="card-img-overlay-top text-end ">
                                     <a class="card-fav-icon position-relative z-index-40 " href="javascript: void(); ">
                                         <svg class="svg-icon text-white ">
                     <use xlink:href="#heart-1 "> </use>
                   </svg></a>
-                                </div>
+                                </div>--%>
                             </div>
                             <div class="card-body d-flex align-items-center ">
                                 <div class="w-100 ">
-                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="detail-rooms.html ">루프탑텐트</a></h6>
+                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://search.shopping.naver.com/gate.nhn?id=31522594618">루프탑텐트</a></h6>
                                     <p class="text-sm text-muted text-uppercase ">손쉽게 즐기는 시스템 루프탑 텐트, 몇초만에 새로운 세상을 즐길수있어요</p>
-                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>1,459,000원</span></p>
+                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>4,200,000원</span></p>
                                 </div>
                             </div>
                         </div>
@@ -222,20 +217,42 @@ String mypath = request.getContextPath();
                 <div class="swiper-slide h-auto px-2 ">
                     <div class="w-100 h-100 hover-animate " data-marker-id="59c0c8e33b1527bfe2abaf92 ">
                         <div class="card h-100 border-0 shadow ">
-                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="<%= mypath%>/resources/img/img_semi/table.png" style="height:250px;">
-                                <a class="tile-link " href="detail-rooms.html "></a>
-                                <div class="card-img-overlay-top text-end ">
+                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="https://shopping-phinf.pstatic.net/main_8372674/83726746936.5.jpg" style="height:250px;">
+                                <a class="tile-link " href="https://search.shopping.naver.com/gate.nhn?id=83726746936"></a>
+ <%--                                <div class="card-img-overlay-top text-end ">
                                     <a class="card-fav-icon position-relative z-index-40 " href="javascript: void(); ">
                                         <svg class="svg-icon text-white ">
                   <use xlink:href="#heart-1 "> </use>
                 </svg></a>
-                                </div>
+                                </div>--%>
                             </div>
                             <div class="card-body d-flex align-items-center ">
                                 <div class="w-100 ">
-                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="detail-rooms.html ">캠핑 원목테이블</a></h6>
+                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://search.shopping.naver.com/gate.nhn?id=83726746936">존디 캠핑 우드 테이블</a></h6>
                                     <p class="text-sm text-muted text-uppercase ">원목이지만 탄탄한 방수처리로 물가에서도 사용할수 있어요</p>
-                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>130,000원</span></p>
+                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>165,000원</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide h-auto px-2 ">
+                    <div class="w-100 h-100 hover-animate " data-marker-id="59c0c8e33b1527bfe2abaf92 ">
+                        <div class="card h-100 border-0 shadow ">
+                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="https://shopping-phinf.pstatic.net/main_2888797/28887976587.20220418151614.jpg" style="height:250px;">
+                                <a class="tile-link " href="https://search.shopping.naver.com/gate.nhn?id=28887976587"></a>
+ <%--                                <div class="card-img-overlay-top text-end ">
+                                    <a class="card-fav-icon position-relative z-index-40 " href="javascript: void(); ">
+                                        <svg class="svg-icon text-white ">
+                  <use xlink:href="#heart-1 "> </use>
+                </svg></a>
+                                </div>--%>
+                            </div>
+                            <div class="card-body d-flex align-items-center ">
+                                <div class="w-100 ">
+                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://search.shopping.naver.com/gate.nhn?id=28887976587">다니고 캠핑의자</a></h6>
+                                    <p class="text-sm text-muted text-uppercase ">원목이지만 탄탄한 방수처리로 물가에서도 사용할수 있어요</p>
+                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>38,000원</span></p>
                                 </div>
                             </div>
                         </div>
