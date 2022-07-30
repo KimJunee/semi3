@@ -86,9 +86,9 @@
                             </li>
                             <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/views/03_Item/campingItem.jsp" style="font-size:25px;color: rgb(28, 27, 27)">캠핑용품</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link me-4" href="freeBoard01.html" style="font-size:25px; color: rgb(28, 27, 27);"> 자유게시판 </a>
+                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/board/freeBoard" style="font-size:25px; color: rgb(28, 27, 27);"> 자유게시판 </a>
                             </li>
-                            <li class="nav-item"><a class="nav-link me-4" href="myPageProfile.html" style="font-size:25px;color: rgb(28, 27, 27)">마이페이지</a>
+                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/member/mypage" style="font-size:25px;color: rgb(28, 27, 27)">마이페이지</a>
                             </li>
                              <%if(loginMember == null){ %>
                             <li class="nav-item mt-2  d-lg-none d-xl-inline-block"><a class="btn btn-primary" style="font-size: 15px;" href="<%=path%>/views/06_User/signin.jsp">로그인</a></li>
