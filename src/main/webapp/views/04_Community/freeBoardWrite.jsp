@@ -1,3 +1,4 @@
+<%@page import="com.camping.mvc.member.model.vo.Member"%>
 <%@page import="com.camping.common.util.PageInfo"%>
 <%@page import="java.util.List"%>
 <%@page import="com.camping.mvc.community.model.vo.Community"%>
@@ -6,7 +7,7 @@
 
 <%@ include file="/views/07_common/header.jsp" %>
 <%
-
+Member loginMember = (Member)session.getAttribute("loginMember");
 %>
 
     <!-- 헤더 큰 이미지 -->
