@@ -1,7 +1,21 @@
+<%@page import="com.camping.mvc.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
+	String saveId = "";
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	
+	Cookie[] cookies = request.getCookies();
+	
+		if(cookies != null){
+			for(Cookie c : cookies){
+				if(c.getName().equals("saveId")){
+					saveId = c.getValue();
+					break;
+				}
+			}
+		}
 %>
 <!DOCTYPE html>
 <html>
@@ -54,10 +68,10 @@
                     <!-- 로고 옆 검색창 -->
                     <nav class="navbar bg-white">
                         <div class="container-fluid">
-                            <form class="d-flex" role="search" href="main.html">
+                            <form class="d-flex" role="search" action="<%=path%>/campingItem/totalSearch" method="get">
                                 <label class="label-absolute" style="width:100px;">
                                     <i class="fa fa-search" style="padding-left: 10px;"></i></label>
-                                <input class="form-control me-2 ms-xl-0" type="search" placeholder="     캠핑용품 검색" aria-label="Search">
+                                <input class="form-control me-2 ms-xl-0" id="searchValue" name="searchValue" type="search" value="" placeholder="     캠핑용품 검색" aria-label="Search">
                             </form>
                         </div>
                     </nav>
@@ -70,13 +84,17 @@
                             </li>
                             <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/camping/list" style="font-size:25px;color: rgb(28, 27, 27)">캠핑장</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link me-4" href="campingItem.html" style="font-size:25px;color: rgb(28, 27, 27)">캠핑용품</a>
+                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/views/03_Item/campingItem.jsp" style="font-size:25px;color: rgb(28, 27, 27)">캠핑용품</a>
                             </li>
                             <li class="nav-item"><a class="nav-link me-4" href="freeBoard01.html" style="font-size:25px; color: rgb(28, 27, 27);"> 자유게시판 </a>
                             </li>
                             <li class="nav-item"><a class="nav-link me-4" href="myPageProfile.html" style="font-size:25px;color: rgb(28, 27, 27)">마이페이지</a>
                             </li>
-                            <li class="nav-item mt-2  d-lg-none d-xl-inline-block"><a class="btn btn-primary" style="font-size: 15px;" href="signin.html">로그인</a></li>
+                             <%if(loginMember == null){ %>
+                            <li class="nav-item mt-2  d-lg-none d-xl-inline-block"><a class="btn btn-primary" style="font-size: 15px;" href="<%=path%>/views/06_User/signin.jsp">로그인</a></li>
+                            <%} else { %>
+                             <li class="nav-item mt-2  d-lg-none d-xl-inline-block"><a class="btn btn-primary" style="font-size: 15px;" href="<%=path%>/logout">로그아웃</a></li>
+                            <%} %>
                             <li class="nav-item dropdown position-static mt-8 ">
                                 <a class="nav-link " href="#" data-bs-toggle="dropdown"><img src="<%=path%>/resources/img/img_semi/list01.png" style="width: 50px;"></a>
                                 <div class="dropdown-menu megamenu py-lg-0">
