@@ -98,13 +98,10 @@ String mypath = request.getContextPath();
 		//? 뒤에 붙을 주소 만들기
 		location.href='/reservation?'+url;
 	} */
-	
 </script>
 
 <!-- 헤더 큰 이미지 -->
-<section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%=mypath%>/resources/img/img_semi/camp_07_01.jpg); height: 350px; margin: 60px;">
-
-</section>
+<section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%=mypath%>/resources/img/img_semi/camp_07_01.jpg); height: 350px; margin: 60px;"></section>
 
 <div class="container-fluid">
     <div class="row">
@@ -197,15 +194,11 @@ String mypath = request.getContextPath();
                     level: 3
                 };
                 var map = new kakao.maps.Map(container, options);
-                
-
-
             </script>
         </div>
     </div>
 </div>
 <!-- ============================================================================================================================== -->
-
 <!-- 푸터위에 사진바-->
 <section>
     <div class="container-fluid px-0">
@@ -289,5 +282,4 @@ String mypath = request.getContextPath();
 		markerPath: 'img/marker.svg',
 		})
 	</script>
-
 <%@ include file="/views/07_common/footer.jsp" %>

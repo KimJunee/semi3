@@ -67,7 +67,7 @@
 
 <!-- 헤더 큰 이미지 -->
 <section class="d-flex align-items-center dark-overlay bg-cover "
-	style="background-image: url(<%=path %>/resources/img/img_semi/캠핑_호수_02_01.png); height: 350px; margin: 60px;">
+	style="background-image: url(<%=path %>/resources/img/img_semi/camp_02_01.png); height: 350px; margin: 60px;">
 	<!-- 헤더 이미지 글씨 -->
 </section>
 <!-- 메인이미지끝 -->

@@ -23,9 +23,8 @@ if(request.getParameter("searchValue") != null){
 
 %>
 
-
     <!-- 헤더 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/문의01_01.png); height: 350px; margin: 60px;">
+    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/inquiry01_01.png); height: 350px; margin: 60px;">
         <!-- 헤더 이미지 글씨 -->
         <div class="container">
         </div>
@@ -48,7 +47,6 @@ if(request.getParameter("searchValue") != null){
         </div>
     </section>
 
-
     <!-- 커뮤니티게시판 검색창 시작 -->
     <section class="py-10">
         <div class="container">
@@ -64,7 +62,7 @@ if(request.getParameter("searchValue") != null){
                                 </div>
                                 <!-- 검색버튼 -->
                                 <div class="col-lg-1 d-grid " style="height: 60px;">
-                                    <button class=" btn btn-primaryCuntom rounded-top h-100 " type="submit" style="font-size: 20px;"><img src="<%= path%>/resources/img/img_semi/검색.png" width="35px"> </button>
+                                    <button class=" btn btn-primaryCuntom rounded-top h-100 " type="submit" style="font-size: 20px;"><img src="<%= path%>/resources/img/img_semi/search.png" width="35px"> </button>
                                 </div>
                             </div>
                         </form>
@@ -79,7 +77,7 @@ if(request.getParameter("searchValue") != null){
         <div class=" mb-lg-1 ">
         <% if(loginMember != null) {%>
             <button class="btn btn-primary rounded-top" type="button" style="font-size: 16px;" onclick="location.href = '<%=path%>/board/write' ">
-              <img src="<%= path%>/resources/img/img_semi/글등록01_03.png" width="35px">글 작성
+              <img src="<%= path%>/resources/img/img_semi/write01_03.png" width="35px">글 작성
             </button>
             <% } %>
         </div>
@@ -99,7 +97,6 @@ if(request.getParameter("searchValue") != null){
                                 <th class="text-center col-md-1">조회수</th>
                             </tr>
                         </thead>
-                        
                         <tbody>
 						<%if(list == null || list.isEmpty()){ %><!--  게시글이 없는 경우  -->
 						<tr>
@@ -107,7 +104,6 @@ if(request.getParameter("searchValue") != null){
 						</tr>
 						<%} else { %><!-- 게시글이 있는경우 -->
 							<%for(Community c : list){ %>
-                        
                             <tr>
                                 <td class="text-center col-md-1"><%=c.getCo_no()%></td>
                                 <td class="fw-bold text-center  col-md-6">
@@ -122,10 +118,8 @@ if(request.getParameter("searchValue") != null){
                                 <td class="text-center col-md-1"><%= c.getCo_hit()%></td>
                                  <%}%>
                             </tr>
-                           
                  		 <%}%> 
                         </tbody>
-                            
                     </table>
                 </div>
             </div>
@@ -166,8 +160,6 @@ if(request.getParameter("searchValue") != null){
          </nav>
         </div>
     </section>
- 
-
     
            <!-- 하단 이미지바 시작-->
     <section>
@@ -236,8 +228,6 @@ if(request.getParameter("searchValue") != null){
         </div>
     </section>
     <!-- 하단 이미지바 끝-->
-    
-    
     
     <script type="text/javascript">
 function movePage(pageUrl){//페이지url받아옴
