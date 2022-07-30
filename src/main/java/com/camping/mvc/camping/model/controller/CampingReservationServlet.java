@@ -17,7 +17,8 @@ import com.camping.mvc.camping.model.vo.CampingVO;
 import com.camping.mvc.camping.model.vo.Reservation;
 import com.camping.mvc.camping.model.vo.Review;
 
-@WebServlet("/camping/Reservation")
+// 검색한 캠핑장 상세정보를 예약하는 곳으로 보내주는 서블릿
+@WebServlet("/camping/reservation")
 public class CampingReservationServlet extends MyHttpServlet{
 	private static final long serialVersionUID = 1L;
 
