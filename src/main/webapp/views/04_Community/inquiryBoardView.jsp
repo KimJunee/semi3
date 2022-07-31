@@ -1,4 +1,4 @@
-
+<%@page import="com.camping.mvc.member.model.vo.Member"%>
 <%@page import="com.camping.mvc.inquiry.model.vo.Inreply"%>
 <%@page import="com.camping.mvc.inquiry.model.vo.Inquiry"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
