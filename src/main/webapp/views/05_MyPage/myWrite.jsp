@@ -1,8 +1,11 @@
+<%@page import="java.util.List"%>
+<%@page import="com.camping.mvc.community.model.vo.Community"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="/views/07_common/header.jsp" %>
 <%
 String mypath = request.getContextPath();
+List<Community> list = (List<Community>)request.getAttribute("list");
 %>
 
     <!-- 헤더 큰 이미지 -->
@@ -32,7 +35,7 @@ String mypath = request.getContextPath();
                             <a class="d-inline-block" href="#">
                                 <img class="d-block avatar avatar-xxl p-2 mb-2" src="<%= path%>/resources/img/img_semi/campfire01.png" alt="">
                             </a>
-                            <div style="font-weight: bolder; font-size: 25px;">홍길동</div>
+                            <div style="font-weight: bolder; font-size: 25px;"><%=loginMember.getUser_name() %>></div>
                         </div>
                         <!--프로필 카드 내부 메뉴  -->
                         <div class="card-body p-4">
@@ -71,6 +74,7 @@ String mypath = request.getContextPath();
                     <div class="text-block">
                         <h4 class="mb-5">내 게시물</h4>
                         <div class="row">
+                        <%for(Community comm : list) {%>
                             <!--게시글 01  -->
                             <div class="col-6  col-md-4  mb-30px">
                                 <div class="card h-100 border-0 shadow hover-animate">
@@ -83,16 +87,18 @@ String mypath = request.getContextPath();
                                         <!-- 게시글제목 -->
                                         <h5 class="card-title mb-3">
                                             <a class="text-decoration-none text-dark stretched-link" href="user-personal.html">
-                                                게시글제목 01
+                                                <%=comm.getCo_title() %>
                                             </a>
                                         </h5>
                                         <!-- 게시글내용 -->
-                                        <p class="text-muted card-text text-sm">내용 내용 내용 내용 내용</p>
+                                        <p class="text-muted card-text text-sm"><%=comm.getCo_content() %></p>
                                     </div>
                                 </div>
                             </div>
+                            <%} %>
                             <!--게시글 01  -->
-                            <div class="col-6  col-md-4  mb-30px">
+                           
+                    <%--       <div class="col-6  col-md-4  mb-30px">
                                 <div class="card h-100 border-0 shadow hover-animate">
                                     <div class="card-body">
                                         <div class="mb-3">
@@ -256,7 +262,7 @@ String mypath = request.getContextPath();
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --%>
 
                         <!-- 페이지번호  -->
                         <div class="mt-3">
