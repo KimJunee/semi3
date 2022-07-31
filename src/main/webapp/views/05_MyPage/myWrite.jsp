@@ -1,3 +1,4 @@
+<%@page import="com.camping.common.util.PageInfo"%>
 <%@page import="java.util.List"%>
 <%@page import="com.camping.mvc.community.model.vo.Community"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -6,6 +7,7 @@
 <%
 String mypath = request.getContextPath();
 List<Community> list = (List<Community>)request.getAttribute("list");
+PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 %>
 
     <!-- 헤더 큰 이미지 -->
@@ -35,7 +37,7 @@ List<Community> list = (List<Community>)request.getAttribute("list");
                             <a class="d-inline-block" href="#">
                                 <img class="d-block avatar avatar-xxl p-2 mb-2" src="<%= path%>/resources/img/img_semi/campfire01.png" alt="">
                             </a>
-                            <div style="font-weight: bolder; font-size: 25px;"><%=loginMember.getUser_name() %>></div>
+                            <div style="font-weight: bolder; font-size: 25px;"><%=loginMember.getUser_name() %></div>
                         </div>
                         <!--프로필 카드 내부 메뉴  -->
                         <div class="card-body p-4">
@@ -59,7 +61,7 @@ List<Community> list = (List<Community>)request.getAttribute("list");
                             </div>
                             <hr>
                             <div class="d-flex align-items-center mb-3">
-                                <button class="btn btn-primary-semi-custom " onclick="location.href = 'myPagePost.html'" style="width:260px; height: 50px; font-size: 20px;">  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                <button class="btn btn-primary-semi-custom " onclick="location.href = '<%=path%>/mypage/mywrite'" style="width:260px; height: 50px; font-size: 20px;">  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                                     <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                                   </svg>내 게시물</button>
                             </div>
@@ -96,195 +98,56 @@ List<Community> list = (List<Community>)request.getAttribute("list");
                                 </div>
                             </div>
                             <%} %>
-                            <!--게시글 01  -->
-                           
-                    <%--       <div class="col-6  col-md-4  mb-30px">
-                                <div class="card h-100 border-0 shadow hover-animate">
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
-                                                                                <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
-                                                                              </svg>
-                                        </div>
-                                        <!-- 게시글제목 -->
-                                        <h5 class="card-title mb-3">
-                                            <a class="text-decoration-none text-dark stretched-link" href="user-personal.html">
-                                               게시글제목 01
-                                               </a>
-                                        </h5>
-                                        <!-- 게시글내용 -->
-                                        <p class="text-muted card-text text-sm">내용 내용 내용 내용 내용</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--게시글 01  -->
-                            <div class="col-6 col-md-4 mb-30px">
-                                <div class="card h-100 border-0 shadow hover-animate">
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
-                                                                                <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
-                                                                              </svg>
-                                        </div>
-                                        <!-- 게시글제목 -->
-                                        <h5 class="card-title mb-3">
-                                            <a class="text-decoration-none text-dark stretched-link" href="user-personal.html">
-                                                                            게시글제목 01
-                                                                        </a>
-                                        </h5>
-                                        <!-- 게시글내용 -->
-                                        <p class="text-muted card-text text-sm">내용 내용 내용 내용 내용</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--게시글 01  -->
-                            <div class="col-6 col-md-4 mb-30px">
-                                <div class="card h-100 border-0 shadow hover-animate">
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
-                                                                                <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
-                                                                              </svg>
-                                        </div>
-                                        <!-- 게시글제목 -->
-                                        <h5 class="card-title mb-3">
-                                            <a class="text-decoration-none text-dark stretched-link" href="user-personal.html">
-                                                                            게시글제목 01
-                                                                        </a>
-                                        </h5>
-                                        <!-- 게시글내용 -->
-                                        <p class="text-muted card-text text-sm">내용 내용 내용 내용 내용</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--게시글 01  -->
-                            <div class="col-6 col-md-4 mb-30px">
-                                <div class="card h-100 border-0 shadow hover-animate">
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
-                                                                                <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
-                                                                              </svg>
-                                        </div>
-                                        <!-- 게시글제목 -->
-                                        <h5 class="card-title mb-3">
-                                            <a class="text-decoration-none text-dark stretched-link" href="user-personal.html">
-                                                                            게시글제목 01
-                                                                        </a>
-                                        </h5>
-                                        <!-- 게시글내용 -->
-                                        <p class="text-muted card-text text-sm">내용 내용 내용 내용 내용</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--게시글 01  -->
-                            <div class="col-6 col-md-4 mb-30px">
-                                <div class="card h-100 border-0 shadow hover-animate">
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
-                                                                                <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
-                                                                              </svg>
-                                        </div>
-                                        <!-- 게시글제목 -->
-                                        <h5 class="card-title mb-3">
-                                            <a class="text-decoration-none text-dark stretched-link" href="user-personal.html">
-                                                                            게시글제목 01
-                                                                        </a>
-                                        </h5>
-                                        <!-- 게시글내용 -->
-                                        <p class="text-muted card-text text-sm">내용 내용 내용 내용 내용</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--게시글 01  -->
-                            <div class="col-6 col-md-4 mb-30px">
-                                <div class="card h-100 border-0 shadow hover-animate">
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
-                                                                                <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
-                                                                              </svg>
-                                        </div>
-                                        <!-- 게시글제목 -->
-                                        <h5 class="card-title mb-3">
-                                            <a class="text-decoration-none text-dark stretched-link" href="user-personal.html">
-                                                                            게시글제목 01
-                                                                        </a>
-                                        </h5>
-                                        <!-- 게시글내용 -->
-                                        <p class="text-muted card-text text-sm">내용 내용 내용 내용 내용</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--게시글 01  -->
-                            <div class="col-6 col-md-4 mb-30px">
-                                <div class="card h-100 border-0 shadow hover-animate">
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
-                                                                                <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
-                                                                              </svg>
-                                        </div>
-                                        <!-- 게시글제목 -->
-                                        <h5 class="card-title mb-3">
-                                            <a class="text-decoration-none text-dark stretched-link" href="user-personal.html">
-                                                                            게시글제목 01
-                                                                        </a>
-                                        </h5>
-                                        <!-- 게시글내용 -->
-                                        <p class="text-muted card-text text-sm">내용 내용 내용 내용 내용</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--게시글 01  -->
-                            <div class="col-6 col-md-4 mb-30px">
-                                <div class="card h-100 border-0 shadow hover-animate">
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
-                                                                                <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
-                                                                              </svg>
-                                        </div>
-                                        <!-- 게시글제목 -->
-                                        <h5 class="card-title mb-3">
-                                            <a class="text-decoration-none text-dark stretched-link" href="user-personal.html">
-                                                                            게시글제목 01
-                                                                        </a>
-                                        </h5>
-                                        <!-- 게시글내용 -->
-                                        <p class="text-muted card-text text-sm">내용 내용 내용 내용 내용</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> --%>
-
-                        <!-- 페이지번호  -->
-                        <div class="mt-3">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination pagination-template d-flex justify-content-center">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#"> <i class="fa fa-angle-left"></i></a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#"> <i class="fa fa-angle-right"></i></a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+					 <section>
+					    <!-- 페이지 버튼 시작-->
+					    <nav aria-label="Page navigation example">
+					            <ul
+					               class="pagination pagination-template d-flex justify-content-center">
+					               <li class="page-item"><a class="page-link"
+					                  onclick="movePage('<%=path %>/mypage/mywrite?page=<%=pageInfo.getStartPage() %>');">
+					                     <i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i>
+					               </a></li>
+					               <li class="page-item"><a class="page-link"
+					                  onclick="movePage('<%=path %>/mypage/mywrite?page=<%=pageInfo.getPrvePage()%>');">
+					                     <i class="fa fa-angle-left"></i>
+					               </a></li>
+					               <%--5페이지 출력하기 --%>
+					               <% for(int i = pageInfo.getStartPage(); i <= pageInfo.getEndPage(); i++){ %>
+					               		<%if(i == pageInfo.getCurrentPage()){ %>
+					               		<li class="page-item active">
+					               		<button class="page-link" disabled><%=i%></button></li>
+					               		<%} else{%>
+					               		<li class="page-item">
+					               		<button class="page-link" onclick="movePage('<%=path %>/mypage/mywrite?page=<%=i%>');"><%=i%></button></li>
+					               		<%} %>
+					              	 <%} %>
+					
+					               <%--다음으로 가기 --%>
+					               <li class="page-item"><a class="page-link"
+					                  onclick="movePage('<%=path %>/mypage/mywrite?page=<%=pageInfo.getNextPage() %>');">
+					                     <i class="fa fa-angle-right"></i>
+					               </a></li>
+					               <li class="page-item"><a class="page-link"
+					                  onclick="movePage('<%=path %>/mypage/mywrite?page=<%=pageInfo.getEndPage() %>');">
+					                     <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
+					               </a></li>
+					            </ul>
+					         </nav>
+					    <!-- 페이지 버튼 끝-->   
+					    </section>
+    
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    
+   	<script type="text/javascript">
+   	function movePage(pageUrl){//페이지url받아옴
+   		alert(pageUrl);
+   		location.href = encodeURI(pageUrl);	//로케이션을 바꾸는 코드	
+   	}
+	</script>
 
          <!-- 푸터위에 사진바-->
         <section>
