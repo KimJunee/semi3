@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.camping.common.util.MyHttpServlet;
 import com.camping.mvc.camping.model.service.ReservationService;
 import com.camping.mvc.camping.model.vo.Reservation;
+import com.camping.mvc.member.model.vo.Member;
 
 @WebServlet("/reservation")
 public class ReservationServlet extends MyHttpServlet{
@@ -39,11 +40,6 @@ public class ReservationServlet extends MyHttpServlet{
 		// 인코딩
 		req.setCharacterEncoding("utf-8");
 		resp.setCharacterEncoding("utf-8");
-		
-		// 로그인 된건지 체크해야되고
-		
-		
-
 		
 		// 파라메터 받은 변수
 		int user_no = Integer.parseInt(req.getParameter("user_no"));
