@@ -53,6 +53,7 @@ public class MypageWriteServlet extends MyHttpServlet{
 			pageInfo = new PageInfo(page, 3, writeCount, 9);
 			list = service.getMywrite(userno, pageInfo);
 			System.out.println(list.toString());
+			req.setCharacterEncoding("UTF-8");
 			req.setAttribute("list", list);
 			req.setAttribute("pageInfo", pageInfo);
 			req.getRequestDispatcher("/views/05_MyPage/myWrite.jsp").forward(req, resp);

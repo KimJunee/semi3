@@ -6,22 +6,13 @@
 <html lang="ko">
 <%@include file="/views/07_common/header.jsp"%>
 <%
-	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
-	List<CampingItemVO> list = (List<CampingItemVO>)request.getAttribute("list"); 
-	
-	String searchType = "ci_title";
-	String searchValue = "";
-	
-	String searchParamValue = request.getParameter("searchValue");
-	searchType = request.getParameter("searchType");
-	searchValue = request.getParameter("searchValue");
-	
-	
-//	String searchType = request.getParameter("searchType");
-//	String searchValue = request.getParameter("searchValue");
-//	if(searchValue == null){
-//		searchValue = "";
-//	}
+List<CampingItemVO> list = (List<CampingItemVO>)request.getAttribute("list");
+PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
+String[] searchType = request.getParameterValues("searchType");
+String searchValue = request.getParameter("searchValue");
+if(searchValue == null){
+	searchValue = "";
+}
 %>
     <!-- 메인 큰 이미지 -->
     <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%=path%>/resources/img/img_semi/campitem_04_01.png); height: 350px; margin: 60px;"></section>
@@ -30,7 +21,7 @@
     <!-- 메인 검색창 -->
     <div class="container mb-5" style="margin-top: -130px;">
         <div class="search-bar rounded-4 p-0 p-lg-1 position-relative mt-n6 z-index-20 mx-7">
-            <form >
+            <form action="<%=path%>/campingItem/Detail" method="get">
                 <div class="row">
                     <!-- 카테고리 -->
                     <div class="col-lg-3 d-flex align-items-center form-group">
@@ -69,29 +60,31 @@
                     <img src="<%=path%>/resources/img/img_semi/campitem01_02.png" alt="Image" width="50px">캠핑용품
                 </div>
             </div>
-         <input type="hidden" id="searchType" value="<%=searchType%>">
-         <input type="hidden" id="searchValue" value="<%=searchValue%>">
          
          <div class="row">
-         <%for(CampingItemVO campingItem : list) {%>
-                <!-- place item-->
-                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                    <div class="card h-100 border-0 shadow">
-                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=campingItem.getCi_image() %>" style="height: 220px; width: 306px;" />
-                            <a class="tile-link" href="<%=campingItem.getCi_link()%>"></a>
-                        </div>
-                        <div class="card-body d-flex align-items-center">
-                            <div class="w-100">
-                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="<%=campingItem.getCi_link()%>"><%=campingItem.getCi_title()%></a></h6>
-                                <div class="d-flex card-subtitle mb-3">
-                                    <p class="flex-grow-1 mb-0 text-muted text-sm"><%=campingItem.getCi_brand()%></p>
-                                </div>
-                                <p class="card-text text-mutedCustom1"><%=campingItem.getCi_price()%>원</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <%} %>
+         <%if(list == null || list.isEmpty()){ %>
+						<div style="text-align:center;">조회된 상품이 없습니다.</div>
+		<%} else { %>
+	         <%for(CampingItemVO campingItem : list) {%>
+	                <!-- place item-->
+	                <div class="col-sm-6 col-lg-3 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+	                    <div class="card h-100 border-0 shadow">
+	                        <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="<%=campingItem.getCi_image() %>" style="height: 220px; width: 306px;" />
+	                            <a class="tile-link" href="<%=campingItem.getCi_link()%>"></a>
+	                        </div>
+	                        <div class="card-body d-flex align-items-center">
+	                            <div class="w-100">
+	                                <h6 class="card-title"><a class="text-decoration-none text-dark" href="<%=campingItem.getCi_link()%>"><%=campingItem.getCi_title()%></a></h6>
+	                                <div class="d-flex card-subtitle mb-3">
+	                                    <p class="flex-grow-1 mb-0 text-muted text-sm"><%=campingItem.getCi_brand()%></p>
+	                                </div>
+	                                <p class="card-text text-mutedCustom1"><%=campingItem.getCi_price()%>원</p>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            <%} %>
+	          <%} %>
             </div>
         </div>
         <!-- 제품 끝 -->
@@ -134,22 +127,22 @@
     <!-- 페이지 버튼 끝-->   
     </section>
     
-    <script type="text/javascript">
-function movePage(pageUrl){
-	var searchValue = document.getElementById("searchValue");
-	var searchTypes = document.getElementsByName("searchType");
-	var searchType = 'ci_title';
-	if(searchValue.value.length > 0){
-		for(var i = 0; i <searchTypes.length; i++){
-			if(searchTypes[i].selected == true){
-				searchType = searchTypes[i].value;
+<script type="text/javascript">
+	function movePage(pageUrl){
+		var searchValue = document.getElementById("searchValue");
+		var searchType = document.getElementsByName("searchType");
+		var searchType = 'ci_title';
+		if(searchValue.value.length > 0){
+			for(var i = 0; i <searchTypes.length; i++){
+				if(searchTypes[i].selected == true){
+					searchType = searchTypes[i].value;
+				}
 			}
+			pageUrl = pageUrl + '&searchType=' + searchType + '&searchValue=' + searchValue.value; 
 		}
-		pageUrl = pageUrl + '&searchType=' + searchType + '&searchValue=' + searchValue.value; 
+		alert(pageUrl);
+		location.href = encodeURI(pageUrl);	
 	}
-	alert(pageUrl);
-	location.href = encodeURI(pageUrl);	
-}
 </script>
     
 

@@ -42,7 +42,7 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                         <!--프로필 카드 내부 메뉴  -->
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
-                                <button class="btn btn-primary-semi-custom" onclick="location.href = 'myPagePost.html' " style="width:260px; height: 50px; font-size: 20px;"> <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                <button class="btn btn-primary-semi-custom" onclick="location.href = '<%=path%>/member/mypage' " style="width:260px; height: 50px; font-size: 20px;"> <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                                 </svg>나의 정보</button>
                             </div>
@@ -54,7 +54,7 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                             </div>
                             <hr>
                             <div class="d-flex align-items-center mb-3">
-                                <button class="btn btn-primary-semi-custom" onclick="location.href = 'myPageReservation.html'" style="width:260px; height: 50px; font-size: 20px;">  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2" viewBox="0 0 16 16">
+                                <button class="btn btn-primary-semi-custom" onclick="location.href = '<%=path%>/mypage/myreservation'" style="width:260px; height: 50px; font-size: 20px;">  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2" viewBox="0 0 16 16">
                                     <path d="M3.5 2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5H12a.5.5 0 0 1 0-1h.5A1.5 1.5 0 0 1 14 2.5v12a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-12A1.5 1.5 0 0 1 3.5 1H4a.5.5 0 0 1 0 1h-.5Z"/>
                                     <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z"/>
                                   </svg>예약 목록</button>
@@ -76,28 +76,32 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                     <div class="text-block">
                         <h4 class="mb-5">내 게시물</h4>
                         <div class="row">
-                        <%for(Community comm : list) {%>
-                            <!--게시글 01  -->
-                            <div class="col-6  col-md-4  mb-30px">
-                                <div class="card h-100 border-0 shadow hover-animate">
-                                    <div class="card-body">
-                                        <div class="mb-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
-                                                    <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
-                                                  </svg>
-                                        </div>
-                                        <!-- 게시글제목 -->
-                                        <h5 class="card-title mb-3">
-                                            <a class="text-decoration-none text-dark stretched-link" href="user-personal.html">
-                                                <%=comm.getCo_title() %>
-                                            </a>
-                                        </h5>
-                                        <!-- 게시글내용 -->
-                                        <p class="text-muted card-text text-sm"><%=comm.getCo_content() %></p>
-                                    </div>
-                                </div>
-                            </div>
-                            <%} %>
+                        <%if(list == null || list.isEmpty()){ %><!--  게시글이 없는 경우  -->
+								<div style="text-align:center;">작성한 게시글이 없습니다.</div>
+						<%} else { %><!-- 게시글이 있는경우 -->
+	                        <%for(Community comm : list) {%>
+	                            <!--게시글 01  -->
+	                            <div class="col-6  col-md-4  mb-30px">
+	                                <div class="card h-100 border-0 shadow hover-animate">
+	                                    <div class="card-body">
+	                                        <div class="mb-3">
+	                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-all" viewBox="0 0 16 16">
+	                                                    <path d="M8.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L2.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093L8.95 4.992a.252.252 0 0 1 .02-.022zm-.92 5.14.92.92a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 1 0-1.091-1.028L9.477 9.417l-.485-.486-.943 1.179z"/>
+	                                                  </svg>
+	                                        </div>
+	                                        <!-- 게시글제목 -->
+	                                        <h5 class="card-title mb-3">
+	                                            <a class="text-decoration-none text-dark stretched-link" href="<%=path %>/board/view?communityNo=<%=comm.getCo_no() %>">
+	                                                <%=comm.getCo_title() %>
+	                                            </a>
+	                                        </h5>
+	                                        <!-- 게시글내용 -->
+	                                        <p class="text-muted card-text text-sm"><%=comm.getCo_content() %></p>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            <%} %>
+	                         <%} %>   
 					 <section>
 					    <!-- 페이지 버튼 시작-->
 					    <nav aria-label="Page navigation example">

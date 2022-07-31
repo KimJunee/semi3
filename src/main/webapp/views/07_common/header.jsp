@@ -123,10 +123,10 @@
                                                     <!-- Megamenu list-->
                                                     <h6 class="text-uppercase">캠핑용품</h6>
                                                     <ul class="megamenu-list list-unstyled">
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/campingItem/Detail?searchType=ci_title&searchValue=%ED%85%90%ED%8A%B8">텐트   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/campingItem/Detail?searchType=ci_title&searchValue=%EC%B9%A8%EB%82%AD">침낭   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/campingItem/Detail?searchType=ci_title&searchValue=%EB%9E%9C%ED%84%B4">랜턴   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/campingItem/Detail?searchType=ci_title&searchValue=%EC%9D%98%EC%9E%90">의자테이블   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path %>/campingItem/Detail?searchType=ci_title&searchValue=%ED%85%90%ED%8A%B8">텐트   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path %>/campingItem/Detail?searchType=ci_title&searchValue=%EC%B9%A8%EB%82%AD">침낭   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path %>/campingItem/Detail?searchType=ci_title&searchValue=%EB%9E%9C%ED%84%B4">랜턴   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path %>/campingItem/Detail?searchType=ci_title&searchValue=%EC%9D%98%EC%9E%90">의자테이블   </a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-lg-3">
@@ -136,7 +136,7 @@
                                                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path%>/member/mypage">나의 정보    </a></li>
                                                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-account.html">찜한 캠핑장   </a></li>
                                                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-personal.html">예약 목록   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-security.html">내 게시물   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path%>/mypage/mywrite">내 게시물   </a></li>
                                                     </ul>
                                                 </div>
                                             </div>
