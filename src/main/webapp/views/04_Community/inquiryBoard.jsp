@@ -176,12 +176,12 @@ if(request.getParameter("searchValue") != null){
                         
                         
                             <h2 class="accordion-header" id="panelsStayOpen-headingfive">
-                                <button class="accordion-button collapsed" style="font-weight: bolder;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
+                                <button class="accordion-button " style="font-weight: bolder;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
                                 	<div><%=i.getInquiry_no()%></div>
                                 	 <div><%=i.getInquir_title()%></div>
                        			 </button>
                             </h2>
-                            <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingfive">
+                            <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingfive">
                                 <div class="accordion-body">
                                      <%=i.getInquir_content()%>
                                 </div>
