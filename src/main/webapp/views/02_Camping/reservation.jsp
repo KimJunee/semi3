@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.camping.mvc.camping.model.vo.CampingVO"%>
 <%@page import="com.camping.mvc.camping.model.dao.CampDetailDAO"%>
+<%@page import="com.camping.mvc.member.model.vo.Member"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <%@ include file="/views/07_common/header.jsp" %>
@@ -22,12 +24,13 @@ if(campingVO == null){
 		var payvalue = <%=campingVO.getCs_accom_fee()%>
 		$("#pay").text(payvalue.toLocaleString("ko-KR") + " 원");
 	})
-	
+	// 결제 - https://www.bootpay.co.kr/
 	function payReservation(){
 		console.log("payReservation");
 		var payvalue = $("#pay").text();
 		
 		var payment = payvalue.replace(",","");
+		console.log("price얼마" + payment);
 		
 		var camp_name = '<%=campingVO.getCs_name()%>';
 		
@@ -103,9 +106,8 @@ if(campingVO == null){
 		
 		console.log("ajaxReservation start");
 		
-		// 단위 콤마 제거
-		var payvalue = <%=campingVO.getCs_accom_fee()%>
-		var payment = payvalue.replace(",","");
+		var payvalue = $("#pay").text();
+		var payment = payvalue.replace(" ","").replace("원","").replace(",","");
 		
 		// 날짜 가져오기
 		var startday = $("b.start-day").html();
@@ -126,8 +128,10 @@ if(campingVO == null){
 		
 		var headcount = $("#headcount_value").val();
 		
+		
+		var campsite = '<%=campingVO.getCs_no()%>';
+		
 		var data = {
-				user_no : user,
             	cs_no : campsite,
             	resv_headcount : headcount,
             	resv_pay : payment,
@@ -137,13 +141,13 @@ if(campingVO == null){
 		
         $.ajax({
             type: 'POST',
-            url: '/reservation',
+            url: '/semi3/reservation',
             data: data,
             success: (result) => {
             	console.log(result);     
             	if(result == "success"){
             		alert("예약 성공");
-            		//location.href="/myReservation"; -- 마이페이지 예약목록 서블릿 주소 넣으면 됨
+            		location.href="/semi3/mypage/myreservation";
             	}else{
             		alert("예약 실패");
             		//location.href="/error"; -- 에러 페이지 서블릿 주소 넣으면 됨

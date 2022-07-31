@@ -27,7 +27,7 @@ public class CampingReservationServlet extends MyHttpServlet{
 	
 	@Override
 	public String getServletName() {
-		return "Reservation";
+		return "go Reservation Page";
 	}
 
 	@Override
