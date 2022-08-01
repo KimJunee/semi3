@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@page import="com.camping.mvc.member.model.vo.Member"%>
+<%@page import="com.camping.mvc.camping.model.vo.Reservation"%>
+<%@page import="com.camping.mvc.camping.model.dao.ReservationDAO"%>
 <%@ include file="/views/07_common/header.jsp" %>
 <%
 String mypath = request.getContextPath();
+Reservation reservation = (Reservation)request.getAttribute("reservation");
 %>
     <!-- 헤더 큰 이미지 -->
     <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/mypage01_01.png); height: 350px; margin: 60px;"></section>
@@ -15,7 +18,7 @@ String mypath = request.getContextPath();
                     <div class="row" style="background-color:#F7F3E9 ;">
                         <div class="col-6 d-flex align-items-center"><img src="<%= path%>/resources/img/img_semi/logo05.png" style="width:150px ;"></div>
                         <div class="col-6 text-end">
-                            <h3 class="mb-0">예약번호 202009001</h3>
+                            <h3 class="mb-0">예약번호 <%=reservation.getResv_no()%></h3>
                             <p class="mb-0">Issued on 2022-08-16</p>
                         </div>
                     </div>
@@ -27,15 +30,15 @@ String mypath = request.getContextPath();
                             <h2 class="h4 text-uppercase mb-4">예약자 정보</h2>
                             <h6 class="mb-1" style="color:rgb(113, 113, 113) ;">체크인</h6>
                             <div class="mb-4 mt-1">
-                                <h5>2022-08-16</h5>
+                                <h5><%=reservation.getResv_checkin()%></h5>
                             </div>
                             <h6 class="mb-1" style="color:rgb(113, 113, 113) ;">체크아웃</h6>
                             <div class="mb-4 mt-1">
-                                <h5>2022-08-19</h5>
+                                <h5><%=reservation.getResv_checkout()%></h5>
                             </div>
                             <h6 class="mb-1" style="color:rgb(113, 113, 113) ;">인원수</h6>
                             <div class="mb-4 mt-1">
-                                <h5>3명</h5>
+                                <h5><%=reservation.getResv_headcount() + " 명"%></h5>
                             </div>
                         </div>
                         <!-- 캠핑장 정보 -->
@@ -43,15 +46,15 @@ String mypath = request.getContextPath();
                             <h2 class="h4 text-uppercase mb-4">캠핑장 정보</h2>
                             <h6 class="mb-1" style="color:rgb(113, 113, 113) ;">주소</h6>
                             <div class="mb-4 mt-1">
-                                <h5>경기도 성남시 분당구 서현로 11번길 1-1</h5>
+                                <h5><%=reservation.getCs_addr1()%><%=reservation.getCs_addr2() != null ? reservation.getCs_addr2() : ""%></h5>
                             </div>
                             <h6 class="mb-1" style="color:rgb(113, 113, 113) ;">전화번호</h6>
                             <div class="mb-4 mt-1">
-                                <h5>031-123-4567</h5>
+                                <h5><%=reservation.getCs_tel()%></h5>
                             </div>
                             <h6 class="mb-1" style="color:rgb(113, 113, 113) ;">홈페이지</h6>
                             <div class="mb-4 mt-1">
-                                <h5>www.campcamp.com</h5>
+                                <h5><%=reservation.getCs_homepage()%></h5>
                             </div>
                         </div>
                         <!-- 예약 금액 표 -->
@@ -68,19 +71,23 @@ String mypath = request.getContextPath();
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="text-center fw-bold">은하수 캠핑장</td>
+                                    	<% 
+                                        int surtax = Integer.parseInt(reservation.getCs_accom_fee()) * 10 / 110 ;
+                                        %>
+                                        <td class="text-center fw-bold"><%=reservation.getCs_name()%></td>
                                         <td class="text-center">2022-07-21</td>
-                                        <td class="text-center">300,000원</td>
-                                        <td class="text-center">30,000원</td>
-                                        <td class="text-center">330,000원</td>
+                                        <td class="text-center"><%=Integer.parseInt(reservation.getCs_accom_fee()) - surtax%>원</td>
+                                        
+                                        <td class="text-center"><%=surtax%>원</td>
+                                        <td class="text-center"><%=reservation.getCs_accom_fee()%>원 </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <div class="card-footer  p-4  border-0  text-sm" style="background-color:#F7F3E9 ;">
+                    <div class="card-footer  p-4  border-0  text-sm" style="background-color:#F7F3E9;">
                         <p class="mb-0 " style="margin-left: 620px;">모닥불을 이용해 주셔서 감사합니다. 즐거운 캠핑여행 되세요.
-                            <button class="btn btn-primary  " onclick="location.href = 'campingReview.html' " style="width:135px ; font-size: 12px; margin-left: 10px; ">
+                            <button class="btn btn-primary  " onclick="location.href = 'campingReview.html' " style="width:135px ; font-size: 12px; margin-left: 10px;">
                                 <i class="fa fa-check fa-fw " > </i>후기작성하기
                             </button>
                         </p>
