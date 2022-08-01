@@ -279,48 +279,51 @@ String mypath = request.getContextPath();
                     6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z "/>
                   </svg> 공지사항
                 </div>
-                <div class="accordion accordion-flush " id="accordionFlushExample ">
+                <div class="accordion" id="accordionPanelsStayOpenExample">
                     <div class="accordion-item ">
-                        <h2 class="accordion-header " id="flush-headingOne ">
-                            <button class="accordion-button collapsed " type="button " style="font-weight: bolder ; " data-bs-toggle="collapse " data-bs-target="#flush-collapseOne " aria-expanded="false " aria-controls="flush-collapseOne ">
+                         <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                           <button class="accordion-button collapsed" style="font-weight: bolder;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="false" aria-controls="panelsStayOpen-collapseOne">
                              문의사항 이용시 주의사항
                         </button>
                         </h2>
-                        <div id="flush-collapseOne " class="accordion-collapse collapse " aria-labelledby="flush-headingOne " data-bs-parent="#accordionFlushExample ">
-                            <div class="accordion-body ">여러분 이번 겨울철 캠핑을 즐길 때, 안전캠핑 5대 수칙과 함께 하셨나요? 지난달부터 약 한달 간 진행되었던 “초캠러(초보캠퍼)를 위한 동계 안전캠핑 5대수칙 알리기 이벤트” 당첨자를 발표합니다! 당첨자는 페이스북과 인스타그램 전체 참여자 중 무작위 추첨으로 선정했으며, 당첨되신 분들께 21일(월)에 개별 DM을 보내드릴 예정입니다! DM을 받으신 당첨자분들께서는 2월 23일(수)까지 보내드린
+                        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+                                <div class="accordion-body">여러분 이번 겨울철 캠핑을 즐길 때, 안전캠핑 5대 수칙과 함께 하셨나요? 지난달부터 약 한달 간 진행되었던 “초캠러(초보캠퍼)를 위한 동계 안전캠핑 5대수칙 알리기 이벤트” 당첨자를 발표합니다! 당첨자는 페이스북과 인스타그램 전체 참여자 중 무작위 추첨으로 선정했으며, 당첨되신 분들께 21일(월)에 개별 DM을 보내드릴 예정입니다! DM을 받으신 당첨자분들께서는 2월 23일(수)까지 보내드린
                                 폼으로 개인정보 회신 부탁드립니다~ 개인 정보 확인 후, 순차적으로 경품을 보내드릴 예정 입니다 . 참여 해주신 모든 분께 감사 인사를 드리며 계속해서 #고캠핑 #안전캠핑에 많은 관심과 참여 부탁드립니다 여러분의 안전 캠핑, 고캠핑이 응원합니다. ** 개인 정보는 상품 발송 목적으로 만 활용되며 발송 후 폐기합니다. ** 기한 내 네이버폼으로 개인정보를 회신주시지 않을 경우, 당첨이
                                 취소 될 수 있습니다.
                             </div>
                         </div>
                     </div>
                     <div class="accordion-item ">
-                        <h2 class="accordion-header " id="flush-headingTwo ">
-                            <button class="accordion-button collapsed " type="button " style="font-weight: bolder ; " data-bs-toggle="collapse " data-bs-target="#flush-collapseTwo " aria-expanded="false " aria-controls="flush-collapseTwo ">
+                       <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                           <button class="accordion-button collapsed" style="font-weight: bolder;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
                              [이벤트] 홍천 랄라캠핑장 숙박권 이벤트 당첨자 안내
                         </button>
                         </h2>
-                        <div id="flush-collapseTwo " class="accordion-collapse collapse " aria-labelledby="flush-headingTwo " data-bs-parent="#accordionFlushExample ">
-                            <div class="accordion-body ">내용</div>
+                       <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                                <div class="accordion-body">
+                            내용</div>
                         </div>
                     </div>
                     <div class="accordion-item ">
-                        <h2 class="accordion-header " id="flush-headingThree ">
-                            <button class="accordion-button collapsed " type="button " style="font-weight: bolder ; " data-bs-toggle="collapse " data-bs-target="#flush-collapseThree " aria-expanded="false " aria-controls="flush-collapseThree ">
+                         <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                                <button class="accordion-button collapsed" style="font-weight: bolder;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
                             초보캠핑을 위한 5대 안전수칙!
                          </button>
                         </h2>
-                        <div id="flush-collapseThree " class="accordion-collapse collapse " aria-labelledby="flush-headingThree " data-bs-parent="#accordionFlushExample ">
-                            <div class="accordion-body ">내용</div>
+                         <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                                <div class="accordion-body">
+                            내용</div>
                         </div>
                     </div>
                     <div class="accordion-item ">
-                        <h2 class="accordion-header " id="flush-headingfour ">
-                            <button class="accordion-button collapsed " type="button " style="font-weight: bolder ; " data-bs-toggle="collapse " data-bs-target="#flush-collapsefour " aria-expanded="false " aria-controls="flush-collapsefour ">
+                       <h2 class="accordion-header" id="panelsStayOpen-headingfour">
+                                <button class="accordion-button collapsed" style="font-weight: bolder;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefour" aria-expanded="false" aria-controls="panelsStayOpen-collapsefour">
                             [모닥불] 회원가입/로그인 이용안내
                          </button>
                         </h2>
-                        <div id="flush-collapsefour " class="accordion-collapse collapse " aria-labelledby="flush-headingfour " data-bs-parent="#accordionFlushExample ">
-                            <div class="accordion-body ">내용</div>
+                        <div id="panelsStayOpen-collapsefour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingfour">
+                                <div class="accordion-body">
+                            내용</div>
                         </div>
                     </div>
                 </div>
