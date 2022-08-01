@@ -107,10 +107,10 @@ public class InquiryService {
 		}
 	
 		//댓글 삭제
-		public int deleteInReply(int inquiryNo) {
+		public int deleteInReply(int inreplyNo) {
 			Connection conn = getConnection();
 			
-			int result = dao.deleteInreply(conn, inquiryNo);
+			int result = dao.deleteInreply(conn, inreplyNo);
 			
 			if(result > 0 ) {
 				commit(conn);

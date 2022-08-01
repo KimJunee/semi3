@@ -61,4 +61,11 @@ public class ReservationService {
 		close(conn);
 		return result;
 	}
+	
+	// 예약 상세보기
+	public Reservation findReservationByNo(int resv_no) {
+		Connection conn = getConnection();
+		Reservation reservation = dao.ResvDetail(conn, resv_no); 
+		return reservation;
+	}
 }

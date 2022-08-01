@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page import="com.camping.mvc.member.model.vo.Member"%>
+<%@page import="com.camping.mvc.camping.model.vo.Review"%>
 <!DOCTYPE html>
 <html lang="ko">
 <%@ include file="/views/07_common/header.jsp" %>
@@ -45,14 +47,14 @@ String mypath = request.getContextPath();
     <div class="container">
         <div class="row mx-6 mt-2">
             <div class="col-md-5 " style="font-size: 15px; font-weight:bolder;">
-                <img src="<%=mypath%>/resources/img/img_semi/campfire01.png " width="8%"> 사용자닉네임
+                <img src="<%=mypath%>/resources/img/img_semi/campfire01.png " width="8%"><%=loginMember.getUser_name()%>
             </div>
             <p class=" mb-0 mt-3 card-stars text-lg ">
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
-                <i class="fa fa-star text-warning"></i>
+                <span class="star">
+				  ★★★★★
+				  <span>★★★★★</span>
+				  <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+				</span>
             </p>
         </div>
     </div>

@@ -128,113 +128,154 @@ String mypath = request.getContextPath();
 <!-- 인기캠핑장 끝-->
 
 <!-- 캠핑용품 시작 -->
-<section class="py-3 bg-gray-100 ">
-    <div class="container ">
-        <div class="row mb-5 ">
-            <div class="col-md-8 fs-2 mb-3 " style="font-weight: bolder ; ">
+<section class="py-6">
+        <div class="container mb-4">
+            <div class="row mb-5">
+                <div class="col-md-8 fs-2 mb-3 " style="font-weight: bolder ; ">
                 <img src="<%= mypath%>/resources/img/img_semi/campitem01.png" alt="Image " width="50px "> 캠핑용품
             </div>
-            <div class="col-md-4 d-md-flex align-items-center justify-content-end ">
+            <div class="col-md-4 d-md-flex align-items-left justify-content-end ">
                 <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="<%=path%>/views/03_Item/campingItem.jsp">
        캠핑용품 더보기<i class="fas fa-angle-double-right ms-2 "></i></a>
             </div>
-        </div>
-    </div>
-
-    <!-- 캠핑용품이미지 시작 -->
-    <div class="container-fluid ">
-        <!-- Slider main container-->
-        <div class="swiper-container swiper-container-mx-negative items-slider-full px-lg-5 pt-3 ">
-            <!-- Additional required wrapper-->
-            <div class="swiper-wrapper pb-5 ">
-                <!-- Slides-->
-                <div class="swiper-slide h-auto px-2 ">
-                    <div class="w-100 h-100 hover-animate " data-marker-id="59c0c8e33b1527bfe2abaf92 ">
-                        <div class="card h-100 border-0 shadow ">
-                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="<%= mypath%>/resources/img/img_semi/campbasket.png" style="height:250px;">
-                                <a class="tile-link " href="https://smartstore.naver.com/buytop/products/6546351540?NaPm=ct%3Dl683y134%7Cci%3D0aae679a2a53d913526ec7db37a949e64cd0f347%7Ctr%3Dslsl%7Csn%3D577370%7Chk%3D2c060eff8b7254d53a293ed6de14be56f988dd0f"></a>
-                            </div>
-                            <div class="card-body d-flex align-items-center ">
-                                <div class="w-100 ">
-                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://smartstore.naver.com/buytop/products/6546351540?NaPm=ct%3Dl683y134%7Cci%3D0aae679a2a53d913526ec7db37a949e64cd0f347%7Ctr%3Dslsl%7Csn%3D577370%7Chk%3D2c060eff8b7254d53a293ed6de14be56f988dd0f">캠핑바스켓</a></h6>
-                                    <p class="text-sm text-muted text-uppercase ">캠핑바구니 하나로도 감성캠핑을 즐길 수 있어요</p>
-                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>10,900원</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide h-auto px-2 ">
-                    <div class="w-100 h-100 hover-animate " data-marker-id="59c0c8e33b1527bfe2abaf92 ">
-                        <div class="card h-100 border-0 shadow ">
-                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="<%= mypath%>/resources/img/img_semi/tent01.png" style="height:250px;">
-                                <a class=" tile-link " href="https://search.shopping.naver.com/gate.nhn?id=32695611628"></a>
-                            </div>
-                            <div class="card-body d-flex align-items-center ">
-                                <div class="w-100 ">
-                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://search.shopping.naver.com/gate.nhn?id=32695611628">새턴2룸텐트</a></h6>
-                                    <p class="text-sm text-muted text-uppercase ">내구성과 방수, 넓은 실내공간을 한번에 만족시켜주는 텐트</p>
-                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>980,000원</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide h-auto px-2 ">
-                    <div class="w-100 h-100 hover-animate " data-marker-id="59c0c8e33b1527bfe2abaf92 ">
-                        <div class="card h-100 border-0 shadow ">
-                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="https://shopping-phinf.pstatic.net/main_3152259/31522594618.20220329213345.jpg" style="height:250px;">
-                                <a class="tile-link " href="https://search.shopping.naver.com/gate.nhn?id=31522594618"></a>
-                            </div>
-                            <div class="card-body d-flex align-items-center ">
-                                <div class="w-100 ">
-                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://search.shopping.naver.com/gate.nhn?id=31522594618">루프탑텐트</a></h6>
-                                    <p class="text-sm text-muted text-uppercase ">손쉽게 즐기는 시스템 루프탑 텐트, 몇초만에 새로운 세상을 즐길수있어요</p>
-                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>4,200,000원</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide h-auto px-2 ">
-                    <div class="w-100 h-100 hover-animate " data-marker-id="59c0c8e33b1527bfe2abaf92 ">
-                        <div class="card h-100 border-0 shadow ">
-                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="https://shopping-phinf.pstatic.net/main_8372674/83726746936.5.jpg" style="height:250px;">
-                                <a class="tile-link " href="https://search.shopping.naver.com/gate.nhn?id=83726746936"></a>
-                            </div>
-                            <div class="card-body d-flex align-items-center ">
-                                <div class="w-100 ">
-                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://search.shopping.naver.com/gate.nhn?id=83726746936">존디 캠핑 우드 테이블</a></h6>
-                                    <p class="text-sm text-muted text-uppercase ">원목이지만 탄탄한 방수처리로 물가에서도 사용할수 있어요</p>
-                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>165,000원</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide h-auto px-2 ">
-                    <div class="w-100 h-100 hover-animate " data-marker-id="59c0c8e33b1527bfe2abaf92 ">
-                        <div class="card h-100 border-0 shadow ">
-                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="https://shopping-phinf.pstatic.net/main_2888797/28887976587.20220418151614.jpg" style="height:250px;">
-                                <a class="tile-link " href="https://search.shopping.naver.com/gate.nhn?id=28887976587"></a>
-                            </div>
-                            <div class="card-body d-flex align-items-center ">
-                                <div class="w-100 ">
-                                    <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://search.shopping.naver.com/gate.nhn?id=28887976587">다니고 캠핑의자</a></h6>
-                                    <p class="text-sm text-muted text-uppercase ">감성은 살리고 편안함은 두배로! 감성 우드 체어</p>
-                                    <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>38,000원</span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <!-- 캠핑용품이미지 끝 -->
-
-            <!-- If we need pagination-->
-            <div class="swiper-pagination "></div>
+            <!-- Slider main container-->
+            <div class="swiper-container swiper-container-mx-negative swiper-init pt-3" data-swiper="{&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:20,&quot;loop&quot;:true,&quot;roundLengths&quot;:true,&quot;breakpoints&quot;:{&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;991&quot;:{&quot;slidesPerView&quot;:2},&quot;565&quot;:{&quot;slidesPerView&quot;:1}},&quot;pagination&quot;:{&quot;el&quot;:&quot;.swiper-pagination&quot;,&quot;clickable&quot;:true,&quot;dynamicBullets&quot;:true}}">
+                <!-- Additional required wrapper-->
+                <div class="swiper-wrapper pb-5">
+                    <!-- Slides-->
+                    <div class="swiper-slide h-auto px-2">
+                        <!-- place item-->
+                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
+                            <div class="card h-100 border-0 shadow">
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://shopping-phinf.pstatic.net/main_8321518/83215184526.3.jpg" alt="" />
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=83215184526"></a>
+                                </div>
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="w-100">
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=83215184526">프리미엄 멀티 화로대 테이블 캠핑 경량 아이언 메쉬 불멍 BBQ</a></h6>
+                                        <div class="d-flex card-subtitle mb-3">
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">울루루</p>
+                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
+                                            </p>
+                                        </div>
+                                        <p class="card-text text-mutedCustom1">109,000원</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="swiper-slide h-auto px-2">
+                        <!-- place item-->
+                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e322f3375db4d89128">
+                            <div class="card h-100 border-0 shadow">
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-cover" src="https://shopping-phinf.pstatic.net/main_8373156/83731561285.3.jpg" alt="" height="296px"/>
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=83731561285"></a>
+                                </div>
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="w-100">
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=83731561285">빌리지 5.0 감성텐트 캐빈 쉘터</a></h6>
+                                        <div class="d-flex card-subtitle mb-3">
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">네이처하이크 </p>
+                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
+                                            </p>
+                                        </div>
+                                        <p class="card-text text-mutedCustom1">425,000원</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto px-2">
+                        <!-- place item-->
+                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3a31e62979bf147c9">
+                            <div class="card h-100 border-0 shadow">
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://shopping-phinf.pstatic.net/main_3169556/31695564161.20220409214238.jpg" alt="" />
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=31695564161"></a>
+                                </div>
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="w-100">
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=31695564161">클래식 감성 캠핑 랜턴 레트로 호롱불 led램프</a></h6>
+                                        <div class="d-flex card-subtitle mb-3">
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">살반</p>
+                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
+                                            </p>
+                                        </div>
+                                        <p class="card-text text-mutedCustom1">39,000원</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto px-2">
+                        <!-- place item-->
+                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e3503eb77d487e8082">
+                            <div class="card h-100 border-0 shadow">
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://shopping-phinf.pstatic.net/main_2888797/28887976587.20220418151614.jpg" alt="" />
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=28887976587"></a>
+                                </div>
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="w-100">
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=28887976587">감성 우드 로우체어 중형 C107</a></h6>
+                                        <div class="d-flex card-subtitle mb-3">
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">다니고</p>
+                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
+                                            </p>
+                                        </div>
+                                        <p class="card-text text-mutedCustom1">38,000원</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto px-2">
+                        <!-- place item-->
+                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2eed0626e485d">
+                            <div class="card h-100 border-0 shadow">
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-fluid" src="https://shopping-phinf.pstatic.net/main_2369609/23696091490.20200922163559.jpg" alt="" />
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=23696091490"></a>
+                                </div>
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="w-100">
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=23696091490">제드 블랙 오토 듀얼 팔레스 카 텐트 ZHATE0306</a></h6>
+                                        <div class="d-flex card-subtitle mb-3">
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">제드코리아</p>
+                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
+                                            </p>
+                                        </div>
+                                        <p class="card-text text-mutedCustom1">340,000원</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto px-2">
+                        <!-- place item-->
+                        <div class="w-100 h-100 hover-animate" data-marker-id="59c0c8e39aa2edasd626e485d">
+                            <div class="card h-100 border-0 shadow">
+                                <div class="card-img-top overflow-hidden gradient-overlay"> <img class="img-cover" src="https://shopping-phinf.pstatic.net/main_8253591/82535913106.2.jpg" alt="" height="296px"/>
+                                    <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=82535913106"></a>
+                                </div>
+                                <div class="card-body d-flex align-items-center">
+                                    <div class="w-100">
+                                        <h6 class="card-title"><a class="text-decoration-none text-dark" href="https://search.shopping.naver.com/gate.nhn?id=82535913106">우드롤테이블 브라운 내추럴 감성캠핑 높이조절</a></h6>
+                                        <div class="d-flex card-subtitle mb-3">
+                                            <p class="flex-grow-1 mb-0 text-muted text-sm">위모캠 </p>
+                                            <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
+                                            </p>
+                                        </div>
+                                        <p class="card-text text-mutedCustom1">108,000원</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- If we need pagination-->
+                <div class="swiper-pagination"></div>
+            </div>
         </div>
-    </div>
 </section>
 <!-- 캠핑용품 끝 -->
 

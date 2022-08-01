@@ -28,6 +28,9 @@ public class InquiryInReplyWriteServlet extends MyHttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setCharacterEncoding("UTF-8");
+		
+		
 		try {
 			Member loginMember = getSessionMember(req);
 			

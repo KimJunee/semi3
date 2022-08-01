@@ -11,7 +11,7 @@ import com.camping.mvc.camping.model.vo.Reservation;
 
 public class ReservationDAO {
 	
-	// 예약하기 - 달력체크한 날짜 어케 가져올까.. 해봐야 알거 같음... 나중에 수정 필요...
+	// 예약하기
 	public int insertReservation(Connection conn, Reservation resv) {
 		PreparedStatement pstmt = null;
 		String query = "INSERT INTO RESERVATION VALUES (SEQ_RES_NO.NEXTVAL, ?, ?, ?, ?, ?, ?)";
@@ -48,7 +48,7 @@ public class ReservationDAO {
 					 + "ORDER BY RESV_NO";
 		
 		try {
-			pstmt = conn.prepareStatement(query);//물음표가 하나 있으면 하나는 넣어줘야지요
+			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, user_no);
 			//pstmt.setInt(2, pageInfo.getEndList());
 			rs = pstmt.executeQuery();
@@ -111,6 +111,31 @@ public class ReservationDAO {
 		}
 		return resv;
 	}
+	
+	// 마이페이지 예약목록 페이징 - 예약 갯수
+	public int getReservationCount(Connection conn, int user_no) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String query = "SELECT COUNT(*) FROM RESERVATION WHERE USER_NO = ?";
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, user_no);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		return result;
+	}
+	
+	// 
+	
 	
 	// 예약 수정
 	public int updateReservation(Connection conn, Reservation resv) {

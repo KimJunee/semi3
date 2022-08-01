@@ -88,8 +88,7 @@ public class InquiryDAO {
 				ResultSet rs = null;
 				String query = "SELECT  COUNT(*) "
 						+ "FROM INQUIRY_BOARD IB "
-						+ "INNER JOIN USER_T UT ON(IB.USER_NO = UT.USER_NO) "
-						+ "INNER JOIN CAMP_SITE CS ON(IB.CS_NO = CS.CS_NO) "
+						+ "JOIN USER_T UT ON(IB.USER_NO = UT.USER_NO) "
 						+ "WHERE 1=1 ";
 				
 				//key부분
@@ -129,14 +128,13 @@ public class InquiryDAO {
 				PreparedStatement pstmt = null;
 				ResultSet rs = null;
 				List<Inquiry> list = new ArrayList<Inquiry>();
-				String queryBefore = "SELECT RNUM, INQUIRY_NO,USER_ID,CS_NAME,INQUIR_TITLE,INQUIR_CONTENT,INQUIR_REGIST,INQUIR_HIT "
+				String queryBefore = "SELECT RNUM, INQUIRY_NO,USER_ID,INQUIR_TITLE,INQUIR_CONTENT,INQUIR_REGIST,INQUIR_HIT "
 						+ "FROM ( "
-						+ "    SELECT ROWNUM AS RNUM,INQUIRY_NO,USER_ID,CS_NAME,INQUIR_TITLE,INQUIR_CONTENT,INQUIR_REGIST,INQUIR_HIT "
+						+ "    SELECT ROWNUM AS RNUM,INQUIRY_NO,USER_ID,INQUIR_TITLE,INQUIR_CONTENT,INQUIR_REGIST,INQUIR_HIT "
 						+ "    FROM ( "
-						+ "        SELECT  IB.INQUIRY_NO,UT.USER_ID,CS.CS_NAME,IB.INQUIR_TITLE,IB.INQUIR_CONTENT,IB.INQUIR_REGIST,IB.INQUIR_HIT "
+						+ "        SELECT  IB.INQUIRY_NO,UT.USER_ID,IB.INQUIR_TITLE,IB.INQUIR_CONTENT,IB.INQUIR_REGIST,IB.INQUIR_HIT "
 						+ "        FROM INQUIRY_BOARD IB "
-						+ "        INNER JOIN USER_T UT ON(IB.USER_NO = UT.USER_NO) "
-						+ "        INNER JOIN CAMP_SITE CS ON(IB.CS_NO = CS.CS_NO) "
+						+ "        JOIN USER_T UT ON(IB.USER_NO = UT.USER_NO) "
 						+ "        WHERE 1 = 1 ";
 				
 				String queryAfter = "        ORDER BY IB.INQUIRY_NO DESC "+ "    ) "+ ") "+ "WHERE RNUM BETWEEN ? and ? ";
@@ -169,7 +167,6 @@ public class InquiryDAO {
 						inquiry.setRowNum(rs.getInt("RNUM"));
 						inquiry.setInquiry_no(rs.getInt("INQUIRY_NO"));
 						inquiry.setWriter_id(rs.getString("USER_ID"));
-						inquiry.setCamping_name(rs.getString("CS_NAME"));
 						inquiry.setInquir_title(rs.getString("INQUIR_TITLE"));
 						inquiry.setInquir_content(rs.getString("INQUIR_CONTENT"));
 						inquiry.setInquir_regist(rs.getDate("INQUIR_REGIST"));
@@ -188,13 +185,12 @@ public class InquiryDAO {
 			// 글쓰기 기
 			public int insertInquiry(Connection conn, Inquiry inquiry) {
 				PreparedStatement pstmt = null;
-				String query = "INSERT INTO INQUIRY_BOARD VALUES(SEQ_INQUIRY_BOARD_INQUIRY_NO.NEXTVAL,?,null,?,?,DEFAULT,DEFAULT)";
+				String query = "INSERT INTO INQUIRY_BOARD VALUES(SEQ_INQUIRY_BOARD_INQUIRY_NO.NEXTVAL,?,?,?,DEFAULT,DEFAULT)";
 				int result = 0;
 
 				try {
 					pstmt = conn.prepareStatement(query);
 					pstmt.setInt(1, inquiry.getUser_no());
-					
 					pstmt.setString(2, inquiry.getInquir_title());
 					pstmt.setString(3, inquiry.getInquir_content());
 
@@ -213,10 +209,9 @@ public class InquiryDAO {
 				ResultSet rs = null;
 				Inquiry inquiry = null;
 		
-				String query = "SELECT IB.INQUIRY_NO,UT.USER_ID,CS.CS_NAME,IB.INQUIR_TITLE,IB.INQUIR_CONTENT,IB.INQUIR_REGIST,IB.INQUIR_HIT "
+				String query = "SELECT IB.INQUIRY_NO,UT.USER_ID,IB.INQUIR_TITLE,IB.INQUIR_CONTENT,IB.INQUIR_REGIST,IB.INQUIR_HIT "
 						+ "FROM INQUIRY_BOARD IB "
-						+ "INNER JOIN USER_T UT ON(IB.USER_NO = UT.USER_NO) "
-						+ "INNER JOIN CAMP_SITE CS ON(IB.CS_NO = CS.CS_NO) "
+						+ "JOIN USER_T UT ON(IB.USER_NO = UT.USER_NO) "
 						+ "WHERE IB.INQUIRY_NO=? ";
 				try {
 					pstmt = conn.prepareStatement(query);
@@ -226,7 +221,6 @@ public class InquiryDAO {
 						inquiry = new Inquiry();
 						inquiry.setInquiry_no(rs.getInt("INQUIRY_NO"));
 						inquiry.setWriter_id(rs.getString("USER_ID"));
-						inquiry.setCamping_name(rs.getString("CS_NAME"));
 						inquiry.setInquir_title(rs.getString("INQUIR_TITLE"));
 						inquiry.setInquir_content(rs.getString("INQUIR_CONTENT"));
 						inquiry.setInquir_regist(rs.getDate("INQUIR_REGIST"));
@@ -362,13 +356,13 @@ public class InquiryDAO {
 			}
 
 			// 리플 삭제 기능
-			public int deleteInreply(Connection conn, int inquiryNo) {
+			public int deleteInreply(Connection conn, int inreplyNo) {
 				int result = 0;
 				PreparedStatement pstmt = null;
 				String query = "DELETE INREPLY  WHERE INR_NO=?";
 				try {
 					pstmt = conn.prepareStatement(query);
-					pstmt.setInt(1, inquiryNo);
+					pstmt.setInt(1, inreplyNo);
 					
 					result = pstmt.executeUpdate();
 				} catch (Exception e) {
