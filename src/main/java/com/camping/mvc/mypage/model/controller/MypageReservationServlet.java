@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.camping.common.util.MyHttpServlet;
-import com.camping.mvc.community.model.vo.Community;
+import com.camping.common.util.PageInfo;
+import com.camping.mvc.camping.model.service.ReservationService;
+import com.camping.mvc.camping.model.vo.Reservation;
 import com.camping.mvc.member.model.vo.Member;
 import com.camping.mvc.mypage.model.service.MypageService;
 
@@ -18,6 +20,7 @@ import com.camping.mvc.mypage.model.service.MypageService;
 public class MypageReservationServlet extends MyHttpServlet {
 	private static final long serialVersionUID = 1L;
 	private MypageService service = new MypageService();
+	private ReservationService rService = new ReservationService();
 	
 	@Override
 	public String getServletName() {
@@ -27,11 +30,13 @@ public class MypageReservationServlet extends MyHttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-			List<Community> list = new ArrayList<Community>();
+			List<Reservation> list = new ArrayList<Reservation>();
 			Member loginMember = getSessionMember(req);
 			int userno = loginMember.getUser_no();
 			
-			list = service.getMywrite(userno);
+			//list = service.getMywrite(userno);
+			PageInfo pageInfo = new PageInfo(1, 5, 5, 5);
+			list = rService.getReservationList(pageInfo);
 			System.out.println(list.toString());	
 			req.setCharacterEncoding("UTF-8");
 			req.setAttribute("list", list);

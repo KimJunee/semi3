@@ -40,20 +40,22 @@ public class ReservationDAO {
 		ResultSet rs = null;
 		List<Reservation> list = new ArrayList<Reservation>();
 		
-		String query = "SELECT RESV_NO, USER_NO, CS_NO, "
+		String query = "SELECT RESV_NO, USER_NO, CS.CS_NO, CS_IMAGE, "
 					 + "RESV_HEADCOUNT, RESV_PAY, RESV_CHECKIN, RESV_CHECKOUT "
-					 + "FROM RESERVATION";
+					 + "FROM RESERVATION R "
+					 + "LEFT JOIN CAMP_SITE CS ON (R.CS_NO = CS.CS_NO)";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, pageInfo.getStartList());
-			pstmt.setInt(2, pageInfo.getEndList());
+			//pstmt.setInt(1, pageInfo.getStartList());
+			//pstmt.setInt(2, pageInfo.getEndList());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Reservation resv = new Reservation();
 				resv.setResv_no(rs.getInt("RESV_NO"));
 				resv.setUser_no(rs.getInt("USER_NO"));
 				resv.setCs_no(rs.getInt("CS_NO"));
+				resv.setCs_image(rs.getString("CS_IMAGE"));
 				resv.setResv_headcount(rs.getInt("RESV_HEADCOUNT"));
 				resv.setResv_pay(rs.getString("RESV_PAY"));
 				resv.setResv_checkin(rs.getDate("RESV_CHECKIN"));
