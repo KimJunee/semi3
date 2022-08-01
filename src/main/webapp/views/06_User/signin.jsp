@@ -62,7 +62,7 @@
                         <img src="<%=path %>/resources/img/img_semi/carbak01.png" alt="" style="max-width: 4rem;">
                         <h2>로그인</h2>
                     </div>
-                    <form class="form-validate" action="<%=path %>/member/login">
+                    <form class="form-validate" action="<%=path %>/member/login" method="post">
                         <div class="mb-4">
                             <label class="form-label" for="loginUsername"> ID</label>
                             <input class="form-control" name="loginUsername" id="loginUsername" type="text" value="<%=saveId%>" required="required" placeholder="ID" autocomplete="off" required data-msg="Please enter your id">

@@ -1,7 +1,21 @@
+<%@page import="com.camping.mvc.member.model.vo.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
+	String saveId = "";
+	Member loginMember = (Member)session.getAttribute("loginMember");
+	
+	Cookie[] cookies = request.getCookies();
+	
+		if(cookies != null){
+			for(Cookie c : cookies){
+				if(c.getName().equals("saveId")){
+					saveId = c.getValue();
+					break;
+				}
+			}
+		}
 %>
 <!DOCTYPE html>
 <html>
@@ -54,10 +68,10 @@
                     <!-- 로고 옆 검색창 -->
                     <nav class="navbar bg-white">
                         <div class="container-fluid">
-                            <form class="d-flex" role="search" href="main.html">
+                            <form class="d-flex" role="search" action="<%=path%>/campingItem/totalSearch" method="get">
                                 <label class="label-absolute" style="width:100px;">
                                     <i class="fa fa-search" style="padding-left: 10px;"></i></label>
-                                <input class="form-control me-2 ms-xl-0" type="search" placeholder="     캠핑용품 검색" aria-label="Search">
+                                <input class="form-control me-2 ms-xl-0" id="searchValue" name="searchValue" type="search" value="" placeholder="     캠핑용품 검색" aria-label="Search">
                             </form>
                         </div>
                     </nav>
@@ -70,13 +84,17 @@
                             </li>
                             <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/camping/list" style="font-size:25px;color: rgb(28, 27, 27)">캠핑장</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link me-4" href="campingItem.html" style="font-size:25px;color: rgb(28, 27, 27)">캠핑용품</a>
+                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/views/03_Item/campingItem.jsp" style="font-size:25px;color: rgb(28, 27, 27)">캠핑용품</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link me-4" href="freeBoard01.html" style="font-size:25px; color: rgb(28, 27, 27);"> 자유게시판 </a>
+                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/board/freeBoard" style="font-size:25px; color: rgb(28, 27, 27);"> 자유게시판 </a>
                             </li>
-                            <li class="nav-item"><a class="nav-link me-4" href="myPageProfile.html" style="font-size:25px;color: rgb(28, 27, 27)">마이페이지</a>
+                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/member/mypage" style="font-size:25px;color: rgb(28, 27, 27)">마이페이지</a>
                             </li>
-                            <li class="nav-item mt-2  d-lg-none d-xl-inline-block"><a class="btn btn-primary" style="font-size: 15px;" href="signin.html">로그인</a></li>
+                             <%if(loginMember == null){ %>
+                            <li class="nav-item mt-2  d-lg-none d-xl-inline-block"><a class="btn btn-primary" style="font-size: 15px;" href="<%=path%>/views/06_User/signin.jsp">로그인</a></li>
+                            <%} else { %>
+                             <li class="nav-item mt-2  d-lg-none d-xl-inline-block"><a class="btn btn-primary" style="font-size: 15px;" href="<%=path%>/logout">로그아웃</a></li>
+                            <%} %>
                             <li class="nav-item dropdown position-static mt-8 ">
                                 <a class="nav-link " href="#" data-bs-toggle="dropdown"><img src="<%=path%>/resources/img/img_semi/list01.png" style="width: 50px;"></a>
                                 <div class="dropdown-menu megamenu py-lg-0">
@@ -95,27 +113,27 @@
                                                     <!-- Megamenu list-->
                                                     <h6 class="text-uppercase">캠핑장</h6>
                                                     <ul class="megamenu-list list-unstyled">
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-rooms.html">캠핑   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-2-rooms.html">카라반   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-3-rooms.html">글램핑   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="detail-rooms.html">오토캠핑   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EC%9D%BC%EB%B0%98%EC%95%BC%EC%98%81%EC%9E%A5">일반야영장   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EC%B9%B4%EB%9D%BC%EB%B0%98">카라반   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EA%B8%80%EB%9E%A8%ED%95%91">글램핑   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EC%9E%90%EB%8F%99%EC%B0%A8%EC%95%BC%EC%98%81%EC%9E%A5">자동차야영장   </a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <!-- Megamenu list-->
                                                     <h6 class="text-uppercase">캠핑용품</h6>
                                                     <ul class="megamenu-list list-unstyled">
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="campingItem.html">텐트   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="text.html">침낭   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="faq.html">랜턴   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="coming-soon.html">의자테이블   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/campingItem/Detail?searchType=ci_title&searchValue=%ED%85%90%ED%8A%B8">텐트   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/campingItem/Detail?searchType=ci_title&searchValue=%EC%B9%A8%EB%82%AD">침낭   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/campingItem/Detail?searchType=ci_title&searchValue=%EB%9E%9C%ED%84%B4">랜턴   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/campingItem/Detail?searchType=ci_title&searchValue=%EC%9D%98%EC%9E%90">의자테이블   </a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <!-- Megamenu list-->
                                                     <h6 class="text-uppercase">마이페이지</h6>
                                                     <ul class="megamenu-list list-unstyled">
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-profile.html">나의 정보    </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path%>/member/mypage">나의 정보    </a></li>
                                                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-account.html">찜한 캠핑장   </a></li>
                                                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-personal.html">예약 목록   </a></li>
                                                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-security.html">내 게시물   </a></li>

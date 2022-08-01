@@ -43,7 +43,7 @@ public class ReservationServlet extends MyHttpServlet{
 		// 로그인 된건지 체크해야되고
 		
 		
-		// 돈계산 해야되고 (프론트에서 하든지 여기서 하든지) 아마 프론트겟지? 보여줘야되니까 실시간으로 인원이 올라갓따. 돈도 오른다.
+
 		
 		// 파라메터 받은 변수
 		int user_no = Integer.parseInt(req.getParameter("user_no"));
@@ -81,5 +81,7 @@ public class ReservationServlet extends MyHttpServlet{
 		resp.setContentType("text/html;charset=UTF-8");
 		// 리퀘스트 객체 보낸 곳으로 보냄
         resp.getWriter().write(resultValue);
+        // 결과값을 예약화면에 같이 보이게 함
+        req.getRequestDispatcher("/views/02_Camping/reservation.jsp").forward(req, resp);
 	}
 }

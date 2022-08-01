@@ -207,7 +207,7 @@
 							<li>
 								<div class="form-check">
 									<input class="form-check-input" type="checkbox" id="type_1"
-										name="searchCampType" value="일반야영장"
+										name="searchCampType" value="자동차야영장"
 										<%=searchCampType.contains( "자동차야영장") ? "checked" : "" %> /> <label
 										class="form-check-label" for="type_1">자동차야영장</label>
 								</div>
@@ -499,12 +499,11 @@
 //             pageUrl += '&searchAddr1=' + searchAddr1.value;
 //         }
 
-
+		  
           var searchAddr1 = document.getElementById("form_neighbourhood"); //지역이름
           if(searchAddr1.selectedIndex != 0){
 	          pageUrl += '&searchAddr1=' + searchAddr1.options[selectedElement.selectedIndex].value;
           }
-          
           
           /*
           var searchPersonnel = document.getElementsByName("searchPersonnel"); // 인원

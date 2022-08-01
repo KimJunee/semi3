@@ -92,10 +92,6 @@
     injectSvgSprite('https://demo.bootstrapious.com/directory/1-4/icons/orion-svg-sprite.svg'); --%>
 	
     <!-- Daterange picker-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-date-range-picker/0.19.0/jquery.daterangepicker.min.js">
-    </script>
     <script src="<%=request.getContextPath()%>/resources/js/datepicker-category.js">
     </script>
     <!-- Price Slider-->

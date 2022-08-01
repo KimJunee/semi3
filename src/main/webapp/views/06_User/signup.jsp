@@ -48,27 +48,27 @@ String mypath = request.getContextPath();
                         <img src="<%=mypath%>/resources/img/img_semi/carbak01.png" alt="" style="max-width: 4rem;">
                         <h2>회원가입</h2>
                     </div>
-                    <form class="form-validate">
+                    <form class="form-validate" action="<%=request.getContextPath()%>/member/enroll" method="POST">
                         <div class="mb-4">
-                            <input class="form-control" name="loginUsername" id="loginUsername" type="email" placeholder="ID" autocomplete="off" required data-msg="Please enter your email">
+                            <input class="form-control" name="newId" id="newId" type="text" placeholder="ID" autocomplete="off" required data-msg="Please enter your email">
                         </div>
                         <div class="mb-4">
-                            <input class="form-control" name="loginPassword" id="loginPassword" placeholder="NAME" type="password" required data-msg="Please enter your password">
+                            <input class="form-control" name="userName" id="userName" placeholder="NAME" type="text" required data-msg="Please enter your password">
                         </div>
                         <div class="mb-4">
-                            <input class="form-control" name="loginPassword2" id="loginPassword2" placeholder="PHONE" type="password" required data-msg="Please enter your password">
+                            <input class="form-control" name="userPwd" id="pass1" placeholder="PASSWORD" type="password" required data-msg="Please enter your password">
                         </div>
                         <div class="mb-4">
-                            <input class="form-control" name="loginPassword2" id="loginPassword2" placeholder="Birth (YYYY-MM-DD)" type="password" required data-msg="Please enter your password">
+                            <input class="form-control" name="loginPassword2" id="pass2" placeholder="CONFIRMPASSWORD" type="password" required data-msg="Please enter your password">
                         </div>
                         <div class="mb-4">
-                            <input class="form-control" name="loginPassword2" id="loginPassword2" placeholder="E-MAIL" type="password" required data-msg="Please enter your password">
+                            <input class="form-control" name="phone" id="phone" placeholder="PHONE" type="tel" required data-msg="Please enter your password">
                         </div>
                         <div class="mb-4">
-                            <input class="form-control" name="loginPassword2" id="loginPassword2" placeholder="PASSWORD" type="password" required data-msg="Please enter your password">
+                            <input class="form-control" name="Birth" id="Birth" placeholder="Birth (YYYY-MM-DD)" type="text" required data-msg="Please enter your password">
                         </div>
                         <div class="mb-4">
-                            <input class="form-control" name="loginPassword2" id="loginPassword2" placeholder="CONFIRMPASSWORD" type="password" required data-msg="Please enter your password">
+                            <input class="form-control" name="email" id="email" placeholder="E-MAIL" type="email" required data-msg="Please enter your password">
                         </div>
                         <div class="d-grid gap-2">
                             <button class="btn btn-lg btn-primary" type="submit">회원등록</button>

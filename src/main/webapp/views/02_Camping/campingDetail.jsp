@@ -180,7 +180,7 @@ if(campingVO == null){
                                
                             </ul>
                             <div class="text-center">
-                                <button class="btn btn-primary w-50 mt-4" style="font-size:20px; height:60px;" type="button" onclick=location.href="<%=path %>/views/02_Camping/reservation.jsp"><i class="ci-cart fs-lg me-2"></i>예약하기</button>
+                                <button class="btn btn-primary w-50 mt-4" style="font-size:20px; height:60px;" type="button" onclick=location.href="<%=path %>/camping/reservation?campingNo=<%=campingVO.getCs_no() %>"><i class="ci-cart fs-lg me-2"></i>예약하기</button>
 								<span style="display:inline-block; width:10px;"></span>
                                 <button class="btn btn-primaryCuntom w-40 mt-4" style="font-size:20px; height:60px;" type="button"><i class="ci-cart fs-lg me-2"></i> 찜♥ </button>
                             </div>

@@ -152,20 +152,6 @@ function movePage(pageUrl){
 }
 </script>
     
-//   <script type="text/javascript">
- //   function movePage(pageUrl){
-//    	var searchType = document.getElementById("searchType");
-//    	var searchValue = document.getElementById("searchValue");
- //   	if(searchType != null){
-//	    	pageUrl = pageUrl + '&searchType=' + searchType.value;
- //   	}
- //   	if(searchValue != null){
-//	    	pageUrl += '&searchValue=' + searchValue.value;
- //   	}
- //   	location.href = encodeURI(pageUrl);
-  //  }
-    
-   // </script>
 
     <!-- ============================================================================================================================== -->
 

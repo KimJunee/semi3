@@ -83,7 +83,7 @@ public class InquiryDAO {
 	
 	
 	// 게시물의 갯수를 가져오는 쿼리
-			public int getInquiryCount(Connection conn, Map<String, String> searchMap) {
+			public int getInquiryCount(Connection conn, String searchValue) {
 				PreparedStatement pstmt = null;
 				ResultSet rs = null;
 				String query = "SELECT  COUNT(*) "
@@ -93,15 +93,11 @@ public class InquiryDAO {
 						+ "WHERE 1=1 ";
 				
 				//key부분
-				if (searchMap.containsKey("USERID")) {
-					query += "AND UT.USER_ID LIKE ? ";
-				}
-				if (searchMap.containsKey("INTITLE")) {
+				
+				if (searchValue != null) {
 					query += "AND IB.INQUIR_TITLE LIKE ? ";
 				}
-				if (searchMap.containsKey("INCONTENT")) {
-					query += "AND IB.INQUIR_CONTENT LIKE ? ";
-				}
+				
 
 				//value부분
 				int result = 0;
@@ -110,14 +106,8 @@ public class InquiryDAO {
 					pstmt = conn.prepareStatement(query);
 					int count = 1;
 
-					if (searchMap.containsKey("USERID")) {
-						pstmt.setString(count++, "%" + searchMap.get("USERID") + "%");
-					}
-					if (searchMap.containsKey("INTITLE")) {
-						pstmt.setString(count++, "%" + searchMap.get("INTITLE") + "%");
-					}
-					if (searchMap.containsKey("INCONTENT")) {
-						pstmt.setString(count++, "%" + searchMap.get("INCONTENT") + "%");
+					if (searchValue != null) {
+						pstmt.setString(1, "%" + searchValue + "%");
 					}
 					
 					
@@ -135,7 +125,7 @@ public class InquiryDAO {
 			}
 	
 			// 검색한 게시물의 리스트를 가져오는 메소드
-			public List<Inquiry> InquiryfindAll(Connection conn, PageInfo pageInfo, Map<String, String> searchMap) {
+			public List<Inquiry> InquiryfindAll(Connection conn, PageInfo pageInfo, String searchValue) {
 				PreparedStatement pstmt = null;
 				ResultSet rs = null;
 				List<Inquiry> list = new ArrayList<Inquiry>();
@@ -152,33 +142,24 @@ public class InquiryDAO {
 				String queryAfter = "        ORDER BY IB.INQUIRY_NO DESC "+ "    ) "+ ") "+ "WHERE RNUM BETWEEN ? and ? ";
 
 				//key부분
-				if (searchMap.containsKey("USERID")) {
-					queryBefore += "AND UT.USER_ID LIKE ? ";
-				}
-				if (searchMap.containsKey("INTITLE")) {
+				
+				try {
+				if (searchValue != null) {
 					queryBefore += "AND IB.INQUIR_TITLE LIKE ? ";
 				}
-				if (searchMap.containsKey("INCONTENT")) {
-					queryBefore += "AND IB.INQUIR_TITLE LIKE ? ";
-				}
+			
 
 				String query = queryBefore + queryAfter;
 
 				//value부분
-				try {
+				
 					pstmt = conn.prepareStatement(query);
 
 					int count = 1;
-					if (searchMap.containsKey("USERID")) {
-						pstmt.setString(count++, "%" + searchMap.get("USERID") + "%");
+					if (searchValue != null) {
+						pstmt.setString(count++, "%" + searchValue + "%");
 					}
-					if (searchMap.containsKey("INTITLE")) {
-						pstmt.setString(count++, "%" + searchMap.get("INTITLE") + "%");
-					}
-					if (searchMap.containsKey("COCONTENT")) {
-						pstmt.setString(count++, "%" + searchMap.get("INCONTENT") + "%");
-					}
-
+					
 					pstmt.setInt(count++, pageInfo.getStartList());
 					pstmt.setInt(count++, pageInfo.getEndList());
 
@@ -403,7 +384,7 @@ public class InquiryDAO {
 			
 			
 //==============================================================================	
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		Connection conn = getConnection();
 		InquiryDAO dao = new InquiryDAO();
 		
@@ -467,10 +448,10 @@ public class InquiryDAO {
 		}
 		System.out.println("--------------------------------------------\n");
 		
+		*/
 		
 		
-		
-	}
+//	}
 	
 
 }

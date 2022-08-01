@@ -32,6 +32,8 @@ public class MemberEnrollServlet extends MyHttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Member member = new Member();
+		req.setCharacterEncoding("UTF-8");
+
 		try {
 			member.setUser_id(req.getParameter("newId").trim());//사용자가 입력한 id, pw 등등을 불러와서 member에 넣는과정
 			member.setUser_name(req.getParameter("userName").trim());
