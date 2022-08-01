@@ -202,7 +202,7 @@ String mypath = request.getContextPath();
                                             <p class="flex-shrink-1 mb-0 card-stars text-xs text-end">
                                             </p>
                                         </div>
-                                        <p class="card-text text-mutedCustom1">89,000원</p>
+                                        <p class="card-text text-mutedCustom1">39,000원</p>
                                     </div>
                                 </div>
                             </div>
