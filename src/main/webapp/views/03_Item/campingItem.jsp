@@ -39,7 +39,7 @@ if(searchValue == null){
                     </div>
                     <!-- 검색창 -->
                     <div class="col-lg-5 d-flex align-items-center">
-                        <input class="form-control border-0 shadow-0 " id="searchValue" name="searchValue" type="search" value="<%=searchValue %>" placeholder="검색어를 입력해주세요 ">
+                        <input class="form-control border-0 shadow-0 " id="searchValue" name="searchValue" type="search" value="<%=searchValue%>" placeholder="검색어를 입력해주세요 ">
                     </div>
                     <!-- 검색버튼 -->
                     <div class="col-lg-1 d-grid mb-0">

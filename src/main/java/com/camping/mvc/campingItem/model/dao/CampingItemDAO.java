@@ -60,7 +60,7 @@ public class CampingItemDAO {
 			if(searchMap.containsKey("ci_brand")) {
 				query += "AND CI_BRAND LIKE ? ";
 			}
-			if(searchMap.containsKey("ci_catogory3")) {
+			if(searchMap.containsKey("ci_category3")) {
 				query += "AND CI_CATEGORY3 LIKE ? ";
 			}
 		}
@@ -90,7 +90,6 @@ public class CampingItemDAO {
 			close(pstmt);
 			close(rs);
 		}
-		System.out.println("몇개나옴?? : " + result);
 		return result;
 	}
 	
@@ -132,7 +131,7 @@ public class CampingItemDAO {
 					pstmt.setString(count++, "%" + searchMap.get("ci_brand") + "%");
 				}
 				if(searchMap.containsKey("ci_category3")) {
-					pstmt.setString(count++, "%" + searchMap.get("ci_catogory3") + "%");
+					pstmt.setString(count++, "%" + searchMap.get("ci_category3") + "%");
 				}
 				
 			}
