@@ -35,20 +35,20 @@ public class CampingReservationServlet extends MyHttpServlet{
 		
 		try {
 			Member loginMember = getSessionMember(req); //로그인 멤버 땡겨옴
-			if(loginMember != null) {
+			int campNo = Integer.parseInt(req.getParameter("campingNo"));
+			if(loginMember != null) { //세션에서 가져온 로그인정보가 있으면
 				// 정상 - 예약으로 이동
-				int campNo = Integer.parseInt(req.getParameter("campingNo"));
 				CampingVO campingVO = service.findCampDetailByNo(campNo);
-				
 				System.out.println(campingVO);
 				
 				req.setAttribute("campingVO", campingVO);
 				req.getRequestDispatcher("/views/02_Camping/reservation.jsp").forward(req, resp);
-				return;
+			}else { //없으면 - 로그인 실패
+				sendCommonPage("로그인 이후 사용할수 있습니다.", "/camping/Detail?campingNo="+campNo, req, resp); //캠핑상세로 이동
 			}
-			req.getRequestDispatcher("/views/02_Camping/reservation.jsp").forward(req, resp);
-		} catch (Exception e) {} //로그인 실패하면
-		sendCommonPage("로그인 이후 사용할수 있습니다.", "/views/02_Camping/campingDetail.jsp", req, resp); //캠핑상세로 이동
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
