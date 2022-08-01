@@ -185,18 +185,18 @@ public class InquiryDAO {
 				return list;
 			}
 	
-			// 글쓰기 기능
+			// 글쓰기 기
 			public int insertInquiry(Connection conn, Inquiry inquiry) {
 				PreparedStatement pstmt = null;
-				String query = "INSERT INTO INQUIRY_BOARD VALUES(SEQ_INQUIRY_BOARD_INQUIRY_NO.NEXTVAL,?,?,?,?,DEFAULT,DEFAULT)";
+				String query = "INSERT INTO INQUIRY_BOARD VALUES(SEQ_INQUIRY_BOARD_INQUIRY_NO.NEXTVAL,?,null,?,?,DEFAULT,DEFAULT)";
 				int result = 0;
 
 				try {
 					pstmt = conn.prepareStatement(query);
 					pstmt.setInt(1, inquiry.getUser_no());
-					pstmt.setInt(2, inquiry.getCs_no());
-					pstmt.setString(3, inquiry.getInquir_title());
-					pstmt.setString(4, inquiry.getInquir_content());
+					
+					pstmt.setString(2, inquiry.getInquir_title());
+					pstmt.setString(3, inquiry.getInquir_content());
 
 					result = pstmt.executeUpdate();
 				} catch (Exception e) {

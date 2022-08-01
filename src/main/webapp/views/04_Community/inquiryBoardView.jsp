@@ -116,7 +116,7 @@ Inquiry inquiry = (Inquiry)request.getAttribute("inquiry");
                         <div class=" col-lg-1  mt-9 badge  badge-semi-custom" style="height:35px; font-size: 18px;">답변내용</div>
                     </div>
                     
-                    
+                   
                     
                      <%if(loginMember != null && loginMember.getUser_id().equals(inreply.getInrwriter_id())){ %>
 						<form action="<%=request.getContextPath()%>/inreply/delete" method="get">

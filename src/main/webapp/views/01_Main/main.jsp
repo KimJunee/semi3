@@ -221,7 +221,7 @@ String mypath = request.getContextPath();
                             <div class="card-body d-flex align-items-center ">
                                 <div class="w-100 ">
                                     <h6 class="card-title "><a class="text-decoration-none text-dark " href="https://search.shopping.naver.com/gate.nhn?id=28887976587">다니고 캠핑의자</a></h6>
-                                    <p class="text-sm text-muted text-uppercase ">원목이지만 탄탄한 방수처리로 물가에서도 사용할수 있어요</p>
+                                    <p class="text-sm text-muted text-uppercase ">감성은 살리고 편안함은 두배로! 감성 우드 체어</p>
                                     <span><i class="fa fa-tag text-primary opacity-4 text-xs me-1 "></i>38,000원</span></p>
                                 </div>
                             </div>
@@ -257,8 +257,8 @@ String mypath = request.getContextPath();
                         </button>
                         </h2>
                         <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
-                                <div class="accordion-body">여러분 이번 겨울철 캠핑을 즐길 때, 안전캠핑 5대 수칙과 함께 하셨나요? 지난달부터 약 한달 간 진행되었던 “초캠러(초보캠퍼)를 위한 동계 안전캠핑 5대수칙 알리기 이벤트” 당첨자를 발표합니다! 당첨자는 페이스북과 인스타그램 전체 참여자 중 무작위 추첨으로 선정했으며, 당첨되신 분들께 21일(월)에 개별 DM을 보내드릴 예정입니다! DM을 받으신 당첨자분들께서는 2월 23일(수)까지 보내드린
-                                폼으로 개인정보 회신 부탁드립니다~ 개인 정보 확인 후, 순차적으로 경품을 보내드릴 예정 입니다 . 참여 해주신 모든 분께 감사 인사를 드리며 계속해서 #고캠핑 #안전캠핑에 많은 관심과 참여 부탁드립니다 여러분의 안전 캠핑, 고캠핑이 응원합니다. ** 개인 정보는 상품 발송 목적으로 만 활용되며 발송 후 폐기합니다. ** 기한 내 네이버폼으로 개인정보를 회신주시지 않을 경우, 당첨이
+                                <div class="accordion-body">여러분 이번 겨울철 캠핑을 즐길 때, 안전캠핑 5대 수칙과 함께 하셨나요? <br>지난달부터 약 한달 간 진행되었던 “초캠러(초보캠퍼)를 위한 동계 안전캠핑 5대수칙 알리기 이벤트” 당첨자를 발표합니다!<br> 당첨자는 페이스북과 인스타그램 전체 참여자 중 무작위 추첨으로 선정했으며, 당첨되신 분들께 21일(월)에 개별 DM을 보내드릴 예정입니다!<br> DM을 받으신 당첨자분들께서는 2월 23일(수)까지 보내드린
+                                폼으로 개인정보 회신 부탁드립니다~ <br>개인 정보 확인 후, 순차적으로 경품을 보내드릴 예정 입니다.<br> 참여 해주신 모든 분께 감사 인사를 드리며 계속해서 #고캠핑 #안전캠핑에 많은 관심과 참여 부탁드립니다<br> 여러분의 안전 캠핑, 고캠핑이 응원합니다.<br> ** 개인 정보는 상품 발송 목적으로 만 활용되며 발송 후 폐기합니다.<br> ** 기한 내 네이버폼으로 개인정보를 회신주시지 않을 경우, 당첨이
                                 취소 될 수 있습니다.
                             </div>
                         </div>
@@ -271,7 +271,7 @@ String mypath = request.getContextPath();
                         </h2>
                        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
                                 <div class="accordion-body">
-                            내용</div>
+                            축하드립니다!!<br>아이디<br>test님, juni님, eunbin님, jisu님<br>taeim님, yeeun님, saingil님, 거제님<br> 본인의 이메일을 통해 숙박권을 수령하세요!!</div>
                         </div>
                     </div>
                     <div class="accordion-item ">
@@ -282,7 +282,11 @@ String mypath = request.getContextPath();
                         </h2>
                          <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
                                 <div class="accordion-body">
-                            내용</div>
+                            1.난로 등 화기∙난방기기 사용 시 일산화탄소 경보기를 꼭! 사용하고 텐트를 자주 환기해주세요<br>
+							2. 휴대용 가스레인지 사용 시 화구보다 큰 조리기구를 쓰지 않고 화기 근처에 두지 않아야 해요!<br>
+							3. 전기용량 체크! 총 600W 미만으로 전기를 사용해야해요<br>
+							4. 텐트에서 잠을 잘 때는 가스랜턴 등은 반드시 소등해서 가스중독을 예방해야해요!<br>
+							5. 난로 등 난방기기는 꼭 끄고 텐트 밖에 두고 자야해요!</div>
                         </div>
                     </div>
                     <div class="accordion-item ">
@@ -293,7 +297,18 @@ String mypath = request.getContextPath();
                         </h2>
                         <div id="panelsStayOpen-collapsefour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingfour">
                                 <div class="accordion-body">
-                            내용</div>
+                            제1조 (회원 정보의 관리)<br>
+							①    회원은 웹사이트 또는 앱 내에 구비된 정보수정 기능 내지 고객센터 등을 통해 개인정보를 열람∙변경∙수정 할 수 있습니다. 다만, 일부 개인정보의 경우 본인인증 절차가 필요할 수 있습니다.<br>
+​
+							②     회원은 등록한 E-mail 주소 또는 연락처가 변경된 경우 회원정보의 최신성 유지를 위해 제1항에 따라 변경해야 하며 이를 변경하지 않아 발생 할 수 있는 모든 불이익은 회원이 부담합니다.<br>
+​
+							제2조 (계정정보의 관리책임)<br>
+​
+							①    아이디, 비밀번호 등 계정정보의 관리책임은 회원에게 있으며, 회원은 계정정보를 타인에게 양도 내지 대여할 수 없습니다.<br>
+​
+							②    회사는 회사의 귀책사유로 인한 경우를 제외하고 계정정보의 유출, 양도, 대여, 공유 등으로 인한 손실이나 손해에 대하여 아무런 책임을 지지 않습니다.<br>
+​
+							③    회원은 제3자가 본인의 계정을 사용하고 있음(대여 포함)을 인지한 경우에는 즉시 비밀번호를 수정하는 등의 조치를 취하고 이를 회사에 통보하여야 합니다. 회원이 본 항에 따른 통지를 하지 아니하여 발생하는 모든 불이익에 대한 책임은 회원에게 있습니다.</div>
                         </div>
                     </div>
                 </div>
@@ -308,7 +323,7 @@ String mypath = request.getContextPath();
                   </svg>캠핑후기
                 </div>
                 <div class="text-block1">
-                    <a class="list-group-item list-group-item-action p-2" href="user-booking-detail.html">
+                    <a class="list-group-item list-group-item-action p-2" href="<%=path+"/camping/Detail?campingNo=3106"%>">
                         <div class="row">
                             <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
                                 <div class="d-flex align-items-center ">
@@ -318,9 +333,9 @@ String mypath = request.getContextPath();
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class=" col-lg-12 py-3 ">
-                                        <h6 class="label-heading">리뷰제목</h6>
-                                        <div class="text-sm">리뷰글내용리뷰글내용리뷰글내용리뷰글내용리뷰글내용리뷰글내용</div>
-                                        <div class="fs-7 pt-4">130,000원</div>
+                                        <h6 class="label-heading">내 인생 캠핑장 다음에 또 오기로 약속~</h6>
+                                        <div class="text-sm">나 이해성이 추천합니다 인생캠핑장!!</div>
+                                        <div class="fs-7 pt-4">759,200원</div>
                                     </div>
                                 </div>
                             </div>
@@ -328,7 +343,7 @@ String mypath = request.getContextPath();
                     </a>
                 </div>
                 <div class="text-block1">
-                    <a class="list-group-item list-group-item-action p-2" href="user-booking-detail.html">
+                    <a class="list-group-item list-group-item-action p-2" href="<%=path+"/camping/Detail?campingNo=3105"%>">
                         <div class="row">
                             <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
                                 <div class="d-flex align-items-center ">
@@ -338,9 +353,9 @@ String mypath = request.getContextPath();
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class=" col-lg-12 py-3 ">
-                                        <h6 class="label-heading">리뷰제목</h6>
-                                        <div class="text-sm">리뷰글내용리뷰글내용리뷰글내용리뷰글내용리뷰글내용리뷰글내용</div>
-                                        <div class="fs-7 pt-4">130,000원</div>
+                                        <h6 class="label-heading">서울촌놈의 깔끔하고 멋진 캠핑장 추천!!</h6>
+                                        <div class="text-sm">사장님도 너무 착하시고 좋아서 기분좋게 있다 갑니다!! 별점 5개 강추!!!</div>
+                                        <div class="fs-7 pt-4">759,200원</div>
                                     </div>
                                 </div>
                             </div>
