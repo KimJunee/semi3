@@ -356,13 +356,13 @@ public class InquiryDAO {
 			}
 
 			// 리플 삭제 기능
-			public int deleteInreply(Connection conn, int inquiryNo) {
+			public int deleteInreply(Connection conn, int inreplyNo) {
 				int result = 0;
 				PreparedStatement pstmt = null;
 				String query = "DELETE INREPLY  WHERE INR_NO=?";
 				try {
 					pstmt = conn.prepareStatement(query);
-					pstmt.setInt(1, inquiryNo);
+					pstmt.setInt(1, inreplyNo);
 					
 					result = pstmt.executeUpdate();
 				} catch (Exception e) {

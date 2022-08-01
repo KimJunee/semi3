@@ -122,7 +122,7 @@ Inquiry inquiry = (Inquiry)request.getAttribute("inquiry");
 						<form action="<%=request.getContextPath()%>/inreply/delete" method="get">
                     
                     <div class="row  px-lg-6 ">
-                    <input type="hidden" name="inreplyNo" value="<%=inreply.getInquiry_no()%>">			
+                    <input type="hidden" name="inreplyNo" value="<%=inreply.getInr_no()%>">			
 					<input type="hidden" name="inquiryNo" value="<%=inquiry.getInquiry_no()%>">	
                         <div class=" col-lg-12   mt-4 " style="font-size: 20px;">
                            <%= inreply.getInr_content() %>
@@ -133,7 +133,7 @@ Inquiry inquiry = (Inquiry)request.getAttribute("inquiry");
                         <div class="row my-5">
                             <div class="col-md-10 pb-2  " style="font-size: 17px; font-weight:bolder ;">
                                 <img src="<%= path%>/resources/img/img_semi/logo05.png" width="8%"> 
- <%=inreply.getInrwriter_id()%>
+								 <%=inreply.getInrwriter_id()%>
                             </div>
                             <div class="col-md-2 ">
                                 <a style="color: #5EAAA8;">
