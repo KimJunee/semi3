@@ -148,13 +148,12 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
     
    	<script type="text/javascript">
    	function movePage(pageUrl){//페이지url받아옴
-   		alert(pageUrl);
    		location.href = encodeURI(pageUrl);	//로케이션을 바꾸는 코드	
    	}
 	</script>
 
          <!-- 푸터위에 사진바-->
-        <section>
+      <section>
         <div class="container-fluid px-0">
             <div class="swiper-container instagram-slider">
                 <div class="swiper-wrapper">

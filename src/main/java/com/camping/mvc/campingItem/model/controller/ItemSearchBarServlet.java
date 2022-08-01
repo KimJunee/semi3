@@ -33,11 +33,11 @@ public class ItemSearchBarServlet extends MyHttpServlet {
 		int campingItemCount = 0;
 		PageInfo pageInfo = null;
 		int page = 1;
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 
-//		try {
-//			page = Integer.parseInt(req.getParameter("page"));
-//		} catch (Exception e) {}
+		if(req.getParameter("searchValue").length() == 0) {
+			sendCommonPage("검색어를 입력해주세요.", "/views/03_Item/campingItem.jsp", req, resp);
+		}
+		
 		if(req.getParameter("page") != null) {
 			page = Integer.parseInt(req.getParameter("page"));
 			System.out.println("page있음");
@@ -46,7 +46,7 @@ public class ItemSearchBarServlet extends MyHttpServlet {
 		try {
 				String searchTypeNames[] = req.getParameterValues("searchType");
 				if (searchTypeNames == null) {
-					System.out.println("값이 없음!");
+					sendCommonPage("카테고리를 선택해주세요.", "/views/03_Item/campingItem.jsp", req, resp);
 				} else {
 					System.out.println("카테고리");
 					for (String searchTypeName : searchTypeNames) {

@@ -35,7 +35,7 @@
                             <a class="d-inline-block" href="#">
                                 <img class="d-block avatar avatar-xxl p-2 mb-2" src="<%=path%>/resources/img/img_semi/campfire01.png" alt="">
                             </a>
-                            <div style="font-weight: bolder; font-size: 25px;">홍길동</div>
+                            <div style="font-weight: bolder; font-size: 25px;"><%=member.getUser_name() %></div>
                         </div>
                         <!--프로필 카드 내부 메뉴  -->
                         <div class="card-body p-4">

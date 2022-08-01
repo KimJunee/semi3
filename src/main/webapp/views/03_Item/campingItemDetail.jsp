@@ -39,6 +39,7 @@ if(searchType != null && searchType.length > 0){
                     <!-- 종류선택 -->
                     <div class="col-lg-3 d-flex align-items-center form-group no-divider-custom ">
                     <select class="selectpicker" name="searchType" id="searchType" data-style="btn-form-control">
+                    	<option value="" selected disabled>카레고리 선택</option>
                     	<option value="ci_title" <%=searchTypeStr.equals("ci_title") ? "selected" : "" %>>상품명</option>
                    	 	<option value="ci_brand" <%=searchTypeStr.equals("ci_brand") ? "selected" : "" %>>브랜드</option>
                     	<option value="ci_category3" <%=searchTypeStr.equals("ci_category3") ? "selected" : "" %>>키워드</option>
