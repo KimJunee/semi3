@@ -38,7 +38,6 @@ public class MypageReservationDetailServlet extends MyHttpServlet{
 		try {
 			List<Reservation> list = new ArrayList<Reservation>();
 			Member loginMember = getSessionMember(req);
-			int userno = loginMember.getUser_no();
 			int resv_no = Integer.parseInt(req.getParameter("resvno"));
 
 			Reservation reservation = Service.findReservationByNo(resv_no);
