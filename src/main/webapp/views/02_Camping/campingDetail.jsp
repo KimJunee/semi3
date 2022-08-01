@@ -208,7 +208,7 @@ if(campingVO == null){
                 <li class="nav-item" style="font-size:20px"><a class="nav-link p-401 active" href="#details" data-bs-toggle="tab" role="tab">상세보기</a></li>
                 <li class="nav-item" style="font-size:20px"><a class="nav-link p-401" href="#reviews" data-bs-toggle="tab" role="tab">후기</a></li>
                 <!-- 문의게시판 은빈님 링크 연결 -->
-                <li class="nav-item" style="font-size:20px"><a class="nav-link p-401" a href="<%=mypath %>/views/04_Community/inquiryBoard.jsp">문의게시판</a></li>
+                <li class="nav-item" style="font-size:20px"><a class="nav-link p-401" a href="<%=mypath%>/board/listServlet">문의게시판</a></li>
             </ul>
             <div class="tab-content pt-2">
                 <!-- 캠핑장 상세보기-->
