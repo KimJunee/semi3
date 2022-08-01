@@ -75,9 +75,29 @@
                               </svg>내 게시물</button>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center mb-3 ms-6 ">
-                        <button class="btn btn-primaryCuntom01 rounded-top " style="height: 50px; width: 110px; font-size: 16px;" type="submit "> 회원탈퇴 </button>
-                    </div>
+                     <div class="d-flex align-items-center mb-3 ms-6 ">
+   						<button class="btn btn-primaryCuntom01 rounded-top " style="height: 50px; width: 110px; font-size: 16px;" type="button"  onclick="deleteMember()" id="deleteMember" value="탈퇴"> 회원탈퇴 </button>                        
+              			  <script type="text/javascript">
+              				function deleteMember() {
+              		    	if(confirm("정말로 탈퇴하시겠습니까?!")) {
+              		   	 	location.replace('<%= request.getContextPath() %>/member/delete');
+              		    	}
+              		    	}  
+              			  
+              			  
+						
+              			<%-- $("#deleteMember").on("click", (e) => {
+									if(confirm("정말로 탈퇴하시겠습니까?!")) {
+										location.replace('<%= request.getContextPath() %>/member/delete');<%--MemberDeleteServlet.java로 넘어감 --%>
+						<%--			}
+								});
+								
+								$('#deleteMember').click(function(){
+									alert();
+									})--%>  
+									
+				</script>
+   					</div>
                 </div>
             </div>
             <!-- 프로필 옆 기능부 -->
