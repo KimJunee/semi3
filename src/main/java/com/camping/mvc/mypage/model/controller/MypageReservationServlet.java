@@ -27,17 +27,27 @@ public class MypageReservationServlet extends MyHttpServlet {
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
+		int page = 1;
+		int resCount = 0;
+		PageInfo pageInfo = null;
+		try {
+			page = Integer.parseInt(req.getParameter("page"));
+		} catch (Exception e) {
+		}
+		
 		try {
 			List<Reservation> list = new ArrayList<Reservation>();
 			Member loginMember = getSessionMember(req);
 			int userno = loginMember.getUser_no();
 			
+			pageInfo = new PageInfo(page, 5, resCount, 5);
 			//list = service.getMywrite(userno);
-			PageInfo pageInfo = new PageInfo(1, 5, 5, 5);
 			list = resService.getReservationList(pageInfo, userno);
 			System.out.println(list.toString());	
 			req.setCharacterEncoding("UTF-8");
 			req.setAttribute("list", list);
+			req.setAttribute("pageInfo", pageInfo);
 			req.getRequestDispatcher("/views/05_MyPage/myReservation.jsp").forward(req, resp);
 		} catch (Exception e) {
 			e.printStackTrace();

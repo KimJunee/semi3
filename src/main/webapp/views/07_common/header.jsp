@@ -135,7 +135,7 @@
                                                     <ul class="megamenu-list list-unstyled">
                                                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path%>/member/mypage">나의 정보    </a></li>
                                                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-account.html">찜한 캠핑장   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="user-personal.html">예약 목록   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path%>/mypage/myreservation">예약 목록   </a></li>
                                                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path%>/mypage/mywrite">내 게시물   </a></li>
                                                     </ul>
                                                 </div>
