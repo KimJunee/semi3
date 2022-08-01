@@ -189,7 +189,7 @@ if(request.getParameter("searchValue") != null){
                                     <div class="row ">
                                         <div class="col-md-5 pb-3  " style="font-size: 15px; font-weight:bolder ;">
                                             <img src="<%= path%>/resources/img/img_semi/man.png" width="8%"> 
-<%=i.getWriter_id()%>
+											<%=i.getWriter_id()%>
                                         </div>
                                         <div class="col-md-3 ">
                                             <a style="color: #5EAAA8;">
