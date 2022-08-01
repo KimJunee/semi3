@@ -10,43 +10,37 @@ import javax.servlet.http.HttpServletResponse;
 import com.camping.common.util.MyHttpServlet;
 import com.camping.mvc.inquiry.model.service.InquiryService;
 
-
-@WebServlet("/board/inquirydelete")
-public class InquiryDeleteServlet extends MyHttpServlet{
-
+@WebServlet("/inreply/delete")
+public class InquiryInReplyDeleteServlet extends MyHttpServlet{
 	private static final long serialVersionUID = 1L;
-	
 	private InquiryService service = new InquiryService();
 	
 	@Override
 	public String getServletName() {
-		return "InquiryDelete";
+		return "InquiryInReplyDelete";
 	}
-
 	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		try {
+			int inreplyNo = Integer.parseInt(req.getParameter("inreplyNo"));
 			int inquiryNo = Integer.parseInt(req.getParameter("inquiryNo"));
-			System.out.println("inquiryNo : " + inquiryNo);
-			int result = service.deleteInquiry(inquiryNo);
-			System.out.println(result);
-			if(result >0 ) {
-				req.setAttribute("msg", "게시글 삭제 성공");
-				System.out.println(result);
+			
+			int result = service.deleteInquiry(inreplyNo);
+			
+			if(result > 0) {
+				sendCommonPage("리플 삭제에 성공하였습니다.", "/board/viewInquiry?inquiryNo="+inquiryNo, req, resp);
 			}else {
-				req.setAttribute("msg","게시글 삭제를 실패하였습니다");
-				System.out.println(result);
-			}	
+				sendCommonPage("리플 삭제를 실패하였습니다. (501)", "/board/viewInquiry?inquiryNo="+inquiryNo, req, resp);
+			}
+			
 		} catch (Exception e) {
-			req.setAttribute("msg","게시글 삭제를 실패");
-		
+			e.printStackTrace();
+			sendCommonPage("리플을 삭제할수 없습니다. (505)", "/board/listServlet", req, resp);
 		}
 		
-		
-		req.setAttribute("location","/board/listServlet");
-		req.getRequestDispatcher("/views/07_common/msg.jsp").forward(req, resp);
-
 	}
 	
 }

@@ -41,7 +41,7 @@ if(request.getParameter("searchValue") != null){
                             <div class="row">
                                 <!-- 검색창 -->
                                 <div class="col-lg-11 d-flex  form-group" style="height: 60px;">
-                                    <input id="searchValue" name="searchValue" type="text" value="<%= searchValue%>" class="form-control" style="font-size: 15px; color: rgb(203, 203, 203);" placeholder="        검색어를 입력하세요" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <input id="searchValue" name="searchValue" type="text" value="<%= searchValue%>" class="form-control" style="font-size: 15px; color: rgb(203, 203, 203);" placeholder="        제목을 입력하세요" aria-label="Recipient's username" aria-describedby="button-addon2">
                                 </div>
                                 <!-- 검색버튼 -->
                                 <div class="col-lg-1 d-grid " style="height: 60px;">
@@ -57,6 +57,7 @@ if(request.getParameter("searchValue") != null){
     <!-- 문의게시판 검색창 끝 -->
 
     <!-- 문의글 쓰기 버튼 -->
+    <form action="<%= request.getContextPath()%>/board/inquiryWrite" method="POST">
     <div class="container">
         <div class="mb-5 mb-lg-8  ">
          <% if(loginMember != null) {%>
@@ -65,17 +66,22 @@ if(request.getParameter("searchValue") != null){
             </button>
              <% } %>
             <div class="collapse mt-4" id="leaveReview">
-                <form class="form" id="contact-form" method="get" action="#">
+                <form class="form" >
                     <div class="row">
                         <div class="col-sm-6">
-                            <div class="mb-4">
+                        <div type=text  class="col-md-5" style="font-size: 15px; font-weight:bolder ;">
+   					 		<img src="<%= path%>/resources/img/img_semi/campfire01.png " width="8%">
+                      		<input type="hidden" id="writer" name="writer">
+   					 		 <%=loginMember.getUser_id()%>
+   					   </div>
+                            <div class="mb-4" style="padding-top:20px">
                                 <label class="form-label" for="name">제목</label>
-                                <input class="form-control" type="text" name="name" id="contactTitle" placeholder="제목을 입력하세요." required="required">
+                                <input class="form-control" type="text" name="title" id="inquiryTitle" placeholder="제목을 입력하세요." required="required">
                             </div>
                         </div>
                         <div class="mb-4">
                             <label class="form-label" for="review">문의 내용</label>
-                            <textarea class="form-control" rows="4" name="review" id="contact" placeholder="내용을 작성해 주세요" required="required"></textarea>
+                            <textarea class="form-control" rows="4" name="content" id="inquirycontact" placeholder="내용을 작성해 주세요" required="required"></textarea>
                         </div>
                         <div class="container">
                             <div class="col-lg-12 mb-3  ">
@@ -86,6 +92,7 @@ if(request.getParameter("searchValue") != null){
                 </div>
             </div>
         </div>
+        </form>
 
         <!-- 공지사항 시작 -->
         <section class="py-4 ">
@@ -159,47 +166,60 @@ if(request.getParameter("searchValue") != null){
                         </div>
                         
                         <div class="accordion-item ">
+                                                    
+                            <%if(list == null || list.isEmpty()){ %><!--  게시글이 없는 경우  -->
+						<tr>
+							<td colspan="6">조회된 게시글이 없습니다.</td>
+						</tr>
+						<%} else { %><!-- 게시글이 있는경우 -->
+							<%for(Inquiry i : list){ %>
+                        
+                        
                             <h2 class="accordion-header" id="panelsStayOpen-headingfive">
-                                <button class="accordion-button collapsed" style="font-weight: bolder;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
-                                <div>NO.1</div>
-                                 <div>캠핑장 취사관련 문의드립니다</div>
-                        </button>
+                                <button class="accordion-button " style="font-weight: bolder;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
+                                	<div><%=i.getInquiry_no()%></div>
+                                	 <div><%=i.getInquir_title()%></div>
+                       			 </button>
                             </h2>
-                            <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingfive">
+                            <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingfive">
                                 <div class="accordion-body">
-                                    캠핑장 텐트 안에서 라면 먹으려고 하는데 취사가 가능한가요? 답변 부탁드립니다.
+                                     <%=i.getInquir_content()%>
                                 </div>
                                 <div class="container ">
                                     <div class="row ">
                                         <div class="col-md-5 pb-3  " style="font-size: 15px; font-weight:bolder ;">
-                                            <img src="<%= path%>/resources/img/img_semi/man.png" width="8%"> 사용자닉네임
+                                            <img src="<%= path%>/resources/img/img_semi/man.png" width="8%"> 
+<%=i.getWriter_id()%>
                                         </div>
                                         <div class="col-md-3 ">
                                             <a style="color: #5EAAA8;">
-                                            작성일 : 2022-07-06
+                                            <%=i.getInquir_regist()%>
                                         </a>
                                         </div>
+                                        
                                         <div class="col-md-2 ">
-                                            <a class="text-base " style="color: #5EAAA8;" href="border01.html">
-                                            답변 수
+                                            <a class="text-base " style="color: #5EAAA8;" href="<%=path+"/board/viewInquiry?inquiryNo="+i.getInquiry_no()%>">
+                                            답변보기
                                         </a>
                                         </div>
+                                        
                                         <div class="col-md-2 ">
                                             <a style="color: #5EAAA8;">
-                                            조회 수
-                                        </a>
+                                            <%= i.getInquir_hit()%>
+                                        	</a>
                                         </div>
-                                    </div>
+                                        
+                                   </div>
+                                    
                                 </div>
                             </div>
+                             <%}%> 
+                            
+                         <%}%> 
                         </div>
-                    
-       
-        <!-- 공지사항 끝 -->
-        
-        
-         <!-- 페이지번호  -->
-             <nav aria-label="Page navigation example">
+                        
+        <!-- 페이지번호  -->
+             <nav aria-label="Page navigation example" style="padding-top:60px">
             <ul
                class="pagination pagination-template d-flex justify-content-center">
                <li class="page-item"><a class="page-link"
@@ -234,6 +254,9 @@ if(request.getParameter("searchValue") != null){
          </nav>
          </div>
           </section>
+        
+        
+        <!-- 공지사항 끝 -->
 
     <!-- 하단 이미지바 시작-->
     <section>

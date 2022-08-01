@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.camping.common.util.MyHttpServlet;
 import com.camping.mvc.camping.model.service.ReservationService;
 import com.camping.mvc.camping.model.vo.Reservation;
+import com.camping.mvc.member.model.vo.Member;
 
 @WebServlet("/reservation")
 public class ReservationServlet extends MyHttpServlet{
@@ -20,7 +21,7 @@ public class ReservationServlet extends MyHttpServlet{
 	
 	@Override
 	public String getServletName() {
-		return "Reservation";
+		return "Reservation Action";
 	}
 
 	@Override
@@ -35,18 +36,15 @@ public class ReservationServlet extends MyHttpServlet{
 //		System.out.println(req.getParameter("resv_checkin"));
 //		System.out.println(req.getParameter("resv_checkout"));
 //		System.out.println("#############################");
-		
+		try {
 		// 인코딩
 		req.setCharacterEncoding("utf-8");
 		resp.setCharacterEncoding("utf-8");
 		
-		// 로그인 된건지 체크해야되고
-		
-		
-
+		Member loginMember = getSessionMember(req); //로그인 멤버 땡겨옴
 		
 		// 파라메터 받은 변수
-		int user_no = Integer.parseInt(req.getParameter("user_no"));
+		int user_no = loginMember.getUser_no();
 		int cs_no = Integer.parseInt(req.getParameter("cs_no"));
 		int resv_headcount = Integer.parseInt(req.getParameter("resv_headcount"));
 		String resv_pay = req.getParameter("resv_pay");
@@ -65,6 +63,8 @@ public class ReservationServlet extends MyHttpServlet{
 		reservation.setResv_checkout(resv_checkout);
 		reservation.setResv_no(0);
 		
+		System.out.println("뭔데이게"+reservation);
+		
 		// 결과값에 쓰려고 만든 변수(resultValue)를 정하기 위해 만든 변수
 		int result = service.saveReservation(reservation); 
 		String resultValue = ""; //결과값에 쓰려고 만든 변수임
@@ -81,7 +81,10 @@ public class ReservationServlet extends MyHttpServlet{
 		resp.setContentType("text/html;charset=UTF-8");
 		// 리퀘스트 객체 보낸 곳으로 보냄
         resp.getWriter().write(resultValue);
-        // 결과값을 예약화면에 같이 보이게 함
-        req.getRequestDispatcher("/views/02_Camping/reservation.jsp").forward(req, resp);
+        System.out.println("가냐"+resultValue);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

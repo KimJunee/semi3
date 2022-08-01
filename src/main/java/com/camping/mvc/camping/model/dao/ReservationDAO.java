@@ -14,7 +14,7 @@ public class ReservationDAO {
 	// 예약하기 - 달력체크한 날짜 어케 가져올까.. 해봐야 알거 같음... 나중에 수정 필요...
 	public int insertReservation(Connection conn, Reservation resv) {
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO RESERVATION VALUES (SEQ_BOARD_NO.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+		String query = "INSERT INTO RESERVATION VALUES (SEQ_RES_NO.NEXTVAL, ?, ?, ?, ?, ?, ?)";
 		int result = 0;
 		
 		try {
@@ -25,6 +25,9 @@ public class ReservationDAO {
 			pstmt.setString(4, resv.getResv_pay());
 			pstmt.setDate(5, resv.getResv_checkin());
 			pstmt.setDate(6, resv.getResv_checkout());
+			
+			result = pstmt.executeUpdate();
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

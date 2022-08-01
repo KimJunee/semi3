@@ -8,15 +8,13 @@
 <%
 List<CampingItemVO> list = (List<CampingItemVO>)request.getAttribute("list");
 PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
-String searchValue = "";
-String searchType = "";
-String searchTypes = request.getParameter("searchType");
-if(searchTypes != null && searchTypes.length() > 0){
-searchType = request.getParameter("searchType");
-searchValue = request.getParameter("searchValue");
+String[] searchType = request.getParameterValues("searchType");
+String searchValue = request.getParameter("searchValue");
+if(searchValue == null){
+	searchValue = "";
 }
 %>
- 
+
     <!-- 메인 큰 이미지 -->
     <section class="container" style="background-image: url(<%=path%>/resources/img/img_semi/itemmain.png); height: 600px;"></section>
     <!-- 메인 검색창 -->
@@ -41,7 +39,7 @@ searchValue = request.getParameter("searchValue");
                     </div>
                     <!-- 검색창 -->
                     <div class="col-lg-5 d-flex align-items-center">
-                        <input class="form-control border-0 shadow-0 " id="searchValue" name="searchValue" type="search" value="" placeholder="검색어를 입력해주세요 ">
+                        <input class="form-control border-0 shadow-0 " id="searchValue" name="searchValue" type="search" value="<%=searchValue %>" placeholder="검색어를 입력해주세요 ">
                     </div>
                     <!-- 검색버튼 -->
                     <div class="col-lg-1 d-grid mb-0">

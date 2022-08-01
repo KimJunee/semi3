@@ -39,32 +39,31 @@ public class ItemSearchBarServlet extends MyHttpServlet {
 //		} catch (Exception e) {}
 		if(req.getParameter("page") != null) {
 			page = Integer.parseInt(req.getParameter("page"));
+			System.out.println("page없음");
 		}
 		
 		try {
-			String searchTypeNames[] = req.getParameterValues("searchType");
-			if (searchTypeNames == null) {
-				System.out.println("값이 없음!");
-			} else {
-				System.out.println("카테고리");
-				for (String searchTypeName : searchTypeNames) {
-					System.out.println(searchTypeName + " ");
-					System.out.println("\n");
-					String searchValues = req.getParameter("searchValue");
-					System.out.println("검색어 : " + searchValues);
-					searchMap.put(searchTypeName, searchValues);
-				}
+				String searchTypeNames[] = req.getParameterValues("searchType");
+				if (searchTypeNames == null) {
+					System.out.println("값이 없음!");
+				} else {
+					System.out.println("카테고리");
+					for (String searchTypeName : searchTypeNames) {
+						System.out.println(searchTypeName + " ");
+						System.out.println("\n");
+						String searchValues = req.getParameter("searchValue");
+						System.out.println("검색어 : " + searchValues);
+						searchMap.put(searchTypeName, searchValues);
+					}
 			}
-			 
-			
-			campingItemCount = service.getSearchCount(searchMap);
-			pageInfo = new PageInfo(page, 5, campingItemCount, 12);
-			list = service.getCampItemList(pageInfo, searchMap);
-			System.out.println(list.toString());
-			System.out.println(campingItemCount);
-			req.setAttribute("list", list);
-			req.setAttribute("pageInfo", pageInfo);
-			req.getRequestDispatcher("/views/03_Item/campingItemDetail.jsp").forward(req, resp);
+				campingItemCount = service.getSearchCount(searchMap);
+				pageInfo = new PageInfo(page, 5, campingItemCount, 12);
+				list = service.getCampItemList(pageInfo, searchMap);
+				System.out.println(list.toString());
+				System.out.println(campingItemCount);
+				req.setAttribute("list", list);
+				req.setAttribute("pageInfo", pageInfo);
+				req.getRequestDispatcher("/views/03_Item/campingItemDetail.jsp").forward(req, resp);
 			
 		} catch (Exception e) {
 			e.printStackTrace();
