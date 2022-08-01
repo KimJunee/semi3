@@ -28,8 +28,6 @@ public class InquiryViewServlet extends MyHttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		
 
 		
 		
@@ -42,7 +40,7 @@ public class InquiryViewServlet extends MyHttpServlet{
 
 		//예외처리 해주기
 		if(inquiry == null) {
-			resp.sendRedirect(req.getContextPath() + "/views/01_Community/main.jsp");//메인으로보냄
+			resp.sendRedirect(req.getContextPath() + "/views/01_Main/main.jsp");//메인으로보냄
 			return;
 		}
 		req.setAttribute("inquiry", inquiry);
@@ -52,7 +50,7 @@ public class InquiryViewServlet extends MyHttpServlet{
 
 	}
 
-	
+
 	/*
 	 * 여기 페이지에 이걸 추가하면 되지 않을까 싶은데 잘 안되... 
 	 * try { 
