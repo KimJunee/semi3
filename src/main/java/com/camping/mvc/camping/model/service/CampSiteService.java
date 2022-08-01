@@ -35,7 +35,7 @@ public class CampSiteService {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		} return;
 	}
 	
 	public Connection getConnection() {
