@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.camping.common.util.PageInfo;
 import com.camping.mvc.inquiry.model.service.InquiryService;
 import com.camping.mvc.inquiry.model.vo.Inquiry;
+import com.camping.mvc.member.model.vo.Member;
 
 @WebServlet("/board/listServlet")
 public class InquiryListServlet extends HttpServlet{

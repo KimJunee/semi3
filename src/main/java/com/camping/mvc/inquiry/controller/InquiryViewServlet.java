@@ -31,7 +31,7 @@ public class InquiryViewServlet extends HttpServlet{
 
 		//예외처리 해주기
 		if(inquiry == null) {
-			resp.sendRedirect(req.getContextPath() + "/");//메인으로보냄
+			resp.sendRedirect(req.getContextPath() + "/views/01_Community/main.jsp");//메인으로보냄
 			return;
 		}
 		req.setAttribute("inquiry", inquiry);
