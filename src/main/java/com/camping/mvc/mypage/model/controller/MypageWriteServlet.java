@@ -8,6 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.camping.common.util.MyHttpServlet;
 import com.camping.common.util.PageInfo;
@@ -36,6 +37,14 @@ public class MypageWriteServlet extends MyHttpServlet{
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
+		HttpSession session = req.getSession(); //HttpSession이 존재하면 현재 HttpSession을 반환하고 존재하지 않으면 새로이 세션을 생성합니다
+		System.out.println(session.getAttribute("loginMember"));
+		Member member = (Member) session.getAttribute("loginMember");
+		
+		if(member == null) {
+			sendCommonPage("로그인후 이용해주세요.", "/views/01_Main/main.jsp", req, resp);
+			return;
+		}
 		
 		List<Community> list = new ArrayList<Community>();
 		Member loginMember = getSessionMember(req);
