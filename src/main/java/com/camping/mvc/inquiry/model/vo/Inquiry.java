@@ -9,8 +9,6 @@ public class Inquiry {
 	private int rowNum;				//추가
 	private int user_no; 			// 문의글 작성자번호
 	private String writer_id;		//추가함
-	private int cs_no; 				// 캠핑장번호
-	private String camping_name;	//추가 캠핑장이름
 	private String inquir_title; 	// 문의글 제목
 	private String inquir_content;  // 문의글 내용
 	private Date inquir_regist; 	// 등록날짜
@@ -22,15 +20,13 @@ public class Inquiry {
 		
 	}
 
-	public Inquiry(int inquiry_no, int rowNum, int user_no, String writer_id, int cs_no, String camping_name,
+	public Inquiry(int inquiry_no, int rowNum, int user_no, String writer_id,
 			String inquir_title, String inquir_content, Date inquir_regist, int inquir_hit, List<Inreply> inreplies) {
 		super();
 		this.inquiry_no = inquiry_no;
 		this.rowNum = rowNum;
 		this.user_no = user_no;
 		this.writer_id = writer_id;
-		this.cs_no = cs_no;
-		this.camping_name = camping_name;
 		this.inquir_title = inquir_title;
 		this.inquir_content = inquir_content;
 		this.inquir_regist = inquir_regist;
@@ -41,7 +37,7 @@ public class Inquiry {
 	@Override
 	public String toString() {
 		return "Inquiry [inquiry_no=" + inquiry_no + ", rowNum=" + rowNum + ", user_no=" + user_no + ", writer_id="
-				+ writer_id + ", cs_no=" + cs_no + ", camping_name=" + camping_name + ", inquir_title=" + inquir_title
+				+ writer_id +  ", inquir_title=" + inquir_title
 				+ ", inquir_content=" + inquir_content + ", inquir_regist=" + inquir_regist + ", inquir_hit="
 				+ inquir_hit + ", inreplies=" + inreplies + "]";
 	}
@@ -78,21 +74,6 @@ public class Inquiry {
 		this.writer_id = writer_id;
 	}
 
-	public int getCs_no() {
-		return cs_no;
-	}
-
-	public void setCs_no(int cs_no) {
-		this.cs_no = cs_no;
-	}
-
-	public String getCamping_name() {
-		return camping_name;
-	}
-
-	public void setCamping_name(String camping_name) {
-		this.camping_name = camping_name;
-	}
 
 	public String getInquir_title() {
 		return inquir_title;
