@@ -153,12 +153,6 @@ String mypath = request.getContextPath();
                         <div class="card h-100 border-0 shadow ">
                             <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="<%= mypath%>/resources/img/img_semi/campbasket.png" style="height:250px;">
                                 <a class="tile-link " href="https://smartstore.naver.com/buytop/products/6546351540?NaPm=ct%3Dl683y134%7Cci%3D0aae679a2a53d913526ec7db37a949e64cd0f347%7Ctr%3Dslsl%7Csn%3D577370%7Chk%3D2c060eff8b7254d53a293ed6de14be56f988dd0f"></a>
- <%--                               <div class="card-img-overlay-top text-end ">
-                                    <a class="card-fav-icon position-relative z-index-40 " href="javascript: void(); ">
-                                        <svg class="svg-icon text-white ">
-                        <use xlink:href="#heart-1 "> </use>
-                      </svg></a>
-                                </div>--%>
                             </div>
                             <div class="card-body d-flex align-items-center ">
                                 <div class="w-100 ">
@@ -173,14 +167,8 @@ String mypath = request.getContextPath();
                 <div class="swiper-slide h-auto px-2 ">
                     <div class="w-100 h-100 hover-animate " data-marker-id="59c0c8e33b1527bfe2abaf92 ">
                         <div class="card h-100 border-0 shadow ">
-                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="<%= mypath%>/resources/img/img_semi/tent01.png " style="height:250px;">
+                            <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="<%= mypath%>/resources/img/img_semi/tent01.png" style="height:250px;">
                                 <a class=" tile-link " href="https://search.shopping.naver.com/gate.nhn?id=32695611628"></a>
-  <%--                              <div class="card-img-overlay-top text-end ">
-                                    <a class="card-fav-icon position-relative z-index-40 " href="javascript: void(); ">
-                                        <svg class="svg-icon text-white ">
-                      <use xlink:href="#heart-1 "> </use>
-                    </svg></a>
-                                </div>--%>
                             </div>
                             <div class="card-body d-flex align-items-center ">
                                 <div class="w-100 ">
@@ -197,12 +185,6 @@ String mypath = request.getContextPath();
                         <div class="card h-100 border-0 shadow ">
                             <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="https://shopping-phinf.pstatic.net/main_3152259/31522594618.20220329213345.jpg" style="height:250px;">
                                 <a class="tile-link " href="https://search.shopping.naver.com/gate.nhn?id=31522594618"></a>
-  <%--                              <div class="card-img-overlay-top text-end ">
-                                    <a class="card-fav-icon position-relative z-index-40 " href="javascript: void(); ">
-                                        <svg class="svg-icon text-white ">
-                    <use xlink:href="#heart-1 "> </use>
-                  </svg></a>
-                                </div>--%>
                             </div>
                             <div class="card-body d-flex align-items-center ">
                                 <div class="w-100 ">
@@ -219,12 +201,6 @@ String mypath = request.getContextPath();
                         <div class="card h-100 border-0 shadow ">
                             <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="https://shopping-phinf.pstatic.net/main_8372674/83726746936.5.jpg" style="height:250px;">
                                 <a class="tile-link " href="https://search.shopping.naver.com/gate.nhn?id=83726746936"></a>
- <%--                                <div class="card-img-overlay-top text-end ">
-                                    <a class="card-fav-icon position-relative z-index-40 " href="javascript: void(); ">
-                                        <svg class="svg-icon text-white ">
-                  <use xlink:href="#heart-1 "> </use>
-                </svg></a>
-                                </div>--%>
                             </div>
                             <div class="card-body d-flex align-items-center ">
                                 <div class="w-100 ">
@@ -241,12 +217,6 @@ String mypath = request.getContextPath();
                         <div class="card h-100 border-0 shadow ">
                             <div class="card-img-top overflow-hidden gradient-overlay "> <img class="img-fluid " src="https://shopping-phinf.pstatic.net/main_2888797/28887976587.20220418151614.jpg" style="height:250px;">
                                 <a class="tile-link " href="https://search.shopping.naver.com/gate.nhn?id=28887976587"></a>
- <%--                                <div class="card-img-overlay-top text-end ">
-                                    <a class="card-fav-icon position-relative z-index-40 " href="javascript: void(); ">
-                                        <svg class="svg-icon text-white ">
-                  <use xlink:href="#heart-1 "> </use>
-                </svg></a>
-                                </div>--%>
                             </div>
                             <div class="card-body d-flex align-items-center ">
                                 <div class="w-100 ">

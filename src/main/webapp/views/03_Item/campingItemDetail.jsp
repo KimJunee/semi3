@@ -10,9 +10,16 @@ List<CampingItemVO> list = (List<CampingItemVO>)request.getAttribute("list");
 PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 String[] searchType = request.getParameterValues("searchType");
 String searchValue = request.getParameter("searchValue");
+
 if(searchValue == null){
 	searchValue = "";
 }
+
+String searchTypeStr = "ci_title";
+if(searchType != null && searchType.length > 0){
+	searchTypeStr = searchType[0];
+}
+
 %>
     <!-- 메인 큰 이미지 -->
     <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%=path%>/resources/img/img_semi/campitem_04_01.png); height: 350px; margin: 60px;"></section>
@@ -31,16 +38,15 @@ if(searchValue == null){
                     </div>
                     <!-- 종류선택 -->
                     <div class="col-lg-3 d-flex align-items-center form-group no-divider-custom ">
-                    <select class="selectpicker" name="searchType" data-style="btn-form-control">
-                    <option value="" selected disabled>카레고리 선택</option>
-                    <option value="ci_title">상품명</option>
-                    <option value="ci_brand">브랜드</option>
-                    <option value="ci_category3">키워드</option>
+                    <select class="selectpicker" name="searchType" id="searchType" data-style="btn-form-control">
+                    	<option value="ci_title" <%=searchTypeStr.equals("ci_title") ? "selected" : "" %>>상품명</option>
+                   	 	<option value="ci_brand" <%=searchTypeStr.equals("ci_brand") ? "selected" : "" %>>브랜드</option>
+                    	<option value="ci_category3" <%=searchTypeStr.equals("ci_category3") ? "selected" : "" %>>키워드</option>
                     </select>
                     </div>
                     <!-- 검색창 -->
                     <div class="col-lg-5 d-flex align-items-center">
-                        <input class="form-control border-0 shadow-0 " id="searchValue" name="searchValue" type="search" value="<%=searchValue%>" placeholder="검색어를 입력해주세요 ">
+                        <input class="form-control border-0 shadow-0 " id="searchValue2" name="searchValue" type="search" value="<%=searchValue%>" placeholder="검색어를 입력해주세요 ">
                     </div>
                     <!-- 검색버튼 -->
                     <div class="col-lg-1 d-grid mb-0">
@@ -129,18 +135,13 @@ if(searchValue == null){
     
 <script type="text/javascript">
 	function movePage(pageUrl){
-		var searchValue = document.getElementById("searchValue");
-		var searchType = document.getElementsByName("searchType");
-		var searchType = 'ci_title';
+		var searchValue = document.getElementById("searchValue2");
+		var searchType = document.getElementById("searchType");
 		if(searchValue.value.length > 0){
-			for(var i = 0; i <searchTypes.length; i++){
-				if(searchTypes[i].selected == true){
-					searchType = searchTypes[i].value;
-				}
-			}
-			pageUrl = pageUrl + '&searchType=' + searchType + '&searchValue=' + searchValue.value; 
+			var selectValue = searchType.options[searchType.selectedIndex].value;
+			pageUrl = pageUrl + '&searchType=' + selectValue + '&searchValue=' + searchValue.value; 
 		}
-		alert(pageUrl);
+//		alert(pageUrl);
 		location.href = encodeURI(pageUrl);	
 	}
 </script>

@@ -4,11 +4,13 @@
 <%@page import="com.camping.mvc.camping.model.vo.Reservation"%>
 <%@page import="com.camping.mvc.camping.model.dao.ReservationDAO"%>
 <%@page import="com.camping.common.util.PageInfo"%>
+<%@ page import="java.text.*" %>
 <%@ include file="/views/07_common/header.jsp" %>
 <%
 	String mypath = request.getContextPath();
 	List<Reservation> list = (List<Reservation>)request.getAttribute("list");
 	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
+	DecimalFormat df = new DecimalFormat("###,###");
 %>
     <!-- 헤더 큰 이미지 -->
     <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/mypage01_01.png); height: 350px; margin: 60px;"></section>
@@ -95,28 +97,28 @@
                                         <div class="row">
                                             <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
                                                 <div class="d-flex align-items-center ">
-                                                    <img class="img-fluid" src="<%= path%>/resources/img/img_semi/camp02.jpg" alt="">
+                                                    <img class="img-fluid" src='<%=c.getCs_image() != null ? c.getCs_image() : path+"/resources/img/img_semi/camp02.jpg"%>' alt="">
                                                 </div>
                                             </div>
                                             <div class="col-lg-8">
                                                 <div class="row">
                                                     <div class="col-6 col-md-4 col-lg-3 py-3 ">
                                                         <h6 class="label-heading">캠핑장 이름</h6>
-                                                        <p class="text-sm fw-bold"><%=c.getCs_name() %></p>
+                                                        <p class="text-sm fw-bold"><%=c.getCs_name()%></p>
                                                         <h6 class="label-heading">인원수 </h6>
-                                                        <p class="text-sm fw-bold mb-0">3</p>
+                                                        <p class="text-sm fw-bold mb-0"><%=c.getResv_headcount()%></p>
                                                     </div>
                                                     <div class="col-6 col-md-4 col-lg-3 py-3">
                                                         <h6 class="label-heading">이용시설종류</h6>
-                                                        <p class="text-sm fw-bold">글램핑</p>
+                                                        <p class="text-sm fw-bold"><%=c.getCs_induty()%></p>
                                                         <h6 class="label-heading">예약금액</h6>
-                                                        <p class="text-sm fw-bold mb-0">300,000</p>
+                                                        <p class="text-sm fw-bold mb-0"><%=df.format(Integer.parseInt(c.getResv_pay()))+"원"%></p>
                                                     </div>
                                                     <div class="col-6 col-md-4 col-lg-3 py-3">
                                                         <h6 class="label-heading">체크인</h6>
-                                                        <p class="text-sm fw-bold">2022-08-16 </p>
+                                                        <p class="text-sm fw-bold"><%=c.getResv_checkin()%></p>
                                                         <h6 class="label-heading">체크아웃</h6>
-                                                        <p class="text-sm fw-bold mb-0">2022-08-18</p>
+                                                        <p class="text-sm fw-bold mb-0"><%=c.getResv_checkout()%></p>
                                                     </div>
                                                     <div class="col-12 col-lg-3 align-self-center">
                                                         <span class="text-danger text-sm text-uppercase me-4 me-lg-0">

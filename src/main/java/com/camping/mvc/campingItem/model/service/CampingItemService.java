@@ -27,6 +27,11 @@ public class CampingItemService {
 	public int getSearchCount(Map<String, String> searchMap) {
 		Connection conn = getConnection();
 		int result = dao.getSearchCount(conn, searchMap);
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
 		return result;
 	}
 
