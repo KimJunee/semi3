@@ -94,7 +94,7 @@ public class MemberDAO {
 	// 탈퇴하기
 	public int deleteMember(Connection conn, int no) {
 		PreparedStatement pstmt = null;
-		String query = "DELETE FROM USER_T WHERE USER_NO= ? ";
+		String query = "DELETE FROM USER_T WHERE USER_NO= ?";
 		int result = 0;
 		
 		try {
