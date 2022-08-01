@@ -28,7 +28,7 @@ public class InquiryInReplyDeleteServlet extends MyHttpServlet{
 			int inreplyNo = Integer.parseInt(req.getParameter("inreplyNo"));
 			int inquiryNo = Integer.parseInt(req.getParameter("inquiryNo"));
 			
-			int result = service.deleteInquiry(inreplyNo);
+			int result = service.deleteInReply(inreplyNo);
 			
 			if(result > 0) {
 				sendCommonPage("리플 삭제에 성공하였습니다.", "/board/viewInquiry?inquiryNo="+inquiryNo, req, resp);
