@@ -87,9 +87,29 @@
                             <button class="btn btn-lg btn-primary" type="submit" value="로그인">로그인</button>
                         </div>
                         <hr class="my-3 hr-text letter-spacing-2" data-content="OR">
-                        <div class="d-grid gap-2">
-                            <button class="btn btn-lg btn-primary2"><img src="<%=path %>/resources/img/img_semi/kakao.jpg" width="40px" height="40px"> 카카오 로그인</button>
+                           <div class="d-grid gap-2">
+                            <button class="btn btn-lg btn-primary2" onclick="javascript:kakaoLogin();"><img src="<%=path %>/resources/img/img_semi/kakao.jpg" width="40px" height="40px"> 카카오 로그인</button>
                         </div>
+                        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+                        <script>
+                            window.Kakao.init("89e9c3d321d0890e0eef7d916c43b9d4");
+
+                            function kakaoLogin() {
+                                window.Kakao.Auth.login({
+                                    scope: 'profile_nickname, profile_image, account_email, age_range',
+                                    success: function(authObj) {
+                                        console.log(authObj);
+                                        window.Kakao.API.request({
+                                            url: '/v2/user/me',
+                                            success: res => {
+                                                const kakao_account = res.kakao_account;
+                                                console.log(kakao_account);
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        </script>
                         <hr class="my-4">
                         <p class="text-center"><small class="text-muted text-center">아직 회원이 아니신가요? <a href="<%=path %>/views/06_User/signup.jsp" style="color:#f05945;">회원가입</small></p>
                     </form>

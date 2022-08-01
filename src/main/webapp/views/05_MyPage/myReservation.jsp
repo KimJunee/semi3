@@ -3,10 +3,12 @@
 <%@page import="com.camping.mvc.member.model.vo.Member"%>
 <%@page import="com.camping.mvc.camping.model.vo.Reservation"%>
 <%@page import="com.camping.mvc.camping.model.dao.ReservationDAO"%>
+<%@page import="com.camping.common.util.PageInfo"%>
 <%@ include file="/views/07_common/header.jsp" %>
 <%
-String mypath = request.getContextPath();
-List<Reservation> list = (List<Reservation>)request.getAttribute("list");
+	String mypath = request.getContextPath();
+	List<Reservation> list = (List<Reservation>)request.getAttribute("list");
+	PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 %>
     <!-- 헤더 큰 이미지 -->
     <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/mypage01_01.png); height: 350px; margin: 60px;"></section>
@@ -75,7 +77,19 @@ List<Reservation> list = (List<Reservation>)request.getAttribute("list");
                         <h4 class="mb-5">예약 목록</h4>
                         <div class="row">
                             <div class="list-group shadow mb-5">
-                                <!-- 예약 목록 02번 -->
+                            <%if(list == null || list.isEmpty()){ %>
+							<%-- 예약 없으면 --%>
+							<div>
+								<div style="text-align: center">예약된 건이 없습니다.</div>
+							</div>
+			
+							<%}else {%>
+							<%-- 예약 목록 --%>
+							<%for(Reservation c : list) {%>
+							<%-- <%if(c.getCs_image() == null) {
+	                    		continue;
+	                    	}%> --%>
+                        	    <!-- 예약 목록 시작 -->
                                 <div>
                                     <a class="list-group-item list-group-item-action p-4" href="myPageReservationDetail.html">
                                         <div class="row">
@@ -88,50 +102,7 @@ List<Reservation> list = (List<Reservation>)request.getAttribute("list");
                                                 <div class="row">
                                                     <div class="col-6 col-md-4 col-lg-3 py-3 ">
                                                         <h6 class="label-heading">캠핑장 이름</h6>
-                                                        <p class="text-sm fw-bold">은하수캠핑장</p>
-                                                        <h6 class="label-heading">인원수 </h6>
-                                                        <p class="text-sm fw-bold mb-0">3</p>
-                                                    </div>
-                                                    <div class="col-6 col-md-4 col-lg-3 py-3">
-                                                        <h6 class="label-heading">이용시설종류</h6>
-                                                        <p class="text-sm fw-bold">글램핑</p>
-                                                        <h6 class="label-heading">예약금액</h6>
-                                                        <p class="text-sm fw-bold mb-0">300,000</p>
-                                                    </div>
-                                                    <div class="col-6 col-md-4 col-lg-3 py-3">
-                                                        <h6 class="label-heading">체크인</h6>
-                                                        <p class="text-sm fw-bold">2022-08-16 </p>
-                                                        <h6 class="label-heading">체크아웃</h6>
-                                                        <p class="text-sm fw-bold mb-0">2022-08-18</p>
-                                                    </div>
-                                                    <div class="col-12 col-lg-3 align-self-center">
-                                                        <span class="text-danger text-sm text-uppercase me-4 me-lg-0">
-                                                    <i class="fa fa-check fa-fw me-2"> </i>결제완료
-                                                </span>
-                                                        <br class="d-none d-lg-block">
-                                                        <span class="text-danger text-sm text-uppercase">
-                                                    <i class="fa fa-check fa-fw me-2"> </i>예약완료
-                                                </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <!-- 예약 목록 02번 -->
-                                <div>
-                                    <a class="list-group-item list-group-item-action p-4" href="myPageReservationDetail.html">
-                                        <div class="row">
-                                            <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
-                                                <div class="d-flex align-items-center ">
-                                                    <img class="img-fluid" src="<%= path%>/resources/img/img_semi/camp02.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="row">
-                                                    <div class="col-6 col-md-4 col-lg-3 py-3 ">
-                                                        <h6 class="label-heading">캠핑장 이름</h6>
-                                                        <p class="text-sm fw-bold">은하수캠핑장</p>
+                                                        <p class="text-sm fw-bold"><%=c.getCs_name() %></p>
                                                         <h6 class="label-heading">인원수 </h6>
                                                         <p class="text-sm fw-bold mb-0">3</p>
                                                     </div>
@@ -161,49 +132,8 @@ List<Reservation> list = (List<Reservation>)request.getAttribute("list");
                                         </div>
                                     </a>
                                 </div>
-                                <!-- 예약 목록 00번 -->
-                                <div>
-                                    <a class="list-group-item list-group-item-action p-4" href="myPageReservationDetail.html">
-                                        <div class="row">
-                                            <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
-                                                <div class="d-flex align-items-center ">
-                                                    <img class="img-fluid" src="<%= path%>/resources/img/img_semi/camp02.jpg" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-8">
-                                                <div class="row">
-                                                    <div class="col-6 col-md-4 col-lg-3 py-3 ">
-                                                        <h6 class="label-heading">캠핑장 이름</h6>
-                                                        <p class="text-sm fw-bold">은하수캠핑장</p>
-                                                        <h6 class="label-heading">인원수 </h6>
-                                                        <p class="text-sm fw-bold mb-0">3</p>
-                                                    </div>
-                                                    <div class="col-6 col-md-4 col-lg-3 py-3">
-                                                        <h6 class="label-heading">이용시설종류</h6>
-                                                        <p class="text-sm fw-bold">글램핑</p>
-                                                        <h6 class="label-heading">예약금액</h6>
-                                                        <p class="text-sm fw-bold mb-0">300,000</p>
-                                                    </div>
-                                                    <div class="col-6 col-md-4 col-lg-3 py-3">
-                                                        <h6 class="label-heading">체크인</h6>
-                                                        <p class="text-sm fw-bold">2022-08-16 </p>
-                                                        <h6 class="label-heading">체크아웃</h6>
-                                                        <p class="text-sm fw-bold mb-0">2022-08-18</p>
-                                                    </div>
-                                                    <div class="col-12 col-lg-3 align-self-center">
-                                                        <span class="text-danger text-sm text-uppercase me-4 me-lg-0">
-                                                        <i class="fa fa-check fa-fw me-2"> </i>결제완료
-                                                    </span>
-                                                        <br class="d-none d-lg-block">
-                                                        <span class="text-danger text-sm text-uppercase">
-                                                        <i class="fa fa-check fa-fw me-2"> </i>예약완료
-                                                    </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                               <%}
+                               }%>
                                 <!-- 페이지번호  -->
                                 <div class="mt-3">
                                     <nav aria-label="Page navigation example">

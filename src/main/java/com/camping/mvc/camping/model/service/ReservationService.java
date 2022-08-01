@@ -13,7 +13,8 @@ import com.camping.mvc.camping.model.vo.Reservation;
 public class ReservationService {
 	private ReservationDAO dao = new ReservationDAO();
 	
-	public List<Reservation> getReservationList(Connection conn, PageInfo pageInfo) {
+	public List<Reservation> getReservationList(PageInfo pageInfo) {
+		Connection conn = getConnection();
 		List<Reservation> list = dao.selectAllReservation(conn, pageInfo);
 		close(conn);
 		return list;

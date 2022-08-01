@@ -17,6 +17,7 @@ public class Reservation {
 	private String cs_tel;
 	private String cs_homepage;
 	private String cs_accom_fee;
+	private String cs_image;
 	
 	public Reservation() {
 		super();
@@ -24,7 +25,7 @@ public class Reservation {
 
 	public Reservation(int resv_no, int user_no, int cs_no, int resv_headcount, String resv_pay, Date resv_checkin,
 			Date resv_checkout, String cs_name, String cs_addr1, String cs_addr2, String cs_tel, String cs_homepage,
-			String cs_accom_fee) {
+			String cs_accom_fee, String cs_image) {
 		super();
 		this.resv_no = resv_no;
 		this.user_no = user_no;
@@ -39,6 +40,7 @@ public class Reservation {
 		this.cs_tel = cs_tel;
 		this.cs_homepage = cs_homepage;
 		this.cs_accom_fee = cs_accom_fee;
+		this.cs_image = cs_image;
 	}
 
 	@Override
@@ -46,13 +48,13 @@ public class Reservation {
 		return "ReservationVO [resv_no=" + resv_no + ", user_no=" + user_no + ", cs_no=" + cs_no + ", resv_headcount="
 				+ resv_headcount + ", resv_pay=" + resv_pay + ", resv_checkin=" + resv_checkin + ", resv_checkout="
 				+ resv_checkout + ", cs_name=" + cs_name + ", cs_addr1=" + cs_addr1 + ", cs_addr2=" + cs_addr2
-				+ ", cs_tel=" + cs_tel + ", cs_homepage=" + cs_homepage + ", cs_accom_fee=" + cs_accom_fee + "]";
+				+ ", cs_tel=" + cs_tel + ", cs_homepage=" + cs_homepage + ", cs_accom_fee=" + cs_accom_fee + ", cs_image=" + cs_image + "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(cs_accom_fee, cs_addr1, cs_addr2, cs_homepage, cs_name, cs_no, cs_tel, resv_checkin,
-				resv_checkout, resv_headcount, resv_no, resv_pay, user_no);
+		return Objects.hash(cs_accom_fee, cs_addr1, cs_addr2, cs_homepage, cs_image, cs_name, cs_no, cs_tel,
+				resv_checkin, resv_checkout, resv_headcount, resv_no, resv_pay, user_no);
 	}
 
 	@Override
@@ -66,8 +68,9 @@ public class Reservation {
 		Reservation other = (Reservation) obj;
 		return Objects.equals(cs_accom_fee, other.cs_accom_fee) && Objects.equals(cs_addr1, other.cs_addr1)
 				&& Objects.equals(cs_addr2, other.cs_addr2) && Objects.equals(cs_homepage, other.cs_homepage)
-				&& Objects.equals(cs_name, other.cs_name) && cs_no == other.cs_no
-				&& Objects.equals(cs_tel, other.cs_tel) && Objects.equals(resv_checkin, other.resv_checkin)
+				&& Objects.equals(cs_image, other.cs_image) && Objects.equals(cs_name, other.cs_name)
+				&& cs_no == other.cs_no && Objects.equals(cs_tel, other.cs_tel)
+				&& Objects.equals(resv_checkin, other.resv_checkin)
 				&& Objects.equals(resv_checkout, other.resv_checkout) && resv_headcount == other.resv_headcount
 				&& resv_no == other.resv_no && Objects.equals(resv_pay, other.resv_pay) && user_no == other.user_no;
 	}
@@ -174,5 +177,13 @@ public class Reservation {
 
 	public void setCs_accom_fee(String cs_accom_fee) {
 		this.cs_accom_fee = cs_accom_fee;
+	}
+	
+	public String getCs_image() {
+		return cs_image;
+	}
+
+	public void setCs_image(String cs_image) {
+		this.cs_image = cs_image;
 	}
 }
