@@ -106,7 +106,7 @@
                                                     <h6 class="text-uppercase">모닥불</h6>
                                                     <ul class="megamenu-list list-unstyled">
                                                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path%>/views/01_Main/main.jsp">Home  </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="category-2-rooms.html">문의 게시판   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path%>/board/listServlet">문의 게시판   </a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-lg-3">
