@@ -52,7 +52,7 @@ public class InquiryInReplyWriteServlet extends MyHttpServlet{
 			if(result > 0) {
 				sendCommonPage("리플 등록에 성공하였습니다.", "/board/viewInquiry?inquiryNo="+inquiryNo, req, resp);
 			}else {
-				sendCommonPage("리플 등록에 실패하였습니다. (402)", "/board/viewInquiry?inquiryNo="+inquiryNo, req, resp);
+				sendCommonPage("리플 등록에 실패하였습니다. (402)", "/board/listServlet?inquiryNo="+inquiryNo, req, resp);
 			}
 			
 		} catch (Exception e) {
