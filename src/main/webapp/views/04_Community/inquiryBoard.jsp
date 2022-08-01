@@ -33,6 +33,7 @@ if(request.getParameter("searchValue") != null){
                 <div class="col-md-12">
                     <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;"><img src="<%= path%>/resources/img/img_semi/inquiryicon01.png" width="60px"> 문의 게시판 </div>
                     <div class=" fs-5 mb-3" style="text-align: center; color: gray;">궁금한 점이 있다면 언제든 물어보세요.</div>
+                    <div class=" fs-5 mb-3" style="text-align: center; color: gray;">글 작성은 로그인 후 이용하실 수 있습니다.</div>
                 </div>
                 <div class="row">
                     <div class="col-xl-12">
@@ -56,43 +57,7 @@ if(request.getParameter("searchValue") != null){
     </section>
     <!-- 문의게시판 검색창 끝 -->
 
-    <!-- 문의글 쓰기 버튼 -->
-    <form action="<%= request.getContextPath()%>/board/inquiryWrite" method="POST">
-    <div class="container">
-        <div class="mb-5 mb-lg-8  ">
-         <% if(loginMember != null) {%>
-            <button class="btn btn-primary rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#leaveReview" aria-expanded="false" aria-controls="leaveReview" style="font-size: 16px;">
-                <img src="<%= path%>/resources/img/img_semi/write01_03.png" width="35px">문의하기
-            </button>
-             <% } %>
-            <div class="collapse mt-4" id="leaveReview">
-                <form class="form" >
-                    <div class="row">
-                        <div class="col-sm-6">
-                        <div type=text  class="col-md-5" style="font-size: 15px; font-weight:bolder ;">
-   					 		<img src="<%= path%>/resources/img/img_semi/campfire01.png " width="8%">
-                      		<input type="hidden" id="writer" name="writer">
-   					 		 <%=loginMember.getUser_id()%>
-   					   </div>
-                            <div class="mb-4" style="padding-top:20px">
-                                <label class="form-label" for="name">제목</label>
-                                <input class="form-control" type="text" name="title" id="inquiryTitle" placeholder="제목을 입력하세요." required="required">
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label" for="review">문의 내용</label>
-                            <textarea class="form-control" rows="4" name="content" id="inquirycontact" placeholder="내용을 작성해 주세요" required="required"></textarea>
-                        </div>
-                        <div class="container">
-                            <div class="col-lg-12 mb-3  ">
-                                <button class="btn btn-primary col-lg-12" style="width: 200px; font-size: 16px;" type="submit">올리기</button>
-                            </div>
-                        </div>
-                </form>
-                </div>
-            </div>
-        </div>
-        </form>
+   
 
         <!-- 공지사항 시작 -->
         <section class="py-4 ">
@@ -254,6 +219,47 @@ if(request.getParameter("searchValue") != null){
          </nav>
          </div>
           </section>
+        
+         <!-- 문의글 쓰기 버튼 -->
+    <form action="<%= request.getContextPath()%>/board/inquiryWrite" method="POST">
+    <div class="container">
+        <div class="mb-5 mb-lg-8  ">
+         <% if(loginMember != null) {%>
+            <button class="btn btn-primary rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#leaveReview" aria-expanded="false" aria-controls="leaveReview" style="font-size: 16px;">
+                <img src="<%= path%>/resources/img/img_semi/write01_03.png" width="35px">문의하기
+            </button>
+             <% } %>
+            <div class="collapse mt-4" id="leaveReview">
+                <form class="form" >
+                    <div class="row">
+                        <div class="col-sm-6">
+                        <div type=text  class="col-md-5" style="font-size: 15px; font-weight:bolder ;">
+   					 		<img src="<%= path%>/resources/img/img_semi/campfire01.png " width="8%">
+                      		<input type="hidden" id="writer" name="writer">
+   					 		 <%=loginMember.getUser_id()%>
+   					   </div>
+                            <div class="mb-4" style="padding-top:20px">
+                                <label class="form-label" for="name">제목</label>
+                                <input class="form-control" type="text" name="title" id="inquiryTitle" placeholder="제목을 입력하세요." required="required">
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" for="review">문의 내용</label>
+                            <textarea class="form-control" rows="4" name="content" id="inquirycontact" placeholder="내용을 작성해 주세요" required="required"></textarea>
+                        </div>
+                        <div class="container">
+                            <div class="col-lg-12 mb-3  ">
+                                <button class="btn btn-primary col-lg-12" style="width: 200px; font-size: 16px;" type="submit">올리기</button>
+                            </div>
+                        </div>
+                </form>
+                </div>
+            </div>
+        </div>
+        </form>
+        
+        
+        
         
         
         <!-- 공지사항 끝 -->
