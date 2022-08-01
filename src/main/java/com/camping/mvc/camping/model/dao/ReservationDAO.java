@@ -35,27 +35,31 @@ public class ReservationDAO {
 	}
 	
 	// 예약 리스트 가져오는 메소드
-	public List<Reservation> selectAllReservation(Connection conn, PageInfo pageInfo) {
+	public List<Reservation> selectAllReservation(Connection conn, PageInfo pageInfo, int user_no) {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Reservation> list = new ArrayList<Reservation>();
 		
-		String query = "SELECT RESV_NO, USER_NO, CS.CS_NO, CS_IMAGE, "
+		String query = "SELECT RESV_NO, USER_NO, CS.CS_NAME, CS.CS_NO, CS_IMAGE, CS.CS_INDUTY, "
 					 + "RESV_HEADCOUNT, RESV_PAY, RESV_CHECKIN, RESV_CHECKOUT "
 					 + "FROM RESERVATION R "
-					 + "LEFT JOIN CAMP_SITE CS ON (R.CS_NO = CS.CS_NO)";
+					 + "LEFT JOIN CAMP_SITE CS ON (R.CS_NO = CS.CS_NO) "
+					 + "WHERE USER_NO = ? "
+					 + "ORDER BY RESV_NO";
 		
 		try {
-			pstmt = conn.prepareStatement(query);
-			//pstmt.setInt(1, pageInfo.getStartList());
+			pstmt = conn.prepareStatement(query);//물음표가 하나 있으면 하나는 넣어줘야지요
+			pstmt.setInt(1, user_no);
 			//pstmt.setInt(2, pageInfo.getEndList());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Reservation resv = new Reservation();
 				resv.setResv_no(rs.getInt("RESV_NO"));
 				resv.setUser_no(rs.getInt("USER_NO"));
+				resv.setCs_name(rs.getString("CS_NAME"));
 				resv.setCs_no(rs.getInt("CS_NO"));
 				resv.setCs_image(rs.getString("CS_IMAGE"));
+				resv.setCs_induty(rs.getString("CS_INDUTY"));
 				resv.setResv_headcount(rs.getInt("RESV_HEADCOUNT"));
 				resv.setResv_pay(rs.getString("RESV_PAY"));
 				resv.setResv_checkin(rs.getDate("RESV_CHECKIN"));
