@@ -64,7 +64,7 @@ public class MemberLoginServlet extends MyHttpServlet {
 		// id를 쿠키로 저하여 사용자가 다시 브라우저에 온 경우 id가 저장되도록 하는기능
 		if (saveId != null) {
 			Cookie c = new Cookie("saveId", userId); // 사용자 ID를 쿠키로 만듬 //id저장을 눌렀다면 1시간동안 지속되게한다
-			c.setMaxAge(60 * 60); // 1시간뒤에 사라지게 만듬
+			c.setMaxAge(60 * 60 * 24); // 1시간뒤에 사라지게 만듬
 			resp.addCookie(c);
 		} else {// 저장안함 옵션일때
 			Cookie c = new Cookie("saveId", ""); // ID초기화 //id저장을 안눌렀다면 0초로 설정해준다 바로 사라지게 해줌
