@@ -108,7 +108,7 @@ String mypath = request.getContextPath();
         <div class="row ">
             <div class="d-flex align-items-lg-stretch mb-1 col-lg-8 " style="height: 450px; ">
                 <div class="card shadow-lg border-0 w-100 border-0 hover-animate " style="background: center center url(<%=mypath%>/resources/img/img_semi/camp03.jpg) no-repeat; background-size: cover; ">
-                    <a class="tile-link " href="http://localhost:8081/semi3/camping/Detail?campingNo=2599"> </a>
+                    <a class="tile-link " href="<%=path %>/camping/Detail?campingNo=2599"> </a>
                     <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7 ">
                         <h3>하늘연캠핑장</h3>
                     </div>
@@ -116,7 +116,7 @@ String mypath = request.getContextPath();
             </div>
             <div class="d-flex align-items-lg-stretch mb-1 col-lg-4 " style="height: 450px; ">
                 <div class="card shadow-lg border-0 w-100 border-0 hover-animate " style="background: center center url(<%=mypath%>/resources/img/photo/photo-1429554429301-1c7d5ae2d42e.jpg) no-repeat; background-size: cover; ">
-                    <a class="tile-link " href="http://localhost:8081/semi3/camping/Detail?campingNo=2759"> </a>
+                    <a class="tile-link " href="<%=path %>/camping/Detail?campingNo=2759"> </a>
                     <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7 ">
                         <h3>베어스 글램핑파크</h3>
                     </div>

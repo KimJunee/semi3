@@ -110,7 +110,7 @@
 					<label class="form-label" for="form_neighbourhood"></label> 
 					<select
 						class="selectpicker form-control" name="searchAddr1"
-						id="form_neighbourhood" placeholder="지역선택" multiple
+						id="form_neighbourhood" placeholder="지역선택" 
 						data-style="btn-selectpicker" data-live-search="true"
 						data-selected-text-format="count &gt; 1"
 						data-none-selected-text="">
