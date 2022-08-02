@@ -48,7 +48,7 @@ String mypath = request.getContextPath();
                         <img src="<%=mypath%>/resources/img/img_semi/carbak01.png" alt="" style="max-width: 4rem;">
                         <h2>회원가입</h2>
                     </div>
-                    <form class="form-validate" action="<%=request.getContextPath()%>/member/enroll" method="POST">
+                    <form class="form-validate" action="<%=request.getContextPath()%>/views/06_User/signup.jsp" method="POST">
                         <div class="mb-4">
                             <input class="form-control" name="newId" id="newId" type="text" placeholder="ID" autocomplete="off" required data-msg="Please enter your email">
                         </div>
@@ -85,7 +85,7 @@ String mypath = request.getContextPath();
                             </div>
                         </div>
                     </form>
-                    <a class="close-absolute me-md-5 me-xl-6 pt-5" href="<%=mypath%>/views/06_User/signin.jsp">
+                    <a class="close-absolute me-md-5 me-xl-6 pt-5" href="<%=request.getContextPath()%>/views/01_Main/main.jsp">
                         <svg class="svg-icon w-3rem h-3rem">
                 <use xlink:href="#close-1"> </use>
               </svg></a>
