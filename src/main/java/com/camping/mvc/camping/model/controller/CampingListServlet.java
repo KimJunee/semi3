@@ -31,6 +31,8 @@ public class CampingListServlet extends MyHttpServlet {
 		int campsiteCount = 0;
 		PageInfo pageInfo = null;
 		List<CampingVO> list = null;
+		String campTypes[] = null;
+
 
 		String searchDate = req.getParameter("bookingDate"); // 날짜
 
@@ -48,7 +50,7 @@ public class CampingListServlet extends MyHttpServlet {
 		
 		System.out.println("인원 : " + personnel);
 
-		String campTypes[] = req.getParameterValues("searchCampType");// 숙소유형
+		campTypes = req.getParameterValues("searchCampType");// 숙소유형
 		if (campTypes == null) {
 			System.out.println("선택한 값이 없습니다.");
 		} else {
@@ -61,6 +63,13 @@ public class CampingListServlet extends MyHttpServlet {
 				System.out.print(campType + " ");
 			}
 			System.out.println("\n");
+		}
+
+		String cate = req.getParameter("maincategory");
+		if(cate != null && cate.length() > 0) {
+			campTypes = new String[1];
+			campTypes[0] = cate;
+			req.setAttribute("searchCampType", campTypes);
 		}
 
 		String checkBoxs[] = req.getParameterValues("searchType"); // 체크박스

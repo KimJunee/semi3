@@ -42,7 +42,7 @@ String mypath = request.getContextPath();
                     <svg xmlns="http://www.w3.org/2000/svg " width="40 " height="40 " fill="currentColor " class="bi bi-geo-alt-fill " viewBox="0 0 16 16 " color="#F05945 ">
                         <mypath d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z "/>
                       </svg>
-                    <select class="selectpicker ps-4 " title="지역선택 " data-style="btn-form-control ">
+                    <select class="selectpicker ps-4" name="searchAddr1" title="지역선택 " data-style="btn-form-control ">
                         <option value="서울">서울</option>
 						<option value="경기도">경기도</option>
 						<option value="인천">인천</option>
@@ -68,7 +68,7 @@ String mypath = request.getContextPath();
                     1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515
                     2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z "/>
                       </svg>
-                    <select class="selectpicker  ps-4" title="숙소유형 " data-style="btn-form-control ">
+                    <select class="selectpicker  ps-4" name="maincategory" title="숙소유형 " data-style="btn-form-control ">
                 <option value="일반야영장">일반야영장</option>
                 <option value="카라반">카라반</option>
                 <option value="글램핑">글램핑</option>

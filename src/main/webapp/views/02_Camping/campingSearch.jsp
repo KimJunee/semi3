@@ -54,6 +54,11 @@
 		searchCampType = new ArrayList<>();
 	}
 	
+	if(request.getAttribute("searchCampType") != null){
+		campTypes = (String[])request.getAttribute("searchCampType");
+		searchCampType = new ArrayList<>(Arrays.asList(campTypes));
+	}
+	
 	checkBoxs  = request.getParameterValues("searchType");
 	if(checkBoxs != null){
 		searchType = new ArrayList<>(Arrays.asList(checkBoxs));
