@@ -96,7 +96,7 @@
 
                             function kakaoLogin() {
                                 window.Kakao.Auth.login({
-                                    scope: 'profile_nickname, profile_image, account_email, age_range',
+                                    scope: 'profile_nickname, profile_image, account_email, birthday',
                                     success: function(authObj) {
                                         console.log(authObj);
                                         window.Kakao.API.request({

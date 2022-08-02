@@ -11,7 +11,7 @@ import com.camping.common.util.MyHttpServlet;
 import com.camping.mvc.member.model.service.MemberService;
 import com.camping.mvc.member.model.vo.Member;
 
-@WebServlet("/member/enroll")
+@WebServlet("/views/06_User/signup.jsp")
 public class MemberEnrollServlet extends MyHttpServlet{
 	private static final long serialVersionUID = 1L;
 	private MemberService service = new MemberService();
@@ -47,16 +47,16 @@ public class MemberEnrollServlet extends MyHttpServlet{
 			
 			if(result > 0) {
 				req.setAttribute("msg", "회원가입에 성공하였습니다!"); //알림메세지에 보낼 값 설정
-				req.setAttribute("location", "/"); //페이지 이동에 쓰일 값이 설정
+				req.setAttribute("location", "/views/06_User/signin.jsp"); //페이지 이동에 쓰일 값이 설정
 			}else {
 				req.setAttribute("msg", "회원가입 실패!! (code:101=DB이슈)");//알림메세지에 보낼 값 설정
-				req.setAttribute("location", "/");//페이지 이동에 쓰일 값이 설정
+				req.setAttribute("location", "/views/06_User/signup.jsp");//페이지 이동에 쓰일 값이 설정
 			}
 			req.getRequestDispatcher("/views/07_common/msg.jsp").forward(req, resp); //위에서 설정한 값들이 msg.jsp로 넘어감
 		} catch (Exception e) {
 			e.printStackTrace();
 			req.setAttribute("msg", "회원가입 실패!! (code:100=입력값 문제)"); //알림메세지에 보낼값 설정
-			req.setAttribute("location", "/member/enroll"); //페이지 이동에 쓰일 값 설정
+			req.setAttribute("location", "/views/06_User/signup.jsp"); //페이지 이동에 쓰일 값 설정
 			req.getRequestDispatcher("/views/07_common/msg.jsp").forward(req, resp); //위에 설정된 값들은 msg.jsp로 이동
 //			sendCommonPage("회원가입 실패", "/member/enroll", req, resp);
 			return;

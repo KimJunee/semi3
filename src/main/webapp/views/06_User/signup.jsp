@@ -77,6 +77,25 @@ String mypath = request.getContextPath();
                         <div class="d-grid gap-2">
                             <button class="btn btn-lg btn-primary2"><img src="<%=mypath%>/resources/img/img_semi/kakao.jpg" width="40px" height="40px"> 카카오 로그인</button>
                         </div>
+                        <script>
+                            window.Kakao.init("89e9c3d321d0890e0eef7d916c43b9d4");
+
+                            function kakaoLogin() {
+                                window.Kakao.Auth.login({
+                                    scope: 'profile_nickname, profile_image, account_email, birthday',
+                                    success: function(authObj) {
+                                        console.log(authObj);
+                                        window.Kakao.API.request({
+                                            url: '/v2/user/me',
+                                            success: res => {
+                                                const kakao_account = res.kakao_account;
+                                                console.log(kakao_account);
+                                            }
+                                        });
+                                    }
+                                });
+                            }
+                        </script>
                         <hr class="my-4">
                         <div class="mb-4">
                             <div class="form-check">
