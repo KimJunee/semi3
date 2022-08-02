@@ -474,6 +474,7 @@ CREATE TABLE REVIEW(
     REV_CONTENT  VARCHAR2(1000),             --리뷰내용
     REV_REGIST DATE DEFAULT SYSDATE,         --리뷰등록날짜
     REV_IMAGE VARCHAR2(1000) ,               --리뷰이미지
+    REV_IMAGE_RENAME VARCHAR2(1000) , 		 --리뷰이미지 리네임
     REV_STAR VARCHAR2(1000) ,                --리뷰별점
     USER_NO NUMBER ,                         --사용자번호 
     CS_NO NUMBER ,                           --캠핑장번호
@@ -506,8 +507,8 @@ EXCEPTION
 END;
 /
 
-INSERT INTO REVIEW VALUES(SEQ_REV_NO.NEXTVAL, '후기제목1','후기내용테스트1', SYSDATE,'첨부파일3',5,1, 1);
-INSERT INTO REVIEW VALUES(SEQ_REV_NO.NEXTVAL, '후기제목2','후기내용테스트2', SYSDATE,'첨부파일3',5,1, 1);
+INSERT INTO REVIEW VALUES(SEQ_REV_NO.NEXTVAL, '후기제목1','후기내용테스트1', SYSDATE,'첨부파일3','첨부파일3', 5,1, 1);
+INSERT INTO REVIEW VALUES(SEQ_REV_NO.NEXTVAL, '후기제목2','후기내용테스트2', SYSDATE,'첨부파일3','첨부파일3', 5,1, 1);
   
 COMMIT;
 SELECT * FROM REVIEW; 
@@ -518,7 +519,7 @@ SELECT * FROM REVIEW;
 --SELECT * FROM REVIEW WHERE USER_NO = ?;
 
 --리뷰 작성(확인완료)
---INSERT INTO REVIEW VALUES(SEQ_REV_NO.NEXTVAL,?,?, DEFAULT,?,?,?,?);
+--INSERT INTO REVIEW VALUES(SEQ_REV_NO.NEXTVAL,?,?, DEFAULT,?,?,?,?,?);
 
 -- 리뷰 내용 수정(확인완료)
 --UPDATE REVIEW SET REV_CONTENT=? WHERE REV_NO=?;

@@ -18,10 +18,11 @@ public class CampReviewDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<Review> list = new ArrayList<>();
-		String query = "SELECT CS_NO, U.USER_NO, U.USER_ID, REV_NO, REV_TITLE, REV_CONTENT, REV_REGIST, REV_IMAGE, REV_STAR "
-				+ "FROM REVIEW R, USER_T U "
-				+ "WHERE R.USER_NO = U.USER_NO "
-				+ "AND CS_NO = ? ";
+		String query = "SELECT CS_NO, U.USER_NO, U.USER_ID, REV_NO, REV_TITLE, "
+					 + "REV_CONTENT, REV_REGIST, REV_IMAGE, REV_IMAGE_RENAME, REV_STAR "
+					 + "FROM REVIEW R, USER_T U "
+					 + "WHERE R.USER_NO = U.USER_NO "
+					 + "AND CS_NO = ? ";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -39,6 +40,7 @@ public class CampReviewDAO {
 				review.setRev_content(rs.getString("REV_CONTENT"));
 				review.setRev_regist(rs.getDate("REV_REGIST"));
 				review.setRev_image(rs.getString("REV_IMAGE"));
+				review.setRev_image_rename(rs.getString("REV_IMAGE_RENAME"));
 				review.setRev_star(rs.getString("REV_STAR"));
 				list.add(review);
 				
@@ -56,16 +58,18 @@ public class CampReviewDAO {
 	// 캠핑장 리뷰 작성 쿼리문 - int
 	public int insertReview(Connection conn, Review review) {
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO REVIEW VALUES(SEQ_REV_NO.NEXTVAL, ?, ?, SYSDATE, DEFAULT, ?, ?, ?) ";
+		String query = "INSERT INTO REVIEW VALUES(SEQ_REV_NO.NEXTVAL, ?, ?, SYSDATE, ?, ?, ?, ?, ?)";
 		int result = 0;
 		
 		try {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, review.getRev_title());
 			pstmt.setString(2, review.getRev_content());
-			pstmt.setString(3, review.getRev_star());
-			pstmt.setInt(4, review.getUser_no());
-			pstmt.setInt(5, review.getCs_no());
+			pstmt.setString(3, review.getRev_image());
+			pstmt.setString(4, review.getRev_image_rename());
+			pstmt.setString(5, review.getRev_star());
+			pstmt.setInt(6, review.getUser_no());
+			pstmt.setInt(7, review.getCs_no());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();

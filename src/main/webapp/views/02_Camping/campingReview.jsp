@@ -75,9 +75,9 @@ Reservation reservation = (Reservation)request.getAttribute("reservation");
     <div class="container">
         <div class=" mb-lg-1 ">
             <div class=" mt-4" id="leaveReview">
-                <form class="form" id="contact-form" method="post" action="<%= path%>/myreview">
-                	<input type="hidden" name="csno" value="<%=reservation.getCs_no() %>"/>
-                	<input type="hidden" />
+                <form class="form" id="contact-form" method="post" action="<%= path%>/myreview" enctype="multipart/form-data">
+                	<input type="hidden" name="csno" id="csno" value="<%=reservation.getCs_no() %>"/>
+                	<input type="hidden" name="resvno" id="resvno" value="<%=reservation.getResv_no()%>"/>
                     <div class="row">
                         <div class="mb-4">
                             <textarea class="form-control" rows="1" name="reviewTitle" id="reviewTitle" placeholder="제목을 입력해주세요" required="required"></textarea>
@@ -86,12 +86,12 @@ Reservation reservation = (Reservation)request.getAttribute("reservation");
                             <textarea class="form-control" rows="10" name="reviewContent" id="reviewContent" placeholder="캠핑장 이용에 대한 후기를 남겨주세요." required="required"></textarea>
                         </div>
                     </div>
-                    <div class="container"> 
-                    	<div class="col-lg-12 mb-3" style="text-align:center;">
-                            <label className="d-none" for="input-file" style="width: 200px; font-size: 16px;" type="submit">파일첨부</label>
-                            <input type="file" id="input-file" style="d-none"/>
-                        	<span style="display:inline-block; width:10px;"></span>
-                            <button class="btn btn-primary col-lg-6 " style="width: 200px; font-size: 16px;" type="submit">등  록</button>
+                    <div class="container">
+                       <div class="col-lg-12 mb-3" style="text-align:right;">
+                            <label class=" btn btn-primaryCuntom " for="input-file" style="width: 200px; font-size: 16px;" type="submit">파일첨부</label>
+                            <input class="d-none" type="file" id="input-file" name="input-file"/>
+                           <span style="display:inline-block; width:10px;"></span>
+                            <button class="btn btn-primary col-lg-6 " style="width: 150px; font-size: 16px;" type="submit">등  록</button>
                         </div>
                     </div>
                 </form>
