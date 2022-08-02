@@ -16,7 +16,6 @@
 <!-- 강은빈 Commit Test-->
 <<<<<<< HEAD
 <!-- 이상일 Commit Test 1234 -->
-=======
 <!-- 이상일 Commit Test -->
 <!-- 안예은 Commit Test -->
->>>>>>> branch 'master' of https://github.com/KimJunee/semi3.git
+<!-- 안예은 Commit Test : 돌아가자! -->
