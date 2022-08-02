@@ -242,11 +242,11 @@ if(campingVO == null){
            //    let campno = '<%=campingVO.getCs_no()%>';
            //    let userno = '<%=member.getUser_no()%>';
            
-           	if(isFavorite == 'false'){
-           		isFavorite = true;
-           	} else{
-           		isFavorite = false;
-           	}
+	           	if(isFavorite == 'false'){
+	           		isFavorite = 'true';
+	           	} else{
+	           		isFavorite = 'false';
+	           	}
                $.ajax({
                    type: 'post',
                    url: '<%=request.getContextPath()%>/favoriteSet.do',
@@ -261,7 +261,6 @@ if(campingVO == null){
                    //resp.getWriter().append("AJAX에 대한 서버 응답 값<br>" + returnValue);
                    //으로부터 값을 받아 result안에 넣어준다.
                    success: (result) => {
-                   		isFavorite = result;
                    	if(isFavorite == 'true'){
 	                   	$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" onclick="favoritesave();" type="button" > 찜♥ </button>');                            		
                    	}else{
