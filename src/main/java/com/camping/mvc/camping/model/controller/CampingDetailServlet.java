@@ -37,6 +37,8 @@ public class CampingDetailServlet extends MyHttpServlet{
 		System.out.println(session.getAttribute("loginMember"));
 		Member member = (Member) session.getAttribute("loginMember");
 		
+		
+		
 		List<Review> list = new ArrayList<>();
 		int campNo = Integer.parseInt(req.getParameter("campingNo"));
 		

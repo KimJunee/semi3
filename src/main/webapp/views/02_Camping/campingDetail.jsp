@@ -209,7 +209,7 @@ if(campingVO == null){
 									
 								<%} %>
 							</div>
-							<script>
+							<script><%if(member != null){ %>
             $('#ajaxSend').click(function favoritesave()  {
                 let campno = '<%=campingVO.getCs_no()%>';//.val()은 양식(form)의 값을 가져오거나 값을 설정하는 메소드입니다.
                 let userno = '<%=member.getUser_no()%>';
@@ -239,6 +239,7 @@ if(campingVO == null){
                     },
                 });
             });
+            <%} %>
         </script>
                         </div>
                     </div>
