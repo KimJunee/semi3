@@ -54,6 +54,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
     <!-- 나눔스퀘어체 -->
     <link href="https://hangeul.pstatic.net/hangeul_static/css/nanum-square-round.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
 </head>
 
 <body style="padding-top: 72px;">

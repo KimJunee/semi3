@@ -102,7 +102,7 @@
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.input-file-button {
+.input-file-button-review {
   color:  rgb(31, 31, 31);
   background-color: #A3D2CA;
   border-color: #A3D2CA;

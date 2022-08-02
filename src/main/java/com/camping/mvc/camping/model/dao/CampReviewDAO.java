@@ -12,7 +12,6 @@ import com.camping.common.util.PageInfo;
 import com.camping.mvc.camping.model.vo.Review;
 
 public class CampReviewDAO {
-	
 
 	// 캠핑장 리뷰 리스트 가져오는 쿼리문 
 	public List<Review> getReviewByCampNo(Connection conn, int cs_no){
@@ -54,13 +53,10 @@ public class CampReviewDAO {
 		return list;
 	}
 	
-	
-	
-
 	// 캠핑장 리뷰 작성 쿼리문 - int
 	public int insertReview(Connection conn, Review review) {
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO REVIEW VALUES(SEQ_REV_NO.NEXTVAL, ?,?, SYSDATE,DEFAULT,?,DEFAULT,DEFAULT) ";
+		String query = "INSERT INTO REVIEW VALUES(SEQ_REV_NO.NEXTVAL, ?, ?, SYSDATE, DEFAULT, ?, ?, ?) ";
 		int result = 0;
 		
 		try {
@@ -68,7 +64,8 @@ public class CampReviewDAO {
 			pstmt.setString(1, review.getRev_title());
 			pstmt.setString(2, review.getRev_content());
 			pstmt.setString(3, review.getRev_star());
-			
+			pstmt.setInt(4, review.getUser_no());
+			pstmt.setInt(5, review.getCs_no());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -77,7 +74,6 @@ public class CampReviewDAO {
 		}
 		return result;
 	}
-	
 	
 	// 캠핑장 번호별 리뷰 조회 쿼리문 
 	public Review findReviewByNo(Connection conn, int campNo) {
@@ -108,7 +104,6 @@ public class CampReviewDAO {
 		return review;
 	}
 	
-	
 //	public static void main(String[] args) {
 //		Connection conn = getConnection();
 //		CampReviewDAO dao = new CampReviewDAO();
@@ -124,6 +119,4 @@ public class CampReviewDAO {
 //		int result = dao.insertReview(conn, review);
 //		System.out.println("리뷰 : " + result);
 //	}
-	
-		
 }

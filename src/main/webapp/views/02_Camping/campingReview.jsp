@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="com.camping.mvc.member.model.vo.Member"%>
 <%@page import="com.camping.mvc.camping.model.vo.Review"%>
+<%@page import="com.camping.mvc.camping.model.vo.Reservation"%>
 <!DOCTYPE html>
 <html lang="ko">
 <%@ include file="/views/07_common/header.jsp" %>
 <%
 String mypath = request.getContextPath();
+Reservation reservation = (Reservation)request.getAttribute("reservation");
 %>
 
 <!-- 헤더 큰 이미지 -->
@@ -74,6 +76,8 @@ String mypath = request.getContextPath();
         <div class=" mb-lg-1 ">
             <div class=" mt-4" id="leaveReview">
                 <form class="form" id="contact-form" method="post" action="<%= path%>/myreview">
+                	<input type="hidden" name="csno" value="<%=reservation.getCs_no() %>"/>
+                	<input type="hidden" />
                     <div class="row">
                         <div class="mb-4">
                             <textarea class="form-control" rows="1" name="reviewTitle" id="reviewTitle" placeholder="제목을 입력해주세요" required="required"></textarea>
@@ -84,8 +88,8 @@ String mypath = request.getContextPath();
                     </div>
                     <div class="container">
                     	<div class="col-lg-12 mb-3" style="text-align:center;">
-                            <label className="input-file-button" for="input-file" style="width: 200px; font-size: 16px;" type="submit">파일첨부</label>
-                            <input type="file" id="input-file" style={{display:"none"}}/>
+                            <label className="d-none" for="input-file" style="width: 200px; font-size: 16px;" type="submit">파일첨부</label>
+                            <input type="file" id="input-file" style="d-none"/>
                         	<span style="display:inline-block; width:10px;"></span>
                             <button class="btn btn-primary col-lg-6 " style="width: 200px; font-size: 16px;" type="submit">등  록</button>
                         </div>
