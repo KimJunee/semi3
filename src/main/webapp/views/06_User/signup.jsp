@@ -53,7 +53,7 @@ String mypath = request.getContextPath();
                             <input class="form-control" name="newId" id="newId" type="text" placeholder="ID" autocomplete="off" required data-msg="Please enter your email">
                         </div>
                         <div class="mb-4">
-                            <input class="form-control" name="userName" id="userName" placeholder="NAME" type="text" required data-msg="Please enter your password">
+                            <input class="form-control" name="userName" id="userName" placeholder="NAME" type="text" required data-msg="Please enter your Name">
                         </div>
                         <div class="mb-4">
                             <input class="form-control" name="userPwd" id="pass1" placeholder="PASSWORD" type="password" required data-msg="Please enter your password">
@@ -62,13 +62,13 @@ String mypath = request.getContextPath();
                             <input class="form-control" name="loginPassword2" id="pass2" placeholder="CONFIRMPASSWORD" type="password" required data-msg="Please enter your password">
                         </div>
                         <div class="mb-4">
-                            <input class="form-control" name="phone" id="phone" placeholder="PHONE" type="tel" required data-msg="Please enter your password">
+                            <input class="form-control" name="phone" id="phone" placeholder="PHONE" type="tel" required data-msg="Please enter your phone">
                         </div>
                         <div class="mb-4">
-                            <input class="form-control" name="Birth" id="Birth" placeholder="Birth (YYYY-MM-DD)" type="text" required data-msg="Please enter your password">
+                            <input class="form-control" name="Birth" id="Birth" placeholder="Birth (YYYY-MM-DD)" type="text" required data-msg="Please enter your birth">
                         </div>
                         <div class="mb-4">
-                            <input class="form-control" name="email" id="email" placeholder="E-MAIL" type="email" required data-msg="Please enter your password">
+                            <input class="form-control" name="email" id="email" placeholder="E-MAIL" type="email" required data-msg="Please enter your email">
                         </div>
                         <div class="d-grid gap-2">
                             <button class="btn btn-lg btn-primary" type="submit">회원등록</button>
