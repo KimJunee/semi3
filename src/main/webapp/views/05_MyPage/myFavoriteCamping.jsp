@@ -1,8 +1,14 @@
+<%@page import="com.camping.mvc.mypage.model.vo.MyFavorite"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@page import="java.util.List"%>
+<%@page import="com.camping.common.util.PageInfo"%>
 <%@ include file="/views/07_common/header.jsp" %>
 <%
 String mypath = request.getContextPath();
+
+List<MyFavorite> list = (List<MyFavorite>)request.getAttribute("list");
+PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
+
 %>
 
     <!-- 헤더 큰 이미지 -->
@@ -62,27 +68,46 @@ String mypath = request.getContextPath();
                             </div>
                         </div>
                         <div class="d-flex align-items-center mb-3 ms-6 ">
-                            <button class="btn btn-primaryCuntom01 rounded-top " style="height: 50px; width: 110px; font-size: 16px;" type="submit "> 회원탈퇴 </button>
-                        </div>
-                    </div>
+   						<button class="btn btn-primaryCuntom01 rounded-top " style="height: 50px; width: 110px; font-size: 16px;" type="button"  onclick="deleteMember()" id="deleteMember" value="탈퇴"> 회원탈퇴 </button>                        
+              			  <script type="text/javascript">
+              				function deleteMember() {
+	              		    	if(confirm("정말로 탈퇴하시겠습니까?!")) {
+	              		   	 	location.replace('<%= request.getContextPath() %>/member/delete');
+	              		    	}
+              		    	}  
+						</script>
+   					</div>
                 </div>
+            </div>
                 <!-- 프로필 옆 기능부 -->
                 <div class="col-lg-9 ps-lg-5">
                     <div class="text-block">
                         <h4 class="mb-5">찜한 캠핑장</h4>
                         <div class="row">
-                            <!-- 캠핑장 게시물-->
+                        	<div class="list-group shadow mb-5">
+                        	<%if(list == null || list.isEmpty()){ %>
+			<%-- 찜 없으면 --%>
+			<div>
+				<div style="text-align: center">찜한 캠핑장이 없습니다.</div>
+			</div>
+            
+            <%}else {%>
+			<%-- 예약 목록 --%>
+			 <%for(MyFavorite f : list) { %>
+                        
+                        
+                            <!-- 찜 캠핑장 목록 시작-->
                             <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                                 <div class="card h-100 border-0 shadow">
                                     <div class="card-img-top overflow-hidden gradient-overlay">
-                                        <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
+                                        <img class="img-fluid" src="<%=f.getCs_image() != null ? f.getCs_image() : path+"/resources/img/img_semi/camp02.jpg"%>" alt="Modern, Well-Appointed Room" />
                                         <a class="tile-link" href="detail-rooms.html"></a>
                                     </div>
                                     <div class="card-body d-flex align-items-center">
                                         <div class="w-100">
-                                            <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">홍천 나비캠핑장</a></h6>
+                                            <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html"><%=f.getCs_name() %></a></h6>
                                             <div class="d-flex card-subtitle mb-3">
-                                                <p class="flex-grow-1 mb-0 text-muted text-sm">00시 00구</p>
+                                                <p class="flex-grow-1 mb-0 text-muted text-sm"><%=f.getCs_addr1() %></p>
                                             </div>
                                             <div style="float:right;">
                                                 <button class="btn btn-primary " style="width:85px; height: 40px;">찜 삭제</button>
@@ -91,23 +116,46 @@ String mypath = request.getContextPath();
                                     </div>
                                 </div>
                             </div>
+                           <%}
+                           }%>
+                           
+                           
                            
                            
                             <!-- 페이지번호  -->
-                            <div class="mt-3">
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination pagination-template d-flex justify-content-center">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#"> <i class="fa fa-angle-left"></i></a>
-                                        </li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#"> <i class="fa fa-angle-right"></i></a>
-                                        </li>
-                                    </ul>
-                                </nav>
+                             <nav aria-label="Page navigation example">
+					            <ul
+					               class="pagination pagination-template d-flex justify-content-center">
+					               <li class="page-item"><a class="page-link"
+					                  onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getStartPage() %>');">
+					                     <i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i>
+					               </a></li>
+					               <li class="page-item"><a class="page-link"
+					                  onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getPrvePage()%>');">
+					                     <i class="fa fa-angle-left"></i>
+					               </a></li>
+					               <%--5페이지 12개 목록 출력하기 --%>
+					               <% for(int i = pageInfo.getStartPage(); i <= pageInfo.getEndPage(); i++){ %>
+					                     <%if(i == pageInfo.getCurrentPage()){ %>
+					                     <li class="page-item active">
+					                     <button class="page-link" disabled><%=i%></button></li>
+					                     <%} else{%>
+					                     <li class="page-item">
+					                     <button class="page-link" onclick="movePage('<%=path %>/mypage/myreservation?page=<%=i%>');"><%=i%></button></li>
+					                     <%} %>
+					                  <%} %>
+					               <%--다음으로 가기 --%>
+					               <li class="page-item"><a class="page-link"
+					                  onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getNextPage() %>');">
+					                     <i class="fa fa-angle-right"></i>
+					               </a></li>
+					               <li class="page-item"><a class="page-link"
+					                  onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getEndPage() %>');">
+					                     <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
+					               </a></li>
+					            </ul>
+					         </nav>
+                            
                             </div>
                         </div>
                     </div>
@@ -176,7 +224,7 @@ String mypath = request.getContextPath();
                         <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-13.jpg" alt=" "></a>
                     </div>
                     <div class="swiper-slide overflow-hidden">
-                        <a href="#"><img class="img-fluid hover-scale" src="<%= path%>/resources/img/instagram/instagram-14.jpg" alt=" "></a>
+                        <a href="#"><img class="img-fluid hover-scale" src="<%= path %> path%>/resources/img/instagram/instagram-14.jpg" alt=" "></a>
                     </div>
                 </div>
             </div>
