@@ -32,31 +32,31 @@ String mypath = request.getContextPath();
                             <a class="d-inline-block" href="#">
                                 <img class="d-block avatar avatar-xxl p-2 mb-2" src="<%= path%>/resources/img/img_semi/campfire01.png" alt="">
                             </a>
-                            <div style="font-weight: bolder; font-size: 25px;">홍길동</div>
+                            <div style="font-weight: bolder; font-size: 25px;"><%=loginMember.getUser_name() %></div>
                         </div>
                         <!--프로필 카드 내부 메뉴  -->
                         <div class="card-body p-4">
                             <div class="d-flex align-items-center mb-3">
-                                <button class="btn btn-primary-semi-custom" onclick="location.href = 'myPagePost.html' " style="width:260px; height: 50px; font-size: 20px;"> <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                <button class="btn btn-primary-semi-custom" onclick="location.href = '<%=path%>/member/mypage' " style="width:260px; height: 50px; font-size: 20px;"> <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                                 </svg>나의 정보</button>
                             </div>
                             <hr>
                             <div class="d-flex align-items-center mb-3">
-                                <button class="btn btn-primary-semi-custom" onclick="location.href = 'myPageCamping.html'" style="width:260px; height: 50px; font-size: 20px;"> <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                <button class="btn btn-primary-semi-custom" onclick="location.href = '<%=path %>/mypage/myfavorite'" style="width:260px; height: 50px; font-size: 20px;"> <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
                                     <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
                                   </svg>찜한 캠핑장</button>
                             </div>
                             <hr>
                             <div class="d-flex align-items-center mb-3">
-                                <button class="btn btn-primary-semi-custom" onclick="location.href = 'myPageReservation.html'" style="width:260px; height: 50px; font-size: 20px;">  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2" viewBox="0 0 16 16">
+                                <button class="btn btn-primary-semi-custom" onclick="location.href = '<%=path%>/mypage/myreservation'" style="width:260px; height: 50px; font-size: 20px;">  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-clipboard2" viewBox="0 0 16 16">
                                     <path d="M3.5 2a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-12a.5.5 0 0 0-.5-.5H12a.5.5 0 0 1 0-1h.5A1.5 1.5 0 0 1 14 2.5v12a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-12A1.5 1.5 0 0 1 3.5 1H4a.5.5 0 0 1 0 1h-.5Z"/>
                                     <path d="M10 .5a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5.5.5 0 0 1-.5.5.5.5 0 0 0-.5.5V2a.5.5 0 0 0 .5.5h5A.5.5 0 0 0 11 2v-.5a.5.5 0 0 0-.5-.5.5.5 0 0 1-.5-.5Z"/>
                                   </svg>예약 목록</button>
                             </div>
                             <hr>
                             <div class="d-flex align-items-center mb-3">
-                                <button class="btn btn-primary-semi-custom " onclick="location.href = 'myPagePost.html'" style="width:260px; height: 50px; font-size: 20px;">  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                <button class="btn btn-primary-semi-custom " onclick="location.href = '<%=path%>/mypage/mywrite''" style="width:260px; height: 50px; font-size: 20px;">  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                                     <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                                   </svg>내 게시물</button>
                             </div>
@@ -91,166 +91,8 @@ String mypath = request.getContextPath();
                                     </div>
                                 </div>
                             </div>
-                            <!-- 캠핑장 게시물-->
-                            <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden gradient-overlay">
-                                        <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
-                                        <a class="tile-link" href="detail-rooms.html"></a>
-                                    </div>
-                                    <div class="card-body d-flex align-items-center">
-                                        <div class="w-100">
-                                            <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">홍천 나비캠핑장</a></h6>
-                                            <div class="d-flex card-subtitle mb-3">
-                                                <p class="flex-grow-1 mb-0 text-muted text-sm">00시 00구</p>
-                                            </div>
-                                            <div style="float:right;">
-                                                <button class="btn btn-primary " style="width:85px; height: 40px;">찜 삭제</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 캠핑장 게시물-->
-                            <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden gradient-overlay">
-                                        <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
-                                        <a class="tile-link" href="detail-rooms.html"></a>
-                                    </div>
-                                    <div class="card-body d-flex align-items-center">
-                                        <div class="w-100">
-                                            <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">홍천 나비캠핑장</a></h6>
-                                            <div class="d-flex card-subtitle mb-3">
-                                                <p class="flex-grow-1 mb-0 text-muted text-sm">00시 00구</p>
-                                            </div>
-                                            <div style="float:right;">
-                                                <button class="btn btn-primary " style="width:85px; height: 40px;">찜 삭제</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 캠핑장 게시물-->
-                            <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden gradient-overlay">
-                                        <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
-                                        <a class="tile-link" href="detail-rooms.html"></a>
-                                    </div>
-                                    <div class="card-body d-flex align-items-center">
-                                        <div class="w-100">
-                                            <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">홍천 나비캠핑장</a></h6>
-                                            <div class="d-flex card-subtitle mb-3">
-                                                <p class="flex-grow-1 mb-0 text-muted text-sm">00시 00구</p>
-                                            </div>
-                                            <div style="float:right;">
-                                                <button class="btn btn-primary " style="width:85px; height: 40px;">찜 삭제</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 캠핑장 게시물-->
-                            <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden gradient-overlay">
-                                        <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
-                                        <a class="tile-link" href="detail-rooms.html"></a>
-                                    </div>
-                                    <div class="card-body d-flex align-items-center">
-                                        <div class="w-100">
-                                            <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">홍천 나비캠핑장</a></h6>
-                                            <div class="d-flex card-subtitle mb-3">
-                                                <p class="flex-grow-1 mb-0 text-muted text-sm">00시 00구</p>
-                                            </div>
-                                            <div style="float:right;">
-                                                <button class="btn btn-primary " style="width:85px; height: 40px;">찜 삭제</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 캠핑장 게시물-->
-                            <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden gradient-overlay">
-                                        <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
-                                        <a class="tile-link" href="detail-rooms.html"></a>
-                                    </div>
-                                    <div class="card-body d-flex align-items-center">
-                                        <div class="w-100">
-                                            <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">홍천 나비캠핑장</a></h6>
-                                            <div class="d-flex card-subtitle mb-3">
-                                                <p class="flex-grow-1 mb-0 text-muted text-sm">00시 00구</p>
-                                            </div>
-                                            <div style="float:right;">
-                                                <button class="btn btn-primary " style="width:85px; height: 40px;">찜 삭제</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 캠핑장 게시물-->
-                            <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden gradient-overlay">
-                                        <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
-                                        <a class="tile-link" href="detail-rooms.html"></a>
-                                    </div>
-                                    <div class="card-body d-flex align-items-center">
-                                        <div class="w-100">
-                                            <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">홍천 나비캠핑장</a></h6>
-                                            <div class="d-flex card-subtitle mb-3">
-                                                <p class="flex-grow-1 mb-0 text-muted text-sm">00시 00구</p>
-                                            </div>
-                                            <div style="float:right;">
-                                                <button class="btn btn-primary " style="width:85px; height: 40px;">찜 삭제</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 캠핑장 게시물-->
-                            <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden gradient-overlay">
-                                        <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
-                                        <a class="tile-link" href="detail-rooms.html"></a>
-                                    </div>
-                                    <div class="card-body d-flex align-items-center">
-                                        <div class="w-100">
-                                            <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">홍천 나비캠핑장</a></h6>
-                                            <div class="d-flex card-subtitle mb-3">
-                                                <p class="flex-grow-1 mb-0 text-muted text-sm">00시 00구</p>
-                                            </div>
-                                            <div style="float:right;">
-                                                <button class="btn btn-primary " style="width:85px; height: 40px;">찜 삭제</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- 캠핑장 게시물-->
-                            <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
-                                <div class="card h-100 border-0 shadow">
-                                    <div class="card-img-top overflow-hidden gradient-overlay">
-                                        <img class="img-fluid" src="<%= path%>/resources/img/photo/photo-1484154218962-a197022b5858.jpg" alt="Modern, Well-Appointed Room" />
-                                        <a class="tile-link" href="detail-rooms.html"></a>
-                                    </div>
-                                    <div class="card-body d-flex align-items-center">
-                                        <div class="w-100">
-                                            <h6 class="card-title"><a class="text-decoration-none text-dark" href="detail-rooms.html">홍천 나비캠핑장</a></h6>
-                                            <div class="d-flex card-subtitle mb-3">
-                                                <p class="flex-grow-1 mb-0 text-muted text-sm">00시 00구</p>
-                                            </div>
-                                            <div style="float:right;">
-                                                <button class="btn btn-primary " style="width:85px; height: 40px;">찜 삭제</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                           
+                           
                             <!-- 페이지번호  -->
                             <div class="mt-3">
                                 <nav aria-label="Page navigation example">
