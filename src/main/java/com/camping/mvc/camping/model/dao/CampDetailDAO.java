@@ -142,7 +142,7 @@ public class CampDetailDAO {
 				mf.setLike_no(rs.getInt("LIKE_NO"));
 				mf.setUser_no(rs.getInt("USER_NO"));
 				mf.setCs_no(rs.getInt("CS_NO"));
-				System.out.println("잘나옴");
+				System.out.println("찜이 되어있음");
 				System.out.println(mf);
 				return mf;
 			}
@@ -152,7 +152,7 @@ public class CampDetailDAO {
 			close(pstmt);
 			close(rs);
 		}
-		System.out.println("다오오류1");
+		System.out.println("찜이 안되어 있음!!");
 		return null;
 	}
 	

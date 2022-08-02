@@ -90,7 +90,7 @@
 <%= "@@@@"+bookingDate%>
 <%= "@@@@"+searchValue%>
 <%= "@@@@"+searchPersonnel%>
-<div class="container-fluid py-5 px-lg-5">
+<div class="container py-5 px-lg-5">
 	<div class="row">
 		<div class="col-lg-3 pt-3">
 			<form class="pe-xl-3" action="<%=path %>/camping/list" method="get">
@@ -390,7 +390,7 @@
 					<!-- 반복문이 들어가야되는 부분 -->
 					<div class="card h-100 border-0 shadow">
 						<div class="card-img-top overflow-hidden gradient-overlay">
-							<img class="img-cover" src="<%=c.getCs_image()%>" alt="" width="380px" height="253px"/> 
+							<img class="img-cover" src="<%=c.getCs_image()%>" alt="" width="400px" height="253px"/> 
 							<a class="tile-link" href="<%=path+"/camping/Detail?campingNo="+ c.getCs_no()%>"></a>
 						</div>
 						<div class="card-body d-flex align-items-center">
@@ -404,12 +404,12 @@
 									<p class="flex-grow-1 mb-0 text-muted text-sm">
 										<%=c.getCs_addr1()%>
 									</p>
-									<p class="flex-shrink-1 mb-0 card-stars text-xs text-right">
-										<i class="fa fa-star text-warning"></i><i
-											class="fa fa-star text-warning"></i><i
-											class="fa fa-star text-warning"></i><i
-											class="fa fa-star text-warning"></i> <i
-											class="fa fa-star text-warning"></i>
+									<p class="flex-shrink-1 card-stars text-xs text-right">
+										<i style="width: 9px" class="fa fa-star text-warning"></i>
+										<i style="width: 9px" class="fa fa-star text-warning"></i>
+										<i style="width: 9px" class="fa fa-star text-warning"></i>
+										<i style="width: 9px" class="fa fa-star text-warning"></i>
+										<i style="width: 9px" class="fa fa-star text-warning"></i>
 									</p>
 								</div>
 								<p class="card-text text-muted">

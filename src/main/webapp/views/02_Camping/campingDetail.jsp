@@ -213,9 +213,8 @@ if(campingVO == null){
 		<%if(member != null){ %>
 		 let campno = '<%=campingVO.getCs_no()%>';
          let userno = '<%=member.getUser_no()%>';
-		 let isFavorite = true;
-		 let isSet = false;
-		 alert('체크포인트0');
+		 isFavorite = true;
+		 
          $.ajax({
              type: 'post',
              url: '<%=request.getContextPath()%>/favoriteGet.do',
@@ -224,14 +223,11 @@ if(campingVO == null){
                  userno,
              },
              success: (result) => {
-            	 alert('체크포인트1');
             	 isFavorite = result;
-            	 if(isFavorite == true){
-            		 alert('체크포인트1.5');
-            	    $('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" onclick="favoritesave();" type="button"> 찜♥ </button>');
-            	 }else{
-            		 alert('체크포인트1.8');
+            	 if(isFavorite == 'true'){
             		$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" onclick="favoritesave();" type="button"> 찜♥ </button>');
+            	 }else{
+            	    $('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" onclick="favoritesave();" type="button"> 찜♥ </button>');
             	 }
              },
              error: (e) => {   
@@ -243,11 +239,14 @@ if(campingVO == null){
   
 		
    		function favoritesave()  {
-   			 alert('체크포인트2.3 - isFavorite : ' + isFavorite );
            //    let campno = '<%=campingVO.getCs_no()%>';
            //    let userno = '<%=member.getUser_no()%>';
-           	   isFavorite = !isFavorite;
-               alert('체크포인트2.5');
+           
+           	if(isFavorite == 'false'){
+           		isFavorite = true;
+           	} else{
+           		isFavorite = false;
+           	}
                $.ajax({
                    type: 'post',
                    url: '<%=request.getContextPath()%>/favoriteSet.do',
@@ -262,17 +261,12 @@ if(campingVO == null){
                    //resp.getWriter().append("AJAX에 대한 서버 응답 값<br>" + returnValue);
                    //으로부터 값을 받아 result안에 넣어준다.
                    success: (result) => {
-                   	isFavorite = result;
-                   	if(isFavorite == true){
-                   		alert('체크포인트3');
-                   	$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" onclick="favoritesave();" type="button" > 찜♥ </button>');                            		
+                   		isFavorite = result;
+                   	if(isFavorite == 'true'){
+	                   	$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" onclick="favoritesave();" type="button" > 찜♥ </button>');                            		
                    	}else{
-                   		alert('체크포인트4');
                       	$('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" onclick="favoritesave();" type="button" > 찜♥ </button>');
                    	}
-        
-                      	 		
-                      // $('#div4').html(result);
                    },
                    error: (e) => {                    	
                    	alert('체크포인트5');

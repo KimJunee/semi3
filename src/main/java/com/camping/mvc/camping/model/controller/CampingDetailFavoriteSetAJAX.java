@@ -28,6 +28,7 @@ public class CampingDetailFavoriteSetAJAX extends MyHttpServlet{
 		
 		System.out.println(req.getParameter("campno"));
 		System.out.println(req.getParameter("userno"));
+		System.out.println(req.getParameter("isFavorite"));
 		int campno = Integer.parseInt(req.getParameter("campno"));
 		int userno = Integer.parseInt(req.getParameter("userno"));
 		
@@ -35,7 +36,6 @@ public class CampingDetailFavoriteSetAJAX extends MyHttpServlet{
 		if(isFavorite == true) {
 			//찜하기
 			int result = service.insertCampingFavorite(campno, userno);
-			
 			resp.setContentType("text/html;charset=UTF-8");
 			if(result > 0) {
 				resp.getWriter().append("true");//찜 완료
