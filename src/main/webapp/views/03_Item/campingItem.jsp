@@ -218,10 +218,10 @@ if(searchValue == null){
                 </div>
                 <div class="mb-4 col-lg-4">
                     <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate" style="background: center center url(<%= path%>/resources/img/img_semi/campitem_16_01.png) no-repeat; background-size: cover;">
-                        <a class="tile-link" href="campingItemDetail.html"> </a>
+                        <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=33285688969"> </a>
                     </div>
                     <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate mt-3" style="background: center center url(<%= path%>/resources/img/img_semi/campitem_16_02.png) no-repeat; background-size: cover;">
-                        <a class="tile-link" href="campingItemDetail.html"> </a>
+                        <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=33285688969"> </a>
                     </div>
                 </div>
             </div>
