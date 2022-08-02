@@ -56,7 +56,7 @@ DecimalFormat df = new DecimalFormat("###,###");
                         </div>
                         <h6 class="mb-1" style="color:rgb(113, 113, 113) ;">홈페이지</h6>
                         <div class="mb-4 mt-1">
-                            <h5><%=reservation.getCs_homepage()%></h5>
+                            <a href="<%=reservation.getCs_homepage()%>" target="_blank"><h5><%=reservation.getCs_homepage()%></h5></a>
                         </div>
                     </div>
                     <!-- 예약 금액 표 -->

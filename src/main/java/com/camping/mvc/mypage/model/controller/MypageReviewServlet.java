@@ -81,12 +81,12 @@ private static final long serialVersionUID = 1L;
 				sendCommonPage("게시글이 정상적으로 등록되었습니다.", "/mypage/mywrite", req, resp);
 				
 			}else {
-				sendCommonPage("게시글 등록에 실패하였습니다. (code=102)", "/myreservation/review?resvno="+resvno, req, resp);
+				sendCommonPage("게시글 등록에 실패하였습니다. (code=102)", "/myreservation/review?resvno=" + resvno, req, resp);
 			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();
-			sendCommonPage("정상적으로 처리할수 없습니다. (code=103)",  "/myreservation/review?resvno="+req.getParameter("resvno"), req, resp);
+			sendCommonPage("정상적으로 처리할수 없습니다. (code=103)", "/myreservation/review?resvno=" + req.getParameter("resvno"), req, resp);
 		}
 	}
 }
