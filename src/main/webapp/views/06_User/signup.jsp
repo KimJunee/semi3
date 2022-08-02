@@ -48,7 +48,7 @@ String mypath = request.getContextPath();
                         <img src="<%=mypath%>/resources/img/img_semi/carbak01.png" alt="" style="max-width: 4rem;">
                         <h2>회원가입</h2>
                     </div>
-                    <form class="form-validate" action="<%=request.getContextPath()%>/views/06_User/signup.jsp" method="POST">
+                    <form class="form-validate" action="<%=request.getContextPath()%>/views/06_User/signin.jsp" method="POST">
                         <div class="mb-4">
                             <input class="form-control" name="newId" id="newId" type="text" placeholder="ID" autocomplete="off" required data-msg="Please enter your email">
                         </div>
@@ -75,8 +75,9 @@ String mypath = request.getContextPath();
                         </div>
                         <hr class="my-3 hr-text letter-spacing-2" data-content="OR">
                         <div class="d-grid gap-2">
-                            <button class="btn btn-lg btn-primary2"><img src="<%=mypath%>/resources/img/img_semi/kakao.jpg" width="40px" height="40px"> 카카오 로그인</button>
+                            <button class="btn btn-lg btn-primary2" onclick="javascript:kakaoLogin();"><img src="<%=mypath%>/resources/img/img_semi/kakao.jpg" width="40px" height="40px"> 카카오 로그인</button>
                         </div>
+                        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
                         <script>
                             window.Kakao.init("89e9c3d321d0890e0eef7d916c43b9d4");
 
