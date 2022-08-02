@@ -1,9 +1,9 @@
+<%@page import="com.camping.mvc.mypage.model.vo.MyFavorite"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.lang.reflect.Array"%>
 <%@page import="java.util.List"%>
-<%@page import="com.camping.mvc.camping.model.vo.Review"%>
+<%@page import="com.camping.mvc.camping.model.vo.*"%>
 <%@page import="com.camping.mvc.camping.model.dao.CampDetailDAO"%>
-<%@page import="com.camping.mvc.camping.model.vo.CampingVO"%>
 <%@page import="com.camping.mvc.camping.model.service.CampSiteService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +11,8 @@
 <%@include file="/views/07_common/header.jsp" %>
 <%
 String mypath = request.getContextPath();
+Member member = (Member)request.getAttribute("member");
+MyFavorite favorite = (MyFavorite)request.getAttribute("favorite");
 CampingVO campingVO = (CampingVO)request.getAttribute("campingVO");
 List<Review> list = new ArrayList<>();
 list = (List<Review>)request.getAttribute("list");
@@ -120,7 +122,8 @@ if(campingVO == null){
             <div class="row">
                 <!-- Content-->
                 <section class="col-md-6">
-                    <a class="gallery-item rounded-1 mb-grid-gutter" href="<%=mypath%>/resources/img/camping/img1.png" data-sub-html="&lt;h6 class=&quot;fs-sm text-light&quot;&gt;이미지 미리보기&lt;/h6&gt;"><img style="width: 100%; height: 100%;" src="<%=path%>/resources/img/img_semi/hongs03.JPG" alt="Gallery preview"><span class="gallery-item-caption">이미지 확대하여 보기</span></a>
+                    <a class="gallery-item rounded-1 mb-grid-gutter" href="<%=mypath%>/resources/img/camping/img1.png" data-sub-html="&lt;h6 class=&quot;fs-sm text-light&quot;&gt;이미지 미리보기&lt;/h6&gt;">
+                    <img style="width: 100%; height: 100%;" src="<%=path%>/resources/img/img_semi/hongs03.JPG" alt="Gallery preview"><span class="gallery-item-caption">이미지 확대하여 보기</span></a>
                 </section>
 
                 <!-- Sidebar 캠핑장 상세 내용 및 홈페이지-->
@@ -182,9 +185,22 @@ if(campingVO == null){
                             <div class="text-center">
                                 <button class="btn btn-primary w-50 mt-4" style="font-size:20px; height:60px;" type="button" onclick=location.href="<%=path %>/camping/reservation?campingNo=<%=campingVO.getCs_no() %>"><i class="ci-cart fs-lg me-2"></i>예약하기</button>
 								<span style="display:inline-block; width:10px;"></span>
-                                <button class="btn btn-primaryCuntom w-40 mt-4" style="font-size:20px; height:60px;" type="button"><i class="ci-cart fs-lg me-2"></i> 찜♥ </button>
-                            </div>
-                            <br>
+								<%if(member != null){ %>
+								
+                       	 				
+                       	 				<button class="btn btn-primaryCuntom w-40 mt-4" style="font-size:20px; height:60px;" type="submit"><i class="ci-cart fs-lg me-2"></i> 찜♥ </button>
+									
+							<%-- <div class="like-btn">
+									<form action="<%=mypath + "/camping/Detail?campingNo=" + campingVO.getCs_no() %>" method="post">
+										<input type="hidden" name="clickedUser" value="<%=(Member)session.getAttribute("loginMember")%>">
+                                		<button type="submit"> 찜♥ </button>
+									</form>
+								</div>
+                       	 				--%>
+									
+								<%} %>
+								
+							</div>
                         </div>
                     </div>
                 </aside>
