@@ -47,7 +47,7 @@ public class CampDetailDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		CampingVO campingVO = null;
-		String query = "SELECT CS_NO, CS_NAME, CS_ADDR1, CS_ADDR2, CS_INDUTY, CS_RESVE_CL, CS_SBRS_CL, CS_POSTBL_FCLTY, CS_HOMEPAGE, CS_LCT_CL, CS_FEATURE_NAME, CS_MANAGESTTUS, CS_ANIMAL_CMG, CS_RESVE_URL, CS_MAP_Y, CS_MAP_X, CS_TEL, CS_ACCOM_FEE "
+		String query = "SELECT CS_NO, CS_NAME, CS_ADDR1, CS_ADDR2, CS_INDUTY, CS_RESVE_CL, CS_SBRS_CL, CS_POSTBL_FCLTY, CS_HOMEPAGE, CS_LCT_CL, CS_FEATURE_NAME, CS_MANAGESTTUS, CS_ANIMAL_CMG, CS_RESVE_URL, CS_MAP_Y, CS_MAP_X, CS_TEL, CS_ACCOM_FEE, CS_IMAGE "
 				+ "FROM CAMP_SITE " + "WHERE CS_NO = ? ";
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -73,6 +73,7 @@ public class CampDetailDAO {
 				campingVO.setCs_map_x(rs.getString("CS_MAP_X"));
 				campingVO.setCs_tel(rs.getString("CS_TEL"));
 				campingVO.setCs_accom_fee(rs.getString("CS_ACCOM_FEE"));
+				campingVO.setCs_image(rs.getString("CS_IMAGE"));
 				return campingVO;
 			}
 		} catch (Exception e) {
