@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.camping.mvc.camping.model.vo.CampingVO;
+import com.camping.mvc.mypage.model.vo.MyFavorite;
 
 public class CampDetailDAO {
 
@@ -85,7 +86,7 @@ public class CampDetailDAO {
 		return null;
 	}
 
-	public int insertCampingData(Connection conn, int campno, int userno) {
+	public int insertCampingFavoriteData(Connection conn, int campno, int userno) {
 		PreparedStatement pstmt = null;
 		String query = "INSERT INTO LIKE_T VALUES(SEQ_LIKE_NO.NEXTVAL,?,?) ";
 		int result = 0;
@@ -104,6 +105,53 @@ public class CampDetailDAO {
 		return result;
 	}
 	
+	public int DeleteCampingFavoriteData(Connection conn, int campno, int userno) {
+		PreparedStatement pstmt = null;
+		String query = "DELETE FROM LIKE_T WHERE USER_NO = '?' AND CS_NO = '?'";
+		int result = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, userno);
+			pstmt.setInt(2, campno);
+			
+			result = pstmt.executeUpdate();	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	public MyFavorite findCampingFavoriteData(Connection conn, int campno, int userno) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		MyFavorite mf = null;
+		
+		String query = "SELECT * FROM LIKE_T WHERE USER_NO = '?' AND CS_NO = '?'";
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, userno);
+			pstmt.setInt(1, campno);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				mf = new MyFavorite();
+				mf.setLike_no(rs.getInt("LIKE_NO"));
+				mf.setUser_no(rs.getInt("USER_NO"));
+				mf.setCs_no(rs.getInt("CS_NO"));
+				
+				return mf;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+		return null;
+	}
 	
 	
 	public static void main(String[] args) {
@@ -120,6 +168,8 @@ public class CampDetailDAO {
 		System.out.println("-------------------------------");
 
 	}
+
+
 
 
 }

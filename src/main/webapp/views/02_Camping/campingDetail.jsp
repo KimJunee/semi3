@@ -209,37 +209,67 @@ if(campingVO == null){
 									
 								<%} %>
 							</div>
-							<script><%if(member != null){ %>
-            $('#ajaxSend').click(function favoritesave()  {
-                let campno = '<%=campingVO.getCs_no()%>';//.val()은 양식(form)의 값을 가져오거나 값을 설정하는 메소드입니다.
-                let userno = '<%=member.getUser_no()%>';
+		<script>
+		 let campno = '<%=campingVO.getCs_no()%>';//.val()은 양식(form)의 값을 가져오거나 값을 설정하는 메소드입니다.
+         let userno = '<%=member.getUser_no()%>';
+		 let isFavorite = true;
+		 let isSet = false;
+ 
+         $.ajax({
+             type: 'post',
+             url: '<%=request.getContextPath()%>/favoriteSet.do',
+             data: { 
+                 campno,
+                 userno,
+             },
+             success: (result) => {
+            	 isFavorite = result;
+            	 if(isFavorite == true){
+            		$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" > 찜♥ </button>');
+            	 }else{
+            	    $('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend" type="button" > 찜♥ </button>');
+            	 }
+             },
+             error: (e) => {                    	
+             	alert('찜이 안됩니다.');
+                 //$('#div4').html('에러 발생!!');
+             },
+         });
+  
+		<%if(member != null){ %>
+            $('#ajaxSend').click(
+            		function favoritesave()  {
+                        let campno = '<%=campingVO.getCs_no()%>';//.val()은 양식(form)의 값을 가져오거나 값을 설정하는 메소드입니다.
+                        let userno = '<%=member.getUser_no()%>';
 
-                $.ajax({
-                    type: 'post',
-                    url: '<%=request.getContextPath()%>/jqAjax.do',
-                    data: {
-                        // name: name,
-                        // age: age,
-                        campno,
-                        userno
-                    },
-                    //성공시 JqueryAjaxServlet2의 
-                    //resp.getWriter().append("AJAX에 대한 서버 응답 값<br>" + returnValue);
-                    //으로부터 값을 받아 result안에 넣어준다.
-                    success: (result) => {
-                    	alert('찜이 완료되었습니다.');
-                    	$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" > 찜♥ </button>');
-                       	$('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend" type="button" > 찜♥ </button>');
-                       	 		
-                       // $('#div4').html(result);
-                    },
-                    error: (e) => {                    	
-                    	alert('찜이 안됩니다.');
-                        //$('#div4').html('에러 발생!!');
-                    },
-                });
-            });
-            <%} %>
+                        $.ajax({
+                            type: 'post',
+                            url: '<%=request.getContextPath()%>/jqAjax.do',
+                            data: {
+                                // name: name,
+                                // age: age,
+                                campno,
+                                userno,
+                                !isFavorite,
+                            },
+                            //성공시 JqueryAjaxServlet2의 
+                            //resp.getWriter().append("AJAX에 대한 서버 응답 값<br>" + returnValue);
+                            //으로부터 값을 받아 result안에 넣어준다.
+                            success: (result) => {
+                            	//alert('찜이 완료되었습니다.');
+                            	$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" > 찜♥ </button>');
+                               	$('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend1" type="button" > 찜♥ </button>');
+                               	 		
+                               // $('#div4').html(result);
+                            },
+                            error: (e) => {                    	
+                            	alert('찜이 안됩니다.');
+                                //$('#div4').html('에러 발생!!');
+                            },
+                        });
+                    }	
+            );
+        <%} %>
         </script>
                         </div>
                     </div>

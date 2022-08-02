@@ -1,8 +1,5 @@
 package com.camping.mvc.camping.model.service;
 
-import static com.camping.common.jdbc.JDBCTemplate.close;
-
-
 import static com.camping.common.jdbc.JDBCTemplate.commit;
 import static com.camping.common.jdbc.JDBCTemplate.openConnection;
 import static com.camping.common.jdbc.JDBCTemplate.rollback;
@@ -11,7 +8,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.List;
-import java.util.Map;
 
 import com.camping.common.util.PageInfo;
 import com.camping.mvc.camping.model.dao.CampDetailDAO;
@@ -19,6 +15,7 @@ import com.camping.mvc.camping.model.dao.CampReviewDAO;
 import com.camping.mvc.camping.model.dao.CampSiteDAO;
 import com.camping.mvc.camping.model.vo.CampingVO;
 import com.camping.mvc.camping.model.vo.Review;
+import com.camping.mvc.mypage.model.vo.MyFavorite;
 
 public class CampSiteService {
 	
@@ -82,7 +79,22 @@ public class CampSiteService {
 	}
 
 	public int insertCampingFavorite(int campno, int userno) {
-		int result = detailDAO.insertCampingData(getConnection(), campno, userno);
+		int result = detailDAO.insertCampingFavoriteData(getConnection(), campno, userno);
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		return result;
+	}
+
+	public MyFavorite findCampFavorite(int campno, int userno) {
+		MyFavorite result = detailDAO.findCampingFavoriteData(getConnection(), campno, userno);
+		return result;
+	}
+
+	public int DeleteCampingFavorite(int campno, int userno) {
+		int result = detailDAO.DeleteCampingFavoriteData(getConnection(), campno, userno);
 		if(result > 0) {
 			commit(conn);
 		} else {
