@@ -107,7 +107,7 @@ public class CampDetailDAO {
 	
 	public int DeleteCampingFavoriteData(Connection conn, int campno, int userno) {
 		PreparedStatement pstmt = null;
-		String query = "DELETE FROM LIKE_T WHERE USER_NO = '?' AND CS_NO = '?'";
+		String query = "DELETE FROM LIKE_T WHERE USER_NO = ? AND CS_NO = ?";
 		int result = 0;
 		
 		try {
@@ -129,19 +129,21 @@ public class CampDetailDAO {
 		ResultSet rs = null;
 		MyFavorite mf = null;
 		
-		String query = "SELECT * FROM LIKE_T WHERE USER_NO = '?' AND CS_NO = '?'";
+		String query = "SELECT * FROM LIKE_T WHERE USER_NO = ? AND CS_NO = ? ";
 		
 		try {
+			System.out.println(userno);
 			pstmt = conn.prepareStatement(query);
 			pstmt.setInt(1, userno);
-			pstmt.setInt(1, campno);
+			pstmt.setInt(2, campno);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				mf = new MyFavorite();
 				mf.setLike_no(rs.getInt("LIKE_NO"));
 				mf.setUser_no(rs.getInt("USER_NO"));
 				mf.setCs_no(rs.getInt("CS_NO"));
-				
+				System.out.println("잘나옴");
+				System.out.println(mf);
 				return mf;
 			}
 		} catch (Exception e) {
@@ -150,6 +152,7 @@ public class CampDetailDAO {
 			close(pstmt);
 			close(rs);
 		}
+		System.out.println("다오오류1");
 		return null;
 	}
 	

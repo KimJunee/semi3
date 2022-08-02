@@ -210,60 +210,73 @@ if(campingVO == null){
 								<%} %>
 							</div>
 		<script>
-		 let campno = '<%=campingVO.getCs_no()%>';//.val()은 양식(form)의 값을 가져오거나 값을 설정하는 메소드입니다.
+		<%if(member != null){ %>
+		 let campno = '<%=campingVO.getCs_no()%>';
          let userno = '<%=member.getUser_no()%>';
 		 let isFavorite = true;
 		 let isSet = false;
- 
+		 alert('체크포인트0');
          $.ajax({
              type: 'post',
-             url: '<%=request.getContextPath()%>/favoriteSet.do',
+             url: '<%=request.getContextPath()%>/favoriteGet.do',
              data: { 
                  campno,
                  userno,
              },
              success: (result) => {
+            	 alert('체크포인트1');
             	 isFavorite = result;
             	 if(isFavorite == true){
-            		$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" > 찜♥ </button>');
+            		 alert('체크포인트1.5');
+            	    $('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend" type="button" onclick="favoritesave()"> 찜♥ </button>');
             	 }else{
-            	    $('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend" type="button" > 찜♥ </button>');
+            		 alert('체크포인트1.8');
+            		$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" onclick="favoritesave()"> 찜♥ </button>');
             	 }
              },
-             error: (e) => {                    	
-             	alert('찜이 안됩니다.');
+             error: (e) => {   
+            	 alert('체크포인트2');
+             	alert('에러발생.');
                  //$('#div4').html('에러 발생!!');
              },
          });
   
-		<%if(member != null){ %>
+		
             $('#ajaxSend').click(
             		function favoritesave()  {
-                        let campno = '<%=campingVO.getCs_no()%>';//.val()은 양식(form)의 값을 가져오거나 값을 설정하는 메소드입니다.
-                        let userno = '<%=member.getUser_no()%>';
-
+            			 alert('체크포인트2.3');
+                    //    let campno = '<%=campingVO.getCs_no()%>';
+                    //    let userno = '<%=member.getUser_no()%>';
+                        let isFavorite = !isFavorite;
+                        alert('체크포인트2.5');
                         $.ajax({
                             type: 'post',
-                            url: '<%=request.getContextPath()%>/jqAjax.do',
+                            url: '<%=request.getContextPath()%>/favoriteSet.do',
                             data: {
                                 // name: name,
                                 // age: age,
                                 campno,
                                 userno,
-                                !isFavorite,
+                                isFavorite,
                             },
                             //성공시 JqueryAjaxServlet2의 
                             //resp.getWriter().append("AJAX에 대한 서버 응답 값<br>" + returnValue);
                             //으로부터 값을 받아 result안에 넣어준다.
                             success: (result) => {
-                            	//alert('찜이 완료되었습니다.');
-                            	$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" > 찜♥ </button>');
-                               	$('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend1" type="button" > 찜♥ </button>');
+                            	isFavorite = result;
+                            	if(isFavorite == true){
+                            		alert('체크포인트3');
+                            	$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" onclick="favoritesave()"> 찜♥ </button>');                            		
+                            	}else{
+                            		alert('체크포인트4');
+                               	$('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend1" type="button" onclick="favoritesave()"> 찜♥ </button>');
+                            	}
+                 
                                	 		
                                // $('#div4').html(result);
                             },
                             error: (e) => {                    	
-                            	alert('찜이 안됩니다.');
+                            	alert('체크포인트5');
                                 //$('#div4').html('에러 발생!!');
                             },
                         });

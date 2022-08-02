@@ -20,7 +20,7 @@ public class CampingDetailFavoriteSetAJAX extends MyHttpServlet{
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("CampingDetailFavoriteAJAX 호출됨!!");
+		System.out.println("CampingDetailFavoriteSetAJAX 호출됨!!");
 		req.setCharacterEncoding("utf-8");
 		resp.setCharacterEncoding("utf-8");
 		
@@ -38,18 +38,18 @@ public class CampingDetailFavoriteSetAJAX extends MyHttpServlet{
 			
 			resp.setContentType("text/html;charset=UTF-8");
 			if(result > 0) {
-				resp.getWriter().append("찜완료");
+				resp.getWriter().append("true");//찜 완료
 			}else {
-				resp.getWriter().append("찜이 불가능합니다");
+				resp.getWriter().append("false");//찜 불가능
 			}
 		}else {
 			// 찜 해제
 			int result = service.DeleteCampingFavorite(campno, userno);
 			resp.setContentType("text/html;charset=UTF-8");
 			if(result > 0) {
-				resp.getWriter().append("해제완료");
+				resp.getWriter().append("true");//해체완료
 			}else {
-				resp.getWriter().append("해제가 불가능합니다.");
+				resp.getWriter().append("false");// 해제 불가능
 			}
 		}
 		

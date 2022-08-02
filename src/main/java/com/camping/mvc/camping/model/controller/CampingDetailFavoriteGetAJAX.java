@@ -21,7 +21,7 @@ public class CampingDetailFavoriteGetAJAX extends MyHttpServlet{
 	}
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		System.out.println("CampingDetailFavoriteAJAX 호출됨!!");
+		System.out.println("CampingDetailFavoriteGetAJAX 호출됨!!");
 		req.setCharacterEncoding("utf-8");
 		resp.setCharacterEncoding("utf-8");
 		
