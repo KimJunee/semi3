@@ -43,7 +43,8 @@ private static final long serialVersionUID = 1L;
 			
 			//freeBoardWrite.jsp에서 작성한 게시글 처리
 			review.setUser_no(loginMember.getUser_no());
-			review.setRev_content(req.getParameter("content").trim());
+			review.setRev_title(req.getParameter("reviewTitle"));
+			review.setRev_content(req.getParameter("reviewContent"));
 			
 			System.out.println(review.toString());
 			int result = service.insertReview(review); // DB에 게시글 저장

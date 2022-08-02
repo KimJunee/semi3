@@ -26,7 +26,6 @@ String mypath = request.getContextPath();
                 <div class=" fs-5 mb-1" style="text-align: center; color: gray;"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
                     <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
                   </svg>무관한 후기작성 시 무통보 삭제 될 수 있습니다.</div>
-
             </div>
         </div>
 </section>
@@ -40,7 +39,6 @@ String mypath = request.getContextPath();
         </div>
     </div>
 </section>
-
 
 <!-- 게시글 작성자 -->
 <section class="pt-2 pb-4 p-print-0">
@@ -70,23 +68,26 @@ String mypath = request.getContextPath();
     </div>
 </section>
 
-<!-- 문의글  -->
+<!-- 후기작성  -->
 <section class="pt-0 pb-1 p-print-0">
     <div class="container">
         <div class=" mb-lg-1 ">
             <div class=" mt-4" id="leaveReview">
-                <form class="form" id="contact-form" method="get" action="#">
+                <form class="form" id="contact-form" method="post" action="<%= path%>/myreview">
                     <div class="row">
                         <div class="mb-4">
-                            <textarea class="form-control" rows="1" name="freeBoardTitle" id="freeBoardTitle" placeholder="제목을 입력해주세요" required="required"></textarea>
+                            <textarea class="form-control" rows="1" name="reviewTitle" id="reviewTitle" placeholder="제목을 입력해주세요" required="required"></textarea>
                         </div>
                         <div class="mb-4">
-                            <textarea class="form-control" rows="10" name="freeBoardContact" id="freeBoardContact" placeholder="캠핑장 이용에 대한 후기를 남겨주세요." required="required"></textarea>
+                            <textarea class="form-control" rows="10" name="reviewContent" id="reviewContent" placeholder="캠핑장 이용에 대한 후기를 남겨주세요." required="required"></textarea>
                         </div>
                     </div>
                     <div class="container">
-                        <div class="col-lg-12 mb-3  ">
-                            <button class="btn btn-primary col-lg-12 " style="width: 200px; font-size: 16px; margin-left: 550px;" type="submit">등  록</button>
+                    	<div class="col-lg-12 mb-3" style="text-align:center;">
+                            <label className="input-file-button" for="input-file" style="width: 200px; font-size: 16px;" type="submit">파일첨부</label>
+                            <input type="file" id="input-file" style={{display:"none"}}/>
+                        	<span style="display:inline-block; width:10px;"></span>
+                            <button class="btn btn-primary col-lg-6 " style="width: 200px; font-size: 16px;" type="submit">등  록</button>
                         </div>
                     </div>
                 </form>

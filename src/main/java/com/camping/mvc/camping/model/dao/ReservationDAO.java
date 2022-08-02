@@ -45,7 +45,7 @@ public class ReservationDAO {
 					 + "FROM RESERVATION R "
 					 + "LEFT JOIN CAMP_SITE CS ON (R.CS_NO = CS.CS_NO) "
 					 + "WHERE USER_NO = ? "
-					 + "ORDER BY RESV_NO";
+					 + "ORDER BY RESV_NO DESC";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
