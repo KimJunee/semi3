@@ -2,6 +2,7 @@ package com.camping.mvc.camping.model.service;
 
 import static com.camping.common.jdbc.JDBCTemplate.close;
 
+
 import static com.camping.common.jdbc.JDBCTemplate.commit;
 import static com.camping.common.jdbc.JDBCTemplate.openConnection;
 import static com.camping.common.jdbc.JDBCTemplate.rollback;
@@ -79,5 +80,16 @@ public class CampSiteService {
 		List<Review> reviewList = reviewDAO.getReviewByCampNo(conn, campNo);
 		return reviewList;
 	}
+
+	public int insertCampingFavorite(int campno, int userno) {
+		int result = detailDAO.insertCampingData(getConnection(), campno, userno);
+		if(result > 0) {
+			commit(conn);
+		} else {
+			rollback(conn);
+		}
+		return result;
+	}
+	
 
 }

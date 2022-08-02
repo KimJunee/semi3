@@ -84,6 +84,27 @@ public class CampDetailDAO {
 		return null;
 	}
 
+	public int insertCampingData(Connection conn, int campno, int userno) {
+		PreparedStatement pstmt = null;
+		String query = "INSERT INTO LIKE_T VALUES(SEQ_LIKE_NO.NEXTVAL,?,?) ";
+		int result = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, userno);
+			pstmt.setInt(2, campno);
+			
+			result = pstmt.executeUpdate();	
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			close(pstmt);
+		}
+		return result;
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		Connection conn = getConnection();
 		CampDetailDAO dao = new CampDetailDAO();
@@ -98,5 +119,6 @@ public class CampDetailDAO {
 		System.out.println("-------------------------------");
 
 	}
+
 
 }

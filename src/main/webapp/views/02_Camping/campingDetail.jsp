@@ -9,6 +9,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <%@include file="/views/07_common/header.jsp" %>
+
 <%
 String mypath = request.getContextPath();
 Member member = (Member)request.getAttribute("member");
@@ -35,7 +36,7 @@ if(campingVO == null){
     </div>
 </section>
 <!-- 메인 검색창 -->
-<div class="container ">
+<%--<div class="container ">
     <div class="search-bar rounded-4 p-0 p-lg-3 position-relative mt-n7 z-index-20 ">
         <form action="# ">
             <div class="row ">
@@ -106,7 +107,7 @@ if(campingVO == null){
             </div>
         </form>
     </div>
-</div>
+</div>--%>
 <!-- 헤더 끝 -->
 <!-- ============================================================================================================================== -->
 <body>
@@ -186,9 +187,10 @@ if(campingVO == null){
                                 <button class="btn btn-primary w-50 mt-4" style="font-size:20px; height:60px;" type="button" onclick=location.href="<%=path %>/camping/reservation?campingNo=<%=campingVO.getCs_no() %>"><i class="ci-cart fs-lg me-2"></i>예약하기</button>
 								<span style="display:inline-block; width:10px;"></span>
 								<%if(member != null){ %>
-								
-                       	 				
-                       	 				<button class="btn btn-primaryCuntom w-40 mt-4" style="font-size:20px; height:60px;" type="submit"><i class="ci-cart fs-lg me-2"></i> 찜♥ </button>
+                       	 		<span id="div-fbtn">
+                       	 				<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" > 찜♥ </button>
+                       	 			<!--  	<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend" type="button" > 찜♥ </button>-->
+                       	 		</span>		
 									
 							<%-- <div class="like-btn">
 									<form action="<%=mypath + "/camping/Detail?campingNo=" + campingVO.getCs_no() %>" method="post">
@@ -199,8 +201,38 @@ if(campingVO == null){
                        	 				--%>
 									
 								<%} %>
-								
 							</div>
+							<script>
+            $('#ajaxSend').click(function favoritesave()  {
+                let campno = '<%=campingVO.getCs_no()%>';//.val()은 양식(form)의 값을 가져오거나 값을 설정하는 메소드입니다.
+                let userno = '<%=member.getUser_no()%>';
+
+                $.ajax({
+                    type: 'post',
+                    url: '<%=request.getContextPath()%>/jqAjax.do',
+                    data: {
+                        // name: name,
+                        // age: age,
+                        campno,
+                        userno
+                    },
+                    //성공시 JqueryAjaxServlet2의 
+                    //resp.getWriter().append("AJAX에 대한 서버 응답 값<br>" + returnValue);
+                    //으로부터 값을 받아 result안에 넣어준다.
+                    success: (result) => {
+                    	alert('찜이 완료되었습니다.');
+                    	$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" > 찜♥ </button>');
+                       	$('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend" type="button" > 찜♥ </button>');
+                       	 		
+                       // $('#div4').html(result);
+                    },
+                    error: (e) => {                    	
+                    	alert('찜이 안됩니다.');
+                        //$('#div4').html('에러 발생!!');
+                    },
+                });
+            });
+        </script>
                         </div>
                     </div>
                 </aside>
