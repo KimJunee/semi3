@@ -195,7 +195,7 @@ if(campingVO == null){
 								<span style="display:inline-block; width:10px;"></span>
 								<%if(member != null){ %>
                        	 		<span id="div-fbtn">
-                       	 				<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" > 찜♥ </button>
+                       	 				<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" onclick="favoritesave();" type="button" > 찜♥ </button>
                        	 			<!--  	<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend" type="button" > 찜♥ </button>-->
                        	 		</span>		
 									
@@ -228,10 +228,10 @@ if(campingVO == null){
             	 isFavorite = result;
             	 if(isFavorite == true){
             		 alert('체크포인트1.5');
-            	    $('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend" type="button" onclick="favoritesave()"> 찜♥ </button>');
+            	    $('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" onclick="favoritesave();" type="button"> 찜♥ </button>');
             	 }else{
             		 alert('체크포인트1.8');
-            		$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" onclick="favoritesave()"> 찜♥ </button>');
+            		$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" onclick="favoritesave();" type="button"> 찜♥ </button>');
             	 }
              },
              error: (e) => {   
@@ -242,46 +242,44 @@ if(campingVO == null){
          });
   
 		
-            $('#ajaxSend').click(
-            		function favoritesave()  {
-            			 alert('체크포인트2.3');
-                    //    let campno = '<%=campingVO.getCs_no()%>';
-                    //    let userno = '<%=member.getUser_no()%>';
-                        let isFavorite = !isFavorite;
-                        alert('체크포인트2.5');
-                        $.ajax({
-                            type: 'post',
-                            url: '<%=request.getContextPath()%>/favoriteSet.do',
-                            data: {
-                                // name: name,
-                                // age: age,
-                                campno,
-                                userno,
-                                isFavorite,
-                            },
-                            //성공시 JqueryAjaxServlet2의 
-                            //resp.getWriter().append("AJAX에 대한 서버 응답 값<br>" + returnValue);
-                            //으로부터 값을 받아 result안에 넣어준다.
-                            success: (result) => {
-                            	isFavorite = result;
-                            	if(isFavorite == true){
-                            		alert('체크포인트3');
-                            	$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" id="ajaxSend" type="button" onclick="favoritesave()"> 찜♥ </button>');                            		
-                            	}else{
-                            		alert('체크포인트4');
-                               	$('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" id="ajaxSend1" type="button" onclick="favoritesave()"> 찜♥ </button>');
-                            	}
-                 
-                               	 		
-                               // $('#div4').html(result);
-                            },
-                            error: (e) => {                    	
-                            	alert('체크포인트5');
-                                //$('#div4').html('에러 발생!!');
-                            },
-                        });
-                    }	
-            );
+   		function favoritesave()  {
+   			 alert('체크포인트2.3 - isFavorite : ' + isFavorite );
+           //    let campno = '<%=campingVO.getCs_no()%>';
+           //    let userno = '<%=member.getUser_no()%>';
+           	   isFavorite = !isFavorite;
+               alert('체크포인트2.5');
+               $.ajax({
+                   type: 'post',
+                   url: '<%=request.getContextPath()%>/favoriteSet.do',
+                   data: {
+                       // name: name,
+                       // age: age,
+                       campno,
+                       userno,
+                       isFavorite,
+                   },
+                   //성공시 JqueryAjaxServlet2의 
+                   //resp.getWriter().append("AJAX에 대한 서버 응답 값<br>" + returnValue);
+                   //으로부터 값을 받아 result안에 넣어준다.
+                   success: (result) => {
+                   	isFavorite = result;
+                   	if(isFavorite == true){
+                   		alert('체크포인트3');
+                   	$('#div-fbtn').html('<button class="btn w-40 mt-4 btn-primary" style="font-size:20px; height:60px;" onclick="favoritesave();" type="button" > 찜♥ </button>');                            		
+                   	}else{
+                   		alert('체크포인트4');
+                      	$('#div-fbtn').html('<button class="btn w-40 mt-4 " style="font-size:20px; height:60px; color:#c0c0c0" onclick="favoritesave();" type="button" > 찜♥ </button>');
+                   	}
+        
+                      	 		
+                      // $('#div4').html(result);
+                   },
+                   error: (e) => {                    	
+                   	alert('체크포인트5');
+                       //$('#div4').html('에러 발생!!');
+                   },
+               });
+           }	
         <%} %>
         </script>
                         </div>
