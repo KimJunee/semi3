@@ -390,7 +390,7 @@
 					<!-- 반복문이 들어가야되는 부분 -->
 					<div class="card h-100 border-0 shadow">
 						<div class="card-img-top overflow-hidden gradient-overlay">
-							<img class="img-cover" src="<%=c.getCs_image()%>" alt="" height = "253px"/> 
+							<img class="img-cover" src="<%=c.getCs_image()%>" alt="" width="380px" height="253px"/> 
 							<a class="tile-link" href="<%=path+"/camping/Detail?campingNo="+ c.getCs_no()%>"></a>
 						</div>
 						<div class="card-body d-flex align-items-center">
