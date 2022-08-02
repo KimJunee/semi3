@@ -176,10 +176,17 @@ if(campingVO == null){
                                 <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">주변이용가능시설</span><span class="text-muted"></span></li>
                                 <%} %>
                                 
-                                <%if(campingVO.getCs_induty() != null) {%>
-                                <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">홈페이지</span><span class="text-muted" href=<%=campingVO.getCs_homepage() %>>바로가기 링크를 눌러주세요.</a></li>
+                                <%if(campingVO.getCs_homepage() != null) {%>
+                                <li class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+                                	<span class="text-dark fw-medium">홈페이지</span>
+                                	<a href=<%=campingVO.getCs_homepage() %>>
+                                	<span class="text-muted">바로가기 링크를 눌러주세요.</a></span>
+                                </li>
                                 <%} else {%>
-                                <li class="d-flex justify-content-between mb-3 pb-3 border-bottom"><span class="text-dark fw-medium">홈페이지</span><span class="text-muted" href=>바로가기 링크를 눌러주세요.</a></li>
+                                <li class="d-flex justify-content-between mb-3 pb-3 border-bottom">
+                                	<span class="text-dark fw-medium">홈페이지</span>
+                                	<span class="text-muted">바로가기 링크를 눌러주세요.</a></span>
+                                </li>
                                 <%} %>
                                
                             </ul>
