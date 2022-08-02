@@ -86,7 +86,7 @@ Reservation reservation = (Reservation)request.getAttribute("reservation");
                             <textarea class="form-control" rows="10" name="reviewContent" id="reviewContent" placeholder="캠핑장 이용에 대한 후기를 남겨주세요." required="required"></textarea>
                         </div>
                     </div>
-                    <div class="container">
+                    <div class="container"> 
                     	<div class="col-lg-12 mb-3" style="text-align:center;">
                             <label className="d-none" for="input-file" style="width: 200px; font-size: 16px;" type="submit">파일첨부</label>
                             <input type="file" id="input-file" style="d-none"/>
