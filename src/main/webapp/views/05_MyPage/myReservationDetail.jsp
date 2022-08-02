@@ -2,10 +2,12 @@
 <%@page import="com.camping.mvc.member.model.vo.Member"%>
 <%@page import="com.camping.mvc.camping.model.vo.Reservation"%>
 <%@page import="com.camping.mvc.camping.model.dao.ReservationDAO"%>
+<%@ page import="java.text.*" %>
 <%@ include file="/views/07_common/header.jsp" %>
 <%
 String mypath = request.getContextPath();
 Reservation reservation = (Reservation)request.getAttribute("reservation");
+DecimalFormat df = new DecimalFormat("###,###");
 %>
 <!-- 헤더 큰 이미지 -->
 <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/mypage01_01.png); height: 350px; margin: 60px;"></section>
@@ -76,10 +78,10 @@ Reservation reservation = (Reservation)request.getAttribute("reservation");
                                     %>
                                     <td class="text-center fw-bold"><%=reservation.getCs_name()%></td>
                                     <td class="text-center">2022-07-21</td>
-                                    <td class="text-center"><%=Integer.parseInt(reservation.getCs_accom_fee()) - surtax%>원</td>
+                                    <td class="text-center"><%=df.format(Integer.parseInt(reservation.getCs_accom_fee()) - surtax)%>원</td>
                                     
-                                    <td class="text-center"><%=surtax%>원</td>
-                                    <td class="text-center"><%=reservation.getCs_accom_fee()%>원 </td>
+                                    <td class="text-center"><%=df.format(surtax)%>원</td>
+                                    <td class="text-center"><%=df.format(Integer.parseInt(reservation.getCs_accom_fee()))%>원 </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -87,7 +89,7 @@ Reservation reservation = (Reservation)request.getAttribute("reservation");
                 </div>
                 <div class="card-footer  p-4  border-0  text-sm" style="background-color:#F7F3E9;">
                     <p class="mb-0 " style="margin-left: 620px;">모닥불을 이용해 주셔서 감사합니다. 즐거운 캠핑여행 되세요.
-                        <button class="btn btn-primary  " onclick="location.href = '<%= path%>/myreservation/review' " style="width:135px ; font-size: 12px; margin-left: 10px;">
+                        <button class="btn btn-primary  " onclick="location.href = '<%= path%>/myreservation/review?resvno=<%=reservation.getResv_no() %>' " style="width:135px ; font-size: 12px; margin-left: 10px;">
                             <i class="fa fa-check fa-fw " > </i>후기작성하기
                         </button>
                     </p>

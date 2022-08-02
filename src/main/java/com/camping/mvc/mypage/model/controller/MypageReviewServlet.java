@@ -12,6 +12,7 @@ import com.camping.mvc.camping.model.vo.Review;
 import com.camping.mvc.community.model.service.ReviewService;
 import com.camping.mvc.member.model.vo.Member;
 
+// 후기 등록하는 서블릿(Write, insert)
 @WebServlet("/myreview")
 public class MypageReviewServlet extends MyHttpServlet{
 private static final long serialVersionUID = 1L;
@@ -43,6 +44,7 @@ private static final long serialVersionUID = 1L;
 			
 			//freeBoardWrite.jsp에서 작성한 게시글 처리
 			review.setUser_no(loginMember.getUser_no());
+			review.setCs_no(Integer.parseInt(req.getParameter("csno")));
 			review.setRev_title(req.getParameter("reviewTitle"));
 			review.setRev_content(req.getParameter("reviewContent"));
 			

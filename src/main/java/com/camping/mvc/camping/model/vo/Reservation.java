@@ -19,6 +19,7 @@ public class Reservation {
 	private String cs_accom_fee;
 	private String cs_image;
 	private String cs_induty;
+	private Date resv_success;
 	
 	public Reservation() {
 		super();
@@ -26,7 +27,7 @@ public class Reservation {
 
 	public Reservation(int resv_no, int user_no, int cs_no, int resv_headcount, String resv_pay, Date resv_checkin,
 			Date resv_checkout, String cs_name, String cs_addr1, String cs_addr2, String cs_tel, String cs_homepage,
-			String cs_accom_fee, String cs_image, String cs_induty) {
+			String cs_accom_fee, String cs_image, String cs_induty, Date resv_success) {
 		super();
 		this.resv_no = resv_no;
 		this.user_no = user_no;
@@ -51,13 +52,21 @@ public class Reservation {
 				+ resv_headcount + ", resv_pay=" + resv_pay + ", resv_checkin=" + resv_checkin + ", resv_checkout="
 				+ resv_checkout + ", cs_name=" + cs_name + ", cs_addr1=" + cs_addr1 + ", cs_addr2=" + cs_addr2
 				+ ", cs_tel=" + cs_tel + ", cs_homepage=" + cs_homepage + ", cs_accom_fee=" + cs_accom_fee 
-				+ ", cs_image=" + cs_image + ", cs_induty=" + cs_induty + "]";
+				+ ", cs_image=" + cs_image + ", cs_induty=" + cs_induty + ", resv_success" + resv_success + "]";
+	}
+
+	public Date getResv_success() {
+		return resv_success;
+	}
+
+	public void setResv_success(Date resv_success) {
+		this.resv_success = resv_success;
 	}
 
 	@Override
 	public int hashCode() {
 		return Objects.hash(cs_accom_fee, cs_addr1, cs_addr2, cs_homepage, cs_image, cs_induty, cs_name, cs_no, cs_tel,
-				resv_checkin, resv_checkout, resv_headcount, resv_no, resv_pay, user_no);
+				resv_checkin, resv_checkout, resv_headcount, resv_no, resv_pay, resv_success, user_no);
 	}
 
 	@Override
@@ -75,7 +84,8 @@ public class Reservation {
 				&& Objects.equals(cs_name, other.cs_name) && cs_no == other.cs_no
 				&& Objects.equals(cs_tel, other.cs_tel) && Objects.equals(resv_checkin, other.resv_checkin)
 				&& Objects.equals(resv_checkout, other.resv_checkout) && resv_headcount == other.resv_headcount
-				&& resv_no == other.resv_no && Objects.equals(resv_pay, other.resv_pay) && user_no == other.user_no;
+				&& resv_no == other.resv_no && Objects.equals(resv_pay, other.resv_pay)
+				&& Objects.equals(resv_success, other.resv_success) && user_no == other.user_no;
 	}
 
 	public int getResv_no() {

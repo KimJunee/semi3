@@ -82,8 +82,8 @@ public class ReservationDAO {
 		ResultSet rs = null;
 		Reservation resv = null;
 
-		String query = "SELECT RESV_CHECKIN, RESV_CHECKOUT, RESV_HEADCOUNT, "
-					 + "CS_NAME, CS_ADDR1, CS_ADDR2, CS_TEL, CS_HOMEPAGE, CS_ACCOM_FEE "
+		String query = "SELECT RESV_NO, RESV_CHECKIN, RESV_CHECKOUT, RESV_HEADCOUNT, "
+					 + "CS.CS_NO, CS_NAME, CS_ADDR1, CS_ADDR2, CS_TEL, CS_HOMEPAGE, CS_ACCOM_FEE "
 					 + "FROM RESERVATION R "
 					 + "LEFT JOIN CAMP_SITE CS ON (R.CS_NO=CS.CS_NO)"
 					 + "WHERE R.RESV_NO = ?";
@@ -93,9 +93,11 @@ public class ReservationDAO {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				resv = new Reservation();
+				resv.setResv_no(rs.getInt("RESV_NO")); //거기서 끝날게 아니라면 이것도 챙겨와야해
 				resv.setResv_checkin(rs.getDate("RESV_CHECKIN"));
 				resv.setResv_checkout(rs.getDate("RESV_CHECKOUT"));
 				resv.setResv_headcount(rs.getInt("RESV_HEADCOUNT"));
+				resv.setCs_no(rs.getInt("CS_NO"));
 				resv.setCs_name(rs.getString("CS_NAME"));
 				resv.setCs_addr1(rs.getString("CS_ADDR1"));
 				resv.setCs_addr2(rs.getString("CS_ADDR2"));

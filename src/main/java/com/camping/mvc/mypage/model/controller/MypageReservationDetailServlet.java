@@ -14,6 +14,7 @@ import com.camping.mvc.camping.model.service.ReservationService;
 import com.camping.mvc.camping.model.vo.Reservation;
 import com.camping.mvc.member.model.vo.Member;
 
+// 마이페이지 예약목록 가져오는 서블릿
 @WebServlet("/mypage/myreservationDetail")
 public class MypageReservationDetailServlet extends MyHttpServlet{
 	private static final long serialVersionUID = 1L;
@@ -36,16 +37,15 @@ public class MypageReservationDetailServlet extends MyHttpServlet{
 		}
 		
 		try {
-			List<Reservation> list = new ArrayList<Reservation>();
 			Member loginMember = getSessionMember(req);
 			int resv_no = Integer.parseInt(req.getParameter("resvno"));
-
+			System.out.println(resv_no);
 			Reservation reservation = Service.findReservationByNo(resv_no);
 			
 			//list = service.getMywrite(userno);
-			System.out.println(list.toString());	
+			//reservation.setCs_no(resv_no); 아니면 여기서 set해주던가
+			System.out.println(reservation.toString());	
 			req.setCharacterEncoding("UTF-8");
-			req.setAttribute("list", list);
 			req.setAttribute("reservation", reservation);
 			req.getRequestDispatcher("/views/05_MyPage/myReservationDetail.jsp").forward(req, resp);
 		} catch (Exception e) {

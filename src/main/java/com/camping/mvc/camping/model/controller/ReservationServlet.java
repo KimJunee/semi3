@@ -13,6 +13,7 @@ import com.camping.mvc.camping.model.service.ReservationService;
 import com.camping.mvc.camping.model.vo.Reservation;
 import com.camping.mvc.member.model.vo.Member;
 
+// 사용자가 작성한 예약정보를 보내주는 서블릿
 @WebServlet("/reservation")
 public class ReservationServlet extends MyHttpServlet{
 	private static final long serialVersionUID = 1L;
