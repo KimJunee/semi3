@@ -113,10 +113,10 @@
                                                     <!-- Megamenu list-->
                                                     <h6 class="text-uppercase">캠핑장</h6>
                                                     <ul class="megamenu-list list-unstyled">
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EC%9D%BC%EB%B0%98%EC%95%BC%EC%98%81%EC%9E%A5">일반야영장   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EC%B9%B4%EB%9D%BC%EB%B0%98">카라반   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EA%B8%80%EB%9E%A8%ED%95%91">글램핑   </a></li>
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="http://localhost:8081/semi3/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EC%9E%90%EB%8F%99%EC%B0%A8%EC%95%BC%EC%98%81%EC%9E%A5">자동차야영장   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path %>/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EC%9D%BC%EB%B0%98%EC%95%BC%EC%98%81%EC%9E%A5">일반야영장   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path %>/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EC%B9%B4%EB%9D%BC%EB%B0%98">카라반   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path %>/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EA%B8%80%EB%9E%A8%ED%95%91">글램핑   </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path %>/camping/list?bookingDate=&searchValue=&searchPersonnel=2&searchCampType=%EC%9E%90%EB%8F%99%EC%B0%A8%EC%95%BC%EC%98%81%EC%9E%A5">자동차야영장   </a></li>
                                                     </ul>
                                                 </div>
                                                 <div class="col-lg-3">
