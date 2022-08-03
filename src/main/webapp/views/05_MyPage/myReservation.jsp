@@ -189,6 +189,13 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+    	function movePage(pageUrl) {
+    		
+    		alert(pageUrl);
+            location.href = encodeURI(pageUrl);
+    	}
+    </script>
 </section>
 
      <!-- 푸터위에 사진바-->

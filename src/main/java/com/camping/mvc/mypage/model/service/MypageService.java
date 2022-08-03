@@ -30,6 +30,12 @@ public class MypageService {
 		return result;
 	}
 
+	public int getReservationListCount(int userno) {
+		Connection conn = getConnection();
+		int result = dao.getReservationListCount(conn, userno);
+		return result;
+	}
+
 }
 
 

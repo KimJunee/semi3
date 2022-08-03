@@ -31,29 +31,34 @@ public class MypageReservationServlet extends MyHttpServlet {
 		HttpSession session = req.getSession(); //HttpSession이 존재하면 현재 HttpSession을 반환하고 존재하지 않으면 새로이 세션을 생성합니다
 		System.out.println(session.getAttribute("loginMember"));
 		Member member = (Member) session.getAttribute("loginMember");
+		int page = 1;
+		int resCount = 0;
+		PageInfo pageInfo = null;
 		
 		if(member == null) {
 			sendCommonPage("로그인후 이용해주세요.", "/views/01_Main/main.jsp", req, resp);
 			return;
 		}
 		
-		int page = 1;
-		int resCount = 0;
-		PageInfo pageInfo = null;
 		try {
 			page = Integer.parseInt(req.getParameter("page"));
 		} catch (Exception e) {
 		}
 		
 		try {
+			System.out.println(page);
 			List<Reservation> list = new ArrayList<Reservation>();
 			Member loginMember = getSessionMember(req);
 			int userno = loginMember.getUser_no();
+			resCount = service.getReservationListCount(userno);
+			System.out.println(resCount);
+			
 			
 			pageInfo = new PageInfo(page, 5, resCount, 5);
 			//list = service.getMywrite(userno);
 			list = resService.getReservationList(pageInfo, userno);
 			System.out.println(list.toString());	
+			
 			req.setCharacterEncoding("UTF-8");
 			req.setAttribute("list", list);
 			req.setAttribute("pageInfo", pageInfo);

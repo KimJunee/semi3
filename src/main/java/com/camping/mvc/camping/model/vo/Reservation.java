@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 public class Reservation {
+	private int rowNum;
 	private int resv_no;
 	private int user_no;
 	private int cs_no;
@@ -25,10 +26,11 @@ public class Reservation {
 		super();
 	}
 
-	public Reservation(int resv_no, int user_no, int cs_no, int resv_headcount, String resv_pay, Date resv_checkin,
+	public Reservation(int rowNum, int resv_no, int user_no, int cs_no, int resv_headcount, String resv_pay, Date resv_checkin,
 			Date resv_checkout, String cs_name, String cs_addr1, String cs_addr2, String cs_tel, String cs_homepage,
 			String cs_accom_fee, String cs_image, String cs_induty, Date resv_success) {
 		super();
+		this.rowNum = rowNum;
 		this.resv_no = resv_no;
 		this.user_no = user_no;
 		this.cs_no = cs_no;
@@ -48,7 +50,7 @@ public class Reservation {
 
 	@Override
 	public String toString() {
-		return "ReservationVO [resv_no=" + resv_no + ", user_no=" + user_no + ", cs_no=" + cs_no + ", resv_headcount="
+		return "ReservationVO [rowNum =" + rowNum + "resv_no=" + resv_no + ", user_no=" + user_no + ", cs_no=" + cs_no + ", resv_headcount="
 				+ resv_headcount + ", resv_pay=" + resv_pay + ", resv_checkin=" + resv_checkin + ", resv_checkout="
 				+ resv_checkout + ", cs_name=" + cs_name + ", cs_addr1=" + cs_addr1 + ", cs_addr2=" + cs_addr2
 				+ ", cs_tel=" + cs_tel + ", cs_homepage=" + cs_homepage + ", cs_accom_fee=" + cs_accom_fee 
@@ -86,6 +88,17 @@ public class Reservation {
 				&& Objects.equals(resv_checkout, other.resv_checkout) && resv_headcount == other.resv_headcount
 				&& resv_no == other.resv_no && Objects.equals(resv_pay, other.resv_pay)
 				&& Objects.equals(resv_success, other.resv_success) && user_no == other.user_no;
+	}
+
+	
+	
+	
+	public int getRowNum() {
+		return rowNum;
+	}
+
+	public void setRowNum(int rowNum) {
+		this.rowNum = rowNum;
 	}
 
 	public int getResv_no() {

@@ -101,5 +101,29 @@ public class MypageDAO {
 		}
 		return list;
 	}
+
+	public int getReservationListCount(Connection conn, int userno) {
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String query = "SELECT COUNT(*) FROM RESERVATION WHERE USER_NO = ?";
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, userno);
+			
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				result = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close(pstmt);
+			close(rs);
+		}
+
+		return result;
+	}
 }
 

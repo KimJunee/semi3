@@ -40,20 +40,31 @@ public class ReservationDAO {
 		ResultSet rs = null;
 		List<Reservation> list = new ArrayList<Reservation>();
 		
-		String query = "SELECT RESV_NO, USER_NO, CS.CS_NAME, CS.CS_NO, CS_IMAGE, CS.CS_INDUTY, "
-					 + "RESV_HEADCOUNT, RESV_PAY, RESV_CHECKIN, RESV_CHECKOUT, RESV_SUCCESS "
-					 + "FROM RESERVATION R "
-					 + "LEFT JOIN CAMP_SITE CS ON (R.CS_NO = CS.CS_NO) "
-					 + "WHERE USER_NO = ? "
-					 + "ORDER BY RESV_NO DESC";
+		String query = "SELECT RNUM, RESV_NO, USER_NO, CS_NAME, CS_NO, CS_IMAGE, CS_INDUTY,  "
+				+ "RESV_HEADCOUNT, RESV_PAY, RESV_CHECKIN, RESV_CHECKOUT, RESV_SUCCESS  "
+				+ "FROM( "
+				+ "SELECT ROWNUM AS RNUM, RESV_NO, USER_NO, CS_NAME, CS_NO, CS_IMAGE, CS_INDUTY,  "
+				+ "RESV_HEADCOUNT, RESV_PAY, RESV_CHECKIN, RESV_CHECKOUT, RESV_SUCCESS  "
+				+ "FROM "
+				+ "(SELECT RESV_NO, USER_NO, CS_NAME, R.CS_NO, CS_IMAGE, CS_INDUTY,  "
+				+ "RESV_HEADCOUNT, RESV_PAY, RESV_CHECKIN, RESV_CHECKOUT, RESV_SUCCESS  "
+				+ "FROM RESERVATION R , CAMP_SITE C "
+				+ "WHERE "
+				+ "R.CS_NO = C.CS_NO "
+				+ "AND USER_NO = ?  "
+				+ "ORDER BY RESV_NO DESC) )WHERE RNUM BETWEEN ? and ?";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, user_no);
+			int count = 1;
+			pstmt.setInt(count++, user_no);
+			pstmt.setInt(count++, pageInfo.getStartList());
+			pstmt.setInt(count++, pageInfo.getEndList());
 			//pstmt.setInt(2, pageInfo.getEndList());
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				Reservation resv = new Reservation();
+				resv.setRowNum(rs.getInt("RNUM"));
 				resv.setResv_no(rs.getInt("RESV_NO"));
 				resv.setUser_no(rs.getInt("USER_NO"));
 				resv.setCs_name(rs.getString("CS_NAME"));
