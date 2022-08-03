@@ -1,6 +1,7 @@
 package com.camping.mvc.camping.model.dao;
 
 import static com.camping.common.jdbc.JDBCTemplate.close;
+
 import static com.camping.common.jdbc.JDBCTemplate.getConnection;
 
 import java.sql.Connection;

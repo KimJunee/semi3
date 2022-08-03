@@ -84,17 +84,19 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                     <div class="text-block">
                         <h4 class="mb-5">찜한 캠핑장</h4>
                         <div class="row">
-                        	<div class="list-group shadow mb-5">
-                        	<%if(list == null || list.isEmpty()){ %>
-			<%-- 찜 없으면 --%>
+                        
+                        
+                        
+                    <%if(list == null || list.isEmpty()){ %>
+					<%-- 찜한 캠핑장이 없으면 --%>
 			<div>
 				<div style="text-align: center">찜한 캠핑장이 없습니다.</div>
 			</div>
-            
+			
+			
             <%}else {%>
 			<%-- 예약 목록 --%>
 			 <%for(MyFavorite f : list) { %>
-                        
                         
                             <!-- 찜 캠핑장 목록 시작-->
                             <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
@@ -118,7 +120,6 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                             </div>
                            <%}
                            }%>
-                           
                            
                            
                            
