@@ -1,15 +1,14 @@
 package com.camping.mvc.member.model.service;
 
-import java.sql.Connection;
+import static com.camping.common.jdbc.JDBCTemplate.close;
+import static com.camping.common.jdbc.JDBCTemplate.commit;
+import static com.camping.common.jdbc.JDBCTemplate.getConnection;
+import static com.camping.common.jdbc.JDBCTemplate.rollback;
 
+import java.sql.Connection;
 
 import com.camping.mvc.member.model.dao.MemberDAO;
 import com.camping.mvc.member.model.vo.Member;
-import static com.camping.common.jdbc.JDBCTemplate.*;
-
-import static com.camping.common.jdbc.JDBCTemplate.commit;
-import static com.camping.common.jdbc.JDBCTemplate.openConnection;
-import static com.camping.common.jdbc.JDBCTemplate.rollback;
 
 
 public class MemberService {

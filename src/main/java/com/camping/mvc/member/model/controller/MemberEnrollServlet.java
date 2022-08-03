@@ -11,7 +11,7 @@ import com.camping.common.util.MyHttpServlet;
 import com.camping.mvc.member.model.service.MemberService;
 import com.camping.mvc.member.model.vo.Member;
 
-@WebServlet("/views/06_User/signup.jsp")
+@WebServlet("/memberEnroll.do")
 public class MemberEnrollServlet extends MyHttpServlet{
 	private static final long serialVersionUID = 1L;
 	private MemberService service = new MemberService();

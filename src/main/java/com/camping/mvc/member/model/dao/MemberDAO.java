@@ -8,11 +8,15 @@ import static com.camping.common.jdbc.JDBCTemplate.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 import com.camping.mvc.member.model.vo.Member;
 
 public class MemberDAO {
-
+	
+	
 	//아이디를 찾는 메소드
 	public Member findMemberById(Connection conn, String id) {
 		PreparedStatement pstmt = null;
@@ -59,7 +63,6 @@ public class MemberDAO {
 			pstmt.setString(4, member.getUser_phone());
 			pstmt.setString(5, member.getUser_email());
 			pstmt.setString(6, member.getUser_birth());
-			
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
