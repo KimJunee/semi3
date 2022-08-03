@@ -12,6 +12,8 @@ ALTER USER SEMI DEFAULT TABLESPACE USERS;
 */
 --=========================================================
 --멤버---------------------------------------------------------------------------------------------
+SET DEFINE OFF;
+
 DROP TABLE USER_T CASCADE CONSTRAINTS;
 DROP SEQUENCE SEQ_UNO;
 
@@ -637,7 +639,7 @@ CREATE TABLE RESERVATION (
 	RESV_PAY VARCHAR2(300) NOT NULL,
 	RESV_CHECKIN DATE NOT NULL,
 	RESV_CHECKOUT DATE NOT NULL,
-	RESV_SUCCESS TIMESTAMP DEFAULT NOW()
+	RESV_SUCCESS DATE DEFAULT SYSDATE
 );
 -- 예약테이블 데이터 삽입
 INSERT INTO RESERVATION VALUES (1, 1, 1, 3, '300000',TO_DATE('2022.08.16', 'YYYY.MM.DD'), TO_DATE('2022.08.19', 'YYYY.MM.DD'), DEFAULT);
@@ -726,10 +728,10 @@ cs_sbrs_cl VARCHAR2(1000)
 );
 
 -- INSERT INTO camp_site VALUES (?, ? , ? , ? , ?, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?"
-						+ ",?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? );
+					--	+ ",?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,? );
 commit;
 
-SELECT * FROM camp_site;
+-- SELECT * FROM camp_site;
 
 --=========================================================
 ------------------------------------여기 아래 부분으로는 세미프로젝트와 관련 없는 쿼리 입니다.

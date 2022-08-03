@@ -77,7 +77,7 @@ DecimalFormat df = new DecimalFormat("###,###");
                                     int surtax = Integer.parseInt(reservation.getCs_accom_fee()) * 10 / 110 ;
                                     %>
                                     <td class="text-center fw-bold"><%=reservation.getCs_name()%></td>
-                                    <td class="text-center">2022-07-21</td>
+                                    <td class="text-center">2022-08-16</td>
                                     <td class="text-center"><%=df.format(Integer.parseInt(reservation.getCs_accom_fee()) - surtax)%>원</td>
                                     
                                     <td class="text-center"><%=df.format(surtax)%>원</td>

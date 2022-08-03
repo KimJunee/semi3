@@ -47,15 +47,18 @@ Reservation reservation = (Reservation)request.getAttribute("reservation");
     <div class="container">
         <div class="row mx-6 mt-2">
             <div class="col-md-5 " style="font-size: 15px; font-weight:bolder;">
-                <img src="<%=mypath%>/resources/img/img_semi/campfire01.png " width="8%"><%=loginMember.getUser_name()%>
+                <img src="<%=mypath%>/resources/img/img_semi/campfire01.png" width="8%"><%=loginMember.getUser_name()%>
+                <div class="mb-4">
+                <label class="form-label" for="rating">Your rating *</label>
+                <select class="form-select focus-shadow-0" name="rating" id="rating">
+                  <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733; (5/5)</option>
+                  <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734; (4/5)</option>
+                  <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734; (3/5)</option>
+                  <option value="2">&#9733;&#9733;&#9734;&#9734;&#9734; (2/5)</option>
+                  <option value="1">&#9733;&#9734;&#9734;&#9734;&#9734; (1/5)</option>
+                </select>
+              </div>
             </div>
-            <p class=" mb-0 mt-3 card-stars text-lg ">
-                <span class="star">
-				  ★★★★★
-				  <span>★★★★★</span>
-				  <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
-				</span>
-            </p>
         </div>
     </div>
 </section>
