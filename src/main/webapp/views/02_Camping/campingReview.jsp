@@ -10,6 +10,46 @@ String mypath = request.getContextPath();
 Reservation reservation = (Reservation)request.getAttribute("reservation");
 %>
 
+<style>
+.star {
+    position: relative;
+    font-size: 2rem;
+    color: #A3D2CA;
+}
+  
+.star input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+  
+.star span {
+    width: 0;
+    position: absolute; 
+    left: 0;
+    color: #F05945;
+    overflow: hidden;
+    pointer-events: none;
+}
+</style>
+
+<script>
+$(function(){
+	console.log("asdf");
+})
+
+	function drawStar(target){
+		var val = parseInt(Math.ceil(target.value/2))*10*2 + "%";
+		
+		$('.star span').css({ width: val});
+		
+		$("#reviewstar").val(Math.ceil(target.value/2));
+	}
+</script>
+
 <!-- 헤더 큰 이미지 -->
 <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image:  url(<%=mypath%>/resources/img/img_semi/camp_07.png); height: 350px; margin: 60px;">
     <!-- 헤더 이미지 글씨 -->
@@ -46,17 +86,14 @@ Reservation reservation = (Reservation)request.getAttribute("reservation");
 <section class="pt-2 pb-4 p-print-0">
     <div class="container">
         <div class="row mx-6 mt-2">
-            <div class="col-md-5 " style="font-size: 15px; font-weight:bolder;">
+            <div class="col-md-5" style="font-size: 15px; font-weight:bolder;">
                 <img src="<%=mypath%>/resources/img/img_semi/campfire01.png" width="8%"><%=loginMember.getUser_name()%>
                 <div class="mb-4">
-                <label class="form-label" for="rating">Your rating *</label>
-                <select class="form-select focus-shadow-0" name="rating" id="rating">
-                  <option value="5">&#9733;&#9733;&#9733;&#9733;&#9733; (5/5)</option>
-                  <option value="4">&#9733;&#9733;&#9733;&#9733;&#9734; (4/5)</option>
-                  <option value="3">&#9733;&#9733;&#9733;&#9734;&#9734; (3/5)</option>
-                  <option value="2">&#9733;&#9733;&#9734;&#9734;&#9734; (2/5)</option>
-                  <option value="1">&#9733;&#9734;&#9734;&#9734;&#9734; (1/5)</option>
-                </select>
+                	<span class="star">
+					  ★★★★★
+					  <span>★★★★★</span>
+					  <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="10">
+					</span>
               </div>
             </div>
         </div>
@@ -81,6 +118,7 @@ Reservation reservation = (Reservation)request.getAttribute("reservation");
                 <form class="form" id="contact-form" method="post" action="<%= path%>/myreview" enctype="multipart/form-data">
                 	<input type="hidden" name="csno" id="csno" value="<%=reservation.getCs_no() %>"/>
                 	<input type="hidden" name="resvno" id="resvno" value="<%=reservation.getResv_no()%>"/>
+                	<input type="hidden" name="reviewstar" id="reviewstar" value="0"/>
                     <div class="row">
                         <div class="mb-4">
                             <textarea class="form-control" rows="1" name="reviewTitle" id="reviewTitle" placeholder="제목을 입력해주세요" required="required"></textarea>

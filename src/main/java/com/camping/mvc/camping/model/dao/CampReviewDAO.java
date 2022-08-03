@@ -107,20 +107,4 @@ public class CampReviewDAO {
 		}
 		return review;
 	}
-	
-//	public static void main(String[] args) {
-//		Connection conn = getConnection();
-//		CampReviewDAO dao = new CampReviewDAO();
-//		Review review = new Review();
-//		
-//		List<Review> list = new ArrayList<>();
-//		
-//		list = dao.getReviewByCampNo(conn);
-//		
-//		review.setRev_title("제목");
-//		review.setRev_content("자바에서 작성한 테스트 글");
-//		review.setRev_star("4");
-//		int result = dao.insertReview(conn, review);
-//		System.out.println("리뷰 : " + result);
-//	}
 }
