@@ -137,7 +137,7 @@ Community community = (Community)request.getAttribute("community");
      <form action="<%=request.getContextPath()%>/board/reply" method="post">
             <div class="row my-3">
                 <div class="col-md-3" style="font-size: 20px; font-weight:bolder ; text-align: center;">
-                    <img class=" avatar avatar-sm   " src="<%= path%>/resources/img/img_semi/campfire01.png" alt=""> <%=community.getWriter_id() %>
+                    <img class=" avatar avatar-sm   " src="<%= path%>/resources/img/img_semi/campfire01.png" alt=""> <%=loginMember.getUser_id()%>
                 </div>
                 
                 <div class="col-md-9 ">
