@@ -103,7 +103,7 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                                 <div class="card h-100 border-0 shadow">
                                     <div class="card-img-top overflow-hidden gradient-overlay">
                                         <img class="img-fluid" src="<%=f.getCs_image() != null ? f.getCs_image() : path+"/resources/img/img_semi/camp02.jpg"%>" alt="Modern, Well-Appointed Room" />
-                                        <a class="tile-link" href="detail-rooms.html"></a>
+                                        <a class="tile-link" href="<%=path+"/camping/Detail?campingNo="+ f.getCs_no()%>"></a>
                                     </div>
                                     <div class="card-body d-flex align-items-center">
                                         <div class="w-100">
@@ -112,7 +112,7 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                                                 <p class="flex-grow-1 mb-0 text-muted text-sm"><%=f.getCs_addr1() %></p>
                                             </div>
                                             <div style="float:right;">
-                                                <button class="btn btn-primary " style="width:85px; height: 40px;">찜 삭제</button>
+                                                <a class="btn btn-primary " style="width:85px; height: 40px;" href="<%=path+"/mypage/DeleteFavorite?campingNo="+ f.getCs_no()%>">찜 삭제</a>
                                             </div>
                                         </div>
                                     </div>
@@ -120,9 +120,6 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                             </div>
                            <%}
                            }%>
-                           
-                           
-                           
                             <!-- 페이지번호  -->
                              <nav aria-label="Page navigation example">
 					            <ul
