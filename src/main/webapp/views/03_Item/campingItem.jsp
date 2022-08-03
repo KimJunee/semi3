@@ -16,9 +16,9 @@ if(searchValue == null){
 %>
 
     <!-- 메인 큰 이미지 -->
-    <section class="container" style="background-image: url(<%=path%>/resources/img/img_semi/itemmain.png); height: 600px;"></section>
+    <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%=path%>/resources/img/img_semi/itemmain.png); height: 350px; margin: 60px;"></section>
     <!-- 메인 검색창 -->
-    <div class="container mb-5">
+    <div class="container mb-5" style="margin-top: -130px;">
         <div class="search-bar rounded-4 p-0 p-lg-1 position-relative mt-n6 z-index-20 mx-7">
             <form action="<%=path%>/campingItem/Detail" method="get">
                 <div class="row">
@@ -52,7 +52,7 @@ if(searchValue == null){
     <!-- 메인 끝 -->
 
     <!-- 신제품 -->
-    <section class="py-6">
+    <section class="py-5">
         <div class="container mb-6">
             <div class="row mb-5">
                 <div class="col-md-12 fs-2" style="text-align: center; font-weight: bold; color: #F05945;">
