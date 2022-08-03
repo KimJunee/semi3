@@ -42,8 +42,6 @@ public class MypageReservationDetailServlet extends MyHttpServlet{
 			System.out.println(resv_no);
 			Reservation reservation = Service.findReservationByNo(resv_no);
 			
-			//list = service.getMywrite(userno);
-			//reservation.setCs_no(resv_no); 아니면 여기서 set해주던가
 			System.out.println(reservation.toString());	
 			req.setCharacterEncoding("UTF-8");
 			req.setAttribute("reservation", reservation);

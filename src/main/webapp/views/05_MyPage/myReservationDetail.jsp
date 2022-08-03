@@ -56,7 +56,11 @@ DecimalFormat df = new DecimalFormat("###,###");
                         </div>
                         <h6 class="mb-1" style="color:rgb(113, 113, 113) ;">홈페이지</h6>
                         <div class="mb-4 mt-1">
+                        	<%if(reservation.getCs_homepage()!=null){ %>
                             <a href="<%=reservation.getCs_homepage()%>" target="_blank"><h5><%=reservation.getCs_homepage()%></h5></a>
+                            <%}else{%>
+                            <h5>캠핑장 홈페이지가 없습니다.</h5>
+                            <%} %>
                         </div>
                     </div>
                     <!-- 예약 금액 표 -->
@@ -77,7 +81,7 @@ DecimalFormat df = new DecimalFormat("###,###");
                                     int surtax = Integer.parseInt(reservation.getCs_accom_fee()) * 10 / 110 ;
                                     %>
                                     <td class="text-center fw-bold"><%=reservation.getCs_name()%></td>
-                                    <td class="text-center">2022-08-16</td>
+                                    <td class="text-center"><%=reservation.getResv_success()%></td>
                                     <td class="text-center"><%=df.format(Integer.parseInt(reservation.getCs_accom_fee()) - surtax)%>원</td>
                                     
                                     <td class="text-center"><%=df.format(surtax)%>원</td>

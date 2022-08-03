@@ -14,7 +14,7 @@ public class ReservationDAO {
 	// 예약하기
 	public int insertReservation(Connection conn, Reservation resv) {
 		PreparedStatement pstmt = null;
-		String query = "INSERT INTO RESERVATION VALUES (SEQ_RES_NO.NEXTVAL, ?, ?, ?, ?, ?, ?)";
+		String query = "INSERT INTO RESERVATION VALUES (SEQ_RES_NO.NEXTVAL, ?, ?, ?, ?, ?, ?, DEFAULT)";
 		int result = 0;
 		
 		try {
@@ -41,7 +41,7 @@ public class ReservationDAO {
 		List<Reservation> list = new ArrayList<Reservation>();
 		
 		String query = "SELECT RESV_NO, USER_NO, CS.CS_NAME, CS.CS_NO, CS_IMAGE, CS.CS_INDUTY, "
-					 + "RESV_HEADCOUNT, RESV_PAY, RESV_CHECKIN, RESV_CHECKOUT "
+					 + "RESV_HEADCOUNT, RESV_PAY, RESV_CHECKIN, RESV_CHECKOUT, RESV_SUCCESS "
 					 + "FROM RESERVATION R "
 					 + "LEFT JOIN CAMP_SITE CS ON (R.CS_NO = CS.CS_NO) "
 					 + "WHERE USER_NO = ? "
@@ -64,6 +64,7 @@ public class ReservationDAO {
 				resv.setResv_pay(rs.getString("RESV_PAY"));
 				resv.setResv_checkin(rs.getDate("RESV_CHECKIN"));
 				resv.setResv_checkout(rs.getDate("RESV_CHECKOUT"));
+				resv.setResv_success(rs.getDate("RESV_SUCCESS"));
 				list.add(resv);
 			}
 			
@@ -82,8 +83,8 @@ public class ReservationDAO {
 		ResultSet rs = null;
 		Reservation resv = null;
 
-		String query = "SELECT RESV_NO, RESV_CHECKIN, RESV_CHECKOUT, RESV_HEADCOUNT, "
-					 + "CS.CS_NO, CS_NAME, CS_ADDR1, CS_ADDR2, CS_TEL, CS_HOMEPAGE, CS_ACCOM_FEE "
+		String query = "SELECT R.USER_NO, RESV_NO, RESV_CHECKIN, RESV_CHECKOUT, RESV_HEADCOUNT, "
+					 + "CS.CS_NO, CS_NAME, CS_ADDR1, CS_ADDR2, CS_TEL, CS_HOMEPAGE, CS_ACCOM_FEE, RESV_SUCCESS "
 					 + "FROM RESERVATION R "
 					 + "LEFT JOIN CAMP_SITE CS ON (R.CS_NO=CS.CS_NO)"
 					 + "WHERE R.RESV_NO = ?";
@@ -93,7 +94,8 @@ public class ReservationDAO {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				resv = new Reservation();
-				resv.setResv_no(rs.getInt("RESV_NO")); //거기서 끝날게 아니라면 이것도 챙겨와야해
+				resv.setUser_no(rs.getInt("USER_NO"));
+				resv.setResv_no(rs.getInt("RESV_NO"));
 				resv.setResv_checkin(rs.getDate("RESV_CHECKIN"));
 				resv.setResv_checkout(rs.getDate("RESV_CHECKOUT"));
 				resv.setResv_headcount(rs.getInt("RESV_HEADCOUNT"));
@@ -104,6 +106,7 @@ public class ReservationDAO {
 				resv.setCs_tel(rs.getString("CS_TEL"));
 				resv.setCs_homepage(rs.getString("CS_HOMEPAGE"));
 				resv.setCs_accom_fee(rs.getString("CS_ACCOM_FEE"));
+				resv.setResv_success(rs.getDate("RESV_SUCCESS"));
 			}
 		} catch (Exception e) {
 			
