@@ -21,7 +21,7 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
             <div class="col-lg-12 mb-3  mb-lg-8">
                 <div class="col-md-12">
                     <div class=" fs-1 mb-3" style="text-align: center; font-weight:bolder; color: #F05945;">
-                        <img src="<%= path%>/resources/img/img_semi/inquiryicon01.png" width="60px"> 마이페이지
+                        <img src="<%=path%>/resources/img/img_semi/user.png" width="60px"> 마이페이지
                     </div>
                 </div>
             </div>
