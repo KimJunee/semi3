@@ -315,16 +315,28 @@ if(campingVO == null){
                                     <li>운영상태 : </li>
                                     <%} %>
                                     
-                                    <%if (campingVO.getCs_animal_cmg() != null) {%>
-                                    <li>반려견 동반 가능 여부 : <%=campingVO.getCs_animal_cmg()%></li>
+                                    <%if (campingVO.getCs_tel() != null) {%>
+                                    <li>캠핑장 전화번호 : <%=campingVO.getCs_tel()%></li>
                                     <%} else {%>
-                                    <li>반려견 동반 가능 여부 : </li>
+                                    <li>캠핑장 전화번호 : </li>
                                     <%} %>
                                     
                                     <%if (campingVO.getCs_resve_url() != null) {%>
                                     <li>캠핑장 홈페이지 예약 URL : <%=campingVO.getCs_resve_url() %></li>
                                     <%} else {%>
                                     <li>캠핑장 홈페이지 예약 URL : </li>
+                                    <%} %>
+                                    
+                                    <%if (campingVO.getCs_feature_name() != null) {%>
+                                    <li>캠핑장 한 줄 소개 : <%=campingVO.getCs_feature_name()%></li>
+                                    <%} else {%>
+                                    <li>캠핑장 한 줄 소개 : </li>
+                                    <%} %>
+                                    
+                                    <%if (campingVO.getCs_animal_cmg() != null) {%>
+                                    <li>반려견 동반 가능 여부 : <%=campingVO.getCs_animal_cmg()%></li>
+                                    <%} else {%>
+                                    <li>반려견 동반 가능 여부 : </li>
                                     <%} %>
                                 </ul>
                                 <br>
