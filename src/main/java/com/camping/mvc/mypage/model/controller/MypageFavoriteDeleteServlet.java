@@ -18,7 +18,7 @@ import com.camping.mvc.mypage.model.service.MypageMyFavoriteService;
 import com.camping.mvc.mypage.model.vo.MyFavorite;
 
 @WebServlet("/mypage/DeleteFavorite")
-public class MypageFavoriteDeteteServlet extends MyHttpServlet{
+public class MypageFavoriteDeleteServlet extends MyHttpServlet{
 	private static final long serialVersionUID = 1L;
 	private MypageMyFavoriteService service = new MypageMyFavoriteService();
 

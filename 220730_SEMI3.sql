@@ -11,7 +11,7 @@ GRANT CREATE TABLE TO SEMI;
 ALTER USER SEMI DEFAULT TABLESPACE USERS;
 */
 --=========================================================
---멤버---------------------------------------------------------------------------------------------
+-------------------------------------멤버----------------------------------------------------------
 SET DEFINE OFF;
 
 DROP TABLE USER_T CASCADE CONSTRAINTS;
@@ -582,23 +582,38 @@ SELECT * FROM LIKE_T;
 --찜한캠핑장 목록보기(확인완료)
 --SELECT * FROM LIKE_T WHERE USER_NO = ?;
 
---찜한캠핑장 목록보기(아이디로 조회)-마이페이지(확인완료)
 
-SELECT RNUM, LIKE_NO,USER_ID,CS_NAME,CS_SIGUNGU_NAME,CS_IMAGE
+--찜한캠핑장 내용 가져오기 (아이디로 조회)-마이페이지(확인완료)
+SELECT RNUM,  CS_NO, CS_NAME, CS_ADDR1, CS_IMAGE
 FROM (
-    SELECT ROWNUM AS RNUM, LIKE_NO,USER_ID,CS_NAME,CS_SIGUNGU_NAME,CS_IMAGE
+    SELECT ROWNUM AS RNUM, CS_NO, CS_NAME, CS_ADDR1, CS_IMAGE
     FROM (
-        SELECT LT.LIKE_NO,UT.USER_ID,CT.CS_NAME,CT.CS_SIGUNGU_NAME,CT.CS_IMAGE
+        SELECT LT.CS_NO, CS_NAME, CS_ADDR1,CS_IMAGE
         FROM LIKE_T LT 
         INNER JOIN USER_T UT ON(LT.USER_NO = UT.USER_NO)
         INNER JOIN CAMP_SITE CT ON(LT.CS_NO = CT.CS_NO)
-        where UT.USER_NO=1
+        where UT.USER_NO = ? 
     )
 )
-WHERE RNUM BETWEEN 1 and 20;
+WHERE RNUM BETWEEN ? and ? ;
+
+
+--찜한캠핑장 카운트 
+SELECT COUNT(*) FROM LIKE_T WHERE USER_NO = ? ;
+
 
 --찜한캠핑장 삭제하기(확인완료)
-DELETE LIKE_T  WHERE LIKE_NO=1;
+DELETE LIKE_T  WHERE LIKE_NO= ? AND CS_NO = ? ;
+
+
+--찜한캠핑장 추가하기 
+INSERT INTO LIKE_T VALUES(SEQ_LIKE_NO.NEXTVAL,?,?);
+
+
+COMMIT;
+SELECT * FROM LIKE_T; 
+SELECT * FROM USER_T;
+
 
 ------------------------마이페이지-예약보기-DML------------------------------
 --RESERVATION
