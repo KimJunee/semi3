@@ -86,7 +86,7 @@
                             </li>
                             <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/camping/list" style="font-size:25px;color: rgb(28, 27, 27)">캠핑장</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/views/03_Camping/campingItem.jsp" style="font-size:25px;color: rgb(28, 27, 27)">캠핑용품</a>
+                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/views/03_Item/campingItem.jsp" style="font-size:25px;color: rgb(28, 27, 27)">캠핑용품</a>
                             </li>
                             <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/board/freeBoard" style="font-size:25px; color: rgb(28, 27, 27);"> 자유게시판 </a>
                             </li>
@@ -107,7 +107,7 @@
                                                     <!-- Megamenu list home-->
                                                     <h6 class="text-uppercase">모닥불</h6>
                                                     <ul class="megamenu-list list-unstyled">
-                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path%>/views/01_Main/main.jsp">Home  </a></li>
+                                                        <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path%>/main">Home  </a></li>
                                                         <li class="megamenu-list-item"><a class="megamenu-list-link" href="<%=path%>/board/listServlet"> 문의 게시판   </a></li>
                                                     </ul>
                                                 </div>
