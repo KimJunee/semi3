@@ -147,7 +147,7 @@ Community community = (Community)request.getAttribute("community");
                             <div class="col-lg-11 d-flex  form-group" style="height: 60px; width:1200px;">
                                <input type="hidden" name="communityNo" value="<%=community.getCo_no()%>" />
                                 <input type="hidden" name="writer" value="<%=loginMember != null ? loginMember.getUser_id() : "" %>" />
-                               <input type="text" name="content"  class="form-control" style="font-size: 15px; color: rgb(203, 203, 203);" placeholder="댓글을 입력하세요">
+                               <input type="text" name="content"  class="form-control" style="font-size: 15px; color: black;" placeholder="댓글을 입력하세요">
    
                                 <!-- 검색버튼 -->
                                 <div class="col-lg-1 d-grid ps-4" style="height: 60px;">

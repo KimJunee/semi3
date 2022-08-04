@@ -42,7 +42,7 @@ if(request.getParameter("searchValue") != null){
                             <div class="row">
                                 <!-- 검색창 -->
                                 <div class="col-lg-11 d-flex  form-group" style="height: 60px;">
-                                    <input id="searchValue" name="searchValue" type="text" value="<%= searchValue%>" class="form-control" style="font-size: 15px; color: rgb(203, 203, 203);" placeholder="        제목을 입력하세요" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                    <input id="searchValue" name="searchValue" type="text" value="<%= searchValue%>" class="form-control" style="font-size: 15px; color: black;" placeholder="        제목을 입력하세요" aria-label="Recipient's username" aria-describedby="button-addon2">
                                 </div>
                                 <!-- 검색버튼 -->
                                 <div class="col-lg-1 d-grid " style="height: 60px;">

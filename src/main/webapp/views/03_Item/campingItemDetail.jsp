@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="com.camping.common.util.PageInfo"%>
 <%@page import="java.util.List"%>
 <%@page import="com.camping.mvc.campingItem.model.vo.CampingItemVO"%>
@@ -10,6 +11,7 @@ List<CampingItemVO> list = (List<CampingItemVO>)request.getAttribute("list");
 PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 String[] searchType = request.getParameterValues("searchType");
 String searchValue = request.getParameter("searchValue");
+DecimalFormat df = new DecimalFormat("###,###");
 
 if(searchValue == null){
 	searchValue = "";
@@ -85,7 +87,7 @@ if(searchType != null && searchType.length > 0){
 	                                <div class="d-flex card-subtitle mb-3">
 	                                    <p class="flex-grow-1 mb-0 text-muted text-sm"><%=campingItem.getCi_brand()%></p>
 	                                </div>
-	                                <p class="card-text text-mutedCustom1"><%=campingItem.getCi_price()%>원</p>
+	                                <p class="card-text text-mutedCustom1"><%=df.format(Integer.parseInt(campingItem.getCi_price()))%>원</p>
 	                            </div>
 	                        </div>
 	                    </div>
