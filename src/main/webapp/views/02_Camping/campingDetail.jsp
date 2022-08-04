@@ -113,7 +113,7 @@ if(campingVO == null){
 <body>
     <!-- Shadow box-->
     <section class="container mb-3 pt-5 pb-0">
-        <div class="fs-1 d-flex mt-5 " style="text-align: left; color: #F05945;">
+        <div class="fs-1 fw-bold d-flex mt-5 " style="text-align: left; color: #F05945;">
             <img src="<%=mypath%>/resources/img/img_semi/tenticon01_02.png" alt="Image" width="50px">캠핑장 소개
 
         <!-- 날씨 이미지 -->
