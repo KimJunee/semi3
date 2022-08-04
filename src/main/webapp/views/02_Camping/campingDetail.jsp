@@ -409,12 +409,12 @@ if(campingVO == null){
                                             <!-- 별점 표시 -->
                                             <p class="flex-shrink-1 mb-0 card-stars text-bg-dark text-right">
                                             
+                                            <%if (review != null) {%>
+                                            	<%for (int i = 0; i < review.getRev_star(); i++) { %>
                                                 <i class="fa fa-star text-warning"></i>
-                                                <i class="fa fa-star text-warning"></i>
-                                                <i class="fa fa-star text-warning"></i>
-                                                <i class="fa fa-star text-warning"></i>
-                                                <i class="fa fa-star text-warning"></i>
-                                               
+                                                <%} %>
+                                                <%} %>
+                                                
                                             </p>
                                         </div>
                                         <div class="fs-md mb-2 pt-3 pb-3" style="font-size: 20px;"><%=review.getRev_title()%></div>

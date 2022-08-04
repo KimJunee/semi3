@@ -41,7 +41,7 @@ public class CampReviewDAO {
 				review.setRev_regist(rs.getDate("REV_REGIST"));
 				review.setRev_image(rs.getString("REV_IMAGE"));
 				review.setRev_image_rename(rs.getString("REV_IMAGE_RENAME"));
-				review.setRev_star(rs.getString("REV_STAR"));
+				review.setRev_star(rs.getInt("REV_STAR"));
 				list.add(review);
 				
 			}
@@ -67,7 +67,7 @@ public class CampReviewDAO {
 			pstmt.setString(2, review.getRev_content());
 			pstmt.setString(3, review.getRev_image());
 			pstmt.setString(4, review.getRev_image_rename());
-			pstmt.setString(5, review.getRev_star());
+			pstmt.setInt(5, review.getRev_star());
 			pstmt.setInt(6, review.getUser_no());
 			pstmt.setInt(7, review.getCs_no());
 			result = pstmt.executeUpdate();
@@ -95,7 +95,7 @@ public class CampReviewDAO {
 				review = new Review();
 				review.setRev_title(rs.getString("REV_TITLE"));
 				review.setRev_content(rs.getString("REV_CONTENT"));
-				review.setRev_star(rs.getString("REV_STAR"));
+				review.setRev_star(rs.getInt("REV_STAR"));
 				review.setUser_no(rs.getInt("USER_NO"));
 				review.setCs_no(rs.getInt("CS_NO"));
 			}

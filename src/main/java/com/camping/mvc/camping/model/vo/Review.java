@@ -11,7 +11,7 @@ public class Review {
     private Date rev_regist; 		// 리뷰등록날짜
     private String rev_image; 		// 리뷰이미지
     private String rev_image_rename;// 리뷰이미지 리네임
-    private String rev_star; 		// 리뷰별점
+    private int rev_star; 		// 리뷰별점
     private String user_id; 		// 유저 아이디
     private int user_no; 		// 사용자번호
     private int cs_no; 			// 캠핑자번호
@@ -21,7 +21,7 @@ public class Review {
 	}
 	
 	public Review(int rev_no, String rev_title, String rev_content, Date rev_regist, String rev_image, 
-			String rev_image_rename, String rev_star, String user_id, int user_no, int cs_no) {
+			String rev_image_rename, int rev_star, String user_id, int user_no, int cs_no) {
 		super();
 		this.rev_no = rev_no;
 		this.rev_title = rev_title;
@@ -81,10 +81,10 @@ public class Review {
 	public void setRev_image_rename(String rev_image_rename) {
 		this.rev_image_rename = rev_image_rename;
 	}
-	public String getRev_star() {
+	public int getRev_star() {
 		return rev_star;
 	}
-	public void setRev_star(String rev_star) {
+	public void setRev_star(int rev_star) {
 		this.rev_star = rev_star;
 	}
 	public String getUser_id() {
