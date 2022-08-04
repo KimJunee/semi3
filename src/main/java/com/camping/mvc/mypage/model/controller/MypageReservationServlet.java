@@ -1,6 +1,7 @@
 package com.camping.mvc.mypage.model.controller;
 
 import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
@@ -15,6 +16,7 @@ import com.camping.mvc.camping.model.vo.Reservation;
 import com.camping.mvc.member.model.vo.Member;
 import com.camping.mvc.mypage.model.service.MypageService;
 
+// 예약 성공 시 마이페이지 예약목록으로 정보 보내주는 서블릿
 @WebServlet("/mypage/myreservation")
 public class MypageReservationServlet extends MyHttpServlet {
 	private static final long serialVersionUID = 1L;

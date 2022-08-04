@@ -147,6 +147,7 @@
                                         </div>
                                     </div>
                                 </a>
+                                <button class="" onclick="location.href='<%=path %>/reservation/cancel?resvno=<%=c.getResv_no()%>'">결제 취소</button>  
                             </div>
                            <%}
                            }%>

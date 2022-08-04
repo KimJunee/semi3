@@ -62,13 +62,6 @@ if(campingVO == null){
 				callback1: '그대로 콜백받을 변수 1', 
 				callback2: '그대로 콜백받을 변수 2', 
 				customvar1234: '변수명도 마음대로'
-			},
-			account_expire_at: '2018-05-25', // 가상계좌 입금기간 제한 ( yyyy-mm-dd 포멧으로 입력해주세요. 가상계좌만 적용됩니다. )
-			extra: {
-			    expire_month: '12', // 정기걸제 시 사용됨, 정기결제가 적용되는 개월 수, 미설정시 12개월
-		        vbank_result: 1, // 가상계좌 사용시 사용, 가상계좌 결과창을 볼지(1), 말지(0), 미설정시 봄(1)
-		        quota: '0,2,3' // 결제금액이 5만원 이상시 할부개월 허용범위를 설정할 수 있음, [0(일시불), 2개월, 3개월] 허용, 미설정시 12개월까지 허용
-
 			}
 		}).error(function (data) {
 			//결제 진행시 에러가 발생하면 수행됩니다.
@@ -163,20 +156,6 @@ if(campingVO == null){
 	/* //버튼 눌렀을 때 쓸 함수 만들기
 	function reservationFunc(){
 		
-		//날짜 가져오기
-		var startday = $("b.start-day").html();
-		var endday = $("b.end-day").html();
-		var date = new Date();
-		var today = date.getFullYear()+"-"+(("00"+(date.getMonth()+1).toString()).slice(-2))+"-"+(("00"+date.getDate().toString()).slice(-2))
-		
-		if(startday == '...'){
-			startday = today;
-		}
-		
-		if(endday == '...'){
-			endday = today;
-		}
-		
 		//인원수 가져오기.
 		console.log("wtf ~~ "+$("#headcount_value").val());
 		
@@ -258,7 +237,7 @@ if(campingVO == null){
                         <input type="hidden" id="pay_value" value="<%=campingVO.getCs_accom_fee()%>"/>
                     </div>
                     <div class="col align-self-center">
-                        <p class="text-end d-print-none"><a class="btn btn-link text-muted" href="user-invoice.html"><i class="far fa-file me-2"></i>결제내용 상세보기</a></p>
+                        <p class="text-end d-print-none"><i class="far fa-file me-2"></i>부가세 포함 금액</a></p>
                     </div>
                 </div>
             </div>

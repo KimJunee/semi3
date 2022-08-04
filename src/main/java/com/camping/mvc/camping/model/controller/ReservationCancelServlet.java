@@ -1,8 +1,6 @@
-package com.camping.mvc.mypage.model.controller;
+package com.camping.mvc.camping.model.controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,15 +12,15 @@ import com.camping.mvc.camping.model.service.ReservationService;
 import com.camping.mvc.camping.model.vo.Reservation;
 import com.camping.mvc.member.model.vo.Member;
 
-// 마이페이지 예약목록 가져오는 서블릿
-@WebServlet("/mypage/myreservationDetail")
-public class MypageReservationDetailServlet extends MyHttpServlet{
+// 예약 취소하는 서블릿
+@WebServlet("/reservation/cancel")
+public class ReservationCancelServlet extends MyHttpServlet{
 	private static final long serialVersionUID = 1L;
-	private ReservationService service = new ReservationService();
+	private final ReservationService service = new ReservationService();
 
 	@Override
 	public String getServletName() {
-		return "MypageReservationDetail";
+		return "Reservation Cancel!!";
 	}
 	
 	@Override
@@ -43,14 +41,19 @@ public class MypageReservationDetailServlet extends MyHttpServlet{
 			Reservation reservation = service.findReservationByNo(resv_no);
 			
 			System.out.println(reservation.toString());	
-			req.setCharacterEncoding("UTF-8");
-			req.setAttribute("reservation", reservation);
-			req.getRequestDispatcher("/views/05_MyPage/myReservationDetail.jsp").forward(req, resp);
+			
+			// 인코딩
+			req.setCharacterEncoding("utf-8");
+			resp.setCharacterEncoding("utf-8");
+			
+			// 취소.....
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
