@@ -55,7 +55,7 @@ private static final long serialVersionUID = 1L;
 			
 			System.out.println(file.isDirectory());
 			if(!file.isDirectory()) {
-				file.mkdir();
+				System.out.println("폴더 생성 : "+ file.mkdirs());
 			}
 			
 			MultipartRequest mr = new MultipartRequest(req, path, maxSize, encoding, new MyFileRenamePolicy());
