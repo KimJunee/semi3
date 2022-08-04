@@ -65,7 +65,7 @@
         <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white ">
             <div class="container-fluid ms-n8 ">
                 <div class="d-flex align-items-end">
-                    <a class="navbar-brand py-1" href="<%=path%>/views/01_Main/main.jsp"><img src="<%=path%>/resources/img/img_semi/logo05.png" width="200px"></a>
+                    <a class="navbar-brand py-1" href="<%=path%>/main"><img src="<%=path%>/resources/img/img_semi/logo05.png" width="200px"></a>
                     <!-- 로고 옆 검색창 -->
                     <nav class="navbar bg-white">
                        <div class="container" style="padding-left: 10px;">
@@ -82,11 +82,11 @@
                 <div class="d-inline-flex align-items-end position-static mt-n12 me-n8">
                     <div class="collapse navbar-collapse " id="navbarCollapse">
                         <ul class="navbar-nav ms-auto ">
-                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/views/01_Main/main.jsp" style="font-size:25px; color: rgb(28, 27, 27); "> HOME </a>
+                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/main" style="font-size:25px; color: rgb(28, 27, 27); "> HOME </a>
                             </li>
                             <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/camping/list" style="font-size:25px;color: rgb(28, 27, 27)">캠핑장</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/views/03_Item/campingItem.jsp" style="font-size:25px;color: rgb(28, 27, 27)">캠핑용품</a>
+                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/views/03_Camping/campingItem.jsp" style="font-size:25px;color: rgb(28, 27, 27)">캠핑용품</a>
                             </li>
                             <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/board/freeBoard" style="font-size:25px; color: rgb(28, 27, 27);"> 자유게시판 </a>
                             </li>
