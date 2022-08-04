@@ -7,6 +7,7 @@
 <%
 String mypath = request.getContextPath();
 Reservation reservation = (Reservation)request.getAttribute("reservation");
+SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
 DecimalFormat df = new DecimalFormat("###,###");
 %>
 <!-- 헤더 큰 이미지 -->
@@ -20,8 +21,8 @@ DecimalFormat df = new DecimalFormat("###,###");
                 <div class="row" style="background-color:#F7F3E9 ;">
                     <div class="col-6 d-flex align-items-center"><img src="<%= path%>/resources/img/img_semi/logo05.png" style="width:150px ;"></div>
                     <div class="col-6 text-end">
-                        <h3 class="mb-0">예약번호 <%=reservation.getResv_no()%></h3>
-                        <p class="mb-0">Issued on 2022-08-16</p>
+                        <h3 class="mb-0">예약번호 <%=sdf.format(reservation.getResv_success())%>-<%=loginMember.getUser_no() %>-<%=reservation.getResv_no()%></h3>
+                        <p class="mb-0">Issued on <%=reservation.getResv_success() %></p>
                     </div>
                 </div>
             </div>
