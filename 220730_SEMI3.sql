@@ -477,7 +477,7 @@ CREATE TABLE REVIEW(
     REV_REGIST DATE DEFAULT SYSDATE,         --리뷰등록날짜
     REV_IMAGE VARCHAR2(1000) ,               --리뷰이미지
     REV_IMAGE_RENAME VARCHAR2(1000) ,        --리뷰이미지 리네임
-    REV_STAR VARCHAR2(1000) ,                --리뷰별점
+    REV_STAR NUMBER ,                --리뷰별점
     USER_NO NUMBER ,                         --사용자번호 
     CS_NO NUMBER ,                           --캠핑장번호
     FOREIGN KEY(USER_NO) REFERENCES  USER_T,  --작성자번호 외래키
