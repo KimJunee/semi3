@@ -179,7 +179,6 @@ if(request.getParameter("searchValue") != null){
                         
                             <h2 class="accordion-header" id="panelsStayOpen-headingfive">
                                 <button class="accordion-button " style="font-weight: bolder;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
-                                	<div><%=i.getInquiry_no()%></div>
                                 	 <div><%=i.getInquir_title()%></div>
                        			 </button>
                             </h2>
