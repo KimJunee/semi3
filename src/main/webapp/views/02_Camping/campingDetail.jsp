@@ -389,7 +389,7 @@ if(campingVO == null){
                 <!-- 후기-->
                 <div class="tab-pane fade" id="reviews" role="tabpanel">
                     <div class="row py-4">
-         
+         			
                       <%if(list == null) {%>
                       <div>작성된 리뷰가 없습니다.</div>
                       <%}else{ %>
@@ -397,7 +397,7 @@ if(campingVO == null){
                         <div class="product-review pb-4 mb-4 border-bottom">
                             <div class="d-flex mb-2">
                                 <div class="col-lg-4">
-                                    <img style="height: 250px; width: 350px" src="<%=review.getRev_image()%>">
+                                    <img src="<%=mypath%>/resources/upload/review/<%=review.getRev_image_rename()%>" style="height: 250px; width: 350px">
                                 </div>
                                 <div class="d-flex align-items-center me-4 pe-2">
                                     <div class="ps-3">
