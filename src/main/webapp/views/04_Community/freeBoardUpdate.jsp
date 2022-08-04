@@ -6,7 +6,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%@ include file="/views/07_common/header.jsp" %>
-
+<%
+Community community = (Community)request.getAttribute("community");
+%>
 
     <!-- 헤더 큰 이미지 -->
     <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image:  url(<%= path%>/resources/img/img_semi/inquiry01_01.png); height: 350px; margin: 60px;">
@@ -41,7 +43,7 @@
         </div>
     </section>
    
-<form action="<%= request.getContextPath()%>/board/write" method="POST">    
+<form action="<%= request.getContextPath()%>/board/update" method="POST">    
     <!-- 게시글 작성자 -->
     <section class="pt-2 pb-4 p-print-0 ">
         <div class="container ">
@@ -49,8 +51,9 @@
            
                 <div type=text  class="col-md-5" style="font-size: 15px; font-weight:bolder ;">
    					 <img src="<%= path%>/resources/img/img_semi/campfire01.png " width="8%">
-   					 <input type="hidden" id="writer" name="writer" value="<%=loginMember.getUser_id()%>">
-   					 <%=loginMember.getUser_id()%>
+   					 <input type="hidden" id="writer" name="writer">
+   					  <%=loginMember.getUser_id()%>
+   					 <input type="hidden" name="communityNo" value="<%=community.getCo_no()%>" />  
                 </div>
             </div>
         </div>
@@ -69,23 +72,23 @@
         <div class="container">
             <div class=" mb-lg-1 ">
                 <div class=" mt-4" id="leaveReview">
-                    <form class="form">
+
                         <div class="row">
                             <div class="mb-4">
                                 <label class="form-label fs-5" for="name">제목</label>
-                                <textarea name="title" class="form-control" rows="2"  id="freeBoardTitle" placeholder="제목을 작성해 주세요"  required="required"></textarea>
+                                <input name="title" class="form-control" rows="2"  id="freeBoardTitle" value="<%=community.getCo_title() %>" >
                             </div>
                             <div class="mb-4">
                                 <label class="form-label fs-5" for="review">문의 내용</label>
-                                <textarea name="content" class="form-control" rows="10"  id="freeBoardContact" placeholder="내용을 작성해 주세요" required="required"></textarea>
+                                <textarea name="content" class="form-control" rows="10"  id="freeBoardContact" <%=community.getCo_content() %>></textarea>
                             </div>
                             <div class="container">
                                 <div class="col-lg-12 mb-3  ">
-                                    <button class="btn btn-primary col-lg-12" style="width: 200px; font-size: 16px;" type="submit">등  록</button>
+                                    <button class="btn btn-primary col-lg-12" style="width: 200px; font-size: 16px;" type="submit">수  정</button>
                                 </div>
                             </div>
                              </div>
-                    </form>
+
                 </div>
             </div>
         </div>

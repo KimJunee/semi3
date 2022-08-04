@@ -79,7 +79,9 @@ Community community = (Community)request.getAttribute("community");
                     </div>
                 </div>
             </div>
-           </div>   
+           </div>  
+           <input type="hidden" name="title" value="<%=community.getCo_title()%>">
+           <input type="hidden" name="content" value="<%=community.getCo_content()%>"> 
     </section>
     <section class="pt-0 pb-3 p-print-0">
         <div class="container">
@@ -91,7 +93,7 @@ Community community = (Community)request.getAttribute("community");
 					%>
                     <!-- 수정하기 버튼 -->
                     <div class="col-lg-20  ">
-                        <button onclick="#" class="btn btn-primaryCuntom rounded-top " style="height: 50px; width: 120px; font-size: 16px;" type="submit "> 수정하기 </button>
+                        <button onclick="location.href='<%=request.getContextPath() %>/board/update?communityNo=<%=community.getCo_no()%>'" class="btn btn-primaryCuntom rounded-top " style="height: 50px; width: 120px; font-size: 16px;"> 수정하기 </button>
                     </div>
                     <!-- 삭제하기 버튼 -->
                     <div class="col-lg-20 ">
