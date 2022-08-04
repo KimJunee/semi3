@@ -84,12 +84,12 @@
 <%= "@@@@@@@@@@@@@@@@"+searchCampType%>
 <%= "@@@@@@@@@@@@@@@@"+searchType%>
  --%>
-<%= "@@@@"+searchCampType%>
+<%--<%= "@@@@"+searchCampType%>
 <%= "@@@@"+searchType%>
 <%= "@@@@"+searchAddr1%>
 <%= "@@@@"+bookingDate%>
 <%= "@@@@"+searchValue%>
-<%= "@@@@"+searchPersonnel%>
+<%= "@@@@"+searchPersonnel%>--%>
 <div class="container py-5 px-lg-5">
 	<div class="row">
 		<div class="col-lg-3 pt-3">
@@ -561,7 +561,7 @@
               }
 		  }
           
-          alert(pageUrl);
+          //alert(pageUrl);
           location.href = encodeURI(pageUrl);
       }
   </script>
