@@ -22,7 +22,8 @@ public class CampReviewDAO {
 					 + "REV_CONTENT, REV_REGIST, REV_IMAGE, REV_IMAGE_RENAME, REV_STAR "
 					 + "FROM REVIEW R, USER_T U "
 					 + "WHERE R.USER_NO = U.USER_NO "
-					 + "AND CS_NO = ? ";
+					 + "AND CS_NO = ? "
+					 + "ORDER BY REV_NO DESC";
 		
 		try {
 			pstmt = conn.prepareStatement(query);
