@@ -123,8 +123,13 @@ if(campingVO == null){
             <div class="row">
                 <!-- Content-->
                 <section class="col-md-6">
+                <%if(campingVO.getCs_image() != null) {%>
                     <a class="gallery-item rounded-1 mb-grid-gutter" href="<%=campingVO.getCs_image()%>" data-sub-html="&lt;h6 class=&quot;fs-sm text-light&quot;&gt;이미지 미리보기&lt;/h6&gt;">
                     <img style="width: 100%; height: 100%;" src="<%=campingVO.getCs_image()%>" alt="Gallery preview" ><span class="gallery-item-caption">이미지 확대하여 보기</span></a>
+                                <%} else {%>
+                    <a class="gallery-item rounded-1 mb-grid-gutter" href="<%=mypath%>/resources/img/img_semi/noImage.png" data-sub-html="&lt;h6 class=&quot;fs-sm text-light&quot;&gt;이미지 미리보기&lt;/h6&gt;">
+                    <img style="width: 100%; height: 100%;" src="<%=mypath%>/resources/img/img_semi/noImage.png" alt="Gallery preview" ><span class="gallery-item-caption">이미지 확대하여 보기</span></a>
+                                <%} %>
                 </section>
 
                 <!-- Sidebar 캠핑장 상세 내용 및 홈페이지-->
