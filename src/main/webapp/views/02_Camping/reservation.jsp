@@ -24,7 +24,7 @@ if(campingVO == null){
 		var payvalue = <%=campingVO.getCs_accom_fee()%>
 		$("#pay").text(payvalue.toLocaleString("ko-KR") + " 원");
 	})
-	// 결제 - https://www.bootpay.co.kr/
+	// 결제 - https://www.bootpay.co.kr/v1/online/easy
 	function payReservation(){
 		console.log("payReservation");
 		var payvalue = $("#pay").text();
@@ -35,7 +35,7 @@ if(campingVO == null){
 		var camp_name = '<%=campingVO.getCs_name()%>';
 		
 		BootPay.request({
-			application_id: "62e4a782d01c7e001c33b19d", //BootPay Javascript 키 
+			application_id: "62e4a782d01c7e001c33b19d", //BootPay Javascript 키 - 2207 발급
 			price: payment,
 			name: camp_name,
 			pg: 'kakao',
@@ -241,15 +241,11 @@ if(campingVO == null){
                     </div>
                 </div>
             </div>
-            <div style="padding-top: 30px; padding-left: 50px">
+            <div style="padding-top: 30px; text-align:center;">
                 <button onclick="payReservation()" class="btn btn-reserv-one rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#leaveReview" aria-expanded="false" aria-controls="leaveReview" style="margin-left: 50px; margin-right: 50px;">
                 예약하기
                 </button>
-                <button onclick="location.href='/reservation'" class="btn btn-reserv-two rounded-top" type="button" data-bs-toggle="collapse" data-bs-target="#leaveReview" aria-expanded="false" aria-controls="leaveReview">
-                수정하기
-                </button>
             </div>
-
             <div class="text-block d-print-none">
                 <button class="btn btn-link ps-0" onclick="window.print()"><i class="fa fa-print me-2"></i>Print </button>
             </div>

@@ -1,6 +1,7 @@
 package com.camping.mvc.camping.model.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,27 +31,31 @@ public class ReservationCancelServlet extends MyHttpServlet{
 		Member member = (Member) session.getAttribute("loginMember");
 		
 		if(member == null) {
-			sendCommonPage("로그인후 이용해주세요.", "/views/01_Main/main.jsp", req, resp);
+			sendCommonPage("로그인후 이용해주세요.", "/main", req, resp);
 			return;
 		}
 		
 		try {
 			Member loginMember = getSessionMember(req);
-			int resv_no = Integer.parseInt(req.getParameter("resvno"));
-			System.out.println(resv_no);
-			Reservation reservation = service.findReservationByNo(resv_no);
+			int resvno = Integer.parseInt(req.getParameter("resvno"));
+			System.out.println(resvno);
+			int result = service.deletReservation(resvno);
 			
-			System.out.println(reservation.toString());	
+			System.out.println(result);	
 			
 			// 인코딩
 			req.setCharacterEncoding("utf-8");
 			resp.setCharacterEncoding("utf-8");
 			
 			// 취소.....
-			
-			
+			if(result > 0) {
+				sendCommonPage("예약이 취소 되었습니다.", "/mypage/myreservation", req, resp);
+			}else {
+				sendCommonPage("예약 취소 실패. (501)", "/mypage/myreservation", req, resp);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
+			sendCommonPage("예약 취소가 불가능합니다. (505)", "/mypage/myreservation", req, resp);
 		}
 	}
 	

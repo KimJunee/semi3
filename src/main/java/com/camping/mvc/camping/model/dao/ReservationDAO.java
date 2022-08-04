@@ -174,14 +174,14 @@ public class ReservationDAO {
 	}
 	
 	// 예약 취소
-	public int deleteReservation(Connection conn, Reservation resv) {
+	public int deleteReservation(Connection conn, int resv_no) {
 		PreparedStatement pstmt = null;
 		String query = "DELETE FROM RESERVATION WHERE RESV_NO = ?";
 		int result = 0;
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, resv.getResv_no());
+			pstmt.setInt(1, resv_no);
 			
 			result = pstmt.executeUpdate();
 			

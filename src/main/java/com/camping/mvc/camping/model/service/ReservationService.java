@@ -49,9 +49,9 @@ public class ReservationService {
 		return result;
 	}
 	// 예약취소 DB 저장로직
-	public int deletReservation(Reservation resv) {
+	public int deletReservation(int resv_no) {
 		Connection conn = getConnection();
-		int result = dao.deleteReservation(conn, resv);
+		int result = dao.deleteReservation(conn, resv_no);
 		
 		if(result > 0) {
 			commit(conn);
