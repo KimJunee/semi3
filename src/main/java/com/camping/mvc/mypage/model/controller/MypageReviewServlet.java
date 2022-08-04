@@ -65,6 +65,7 @@ private static final long serialVersionUID = 1L;
 			Review review = new Review();
 			
 			int resvno = Integer.parseInt(mr.getParameter("resvno"));
+			int csno = Integer.parseInt(mr.getParameter("csno"));
 			
 			//freeBoardWrite.jsp에서 작성한 게시글 처리
 			review.setUser_no(loginMember.getUser_no());
@@ -79,7 +80,7 @@ private static final long serialVersionUID = 1L;
 			int result = service.insertReview(review); // DB에 게시글 저장
 			
 			if(result > 0) {
-				sendCommonPage("게시글이 정상적으로 등록되었습니다.", "/mypage/mywrite", req, resp);
+				sendCommonPage("게시글이 정상적으로 등록되었습니다.", "/camping/Detail?campingNo=" + csno, req, resp);
 				
 			}else {
 				sendCommonPage("게시글 등록에 실패하였습니다. (code=102)", "/myreservation/review?resvno=" + resvno, req, resp);
