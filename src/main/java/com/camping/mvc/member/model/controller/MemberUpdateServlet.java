@@ -33,6 +33,7 @@ public class MemberUpdateServlet extends MyHttpServlet {
 			}
 			
 			Member newMember = new Member();
+			req.setCharacterEncoding("UTF-8");
 			newMember.setUser_no(loginMember.getUser_no());
 			newMember.setUser_id(loginMember.getUser_id());
 			newMember.setUser_name(req.getParameter("name"));
