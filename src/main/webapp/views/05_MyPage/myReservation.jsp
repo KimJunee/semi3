@@ -107,16 +107,17 @@
                  	}%> --%>
                     	    <!-- 예약 목록 시작 -->
                             <div>
-                                <a class="list-group-item list-group-item-action p-4" href="<%=path+"/mypage/myreservationDetail?resvno="+ c.getResv_no()%>">
+                            <!-- href="" -->
+                                <div class="list-group-item list-group-item-action p-4"" >
                                     <div class="row">
                                         <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
-                                            <div class="d-flex align-items-center ">
+                                            <div class="d-flex align-items-center "  onclick="location.href='<%=path+"/mypage/myreservationDetail?resvno="+c.getResv_no()%>'">
                                                 <img class="img-fluid" src='<%=c.getCs_image() != null ? c.getCs_image() : path+"/resources/img/img_semi/camp02.jpg"%>' alt="">
                                             </div>
                                         </div>
                                         <div class="col-lg-8">
                                             <div class="row">
-                                                <div class="col-6 col-md-4 col-lg-3 py-3 ">
+                                                <div class="col-6 col-md-4 col-lg-3 py-3 " onclick="location.href='<%=path+"/mypage/myreservationDetail?resvno="+c.getResv_no()%>'" >
                                                     <h6 class="label-heading">캠핑장 이름</h6>
                                                     <p class="text-sm fw-bold"><%=c.getCs_name()%></p>
                                                     <h6 class="label-heading">인원수 </h6>
@@ -143,11 +144,11 @@
                                                     <i class="fa fa-check fa-fw me-2"> </i>예약완료
                                                 </span>
                                                 </div>
+				                                <button onclick="location.href='<%=path %>/reservation/cancel?resvno=<%=c.getResv_no()%>'" style="hight: 30px; background-color: #F05945; border: 0; outline: 0;"><b>결제 취소</b></button>  
                                             </div>
                                         </div>
                                     </div>
-                                </a>
-                                <button class="" onclick="location.href='<%=path %>/reservation/cancel?resvno=<%=c.getResv_no()%>'">결제 취소</button>  
+                                </div>
                             </div>
                            <%}
                            }%>
@@ -192,8 +193,6 @@
     </div>
     <script type="text/javascript">
     	function movePage(pageUrl) {
-    		
-    		alert(pageUrl);
             location.href = encodeURI(pageUrl);
     	}
     </script>
@@ -265,5 +264,4 @@
         </div>
     </div>
 </section>
-   
        <%@ include file="/views/07_common/footer.jsp" %>
