@@ -418,7 +418,7 @@ if(campingVO == null){
                                             </p>
                                         </div>
                                         <div class="fs-md mb-2 pt-3 pb-3" style="font-size: 20px;"><%=review.getRev_title()%></div>
-                                        <div class="list-unstyled fs-ms pt-1"><%=review.getRev_title()%></div>
+                                        <div class="list-unstyled fs-ms pt-1"><%=review.getRev_content()%></div>
                                     </div>
                                 </div>
                             </div>
