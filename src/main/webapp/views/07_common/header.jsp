@@ -68,11 +68,12 @@
                     <a class="navbar-brand py-1" href="<%=path%>/views/01_Main/main.jsp"><img src="<%=path%>/resources/img/img_semi/logo05.png" width="200px"></a>
                     <!-- 로고 옆 검색창 -->
                     <nav class="navbar bg-white">
-                        <div class="container-fluid">
+                       <div class="container" style="padding-left: 10px;">
                             <form class="d-flex" role="search" action="<%=path%>/campingItem/totalSearch" method="get">
-                                <label class="label-absolute" style="width:100px;">
-                                    <i class="fa fa-search" style="padding-left: 10px;"></i></label>
-                                <input class="form-control me-2 ms-xl-0" id="searchValue" name="searchValue" type="search" value="" placeholder="     캠핑용품 검색" aria-label="Search">
+                                <div class="input-label-absolute input-label-absolute-left ms-lg-2 ms-xl-3" style="color: #F7F3E9; width:180px"  >
+                            	<label class="label-absolute" for="search_search"><i class="fa fa-search"></i></label>
+                            	<input class="form-control me-2 ms-xl-0" id="searchValue" name="searchValue" placeholder="캠핑용품 검색" aria-label="Search" type="search">
+                        		</div>
                             </form>
                         </div>
                     </nav>
