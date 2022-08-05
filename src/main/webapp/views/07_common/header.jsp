@@ -79,7 +79,7 @@
                     </nav>
                 </div>
                 <!-- 헤더 메뉴바 -->
-                <div class="d-inline-flex align-items-end position-static mt-n12 me-n8">
+               
                     <div class="collapse navbar-collapse " id="navbarCollapse">
                         <ul class="navbar-nav ms-auto ">
                             <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/main" style="font-size:25px; color: rgb(28, 27, 27); "> HOME </a>
@@ -209,7 +209,6 @@
                             </li>
                         </ul>
                     </div>
-                </div>
             </div>
         </nav>
     </header>
