@@ -56,7 +56,7 @@ if(searchValue == null){
     <section class="py-5">
         <div class="container mb-4">
             <div class="row mb-5">
-                <div class="col-md-12 fs-2" style="text-align: center; font-weight: bold; color: #F05945;">
+                <div class="col-md-12 fs-1" style="text-align: center; font-weight: bold; color: #F05945;">
                     <img src="<%= path%>/resources/img/img_semi/new01_02.png" alt="Image" width="50px">신제품
                 </div>
             </div>
@@ -202,7 +202,7 @@ if(searchValue == null){
         <!-- 이 달의 추천상품 -->
         <div class="container mb-4">
             <div class="row mb-5">
-                <div class="col-md-12 fs-2" style="text-align: center; font-weight: bold; color: #5EAAA8;">
+                <div class="col-md-12 fs-1" style="text-align: center; font-weight: bold; color: #5EAAA8;">
                     <img src="<%= path%>/resources/img/img_semi/best01_05.png" alt="Image" width="50px">이 달의 추천제품
                 </div>
             </div>
@@ -232,7 +232,7 @@ if(searchValue == null){
         <!-- 특별 할인 -->
         <div class="container mt-0 ">
             <div class="row mb-5">
-                <div class="col-md-12 fs-2" style="text-align: center; font-weight: bold; color: #5EAAA8;">
+                <div class="col-md-12 fs-1" style="text-align: center; font-weight: bold; color: #5EAAA8;">
                     <img src="<%= path%>/resources/img/img_semi/good01_05.png" alt="Image" width="50px">특별할인
                 </div>
             </div>

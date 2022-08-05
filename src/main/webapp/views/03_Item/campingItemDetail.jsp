@@ -65,7 +65,7 @@ if(searchType != null && searchType.length > 0){
     <section>
         <div class="container mb-4">
             <div class="row mb-5">
-                <div class="col-md-12 fs-2" style="text-align: center; font-weight: bold; color: #F05945;">
+                <div class="col-md-12 fs-1" style="text-align: center; font-weight: bold; color: #F05945;">
                     <img src="<%=path%>/resources/img/img_semi/campitem01_02.png" alt="Image" width="50px">캠핑용품
                 </div>
             </div>
