@@ -174,23 +174,21 @@ Community community = (Community)request.getAttribute("community");
                 </div>
                 
                 <div class="col-md-9 ">
-                   <%if(loginMember != null && loginMember.getUser_id().equals(reply.getWriter_id())){ %>
 						<form action="<%=request.getContextPath()%>/reply/delete" method="get">
                         <div class="row pe-6">
                         <input type="hidden" name="replyNo" value="<%=reply.getRep_no()%>">			
 							<input type="hidden" name="communityNo" value="<%=community.getCo_no()%>">	
                             <div class="col-lg-11 d-flex form-group" style="color:#232222; height: 60px; width:1200px; ">
-                              <%= reply.getRep_content() %>
-                                </div>
-                                
-                               <div   style="height: 30px; padding-left:900px;">
-                                    <button type="submit"  class=" btn btn-primary rounded-top" style="font-size: 10px; width: 80px; ">댓글삭제</button>
-                                </div>
+                            	<%= reply.getRep_content() %>
+                            </div>    
+                            <%if(loginMember != null && loginMember.getUser_id().equals(reply.getWriter_id())){ %>
+                            <div style="height: 30px; padding-left:900px;">
+                                <button type="submit"  class=" btn btn-primary rounded-top" style="font-size: 10px; width: 80px; ">댓글삭제</button>
+                            </div>
                         </div>
                     </form>
                     <%} %>
                 </div>
-
             </div>
             <hr>
         </div>
