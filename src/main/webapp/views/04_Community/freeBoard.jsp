@@ -25,7 +25,7 @@ if(request.getParameter("searchValue") != null){
 %>
 
     <!-- 헤더 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/inquiry01_01.png); height: 350px; margin: 60px;">
+    <section class="container bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/inquiry01_01.png); width:1300px; height: 400px;">
         <!-- 헤더 이미지 글씨 -->
         <div class="container">
         </div>
