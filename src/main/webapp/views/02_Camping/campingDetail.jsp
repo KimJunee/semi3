@@ -24,17 +24,13 @@ if(campingVO == null){
 %>
 
 <!-- 헤더 큰 이미지 -->
-<section class="container bg-cover" style="background-image: url(<%= mypath%>/resources/img/img_semi/camp_02_01.png); width:1300px; height: 400px;">
-    <!-- 헤더 이미지 글씨 -->
-    <div class="container py-6 py-lg-7 text-white overlay-content text-center ">
-        <div class="row">
-            <div class="col-xl-10 mx-auto">
-                <h1 class="display-3 fw-bold text-shadow" style="font-weight: bolder ;">오늘은 어디로 가볼까?</h1>
-                <p class="text-lg text-shadow">다양한 캠핑장을 검색해보세요!</p>
-            </div>
+    <section class="container bg-cover " style="background-image: url(<%= mypath%>/resources/img/img_semi/camp_02_01.png); width:1300px; height: 400px;">
+        <!-- 헤더 이미지 글씨 -->
+        <div class="container">
         </div>
-    </div>
-</section>
+    </section>
+    <!-- 메인이미지끝 -->
+    
 <!-- 메인 검색창 -->
 <%--<div class="container ">
     <div class="search-bar rounded-4 p-0 p-lg-3 position-relative mt-n7 z-index-20 ">
