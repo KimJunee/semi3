@@ -14,7 +14,7 @@ reviewList = (List<Review>)request.getAttribute("reviewList");
 %>
 
 <!-- 헤더 큰 이미지 -->
-<section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%= mypath%>/resources/img/img_semi/camp06.jpg); height: 520px; margin: 60px;">
+<section class="container bg-cover" style="background-image: url(<%= mypath%>/resources/img/img_semi/camp06.jpg); height: 520px;">
     <!-- 헤더 이미지 글씨 -->
     <div class="container py-6 py-lg-7 text-white overlay-content text-center ">
         <div class="row">
@@ -26,7 +26,7 @@ reviewList = (List<Review>)request.getAttribute("reviewList");
     </div>
 </section>
 <!-- 메인 검색창 -->
-<div class="container">
+<div class="container mb-2" style="margin-top: 90px;">
     <div class="search-bar rounded-4 p-0 p-lg-3 position-relative mt-n7 z-index-20 ">
         <form action="<%=path %>/camping/list" method="get">
             <div class="row ">
@@ -114,75 +114,49 @@ reviewList = (List<Review>)request.getAttribute("reviewList");
        		</div>
             <div class="row">
                 <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
-                    <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(<%= path%>/resources/img/img_semi/campitem_16.png) no-repeat; background-size: cover;">
-                        <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=33285688969"> </a>
-                        <h3 class="text-shadow text-white pt-5" style="margin-left: 50px;">800도씨 3WAY</h3>
-                        <h2 class="text-shadow text-white" style="margin-left: 50px;">거북선 화로대</h2>
-                        <h2 class="text-shadow text-mutedCustom" style="margin-left: 80px;"> 105,000원</h2>
+                    <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(https://gocamping.or.kr/upload/camp/3353/thumb/thumb_720_3233c4IhyPbzG49c42NBshTq.jpg) no-repeat; background-size: cover;">
+                        <a class="tile-link" href="<%=path %>/camping/Detail?campingNo=2599"> </a>
+                        <h2 class="text-shadow text-white pt-3" style="margin-left: 20px;">자차로 1시간 거리의</h2>
+                        <h2 class="text-shadow text-white" style="margin-left: 20px;">하늘연 캠핑장</h2>
+                        <h3 class="text-shadow text-mutedCustom" style="margin-left: 20px;">#파주#글램핑</h3>
                         <div class="d-flex h-100 text-white justify-content-around py-6 py-lg-7 mb-10">
                         </div>
                     </div>
                 </div>
                 <div class="mb-4 col-lg-4">
-                    <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate" style="background: center center url(<%= path%>/resources/img/img_semi/campitem_16_01.png) no-repeat; background-size: cover;">
-                        <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=33285688969"> </a>
+                    <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate" style="background: center center url(<%= path%>/resources/img/img_semi/glamping.jpg) no-repeat; background-size: cover;">
+                        <a class="tile-link" href="<%=path %>/camping/Detail?campingNo=1899"> </a>
+                        <h2 class="text-shadow text-white pt-3" style="margin-left: 210px;">별똥별 글램핑</h2>
+                        <h3 class="text-shadow text-mutedCustom" style="margin-left: 260px;">#가평#계곡</h3>
                     </div>
-                    <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate mt-3" style="background: center center url(<%= path%>/resources/img/img_semi/campitem_16_02.png) no-repeat; background-size: cover;">
-                        <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=33285688969"> </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-<!--     <div class="container ">
-        <div class="row mb-5">
-            <div class="col-md-8 fs-2 mb-3 " style="font-weight: bolder ; ">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30 " height="30 " fill="currentColor " class="bi bi-heart-fill " viewBox="0 0 16 16 ">
-                    <mypath fill-rule="evenodd " d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z "/>
-                </svg> 인기캠핑장
-            </div>
-            <div class="col-md-4 d-md-flex align-items-center justify-content-end ">
-                <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="<%=path%>/camping/list">
-                        캠핑장 더보기
-                        <i class="fas fa-angle-double-right ms-2 "></i>
-                </a>
-            </div>
-        </div>
-        <div class="row ">
-            <div class="d-flex align-items-lg-stretch mb-1 col-lg-8 " style="height: 450px; ">
-                <div class="card shadow-lg border-0 w-100 border-0 hover-animate " style="background: center center url(<%=mypath%>/resources/img/img_semi/camp03.jpg) no-repeat; background-size: cover; ">
-                    <a class="tile-link " href="<%=path %>/camping/Detail?campingNo=2599"> </a>
-                    <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7 ">
-                        <h3>하늘연캠핑장</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="d-flex align-items-lg-stretch mb-1 col-lg-4 " style="height: 450px; ">
-                <div class="card shadow-lg border-0 w-100 border-0 hover-animate " style="background: center center url(<%=mypath%>/resources/img/photo/photo-1429554429301-1c7d5ae2d42e.jpg) no-repeat; background-size: cover; ">
-                    <a class="tile-link " href="<%=path %>/camping/Detail?campingNo=2759"> </a>
-                    <div class="d-flex align-items-center h-100 text-white justify-content-center py-6 py-lg-7 ">
-                        <h3>베어스 글램핑파크</h3>
+                    <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate mt-3" style="background: center center url(https://gocamping.or.kr/upload/camp/7707/thumb/thumb_720_8592aNVHM8XTABlndiDfBnhS.jpg) no-repeat; background-size: cover;">
+                        <a class="tile-link" href="<%=path %>/camping/Detail?campingNo=2528"> </a>
+                        <h3 class="text-shadow text-white" style="margin-left: 20px; padding-top:110px;">더스트림 카라반</h3>
+                        <h4 class="text-shadow text-mutedCustom" style="margin-left: 20px;">#영덕#해변</h4>
                     </div>
                 </div>
             </div>
         </div>
-    </div> -->
 </section>
 <!-- 인기캠핑장 끝-->
 
 <!-- 캠핑용품 시작 -->
 <section class="py-0">
-        <div class="container mb-2">
+        <div class="container mb-5">
             <div class="row mb-0">
                 <div class="col-md-8 fs-2 mb-3 " style="font-weight: bolder ; ">
-                <img src="<%= mypath%>/resources/img/img_semi/campitem01.png" alt="Image " width="55px "> 캠핑용품
-            </div>
-            <div class="col-md-4 d-md-flex align-items-left justify-content-end ">
-                <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="<%=path%>/views/03_Item/campingItem.jsp">
-       캠핑용품 더보기<i class="fas fa-angle-double-right ms-2 "></i></a>
-            </div>
+                	<img src="<%= mypath%>/resources/img/img_semi/campitem01.png" alt="Image " width="55px "> 캠핑용품
+            	</div>
+            	<div class="col-md-4 d-md-flex align-items-center justify-content-end ">
+	                <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="<%=path%>/views/03_Item/campingItem.jsp">
+	                        캠핑용품 더보기
+	                        <i class="fas fa-angle-double-right ms-2 "></i>
+	                </a>
+	            </div>
+            	
             </div>
             <!-- Slider main container-->
-            <div class="swiper-container swiper-container-mx-negative swiper-init pt-3" data-swiper="{&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:20,&quot;loop&quot;:true,&quot;roundLengths&quot;:true,&quot;breakpoints&quot;:{&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;991&quot;:{&quot;slidesPerView&quot;:2},&quot;565&quot;:{&quot;slidesPerView&quot;:1}},&quot;pagination&quot;:{&quot;el&quot;:&quot;.swiper-pagination&quot;,&quot;clickable&quot;:true,&quot;dynamicBullets&quot;:true}}">
+            <div class="swiper-container swiper-container-mx-negative swiper-init pt-0" data-swiper="{&quot;slidesPerView&quot;:4,&quot;spaceBetween&quot;:20,&quot;loop&quot;:true,&quot;roundLengths&quot;:true,&quot;breakpoints&quot;:{&quot;1200&quot;:{&quot;slidesPerView&quot;:3},&quot;991&quot;:{&quot;slidesPerView&quot;:2},&quot;565&quot;:{&quot;slidesPerView&quot;:1}},&quot;pagination&quot;:{&quot;el&quot;:&quot;.swiper-pagination&quot;,&quot;clickable&quot;:true,&quot;dynamicBullets&quot;:true}}">
                 <!-- Additional required wrapper-->
                 <div class="swiper-wrapper pb-5">
                     <!-- Slides-->
