@@ -7,7 +7,7 @@ String mypath = request.getContextPath();
 %>
 
 <!-- 헤더 큰 이미지 -->
-<section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%= mypath%>/resources/img/img_semi/camp06.jpg); height: 650px; margin: 60px;">
+<section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%= mypath%>/resources/img/img_semi/camp06.jpg); height: 520px; margin: 60px;">
     <!-- 헤더 이미지 글씨 -->
     <div class="container py-6 py-lg-7 text-white overlay-content text-center ">
         <div class="row">
@@ -19,7 +19,7 @@ String mypath = request.getContextPath();
     </div>
 </section>
 <!-- 메인 검색창 -->
-<div class="container ">
+<div class="container">
     <div class="search-bar rounded-4 p-0 p-lg-3 position-relative mt-n7 z-index-20 ">
         <form action="<%=path %>/camping/list" method="get">
             <div class="row ">
@@ -90,9 +90,44 @@ String mypath = request.getContextPath();
 <!-- 헤더 끝 -->
 
 <!-- 인기캠핑장 시작-->
-<section class="py-7 ">
-    <div class="container ">
-        <div class="row mb-5 ">
+<section class="py-5">
+</section>
+<section class="py-0">
+	<div class="container mb-5">
+            <div class="row mb-0">
+	            <div class="col-md-8 fs-2 mb-3 " style="font-weight: bolder ; ">
+	                <img src="<%= mypath%>/resources/img/img_semi/like.png" alt="Image " width="50px "> 인기캠핑장
+	            </div>
+	            <div class="col-md-4 d-md-flex align-items-center justify-content-end ">
+	                <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="<%=path%>/camping/list">
+	                        캠핑장 더보기
+	                        <i class="fas fa-angle-double-right ms-2 "></i>
+	                </a>
+	            </div>
+       		</div>
+            <div class="row">
+                <div class="d-flex align-items-lg-stretch mb-4 col-lg-8">
+                    <div class="card shadow-lg border-0 w-100 border-0 hover-animate" style="background: center center url(<%= path%>/resources/img/img_semi/campitem_16.png) no-repeat; background-size: cover;">
+                        <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=33285688969"> </a>
+                        <h3 class="text-shadow text-white pt-5" style="margin-left: 50px;">800도씨 3WAY</h3>
+                        <h2 class="text-shadow text-white" style="margin-left: 50px;">거북선 화로대</h2>
+                        <h2 class="text-shadow text-mutedCustom" style="margin-left: 80px;"> 105,000원</h2>
+                        <div class="d-flex h-100 text-white justify-content-around py-6 py-lg-7 mb-10">
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-4 col-lg-4">
+                    <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate" style="background: center center url(<%= path%>/resources/img/img_semi/campitem_16_01.png) no-repeat; background-size: cover;">
+                        <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=33285688969"> </a>
+                    </div>
+                    <div class="card shadow-lg border-0 w-100 h-48 border-0 hover-animate mt-3" style="background: center center url(<%= path%>/resources/img/img_semi/campitem_16_02.png) no-repeat; background-size: cover;">
+                        <a class="tile-link" href="https://search.shopping.naver.com/gate.nhn?id=33285688969"> </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!--     <div class="container ">
+        <div class="row mb-5">
             <div class="col-md-8 fs-2 mb-3 " style="font-weight: bolder ; ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="30 " height="30 " fill="currentColor " class="bi bi-heart-fill " viewBox="0 0 16 16 ">
                     <mypath fill-rule="evenodd " d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z "/>
@@ -123,16 +158,16 @@ String mypath = request.getContextPath();
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 <!-- 인기캠핑장 끝-->
 
 <!-- 캠핑용품 시작 -->
-<section class="py-6">
-        <div class="container mb-4">
-            <div class="row mb-5">
+<section class="py-0">
+        <div class="container mb-2">
+            <div class="row mb-0">
                 <div class="col-md-8 fs-2 mb-3 " style="font-weight: bolder ; ">
-                <img src="<%= mypath%>/resources/img/img_semi/campitem01.png" alt="Image " width="50px "> 캠핑용품
+                <img src="<%= mypath%>/resources/img/img_semi/campitem01.png" alt="Image " width="55px "> 캠핑용품
             </div>
             <div class="col-md-4 d-md-flex align-items-left justify-content-end ">
                 <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="<%=path%>/views/03_Item/campingItem.jsp">
@@ -279,16 +314,12 @@ String mypath = request.getContextPath();
 </section>
 <!-- 캠핑용품 끝 -->
 
-<section class="py-5 ">
+<section class="py-5 bg-gray-100">
     <div class="container ">
         <div class="row ">
             <div class="col-lg-6 me-lg-auto ">
                 <div class="col-md-6 fs-2 mb-3 " style="font-weight: bolder ; ">
-                    <svg xmlns="http://www.w3.org/2000/svg " width="30 " height="30 " fill="currentColor " class="bi bi-megaphone " viewBox="0 0 16 16 ">
-                    <mypath d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49a68.14 68.14 0 0 0-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02
-                    0 0 1 1.992-2.013 74.663 74.663 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199V2.5zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0zm-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233c.18.01.359.022.537.036 2.568.189 5.093.744 7.463 1.993V3.85zm-9
-                    6.215v-4.13a95.09 95.09 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A60.49 60.49 0 0 1 4 10.065zm-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68.019 68.019 0 0 0-1.722-.082z "/>
-                  </svg> 공지사항
+                    <img src="<%= mypath%>/resources/img/img_semi/speaker.png" alt="Image " width="50px "> 공지사항
                 </div>
                 <div class="accordion" id="accordionPanelsStayOpenExample">
                     <div class="accordion-item ">
@@ -358,10 +389,7 @@ String mypath = request.getContextPath();
             <!-- 캠핑후기 시작 -->
             <div class="col-lg-6 ps-lg-5 ">
                 <div class="col-md-8 fs-2 mb-1 " style="font-weight: bolder ; ">
-                    <svg xmlns="http://www.w3.org/2000/svg " width="30 " height="30 " fill="currentColor " class="bi bi-pencil-square " viewBox="0 0 16 16 ">
-                    <mypath d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z "/>
-                    <mypath fill-rule="evenodd " d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z "/>
-                  </svg>캠핑후기
+                    <img src="<%= mypath%>/resources/img/img_semi/hugi.png" alt="Image " width="50px "> 캠핑후기
                 </div>
                 <div class="text-block1">
                     <a class="list-group-item list-group-item-action p-2" href="<%=path+"/camping/Detail?campingNo=3106"%>">
