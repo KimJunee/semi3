@@ -99,15 +99,12 @@
 <%= "@@@@"+searchPersonnel%>--%>
 <div class="container py-5">
 	<div class="row">
-		<div class="col-lg-3 pt-3">
+		<div class="col-lg-3">
 			<form class="pe-xl-3" action="<%=path %>/camping/list" method="get">
-				<div class="mb-4">
-					<label class="form-label" for="form_dates"></label>
 					<div class="datepicker-container datepicker-container-left">
 						<input class="form-control" type="text" name="bookingDate"
 							id="form_dates" placeholder="날짜를 선택하세요" value="<%=bookingDate%>">
 					</div>
-				</div>
 				<div class="mb-4">
 					<label class="form-label" for="form_search"></label>
 					<div class="input-label-absolute input-label-absolute-right">
