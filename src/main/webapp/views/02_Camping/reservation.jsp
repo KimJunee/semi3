@@ -174,7 +174,7 @@ if(campingVO == null){
 	} */
 </script>
 <!-- 헤더 큰 이미지 -->
-<section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%=mypath%>/resources/img/img_semi/camp_07_01.jpg); height: 350px; margin: 60px;"></section>
+<section class="container bg-cover" style="background-image: url(<%=mypath%>/resources/img/img_semi/camp_07_01.jpg); width:1300px; height: 400px;"></section>
 
 <div class="container-fluid">
     <div class="row">

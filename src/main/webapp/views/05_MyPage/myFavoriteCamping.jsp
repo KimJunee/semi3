@@ -10,8 +10,8 @@ List<MyFavorite> list = (List<MyFavorite>)request.getAttribute("list");
 PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 
 %>
-
-    <!-- 헤더 큰 이미지 --><section class="container bg-cover"  style="background-image: url(<%= path%>/resources/img/img_semi/mypage01_01.png);  width:1300px; height: 400px;"></section>
+    <!-- 헤더 큰 이미지 -->
+    <section class="container bg-cover" style="background-image: url(<%= path%>/resources/img/img_semi/mypage01_01.png); width:1300px; height: 400px;"></section>
     <!-- 메인이미지끝 -->
 
     <!-- 문의게시판 검색창 시작 -->

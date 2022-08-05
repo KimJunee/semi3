@@ -12,7 +12,7 @@ Inquiry inquiry = (Inquiry)request.getAttribute("inquiry");
 
 
     <!-- 헤더 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/inquiry01.jpg); height: 350px; margin: 60px;"></section>
+    <section class="container bg-cover" style="background-image: url(<%= path%>/resources/img/img_semi/inquiry01.jpg); width:1300px; height: 400px;"></section>
     <!-- 메인이미지끝 -->
 
     <section class="py-10">
