@@ -35,7 +35,7 @@ public class ItemSearchBarServlet extends MyHttpServlet {
 		int page = 1;
 
 		if(req.getParameter("searchValue").length() == 0) {
-			sendCommonPage("검색어를 입력해주세요.", "/campingItem/totalSearch", req, resp);
+			sendCommonPage("검색어를 입력해주세요.", "/views/03_Item/campingItem.jsp", req, resp);
 		}
 		
 		if(req.getParameter("page") != null) {
@@ -46,7 +46,7 @@ public class ItemSearchBarServlet extends MyHttpServlet {
 		try {
 				String searchTypeNames[] = req.getParameterValues("searchType");
 				if (searchTypeNames == null) {
-					sendCommonPage("카테고리를 선택해주세요.", "/campingItem/totalSearch", req, resp);
+					sendCommonPage("카테고리를 선택해주세요.", "/views/03_Item/campingItem.jsp", req, resp);
 				} else {
 					System.out.println("카테고리");
 					for (String searchTypeName : searchTypeNames) {
