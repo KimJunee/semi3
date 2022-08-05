@@ -24,7 +24,7 @@ if(campingVO == null){
 %>
 
 <!-- 헤더 큰 이미지 -->
-<section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%= mypath%>/resources/img/img_semi/camp_02_01.png); height: 650px; margin: 60px;">
+<section class="container bg-cover" style="background-image: url(<%= mypath%>/resources/img/img_semi/camp_02_01.png); width:1300px; height: 400px;">
     <!-- 헤더 이미지 글씨 -->
     <div class="container py-6 py-lg-7 text-white overlay-content text-center ">
         <div class="row">
