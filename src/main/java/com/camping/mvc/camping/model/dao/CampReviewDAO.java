@@ -116,7 +116,7 @@ public class CampReviewDAO {
 		ResultSet rs = null;
 		List<Review> list = new ArrayList<>();
 		String query = "select * "
-				+ "from (SELECT U.USER_NO, U.USER_ID, REV_NO, REV_TITLE, REV_CONTENT, REV_REGIST, REV_IMAGE, REV_IMAGE_RENAME, REV_STAR  "
+				+ "from (SELECT CS_NO, U.USER_NO, U.USER_ID, REV_NO, REV_TITLE, REV_CONTENT, REV_REGIST, REV_IMAGE, REV_IMAGE_RENAME, REV_STAR  "
 				+ "FROM REVIEW R, USER_T U  "
 				+ "WHERE R.USER_NO = U.USER_NO  "
 				+ "order by rev_regist desc) "
@@ -127,6 +127,7 @@ public class CampReviewDAO {
 			
 			while(rs.next()) {
 				Review selectReview = new Review();
+				selectReview.setCs_no(rs.getInt("CS_NO"));
 				selectReview.setUser_id(rs.getString("USER_ID"));
 				selectReview.setRev_title(rs.getString("REV_TITLE"));;
 				selectReview.setRev_content(rs.getString("REV_CONTENT"));;

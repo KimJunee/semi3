@@ -389,7 +389,7 @@ reviewList = (List<Review>)request.getAttribute("reviewList");
                 
                 
                 <div class="text-block1" >
-                    <a class="list-group-item list-group-item-action p-2" href=""> 
+                    <a class="list-group-item list-group-item-action p-2" href="<%=mypath+"/camping/Detail?campingNo="+ review.getCs_no()%>"> 
                         <div class="row">
                             <div class="col-lg-4 align-self-center mb-4 mb-lg-0" >
                                 <div class="d-flex align-items-center ">
