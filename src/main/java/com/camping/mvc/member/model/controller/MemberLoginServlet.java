@@ -41,7 +41,7 @@ public class MemberLoginServlet extends MyHttpServlet {
 			// 세션에 로그인 결과를 남기고, 브라우저가 종료 될때까지 로그인 상태를 유지
 			HttpSession session = req.getSession();// HttpSession이 존재하면 현재 HttpSession을 반환하고 존재하지 않으면 새로이 세션을 생성합니다
 			session.setAttribute("loginMember", loginMember); // 로그인 정보를 세션에 저장  session.setAttribute("설정한 세션아이디", 세션에 넣을 값);
-			resp.sendRedirect(req.getContextPath() + "/views/01_Main/main.jsp"); // 메인페이지로 리다이렉트시킴(이동시킴)
+			resp.sendRedirect(req.getContextPath() + "/main"); // 메인페이지로 리다이렉트시킴(이동시킴)
 			//response 기본 객체에서 많이 사용되는 기능 중 하나이다.
 			//웹 서버가 웹 브라우저에게 다른 페이지로 이동하라고 응답하는 기능
 			// 위에 로직은 사용자가 로그인에 성공한 후 메인 페이지로 자동으로 이동하는 로직이다.
@@ -49,7 +49,7 @@ public class MemberLoginServlet extends MyHttpServlet {
 		}else{ // 로그인 실패한 경우
 			// 로그인이 실패하면, 실패 결과를 알려주고 시작페이지로 이동한다.
 			req.setAttribute("msg", "사용자 아이디나 비밀번호가 맞지 않습니다!!");//session.setAttribute("설정한 세션아이디", 세션에 넣을 값);
-			req.setAttribute("location", "/views/06_User/signin.jsp");//session.setAttribute("설정한 세션아이디", 세션에 넣을 값);
+			req.setAttribute("location", "/member/login");//session.setAttribute("설정한 세션아이디", 세션에 넣을 값);
 			
 			// 공통페이지로 이동하여 실패 결과 알리고 처음페이지로 돌아가는 코드
 			// 메세지를 넘겨야함으로 forward로 넘겨야함
