@@ -49,6 +49,7 @@
            
                 <div type=text  class="col-md-5" style="font-size: 15px; font-weight:bolder ;">
    					 <img src="<%= path%>/resources/img/img_semi/campfire01.png " width="8%">
+   					 <input type="hidden" <%=loginMember.getUser_no() %>>
    					 <input type="hidden" id="writer" name="writer" value="<%=loginMember.getUser_id()%>">
    					 <%=loginMember.getUser_id()%>
                 </div>
