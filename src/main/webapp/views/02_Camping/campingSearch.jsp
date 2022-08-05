@@ -73,7 +73,7 @@
 <!-- 헤더 큰 이미지 -->
 <section class="container bg-cover" style="background-image: url(<%= path%>/resources/img/img_semi/camp_02_01.png); width:1300px; height: 400px;">
     <!-- 헤더 이미지 글씨 -->
-    <div class="container py-6 py-lg-7 text-white overlay-content text-center ">
+    <div class="container text-white overlay-content text-center" style="padding:220px;">
         <div class="row">
             <div class="col-xl-10 mx-auto">
                 <h1 class="display-3 fw-bold text-shadow" style="font-weight: bolder ;">오늘은 어디로 가볼까?</h1>
@@ -295,9 +295,9 @@
 							<li>
 								<div class="form-check">
 									<input class="form-check-input" type="checkbox" id="type_9"
-										name="searchType" value="어린이놀이시설"
-										<%=searchType.contains( "어린이놀이시설") ? "checked" : "" %> /> <label
-										class="form-check-label" for="type_9">어린이 놀이시설</label>
+										name="searchType" value="유아놀이시설"
+										<%=searchType.contains( "유아놀이시설") ? "checked" : "" %> /> <label
+										class="form-check-label" for="type_9">유아 놀이시설</label>
 								</div>
 							</li>
 							<li>
