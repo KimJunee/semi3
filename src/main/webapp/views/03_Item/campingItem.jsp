@@ -53,8 +53,8 @@ if(searchValue == null){
     <!-- 메인 끝 -->
 
     <!-- 신제품 -->
-    <section class="py-5">
-        <div class="container mb-4">
+    <section class="py-10">
+        <div class="container">
             <div class="row mb-5">
                 <div class="col-md-12 fs-1" style="text-align: center; font-weight: bold; color: #F05945;">
                     <img src="<%= path%>/resources/img/img_semi/new01_02.png" alt="Image" width="50px">신제품
