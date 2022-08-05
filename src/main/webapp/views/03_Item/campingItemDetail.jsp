@@ -24,11 +24,11 @@ if(searchType != null && searchType.length > 0){
 
 %>
     <!-- 메인 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover" style="background-image: url(<%=path%>/resources/img/img_semi/campitem_04_01.png); height: 350px; margin: 60px;"></section>
+    <section class="container bg-cover" style="background-image: url(<%=path%>/resources/img/img_semi/campitem_04_01.png); width:1300px; height: 400px;"></section>
     <!-- 메인 끝 -->
     
     <!-- 메인 검색창 -->
-    <div class="container mb-5" style="margin-top: -130px;">
+    <div class="container mb-7" style="margin-top: 10px;">
         <div class="search-bar rounded-4 p-0 p-lg-1 position-relative mt-n6 z-index-20 mx-7">
             <form action="<%=path%>/campingItem/Detail" method="get">
                 <div class="row">
@@ -63,7 +63,7 @@ if(searchType != null && searchType.length > 0){
 
     <!-- 제품 시작 -->
     <section>
-        <div class="container mb-6">
+        <div class="container mb-4">
             <div class="row mb-5">
                 <div class="col-md-12 fs-2" style="text-align: center; font-weight: bold; color: #F05945;">
                     <img src="<%=path%>/resources/img/img_semi/campitem01_02.png" alt="Image" width="50px">캠핑용품
