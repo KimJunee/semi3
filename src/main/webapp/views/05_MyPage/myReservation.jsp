@@ -20,7 +20,7 @@
 	DecimalFormat df = new DecimalFormat("###,###");
 %>
 <!-- 헤더 큰 이미지 -->
-<section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/mypage01_01.png); height: 350px; margin: 60px;"></section>
+<section class="container bg-cover"  style="background-image: url(<%= path%>/resources/img/img_semi/mypage01_01.png);  width:1300px; height: 400px;"></section>
 <!-- 메인이미지끝 -->
 
 <!-- 문의게시판 검색창 시작 -->
@@ -108,9 +108,9 @@
                     	    <!-- 예약 목록 시작 -->
                             <div>
                             <!-- href="" -->
-                                <div class="list-group-item list-group-item-action p-4"" >
+                                <div class="list-group-item list-group-item-action p-4" >
                                     <div class="row">
-                                        <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
+                                        <div class="col-lg-4 align-self-center mb-4 mb-lg-0" >
                                             <div class="d-flex align-items-center "  onclick="location.href='<%=path+"/mypage/myreservationDetail?resvno="+c.getResv_no()%>'">
                                                 <img class="img-fluid" src='<%=c.getCs_image() != null ? c.getCs_image() : path+"/resources/img/img_semi/camp02.jpg"%>' alt="">
                                             </div>
