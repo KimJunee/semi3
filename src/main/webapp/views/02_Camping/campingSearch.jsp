@@ -76,7 +76,7 @@
     <div class="container py-6 py-lg-7 text-white overlay-content text-center ">
         <div class="row">
             <div class="col-xl-10 mx-auto">
-                <h1 class="display-3 fw-bold text-shadow" style="font-weight: bolder ;">다양한 캠핑장을 추천드려요</h1>
+                <h1 class="display-3 fw-bold text-shadow" style="font-weight: bolder ;">오늘은 어디로 가볼까?</h1>
                 <p class="text-lg text-shadow">다양한 캠핑장을 검색해보세요!</p>
             </div>
         </div>
