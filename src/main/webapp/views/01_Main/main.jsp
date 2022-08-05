@@ -414,12 +414,12 @@ reviewList = (List<Review>)request.getAttribute("reviewList");
 				 <%for(Review review : reviewList) { %>
                 
                 
-                <div class="text-block1">
-                    <a class="list-group-item list-group-item-action p-2" href="">
+                <div class="text-block1" >
+                    <a class="list-group-item list-group-item-action p-2" href=""> 
                         <div class="row">
-                            <div class="col-lg-4 align-self-center mb-4 mb-lg-0">
+                            <div class="col-lg-4 align-self-center mb-4 mb-lg-0" >
                                 <div class="d-flex align-items-center ">
-                                    <img class="img-fluid" src="<%=mypath%>/resources/upload/review/<%=review.getRev_image_rename()%>" alt="">
+                                    <img class="img-fluid" src="<%=mypath%>/resources/upload/review/<%=review.getRev_image_rename()%>" alt="" style="height: 120px; width: 200px">
                                 </div>
                             </div>
                             <div class="col-lg-8">
@@ -427,7 +427,19 @@ reviewList = (List<Review>)request.getAttribute("reviewList");
                                     <div class=" col-lg-12 py-3 ">
                                         <h6 class="label-heading"><%=review.getRev_title()%></h6>
                                         <div class="text-sm"><%=review.getRev_content()%></div>
-                                        <div class="fs-7 pt-4">759,200원</div>
+                                        
+                                        <!-- 별점 표시 -->
+                                            <div class="fs-7 pt-4">
+                                            
+                                            <%if (review != null) {%>
+                                            	<%for (int i = 0; i < review.getRev_star(); i++) { %>
+                                                <i class="fa fa-star text-warning"></i>
+                                                <%} %>
+                                                <%} %>
+                                                
+                                            </div>
+                                        
+                                        
                                     </div>
                                 </div>
                             </div>

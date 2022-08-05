@@ -537,6 +537,14 @@ WHERE R.USER_NO = U.USER_NO
 AND CS_NO = 3106
 ORDER BY REV_NO DESC;
 
+-- 메인페이지 최신 리뷰 3개 가져오는 쿼리문 (일단 3개 가져오는 것으로 하드코딩)
+SELECT *
+FROM (SELECT U.USER_NO, U.USER_ID, REV_NO, REV_TITLE, REV_CONTENT, REV_REGIST, REV_IMAGE, REV_IMAGE_RENAME, REV_STAR 
+FROM REVIEW R, USER_T U 
+WHERE R.USER_NO = U.USER_NO 
+ORDER BY rev_regist DESC)
+WHERE ROWNUM <= 3;
+
 
 
 -- 한 캠핑장에 해당하는 댓글 리스트 조회용 쿼리문( 미확인 )
