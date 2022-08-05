@@ -86,7 +86,7 @@
                             </li>
                             <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/camping/list" style="font-size:25px;color: rgb(28, 27, 27)">캠핑장</a>
                             </li>
-                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/views/03_Item/campingItem.jsp" style="font-size:25px;color: rgb(28, 27, 27)">캠핑용품</a>
+                            <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/campingItem/Detail" style="font-size:25px;color: rgb(28, 27, 27)">캠핑용품</a>
                             </li>
                             <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/board/freeBoard" style="font-size:25px; color: rgb(28, 27, 27);"> 자유게시판 </a>
                             </li>

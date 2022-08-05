@@ -148,7 +148,7 @@ reviewList = (List<Review>)request.getAttribute("reviewList");
                 	<img src="<%= mypath%>/resources/img/img_semi/campitem01.png" alt="Image " width="55px "> 캠핑용품
             	</div>
             	<div class="col-md-4 d-md-flex align-items-center justify-content-end ">
-	                <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="<%=path%>/views/03_Item/campingItem.jsp">
+	                <a class="text-mutedCustom text-base " style="font-weight: bolder ; " href="<%=path%>/campingItem/Detail">
 	                        캠핑용품 더보기
 	                        <i class="fas fa-angle-double-right ms-2 "></i>
 	                </a>
