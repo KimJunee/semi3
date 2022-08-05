@@ -89,7 +89,7 @@
 <%= "@@@@"+bookingDate%>
 <%= "@@@@"+searchValue%>
 <%= "@@@@"+searchPersonnel%>--%>
-<div class="container py-5 px-lg-5">
+<div class="container py-5">
 	<div class="row">
 		<div class="col-lg-3 pt-3">
 			<form class="pe-xl-3" action="<%=path %>/camping/list" method="get">
