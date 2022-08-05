@@ -93,7 +93,7 @@
                             <li class="nav-item"><a class="nav-link me-4" href="<%=path%>/member/mypage" style="font-size:25px;color: rgb(28, 27, 27)">마이페이지</a>
                             </li>
                              <%if(loginMember == null){ %>
-                            <li class="nav-item mt-2  d-lg-none d-xl-inline-block"><a class="btn btn-primary" style="font-size: 15px;" href="<%=path%>/views/06_User/signin.jsp">로그인</a></li>
+                            <li class="nav-item mt-2  d-lg-none d-xl-inline-block"><a class="btn btn-primary" style="font-size: 15px;" href="<%=path%>/member/login">로그인</a></li>
                             <%} else { %>
                              <li class="nav-item mt-2  d-lg-none d-xl-inline-block"><a class="btn btn-primary" style="font-size: 15px;" href="<%=path%>/logout">로그아웃</a></li>
                             <%} %>
