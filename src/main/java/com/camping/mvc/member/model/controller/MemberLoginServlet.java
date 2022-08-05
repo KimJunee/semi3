@@ -49,7 +49,7 @@ public class MemberLoginServlet extends MyHttpServlet {
 		}else{ // 로그인 실패한 경우
 			// 로그인이 실패하면, 실패 결과를 알려주고 시작페이지로 이동한다.
 			req.setAttribute("msg", "사용자 아이디나 비밀번호가 맞지 않습니다!!");//session.setAttribute("설정한 세션아이디", 세션에 넣을 값);
-			req.setAttribute("location", "/member/login");//session.setAttribute("설정한 세션아이디", 세션에 넣을 값);
+			req.setAttribute("location", "/views/06_User/singin.jsp");//session.setAttribute("설정한 세션아이디", 세션에 넣을 값);
 			
 			// 공통페이지로 이동하여 실패 결과 알리고 처음페이지로 돌아가는 코드
 			// 메세지를 넘겨야함으로 forward로 넘겨야함
