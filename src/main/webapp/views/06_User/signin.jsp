@@ -111,9 +111,9 @@
                             }
                         </script>
                         <hr class="my-4">
-                        <p class="text-center"><small class="text-muted text-center">아직 회원이 아니신가요? <a href="<%=path %>/views/06_User/signup.jsp" style="color:#f05945;">회원가입</small></p>
+                        <p class="text-center"><small class="text-muted text-center">아직 회원이 아니신가요? <a href='<%=path %>/member/signup' style="color:#f05945;">회원가입</small></p>
                     </form>
-                    <a class="close-absolute me-md-5 me-xl-6 pt-5" href="<%=request.getContextPath()%>/views/01_Main/main.jsp">
+                    <a class="close-absolute me-md-5 me-xl-6 pt-5" href='<%=path%>/main'>
                         <svg class="svg-icon w-3rem h-3rem">
                 <use xlink:href="#close-1"> </use>
               </svg></a>
