@@ -77,6 +77,16 @@ public class CampSiteService {
 		List<Review> reviewList = reviewDAO.getReviewByCampNo(conn, campNo);
 		return reviewList;
 	}
+	
+	
+	
+	// 캠핑장 리뷰 최신순
+	public List<Review> selectReviewByRegist(){
+		return reviewDAO.selectReviewByRegist(conn);
+	}
+	
+	
+	
 
 	public int insertCampingFavorite(int campno, int userno) {
 		int result = detailDAO.insertCampingFavoriteData(getConnection(), campno, userno);
@@ -102,6 +112,9 @@ public class CampSiteService {
 		}
 		return result;
 	}
+	
+	
+
 	
 
 }

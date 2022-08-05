@@ -13,11 +13,14 @@ import com.camping.api.CampSiteAPI;
 import com.camping.common.util.MyHttpServlet;
 import com.camping.mvc.camping.model.service.CampSiteService;
 import com.camping.mvc.camping.model.vo.CampingVO;
+import com.camping.mvc.camping.model.vo.Review;
 
 @WebServlet("/main")
 public class MainController extends MyHttpServlet {
 	private static final long serialVersionUID = 1L;
 	CampSiteService campSiteService = new CampSiteService();
+	
+	
 	
 	public void initCampSiteData() {
 //		CampSiteAPI campSiteApi = new CampSiteAPI();
@@ -31,7 +34,11 @@ public class MainController extends MyHttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("go Main");
+		
+		List<Review> reviewList = campSiteService.selectReviewByRegist();
+		req.setAttribute("reviewList", reviewList);
 		req.getRequestDispatcher("/views/01_Main/main.jsp").forward(req, resp);
+		
 	}
 	
 	@Override
