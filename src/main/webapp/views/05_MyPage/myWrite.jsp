@@ -11,7 +11,7 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 %>
 
     <!-- 헤더 큰 이미지 -->
-    <section class="d-flex align-items-center dark-overlay bg-cover " style="background-image: url(<%= path%>/resources/img/img_semi/mypage01_01.png); height: 350px; margin: 60px;"></section>
+    <section class="d-flex align-items-center dark-overlay bg-cover mx-7 " style="background-image: url(<%= path%>/resources/img/img_semi/mypage01_01.png); height: 350px;"></section>
     <!-- 메인이미지끝 -->
 
     <!-- 문의게시판 검색창 시작 -->
