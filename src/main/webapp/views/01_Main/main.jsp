@@ -399,8 +399,8 @@ reviewList = (List<Review>)request.getAttribute("reviewList");
                             <div class="col-lg-8">
                                 <div class="row">
                                     <div class=" col-lg-12 py-3 ">
-                                        <h6 class="label-heading"><%=review.getRev_title()%></h6>
-                                        <div class="text-sm"><%=review.getRev_content()%></div>
+                                        <h6 class=""><%=review.getRev_title()%></h6>
+                                        <div class="" style="font-size: 15px;"><%=review.getRev_content()%></div>
                                         
                                         <!-- 별점 표시 -->
                                             <div class="fs-7 pt-4">
