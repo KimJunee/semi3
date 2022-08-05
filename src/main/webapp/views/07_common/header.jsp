@@ -57,20 +57,20 @@
     <script src="https://code.jquery.com/jquery-latest.js"></script>
 </head>
 
-<body style="padding-top: 72px;">
+<body1 style="padding-top: 72px;">
     <header class="header">
         <!-- 헤더 시작 -->
      
         <!-- 모닥불 로고-->
         <nav class="navbar navbar-expand-lg fixed-top shadow navbar-light bg-white ">
             <div class="container-fluid ms-n8 ">
-                <div class="d-flex align-items-end">
+                <div class="d-flex align-items-end-1">
                     <a class="navbar-brand py-1" href="<%=path%>/main"><img src="<%=path%>/resources/img/img_semi/logo05.png" width="150px"></a>
                     <!-- 로고 옆 검색창 -->
                     <nav class="navbar bg-white">
                        <div class="container" style="padding-left: 10px;">
                             <form class="d-flex" role="search" action="<%=path%>/campingItem/totalSearch" method="get">
-                                <div class="input-label-absolute input-label-absolute-left ms-lg-2 ms-xl-3" style="color: #F7F3E9; width:260px"  >
+                                <div class="input-label-absolute input-label-absolute-left ms-lg-2 ms-xl-3" style="color: #F7F3E9; width:320px"  >
                             	<label class="label-absolute" for="search_search"><i class="fa fa-search"></i></label>
                             	<input class="form-control me-2 ms-xl-0" id="searchValue" name="searchValue" placeholder="캠핑용품 검색" aria-label="Search" type="search">
                         		</div>
