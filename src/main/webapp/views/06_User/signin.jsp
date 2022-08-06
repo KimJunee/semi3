@@ -120,6 +120,7 @@
      			         	 console.log(JSON.stringify(res.kakao_account.email));
    			                 console.log(JSON.stringify(res.kakao_account.gender));
     			         	 console.log(JSON.stringify(res.kakao_account.birthday));
+    			         	 console.log(JSON.stringify(res.kakao_account.phone));
                  $.ajax({
                     url:"<%=request.getContextPath()%>/member/kakaoLogin",
                     data:{"id":res.id, "name":JSON.stringify(res.properties.nickname), "email":res.kakao_account.email,

@@ -28,6 +28,7 @@ public class MemberKakaologinServlet extends MyHttpServlet{
 	        String name = req.getParameter("name");
 	        String email = req.getParameter("email");
 	        String birth = req.getParameter("birth");
+	        //String phone = req.getParameter("phone");
 	        //이름이 "홍길동" 식으로 넘어오기 때문에 "으로 짤라줌
 	        String[] names = name.split("\"");
 	        
@@ -61,6 +62,7 @@ public class MemberKakaologinServlet extends MyHttpServlet{
 	                
 	                session = req.getSession();
 	                session.setAttribute("loginMember", m3);
+	                System.out.println("카카오 로그인 성공");
 	                resp.getWriter().append("/");
 	            }else {
 	                System.out.println("카카오 회원가입 실패");
@@ -68,6 +70,7 @@ public class MemberKakaologinServlet extends MyHttpServlet{
 	            
 	        }else {
 	            //있는 회원
+	        	System.out.println("카카오 로그인 성공");
 	            session.setAttribute("loginMember", loginMember);
 	            resp.getWriter().append("/");
 	        }
