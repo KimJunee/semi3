@@ -92,7 +92,7 @@ String mypath = request.getContextPath();
           
                       
         				  //로그인 성공시, kakao API를 호출한다.(카카오에 있는 데이터 불러옴)
-        				  alert('호출됨!')
+        				  //alert('호출됨!')
   						        Kakao.API.request({
     						          url: '/v2/user/me',
     				          success: function(res){
