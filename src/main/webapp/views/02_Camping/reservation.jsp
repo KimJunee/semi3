@@ -177,8 +177,8 @@ if(campingVO == null){
 <section class="container bg-cover" style="background-image: url(<%=mypath%>/resources/img/img_semi/camp_07_01.jpg); width:1300px; height: 400px;"></section>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-7 col-xl-5 px-4 pb-4 ps-xl-5 pe-xl-5">
+    <div class="row" >
+        <div class="col-lg-7 col-xl-5 px-4 pb-4 ps-xl-5 pe-xl-5" style="margin-left: auto; width:28%">
             <section class="mx-n4 mx-xl-n5 mb-4 mb-xl-5">
                 <!-- Slider main container-->
             </section>
@@ -254,7 +254,7 @@ if(campingVO == null){
         <!-- https://apis.map.kakao.com/web/sample/ -->
         <div class="col-lg-5 col-xl-7">
             <!-- 카카오 지도-->
-            <div id="map" style="position: relative; width:100%;height:775px;"></div>
+            <div id="map" style="position: relative; width:73.4%;height:700px;"></div>
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=22780b0b907f50aa26b26eca2a5dbd9a"></script>
             <script>
             var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
