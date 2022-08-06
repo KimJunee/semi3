@@ -115,14 +115,15 @@
     				          success: function(res){
      			             console.log(res);
      			             console.log(res.id);
-        			          console.log(res.kakao_account);
-       			        	   console.log(JSON.stringify(res.properties.nickname));
-     			         	    console.log(JSON.stringify(res.kakao_account.email));
-   			            		   console.log(JSON.stringify(res.kakao_account.gender));
-    			         	     console.log(JSON.stringify(res.kakao_account.birthday));
+        			         console.log(res.kakao_account);
+       			        	 console.log(JSON.stringify(res.properties.nickname));
+     			         	 console.log(JSON.stringify(res.kakao_account.email));
+   			                 console.log(JSON.stringify(res.kakao_account.gender));
+    			         	 console.log(JSON.stringify(res.kakao_account.birthday));
                  $.ajax({
                     url:"<%=request.getContextPath()%>/member/kakaoLogin",
-                    data:{"id":res.id, "name":JSON.stringify(res.properties.nickname)},
+                    data:{"id":res.id, "name":JSON.stringify(res.properties.nickname), "email":res.kakao_account.email,
+                    	"birth":res.kakao_account.birthday},
                     Type:"post",
                     success:function(data){
                         //성공적으로 하고나면 이동할 url
