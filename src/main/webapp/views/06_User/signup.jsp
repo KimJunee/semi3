@@ -12,6 +12,8 @@ String mypath = request.getContextPath();
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+    <script src = "https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src = "https://developers.kakao.com/sdk/js/kakao.min.js"></script>
     <!-- Price Slider Stylesheets -->
     <link rel="stylesheet" href="<%=mypath%>/resources/vendor/nouislider/nouislider.css">
     <!-- Google fonts - Playfair Display-->
@@ -75,28 +77,61 @@ String mypath = request.getContextPath();
                         </div>
                         <hr class="my-3 hr-text letter-spacing-2" data-content="OR">
                         <div class="d-grid gap-2">
-                            <button class="btn btn-lg btn-primary2" onclick="javascript:kakaoLogin();"><img src="<%=mypath%>/resources/img/img_semi/kakao.jpg" width="40px" height="40px"> 카카오 로그인</button>
+                            <button class="btn btn-lg btn-primary2" onclick="kakaologin();" type="button">
+                            	 <a id="kakao-login-btn"></a>
+                            	    <a href="http://developers.kakao.com/logout"></a></button>
                         </div>
-                        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-                        <script>
-                            window.Kakao.init("89e9c3d321d0890e0eef7d916c43b9d4");
-
-                            function kakaoLogin() {
-                                window.Kakao.Auth.login({
-                                    scope: 'profile_nickname, profile_image, account_email, birthday',
-                                    success: function(authObj) {
-                                        console.log(authObj);
-                                        window.Kakao.API.request({
-                                            url: '/v2/user/me',
-                                            success: res => {
-                                                const kakao_account = res.kakao_account;
-                                                console.log(kakao_account);
-                                            }
-                                        });
-                                    }
-                                });
-                            }
-                        </script>
+                        
+                         <script type='text/javascript'>
+   						 // 사용할 앱의 JavaScript 키를 설정해 주세요.
+  						  Kakao.init('7cf3fed95e6516545d47cb6e18b46f64');
+ 						   // 카카오 로그인 버튼을 생성합니다.
+  						  Kakao.Auth.createLoginButton({
+   						   container: '#kakao-login-btn',
+   						   success: function(authObj) {
+          
+                      
+        				  //로그인 성공시, kakao API를 호출한다.(카카오에 있는 데이터 불러옴)
+        				  //alert('호출됨!')
+  						        Kakao.API.request({
+    						          url: '/v2/user/me',
+    				          success: function(res){
+     			             console.log(res);
+     			             console.log(res.id);
+        			         console.log(res.kakao_account);
+       			        	 console.log(JSON.stringify(res.properties.nickname));
+     			         	 console.log(JSON.stringify(res.kakao_account.email));
+   			                 console.log(JSON.stringify(res.kakao_account.gender));
+    			         	 console.log(JSON.stringify(res.kakao_account.birthday));
+    			         	 console.log(JSON.stringify(res.kakao_account.phone));
+                 $.ajax({
+                    url:"<%=request.getContextPath()%>/member/kakaoLogin",
+                    data:{"id":res.id, "name":JSON.stringify(res.properties.nickname), "email":res.kakao_account.email,
+                    	"birth":res.kakao_account.birthday},
+                    Type:"post",
+                    success:function(data){
+                        //성공적으로 하고나면 이동할 url
+                        location.href="<%=request.getContextPath()%>/";
+                    }
+                    
+                 });
+              },
+              fail: function(error){
+                  alert(JSON.stringify(error));
+              }
+          });
+         //접속된 회원의 토큰값 출력됨
+        //alert(JSON.stringify(authObj));
+        
+      },
+      fail: function(err) {
+         alert(JSON.stringify(err));
+      }
+    });
+   
+</script>
+                     
+                     
                         <hr class="my-4">
                         <div class="mb-4">
                             <div class="form-check">
