@@ -283,7 +283,7 @@ if(searchValue == null){
 
     <!-- 푸터위에 사진바-->
     <section>
-        <div class="container-fluid px-0">
+        <div class="container-fluid px-0 mt-6">
             <div class="swiper-container instagram-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide overflow-hidden">
