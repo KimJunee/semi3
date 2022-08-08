@@ -69,4 +69,30 @@ public abstract class MyHttpServlet extends HttpServlet{
 			deleteFile.delete();
 		} catch (Exception e) {}
 	}
+	
+//	// upload 파일 삭제
+//	public void deleteFile(String fileName) {
+//		if(fileName == null || fileName.length() <= 0) {
+//			return;
+//		}
+//		try {
+//			String resourcePath = getUploadPath();
+//			File deleteFile = new File(resourcePath,fileName);
+//			deleteFile.delete();
+//		} catch (Exception e) {}
+//	}
+//	
+//	public static final String ROOT_PATH = "c:\\";
+//	public static final String UPLOAD_FOLDER = "upload";
+//	
+//	 static {
+//		File file = new File(ROOT_PATH + UPLOAD_FOLDER);
+//		if(file.exists() == false) {
+//			file.mkdir();
+//		}
+//	}
+//	
+//	public String getUploadPath() {
+//		return ROOT_PATH + UPLOAD_FOLDER;
+//	}
 }

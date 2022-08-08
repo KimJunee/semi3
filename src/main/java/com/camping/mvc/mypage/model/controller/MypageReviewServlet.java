@@ -45,6 +45,7 @@ private static final long serialVersionUID = 1L;
 			
 			// 1. 저장 경로 지정
 			String path = getServletContext().getRealPath("/resources/upload/review");
+			System.out.println(path);
 			// 2. 파일 사이즈 지정
 			int maxSize = 104857600; // 100 MB
 			// 3. 문자열 인코딩 설정
