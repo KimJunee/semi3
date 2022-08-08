@@ -199,31 +199,4 @@ public class CampingItemDAO {
 		System.out.println(list.toString());
 		return list;
 	}
-	
-//public static void main(String[] args) {
-//	Connection conn = getConnection();
-//	CampingItemDAO dao = new CampingItemDAO();
-//		
-//		// 탐색 갯수
-//	Map<String, String> searchMap = new HashMap<String, String>();
-//	searchMap.put("ci_title", "랜턴");
-//		searchMap.put("ci_brand", "네이처하이크");
-//		searchMap.put("ci_category3", "침낭");
-//	int count = dao.getSearchCount(conn, searchMap);
-//	System.out.println(count);
-//	PageInfo pageInfo = new PageInfo(1, 5, count, 60);
-//		
-//		// 탐색리스트 
-//		List<CampingItemVO> list = dao.findAll(conn, pageInfo, searchMap);
-//		for(CampingItemVO camp : list) {
-//			System.out.println(camp.toString());
-//		}
-//		
-//	list = dao.findAll(conn, "랜턴");
-//	for(CampingItemVO camp : list) {
-//		System.out.println(camp.toString());
-//	}
-//		
-//}
-
 }

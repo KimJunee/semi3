@@ -168,10 +168,5 @@ public class CampingItemVO {
 		return "CampingItemVO [rowNum=" + rowNum + ", ci_no=" + ci_no + ", ci_title=" + ci_title + ", ci_link="
 				+ ci_link + ", ci_image=" + ci_image + ", ci_price=" + ci_price + ", ci_brand=" + ci_brand
 				+ ", ci_category3=" + ci_category3 + ", ci_category4=" + ci_category4 + "]";
-	}
-
-	
-	
-	
-	
+	}	
 }

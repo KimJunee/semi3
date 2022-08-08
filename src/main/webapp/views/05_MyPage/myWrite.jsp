@@ -70,25 +70,12 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
    						<button class="btn btn-primaryCuntom01 rounded-top " style="height: 50px; width: 110px; font-size: 16px;" type="button"  onclick="deleteMember()" id="deleteMember" value="탈퇴"> 회원탈퇴 </button>                        
               			  <script type="text/javascript">
               				function deleteMember() {
-              		    	if(confirm("정말로 탈퇴하시겠습니까?!")) {
-              		   	 	location.replace('<%= request.getContextPath() %>/member/delete');
-              		    	}
-              		    	}  
-              			  
-              			  
-						
-              			<%-- $("#deleteMember").on("click", (e) => {
-									if(confirm("정말로 탈퇴하시겠습니까?!")) {
-										location.replace('<%= request.getContextPath() %>/member/delete');<%--MemberDeleteServlet.java로 넘어감 --%>
-						<%--			}
-								});
-								
-								$('#deleteMember').click(function(){
-									alert();
-									})--%>  
-									
-				</script>
-   					</div>
+	              		    	if(confirm("정말로 탈퇴하시겠습니까?!")) {
+	              		   	 	location.replace('<%= request.getContextPath() %>/member/delete');
+	              		    	}
+              		    	} 
+						  </script>
+   						</div>
                     </div>
                 </div>
                 <!-- 프로필 옆 기능부 -------------------------------------------------------------------------------->
@@ -164,15 +151,16 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                 </div>
             </div>
         </div>
-    </section>
+	</div>        
+</section>
     
-   	<script type="text/javascript">
-   	function movePage(pageUrl){//페이지url받아옴
-   		location.href = encodeURI(pageUrl);	//로케이션을 바꾸는 코드	
-   	}
-	</script>
+<script type="text/javascript">
+   function movePage(pageUrl){//페이지url받아옴
+       location.href = encodeURI(pageUrl);	//로케이션을 바꾸는 코드	
+   }
+</script>
 
-         <!-- 푸터위에 사진바-->
+      <!-- 푸터위에 사진바-->
       <section>
         <div class="container-fluid px-0">
             <div class="swiper-container instagram-slider">

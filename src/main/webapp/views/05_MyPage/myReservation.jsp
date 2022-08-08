@@ -77,7 +77,7 @@
                     </div>
                      <div class="d-flex align-items-center mb-3 ms-6 ">
    						<button class="btn btn-primaryCuntom01 rounded-top " style="height: 50px; width: 110px; font-size: 16px;" type="button"  onclick="deleteMember()" id="deleteMember" value="탈퇴"> 회원탈퇴 </button>                        
-              			  <script type="text/javascript">
+              			<script type="text/javascript">
               				function deleteMember() {
 	              		    	if(confirm("정말로 탈퇴하시겠습니까?!")) {
 	              		   	 	location.replace('<%= request.getContextPath() %>/member/delete');
@@ -90,24 +90,19 @@
             <!-- 프로필 옆 기능부 -->
             <div class="col-lg-9 ps-lg-5">
                 <div class="text-block">
-                    <h4 class="mb-5">예약 목록</h4>
-                    <div class="row">
+                	<h4 class="mb-5">예약 목록</h4>
+                	<div class="row">
                         <div class="list-group shadow mb-5">
                         <%if(list == null || list.isEmpty()){ %>
-			<%-- 예약 없으면 --%>
-			<div>
-				<div style="text-align: center">예약된 건이 없습니다.</div>
-			</div>
-
-			<%}else {%>
-			<%-- 예약 목록 --%>
-			<%for(Reservation c : list) {%>
-			<%-- <%if(c.getCs_image() == null) {
-                 		continue;
-                 	}%> --%>
+							<%-- 예약 없으면 --%>
+							<div>
+								<div style="text-align: center">예약된 건이 없습니다.</div>
+							</div>
+						<%}else {%>
+							<%-- 예약 목록 --%>
+							<%for(Reservation c : list) {%>
                     	    <!-- 예약 목록 시작 -->
                             <div>
-                            <!-- href="" -->
                                 <div class="list-group-item list-group-item-action p-4" >
                                     <div class="row">
                                         <div class="col-lg-4 align-self-center mb-4 mb-lg-0" >
@@ -150,39 +145,44 @@
                                     </div>
                                 </div>
                             </div>
-                           <%}
-                           }%>
+                      		<%}
+                      	}%>
                             <!-- 페이지번호  -->
                              <nav aria-label="Page navigation example">
-					            <ul
-					               class="pagination pagination-template d-flex justify-content-center">
-					               <li class="page-item"><a class="page-link"
-					                  onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getStartPage() %>');">
-					                     <i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i>
-					               </a></li>
-					               <li class="page-item"><a class="page-link"
-					                  onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getPrvePage()%>');">
-					                     <i class="fa fa-angle-left"></i>
-					               </a></li>
+					            <ul class="pagination pagination-template d-flex justify-content-center">
+					               <li class="page-item">
+						               <a class="page-link" onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getStartPage() %>');">
+						                     <i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i>
+						               </a>
+					               </li>
+					               <li class="page-item">
+						               <a class="page-link" onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getPrvePage()%>');">
+						                     <i class="fa fa-angle-left"></i>
+						               </a>
+					               </li>
 					               <%--5페이지 12개 목록 출력하기 --%>
 					               <% for(int i = pageInfo.getStartPage(); i <= pageInfo.getEndPage(); i++){ %>
 					                     <%if(i == pageInfo.getCurrentPage()){ %>
-					                     <li class="page-item active">
-					                     <button class="page-link" disabled><%=i%></button></li>
+						                     <li class="page-item active">
+						                     <button class="page-link" disabled><%=i%></button>
+						                     </li>
 					                     <%} else{%>
-					                     <li class="page-item">
-					                     <button class="page-link" onclick="movePage('<%=path %>/mypage/myreservation?page=<%=i%>');"><%=i%></button></li>
+						                     <li class="page-item">
+						                     <button class="page-link" onclick="movePage('<%=path %>/mypage/myreservation?page=<%=i%>');"><%=i%></button>
+						                     </li>
 					                     <%} %>
 					                  <%} %>
 					               <%--다음으로 가기 --%>
-					               <li class="page-item"><a class="page-link"
-					                  onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getNextPage() %>');">
-					                     <i class="fa fa-angle-right"></i>
-					               </a></li>
-					               <li class="page-item"><a class="page-link"
-					                  onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getEndPage() %>');">
-					                     <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
-					               </a></li>
+					               <li class="page-item">
+						               <a class="page-link" onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getNextPage() %>');">
+						                     <i class="fa fa-angle-right"></i>
+						               </a>
+					               </li>
+					               <li class="page-item">
+						               <a class="page-link" onclick="movePage('<%=path %>/mypage/myreservation?page=<%=pageInfo.getEndPage() %>');">
+						                     <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
+						               </a>
+					               </li>
 					            </ul>
 					         </nav>
                         </div>

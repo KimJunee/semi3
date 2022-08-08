@@ -88,7 +88,6 @@ DecimalFormat df = new DecimalFormat("###,###");
                                     <td class="text-center fw-bold"><%=reservation.getCs_name()%></td>
                                     <td class="text-center"><%=reservation.getResv_success()%></td>
                                     <td class="text-center"><%=df.format(Integer.parseInt(reservation.getCs_accom_fee()) - surtax)%>원</td>
-                                    
                                     <td class="text-center"><%=df.format(surtax)%>원</td>
                                     <td class="text-center"><%=df.format(Integer.parseInt(reservation.getCs_accom_fee()))%>원 </td>
                                 </tr>

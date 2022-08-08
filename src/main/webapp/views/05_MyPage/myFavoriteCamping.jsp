@@ -78,26 +78,20 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
    					</div>
                 </div>
             </div>
-                <!-- 프로필 옆 기능부 -->
-                <div class="col-lg-9 ps-lg-5">
-                    <div class="text-block">
-                        <h4 class="mb-5">찜한 캠핑장</h4>
-                        <div class="row">
-                        
-                        
-                        
-                    <%if(list == null || list.isEmpty()){ %>
+            <!-- 프로필 옆 기능부 -->
+            <div class="col-lg-9 ps-lg-5">
+            	<div class="text-block">
+                	<h4 class="mb-5">찜한 캠핑장</h4>
+                <div class="row">
+					<%if(list == null || list.isEmpty()){ %>
 					<%-- 찜한 캠핑장이 없으면 --%>
-			<div>
-				<div style="text-align: center">찜한 캠핑장이 없습니다.</div>
-			</div>
-			
-			
-            <%}else {%>
-			<%-- 예약 목록 --%>
-			 <%for(MyFavorite f : list) { %>
-                        
-                            <!-- 찜 캠핑장 목록 시작-->
+					<div>
+						<div style="text-align: center">찜한 캠핑장이 없습니다.</div>
+					</div>
+					<%}else {%>
+						<%-- 예약 목록 --%>
+			 			<%for(MyFavorite f : list) { %>
+                        <!-- 찜 캠핑장 목록 시작-->
                             <div class="col-sm-6 col-lg-4 mb-30px hover-animate" data-marker-id="59c0c8e33b1527bfe2abaf92">
                                 <div class="card h-100 border-0 shadow">
                                     <div class="card-img-top overflow-hidden gradient-overlay">
@@ -117,8 +111,8 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
                                     </div>
                                 </div>
                             </div>
-                           <%}
-                           }%>
+                        <%}
+                     }%>
                             <!-- 페이지번호  -->
                              <nav aria-label="Page navigation example">
 					            <ul
@@ -151,14 +145,12 @@ PageInfo pageInfo = (PageInfo)request.getAttribute("pageInfo");
 					                     <i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>
 					               </a></li>
 					            </ul>
-					         </nav>
-                            
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+					         </nav>                           
+                    	</div>
+                	</div>
+            	</div>
+        	</div>
+    	</div>
     </section>
 
         <!-- 푸터위에 사진바-->
