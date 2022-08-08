@@ -93,7 +93,7 @@ public class CampingListServlet extends MyHttpServlet {
 		}
 		
 		campsiteCount = service.getCampsiteCount(searchWord, addr, campTypes, checkBoxs);
-		pageInfo = new PageInfo(page, 10, campsiteCount, 15);
+		pageInfo = new PageInfo(page, 10, campsiteCount, 12);
 		list = service.getCampsiteList(pageInfo, searchWord, addr, campTypes, checkBoxs);
 		
 		
