@@ -67,7 +67,6 @@ if(request.getParameter("searchValue") != null){
             </button>
              <% } %>
             <div class="collapse mt-4" id="leaveReview">
-                <form class="form" >
                     <div class="row">
                         <div class="col-sm-6">
                         <div type=text  class="col-md-5" style="font-size: 15px; font-weight:bolder ;">
@@ -89,7 +88,7 @@ if(request.getParameter("searchValue") != null){
                                 <button class="btn btn-primary col-lg-12" style="width: 200px; font-size: 16px;" type="submit">올리기</button>
                             </div>
                         </div>
-                </form>
+                     </div>
                 </div>
             </div>
         </div>
@@ -169,14 +168,10 @@ if(request.getParameter("searchValue") != null){
                         
                         <div class="accordion-item ">
                                                     
-                            <%if(list == null || list.isEmpty()){ %><!--  게시글이 없는 경우  -->
-						<tr>
-							<td colspan="6">조회된 게시글이 없습니다.</td>
-						</tr>
+                        <%if(list == null || list.isEmpty()){ %><!--  게시글이 없는 경우  -->
+								<div style="text-align:center;">조회된 게시물이 없습니다.</div>
 						<%} else { %><!-- 게시글이 있는경우 -->
-							<%for(Inquiry i : list){ %>
-                        
-                        
+							<%for(Inquiry i : list){ %>                    
                             <h2 class="accordion-header" id="panelsStayOpen-headingfive">
                                 <button class="accordion-button " style="font-weight: bolder;" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false" aria-controls="panelsStayOpen-collapsefive">
                                 	 <div><%=i.getInquir_title()%></div>
@@ -218,6 +213,8 @@ if(request.getParameter("searchValue") != null){
                             
                          <%}%> 
                         </div>
+                   </div>
+              </div>
                         
         <!-- 페이지번호  -->
              <nav aria-label="Page navigation example" style="padding-top:60px">
@@ -255,13 +252,6 @@ if(request.getParameter("searchValue") != null){
          </nav>
          </div>
           </section>
-        
-        
-        
-        
-        
-        
-        
         <!-- 공지사항 끝 -->
 
     <!-- 하단 이미지바 시작-->
@@ -335,11 +325,10 @@ if(request.getParameter("searchValue") != null){
     <script type="text/javascript">
 function movePage(pageUrl){//페이지url받아옴
 	var searchValue = document.getElementById("searchValue");  // 갤럭시라는 입력값 가져옴1번
-	alert('나오니?');
 	if(searchValue.value.length > 0){
 		pageUrl = pageUrl + '&searchValue=' + searchValue.value; 
 	}
-	alert(pageUrl);
+	//alert(pageUrl);
 	location.href = encodeURI(pageUrl);	//로케이션을 바꾸는 코드	
 }
 </script>

@@ -185,6 +185,7 @@ Inquiry inquiry = (Inquiry)request.getAttribute("inquiry");
                     </div>
                 </div>
             </div>
+          </form>
         </div>
     </section>
 
