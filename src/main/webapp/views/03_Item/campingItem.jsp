@@ -31,7 +31,7 @@ if(searchValue == null){
                     <!-- 종류선택 -->
                     <div class="col-lg-3 d-flex align-items-center form-group no-divider-custom ">
                     <select class="selectpicker" name="searchType" data-style="btn-form-control">
-                    <option value="" selected disabled>카레고리 선택</option>
+                    <option value="" selected disabled>카테고리 선택</option>
                     <option value="ci_title">상품명</option>
                     <option value="ci_brand">브랜드</option>
                     <option value="ci_category3">키워드</option>
